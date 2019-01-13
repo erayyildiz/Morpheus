@@ -27,6 +27,9 @@ class Sentence(object):
     def get_tags_as_str(self):
         return [';'.join(morph_tags) for morph_tags in self.morph_tags]
 
+    def __len__(self):
+        return len(self.lemmas)
+
     def __repr__(self):
         return "\n".join(
             ['Surface: {}, Lemma: {}, MorphTags: {}'.format(surface, lemma, ';'.join(morph_tags))
