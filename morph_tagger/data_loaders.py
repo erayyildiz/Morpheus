@@ -1,3 +1,5 @@
+from itertools import chain
+
 import torch
 from torch.utils.data import DataLoader
 from torch.utils.data import Dataset
@@ -30,14 +32,36 @@ class ConllDataset(Dataset):
         else:
             self.morph_tag2id = dict()
         self.mode = mode
+        if mode == 'train':
+            self.create_vocabs()
 
-    def encode(self, seq, vocab):
+    def create_vocabs(self):
+        """Create surface_char2id, lemma_char2id and morph_tag2id vocabs using provided data
+
+        """
+        # Update surface_char2id
+        unique_surfaces = set(chain(*[sentence.surface_words for sentence in self.sentences]))
+        unique_chars = set(chain(*[surface for surface in unique_surfaces]))
+        for ch in unique_chars:
+            self.surface_char2id[ch] = len(self.surface_char2id)
+
+        # Update lemma_char2id
+        unique_lemmas = set(chain(*[sentence.lemmas for sentence in self.sentences]))
+        unique_chars = set(chain(*[lemma for lemma in unique_lemmas]))
+        for ch in unique_chars:
+            self.lemma_char2id[ch] = len(self.lemma_char2id)
+
+        # Update morph_tag2id
+        unique_morph_tags = list(chain(*[sentence.morph_tags for sentence in self.sentences]))
+        unique_tags = set(chain(*[morph_tag for morph_tag in unique_morph_tags]))
+        for tag in unique_tags:
+                self.morph_tag2id[tag] = len(self.morph_tag2id)
+
+    @staticmethod
+    def encode(seq, vocab):
         res = []
         for token in seq:
             if token in vocab:
-                res.append(vocab[token])
-            elif self.mode == 'train':
-                vocab[token] = len(vocab)
                 res.append(vocab[token])
         return torch.tensor(res, dtype=torch.long)
 
