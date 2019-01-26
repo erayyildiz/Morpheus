@@ -13,8 +13,8 @@ from logger import LOGGER
 
 
 # Select cuda as device if available
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-device = torch.device('cpu')
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# device = torch.device('cpu')
 LOGGER.info("Using {} as default device".format(device))
 
 max_words = 50
@@ -53,7 +53,7 @@ evaluate_per_epoch = 5
 
 
 # Learning rate decay
-def lr_decay_step(lr, factor=0.1, weight_decay=0.0):
+def lr_decay_step(lr, model, factor=0.1, weight_decay=0.0):
     """Learning rate decay step
 
     Args:
@@ -65,9 +65,7 @@ def lr_decay_step(lr, factor=0.1, weight_decay=0.0):
         optimizer
     """
     lr *= factor
-    optimizer = torch.optim.SGD(encoder.parameters(),
-                                lr=lr, weight_decay=weight_decay
-                                )
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
     return lr, optimizer
 
 
@@ -184,7 +182,7 @@ for language_path, language_name in zip(language_paths, language_names):
         LOGGER.info('Epoch {} starts'.format(epoch))
         total_train_loss = 0.0
         total_val_loss = 0.0
-        previous_loss = 0.0
+        previous_loss = 10000000
         # Training part
         encoder.train()
         decoder_lemma.train()
@@ -235,7 +233,14 @@ for language_path, language_name in zip(language_paths, language_names):
                     epoch, total_train_loss / (ix + 1), encoder_lr, decoder_lr)
                 )
 
-        LOGGER.info('Epoch {} is completed.'.format(epoch))
+        # LR Decay if no improvement
+        if previous_loss < total_train_loss:
+            encoder_lr, encoder_optimizer = lr_decay_step(encoder_lr, encoder, factor=0.5)
+            decoder_lr, decoder_lemma_optimizer = lr_decay_step(decoder_lr, decoder_lemma, factor=0.8)
+            decoder_lr, decoder_morph_tags_optimizer = lr_decay_step(decoder_lr, decoder_morph_tags, factor=1.0)
+        previous_loss = total_train_loss
+
+        LOGGER.info('Epoch {} is completed. Loss: {}'.format(epoch, (1.0 * total_train_loss) / len(train_loader)))
         if epoch + 2 > evaluate_per_epoch and epoch % evaluate_per_epoch == 0:
             LOGGER.info('Prediction over validation data...')
             encoder.eval()
