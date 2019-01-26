@@ -24,7 +24,7 @@ BATCH_SIZE = 1
 
 # Number of epochs
 num_epochs = 500
-notify_each = 20
+notify_each = 50
 
 # Encoder hyper-parmeters
 embedding_size = 64
@@ -49,7 +49,7 @@ data_path = '../data/2019/task2/'
 language_paths = [data_path + filename for filename in os.listdir(data_path)]
 language_names = [filename.replace('UD_', '') for filename in os.listdir(data_path)]
 
-evaluate_per_epoch = 1
+evaluate_per_epoch = 5
 
 
 # Learning rate decay
@@ -121,7 +121,7 @@ def predict(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset, 
 
     conll_sentence = "# Sentence\n"
     for i, (surface, lemma, morph_feature) in enumerate(zip(surface_words, lemmas, morph_features)):
-        conll_sentence += "{}\t{}\t{}\t_\t_\t{}_\t_\t_\t_\n".format(i+1, surface, lemma, morph_feature)
+        conll_sentence += "{}\t{}\t{}\t_\t_\t{}_\t_\t_\t_\t\n".format(i+1, surface, lemma, morph_feature)
     return conll_sentence
 
 
@@ -211,15 +211,16 @@ for language_path, language_name in zip(language_paths, language_names):
             word_embeddings, context_embeddings = encoder(x)
 
             # Run decoder for each word
-            word_count = context_embeddings.size(0)
             sentence_loss = 0.0
-            for word_ix in range(word_count):
-                for _y, decoder in zip([y1, y2], [decoder_lemma, decoder_morph_tags]):
-                    decoder_outputs = decoder(word_embeddings[word_ix], context_embeddings[word_ix],
-                                              _y[0][word_ix])
-                    loss += criterion(decoder_outputs[0, :-1, :], _y[0, word_ix, 1:])
-                    sentence_loss += loss.item() / _y[0][word_ix].size(0)
-            sentence_loss /= word_count
+            for _y, decoder in zip([y1, y2], [decoder_lemma, decoder_morph_tags]):
+                decoder_outputs = decoder(word_embeddings, context_embeddings, _y[0])
+                decoder_outputs = decoder_outputs[:, :-1, :]
+                decoder_outputs = decoder_outputs.contiguous().view(
+                    decoder_outputs.shape[0]*decoder_outputs.shape[1], -1
+                )
+                expected_outputs = _y[0, :, 1:].contiguous().view(1, -1).squeeze()
+                loss += criterion(decoder_outputs, expected_outputs)
+            sentence_loss += loss.item()
             total_train_loss += sentence_loss
 
             # Optimization
@@ -251,10 +252,13 @@ for language_path, language_name in zip(language_paths, language_names):
 
             # Evaluate
             LOGGER.info('Evaluating...')
-            results = manipulate_data(input_pairs(val_data_path, prediction_file))
+            reference = read_conllu(val_data_path)
+            output = read_conllu(prediction_file)
+            results = manipulate_data(input_pairs(reference, output))
 
-            LOGGER.info('Evaluation completed. Results: {}'.format(results))
+            LOGGER.info('Evaluation completed')
+            LOGGER.info('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
             LOGGER.info('Writing results to file...')
             # save results
             with open(train_data_path.replace('train', 'results').replace('conllu', ''), 'w', encoding='UTF-8') as f:
-                f.write(results)
+                f.write('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))

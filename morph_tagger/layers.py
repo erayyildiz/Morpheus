@@ -119,14 +119,14 @@ class DecoderRNN(nn.Module):
         self.softmax = nn.LogSoftmax(dim=1)
         self.relu = nn.ReLU()
 
-    def forward(self, word_embedding, context_vector, y):
+    def forward(self, word_embeddings, context_vectors, y):
         """Forward pass of DecoderRNN
 
         Inputs a context-aware vector of a word and produces an analysis consists of root+tags
 
         Args:
-            word_embedding (`torch.tensor`): word representation (outputs of char GRU
-            context_vector (`torch.tensor`): Context-aware representation of a word
+            word_embedding (`torch.tensor`): word representations (outputs of char GRU)
+            context_vector (`torch.tensor`): Context-aware representations of a words
             y (tuple): target tensors (encoded lemmas or encoded morph tags)
 
         Returns:
@@ -134,15 +134,13 @@ class DecoderRNN(nn.Module):
         """
 
         # Initilize gru hidden units with context vector (encoder output)
-        context_vector = context_vector.view(1, *context_vector.size())
-        context_vector = self.relu(self.W(context_vector).view(1, 1, self.hidden_size))
-        word_embedding = word_embedding.view(1, 1, self.hidden_size)
-        hidden = torch.cat([context_vector, word_embedding], 0)
+        context_vectors = self.relu(self.W(context_vectors))
+        word_embeddings = word_embeddings
+        hidden = torch.cat([context_vectors, word_embeddings], 1).view(2, *context_vectors.size())
 
         embeddings = self.embedding(y)
         embeddings = torch.relu(embeddings)
         embeddings = self.dropout(embeddings)
-        embeddings = embeddings.view(1, *embeddings.size())
         outputs, _ = self.gru(embeddings, hidden)
         outputs = self.dropout(outputs)
         outputs = self.classifier(outputs)

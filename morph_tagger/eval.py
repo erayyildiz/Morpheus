@@ -81,7 +81,7 @@ def manipulate_data(pairs):
     f1_recall = f1_recall_scores / (f1_recall_counts or 1)
     f1 = 2 * (f1_precision * f1_recall) / (f1_precision + f1_recall + 1E-20)
 
-    return (100 * lemma_acc / count, lemma_lev / count, 100 * morph_acc / count, 100 * f1)
+    return 100 * lemma_acc / count, lemma_lev / count, 100 * morph_acc / count, 100 * f1
 
 
 def parse_args():
