@@ -10,6 +10,7 @@ class ConllDataset(Dataset):
 
     PAD_token = '<p>'
     EOS_token = '<e>'
+    START_TAG = '<s>'
 
     def __init__(self, conll_file_path, surface_char2id=None, lemma_char2id=None, morph_tag2id=None,
                  mode='train', max_sentences=0):
@@ -39,12 +40,14 @@ class ConllDataset(Dataset):
             self.lemma_char2id = dict()
             self.lemma_char2id[self.PAD_token] = len(self.lemma_char2id)
             self.lemma_char2id[self.EOS_token] = len(self.lemma_char2id)
+            self.lemma_char2id[self.START_TAG] = len(self.lemma_char2id)
         if morph_tag2id:
             self.morph_tag2id = morph_tag2id
         else:
             self.morph_tag2id = dict()
             self.morph_tag2id[self.PAD_token] = len(self.morph_tag2id)
             self.morph_tag2id[self.EOS_token] = len(self.morph_tag2id)
+            self.morph_tag2id[self.START_TAG] = len(self.morph_tag2id)
         self.mode = mode
         if mode == 'train':
             self.create_vocabs()
@@ -72,8 +75,10 @@ class ConllDataset(Dataset):
                 self.morph_tag2id[tag] = len(self.morph_tag2id)
 
     @staticmethod
-    def encode(seq, vocab):
+    def encode(seq, vocab, add_start_tag=False):
         res = []
+        if add_start_tag:
+            res.append(vocab[ConllDataset.START_TAG])
         for token in seq:
             if token in vocab:
                 res.append(vocab[token])
@@ -86,8 +91,8 @@ class ConllDataset(Dataset):
     def __getitem__(self, index):
         sentence = self.sentences[index]
         max_token_len = max([len(surface)+1 for surface in sentence.surface_words])
-        max_lemma_len = max([len(lemma)+1 for lemma in sentence.lemmas])
-        max_morph_tags_len = max([len(morph_tag)+1 for morph_tag in sentence.morph_tags])
+        max_lemma_len = max([len(lemma)+2 for lemma in sentence.lemmas])
+        max_morph_tags_len = max([len(morph_tag)+2 for morph_tag in sentence.morph_tags])
 
         # Encode surfaces
         encoded_surfaces = torch.zeros((len(sentence), max_token_len), dtype=torch.long)
@@ -98,13 +103,13 @@ class ConllDataset(Dataset):
         # Encode lemmas
         encoded_lemmas = torch.zeros((len(sentence), max_lemma_len), dtype=torch.long)
         for ix, lemma in enumerate(sentence.lemmas):
-            encoded_lemma = self.encode(lemma, self.lemma_char2id)
+            encoded_lemma = self.encode(lemma, self.lemma_char2id, add_start_tag=True)
             encoded_lemmas[ix, :encoded_lemma.size()[0]] = encoded_lemma
 
         # Encode surfaces
         encoded_morph_tags = torch.zeros((len(sentence), max_morph_tags_len), dtype=torch.long)
         for ix, morph_tag in enumerate(sentence.morph_tags):
-            encoded_morph_tag = self.encode(morph_tag, self.morph_tag2id)
+            encoded_morph_tag = self.encode(morph_tag, self.morph_tag2id, add_start_tag=True)
             encoded_morph_tags[ix, :encoded_morph_tag.size()[0]] = encoded_morph_tag
 
         return encoded_surfaces, encoded_lemmas, encoded_morph_tags

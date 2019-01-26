@@ -36,17 +36,21 @@ class EncoderRNN(nn.Module):
         self.word_gru = nn.GRU(hidden_size1, hidden_size2, bidirectional=True, num_layers=1, batch_first=True)
         self.dropout = nn.Dropout(dropout_ratio)
 
-        # Initilize hidden units of grus with Xavier initialization
-        self.char_gru_hidden, self.word_gru_hidden = self.init_hidden()
+        # Initialize hidden units
+        self.char_gru_hidden = None
+        self.word_gru_hidden = None
 
-    def init_hidden(self):
-        """Initializes the hidden units of each gru
+    def init_context_hidden(self):
+        """Initializes the hidden units of each context gru
 
         """
-        return (
-            torch.zeros(1, 1, self.hidden_size1),
-            torch.zeros(2, 1, self.hidden_size2)
-        )
+        return torch.zeros(2, 1, self.hidden_size2)
+
+    def init_char_hidden(self, batch_size):
+        """Initializes the hidden units of each char gru
+
+        """
+        return torch.zeros(1, batch_size, self.hidden_size1)
 
     def forward(self, x):
         """Forward pass of EncoderRNN
@@ -62,23 +66,20 @@ class EncoderRNN(nn.Module):
         # Batch size should be 1, sentences are batche in our implementation
         assert x.size(0) == 1, "Batch size should be 1 since each sentence is considered as a mini-batch"
 
-        self.char_gru_hidden, self.word_gru_hidden = self.init_hidden()
+        self.char_gru_hidden = self.init_char_hidden(x.size(1))
+        self.word_gru_hidden = self.init_context_hidden()
 
         # Embedding layer
-        embeddeds = self.embedding(x)
-        embeddeds = self.dropout(embeddeds)
+        char_embeddings = self.embedding(x)
+        char_embeddings = self.dropout(char_embeddings)
 
         # First-level gru layer (char-gru to generate word embeddings)
-        word_embeddings_list = []
-        for i, char_embeddings in enumerate(embeddeds[0]):
-            char_embeddings = char_embeddings.view(1, *char_embeddings.shape)
-            outputs, _ = self.char_gru(char_embeddings, self.char_gru_hidden)
-            word_embeddings_list.append(outputs[0][-1].view(1, 1, -1))
-        word_embeddings = torch.cat(word_embeddings_list, 1)
+        word_embeddings, _ = self.char_gru(char_embeddings.view(char_embeddings.shape[1:]), self.char_gru_hidden)
+        word_embeddings = word_embeddings[:, -1, :]
 
         # Second-level gru layer (context-gru)
-        context_embeddings = self.word_gru(word_embeddings, self.word_gru_hidden)[0]
-        return word_embeddings, context_embeddings
+        context_embeddings = self.word_gru(word_embeddings.view(1, x.size(1), -1), self.word_gru_hidden)[0]
+        return word_embeddings, context_embeddings[0]
 
 
 class DecoderRNN(nn.Module):
@@ -112,13 +113,13 @@ class DecoderRNN(nn.Module):
         # Layers
         self.W = nn.Linear(2 * hidden_size, hidden_size)
         self.embedding = nn.Embedding(len(vocab)+1, embedding_size)
-        self.gru = nn.GRU(embedding_size, hidden_size, 2)
+        self.gru = nn.GRU(embedding_size, hidden_size, 2, batch_first=True)
         self.classifier = nn.Linear(hidden_size, len(vocab))
         self.dropout = nn.Dropout(p=dropout_ratio)
         self.softmax = nn.LogSoftmax(dim=1)
         self.relu = nn.ReLU()
 
-    def forward(self, word_embedding, context_vector, y, target_length, teacher_forcing_ratio=1.0):
+    def forward(self, word_embedding, context_vector, y):
         """Forward pass of DecoderRNN
 
         Inputs a context-aware vector of a word and produces an analysis consists of root+tags
@@ -126,18 +127,11 @@ class DecoderRNN(nn.Module):
         Args:
             word_embedding (`torch.tensor`): word representation (outputs of char GRU
             context_vector (`torch.tensor`): Context-aware representation of a word
-            y (tuple): target tensors (encoded lemmas and encoded morph tags
-            target_length (int): The length of the correct analysis
-            teacher_forcing_ratio: probability to use teacher forcing
+            y (tuple): target tensors (encoded lemmas or encoded morph tags)
 
         Returns:
             `torch.tensor`: scores in each time step
         """
-        # Decide whether to use teacher forcing
-        if random.random() < teacher_forcing_ratio:
-            use_teacher_forcing = True
-        else:
-            use_teacher_forcing = False
 
         # Initilize gru hidden units with context vector (encoder output)
         context_vector = context_vector.view(1, *context_vector.size())
@@ -145,36 +139,15 @@ class DecoderRNN(nn.Module):
         word_embedding = word_embedding.view(1, 1, self.hidden_size)
         hidden = torch.cat([context_vector, word_embedding], 0)
 
-        # Oupput shape (maximum length of a an analyzer, output vocab size)
-        scores = torch.zeros(target_length, self.vocab_size)
+        embeddings = self.embedding(y)
+        embeddings = torch.relu(embeddings)
+        embeddings = self.dropout(embeddings)
+        embeddings = embeddings.view(1, *embeddings.size())
+        outputs, _ = self.gru(embeddings, hidden)
+        outputs = self.dropout(outputs)
+        outputs = self.classifier(outputs)
 
-        # First predicted token is sentence start tag: 2
-        predicted_token = torch.LongTensor(1).fill_(2)
-
-        # Generate char or tag sequentially
-        for di in range(target_length):
-            # Propagate layers
-            embedded = self.embedding(predicted_token).view(1, 1, -1)
-            embedded = torch.relu(embedded)
-            embedded = self.dropout(embedded)
-
-            output, hidden = self.gru(embedded, hidden)
-            output = self.dropout(output)
-            output = self.classifier(output[0])
-
-            # Save scores in each time step
-            scores[di] = self.softmax(output)
-
-            if use_teacher_forcing:
-                # Use actual tag as input (teacher forcing)
-                predicted_token = y[di]
-            else:
-                # Save the predicted token index which embedding layer inputs
-                topv, topi = output.topk(1)
-                predicted_token = topi.squeeze().detach()
-
-        # Return the scores for each time step
-        return scores
+        return self.softmax(outputs)
 
     def predict(self, word_embedding, context_vector, max_len=50):
         """Forward pass of DecoderRNN for prediction only

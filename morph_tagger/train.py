@@ -3,6 +3,7 @@ import os
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
+from tqdm import tqdm
 
 from data_loaders import ConllDataset
 from data_utils import read_surfaces
@@ -12,7 +13,8 @@ from logger import LOGGER
 
 
 # Select cuda as device if available
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device('cpu')
 LOGGER.info("Using {} as default device".format(device))
 
 max_words = 50
@@ -22,14 +24,13 @@ BATCH_SIZE = 1
 
 # Number of epochs
 num_epochs = 500
-notify_each = 50
-update_lr = 1000
+notify_each = 20
 
 # Encoder hyper-parmeters
 embedding_size = 64
 char_gru_hidden_size = 512
 word_gru_hidden_size = 512
-encoder_lr = 0.05
+encoder_lr = 0.001
 encoder_dropout = 0.3
 encoder_weight_decay = 0.01
 encoder_scheduler_factor = 0.9
@@ -38,7 +39,7 @@ encoder_momentum = 0.1
 # Decoder hyper-parmeters
 output_embedding_size = 256
 decoder_gru_hidden_size = 512
-decoder_lr = 0.05
+decoder_lr = 0.001
 decoder_dropout = 0.3
 decoder_weight_decay = 0.01
 decoder_scheduler_factor = 0.9
@@ -105,17 +106,16 @@ def predict(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset, 
 
     # Run lemma decoder for each word
     lemmas = []
-    words_count = context_aware_representations.size(1)
+    words_count = context_aware_representations.size(0)
     for i in range(words_count):
-        _, lemma = decoder_lemma.predict(word_representations[0, i], context_aware_representations[0, i],
+        _, lemma = decoder_lemma.predict(word_representations[i], context_aware_representations[i],
                                          max_len=max_lemma_len)
         lemmas.append(''.join(lemma))
 
     # Run morph features decoder for each word
     morph_features = []
-    words_count = context_aware_representations.size(1)
     for i in range(words_count):
-        _, morph_feature = decoder_morph_tags.predict(word_representations[0, i], context_aware_representations[0, i],
+        _, morph_feature = decoder_morph_tags.predict(word_representations[i], context_aware_representations[i],
                                                       max_len=max_morph_features_len)
         morph_features.append(';'.join(morph_feature))
 
@@ -189,8 +189,7 @@ for language_path, language_name in zip(language_paths, language_names):
         encoder.train()
         decoder_lemma.train()
         decoder_morph_tags.train()
-
-        for ix, (x, y1, y2) in enumerate(train_loader):
+        for ix, (x, y1, y2) in enumerate(tqdm(train_loader)):
             # Skip sentences longer than max_words
             if x.size(1) > max_words:
                 continue
@@ -212,14 +211,13 @@ for language_path, language_name in zip(language_paths, language_names):
             word_embeddings, context_embeddings = encoder(x)
 
             # Run decoder for each word
-            word_count = context_embeddings.size(1)
+            word_count = context_embeddings.size(0)
             sentence_loss = 0.0
             for word_ix in range(word_count):
                 for _y, decoder in zip([y1, y2], [decoder_lemma, decoder_morph_tags]):
-                    target_length = _y[0][word_ix].size(0)
-                    decoder_outputs = decoder(word_embeddings[0, word_ix], context_embeddings[0, word_ix],
-                                              _y[0][word_ix], target_length=target_length)
-                    loss += criterion(decoder_outputs, _y[0][word_ix])
+                    decoder_outputs = decoder(word_embeddings[word_ix], context_embeddings[word_ix],
+                                              _y[0][word_ix])
+                    loss += criterion(decoder_outputs[0, :-1, :], _y[0, word_ix, 1:])
                     sentence_loss += loss.item() / _y[0][word_ix].size(0)
             sentence_loss /= word_count
             total_train_loss += sentence_loss
@@ -232,8 +230,8 @@ for language_path, language_name in zip(language_paths, language_names):
             decoder_morph_tags_optimizer.step()
 
             if (ix + 1) % notify_each == 0:
-                print("Epoch {}. Sample: {}. Train Loss: {}, Encoder lr: {}, Decoder lr: {}".format(
-                    epoch, (ix + 1), total_train_loss / (ix + 1), encoder_lr, decoder_lr)
+                print(" Epoch {}. Train Loss: {}, Encoder lr: {}, Decoder lr: {}".format(
+                    epoch, total_train_loss / (ix + 1), encoder_lr, decoder_lr)
                 )
 
         LOGGER.info('Epoch {} is completed.'.format(epoch))
