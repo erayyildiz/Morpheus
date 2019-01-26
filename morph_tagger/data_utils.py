@@ -40,7 +40,7 @@ class Sentence(object):
 def read_dataset(conll_file):
     """Read Conll dataset
 
-    Argumets:
+    Arguments:
         conll_file: (str) conll file path
     Returns:
         list: list of `Sentence` objects
@@ -52,6 +52,33 @@ def read_dataset(conll_file):
             if len(line.strip()) == 0:
                 if len(conll_sentence) > 0:
                     sentence = Sentence(conll_sentence)
+                    sentences.append(sentence)
+                conll_sentence = []
+            else:
+                conll_sentence.append(line)
+    return sentences
+
+
+def read_surfaces(conll_file):
+    """Read surface words from a Conll dataset
+
+    Arguments:
+        conll_file: (str) conll file path
+    Returns:
+        list: list of sentences that consist of surface words
+    """
+
+    sentences = []
+    with open(conll_file, 'r', encoding='UTF-8') as f:
+        conll_sentence = []
+        for line in f:
+            if len(line.strip()) == 0:
+                if len(conll_sentence) > 0:
+                    sentence = []
+                    for conll_token in conll_sentence:
+                        if not conll_token or conll_token.startswith('#'):
+                            continue
+                        sentence.append(conll_token.split('\t')[1])
                     sentences.append(sentence)
                 conll_sentence = []
             else:
