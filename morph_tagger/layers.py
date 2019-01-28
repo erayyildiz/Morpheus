@@ -74,7 +74,6 @@ class EncoderRNN(nn.Module):
 
         # Embedding layer
         char_embeddings = self.embedding(x)
-        char_embeddings = self.dropout(char_embeddings)
 
         # First-level gru layer (char-gru to generate word embeddings)
         _, word_embeddings = self.char_gru(char_embeddings.view(char_embeddings.shape[1:]), self.char_gru_hidden)
@@ -118,7 +117,6 @@ class DecoderRNN(nn.Module):
         self.gru = nn.GRU(embedding_size, hidden_size, 2, batch_first=True)
         self.classifier = nn.Linear(hidden_size, len(vocab))
         self.dropout = nn.Dropout(p=dropout_ratio)
-        self.softmax = nn.LogSoftmax(dim=1)
         self.relu = nn.ReLU()
 
     def forward(self, word_embeddings, context_vectors, y):
@@ -141,12 +139,11 @@ class DecoderRNN(nn.Module):
                             word_embeddings.view(1, *context_vectors.size())], 0)
 
         embeddings = self.embedding(y)
-        embeddings = torch.relu(embeddings)
         outputs, _ = self.gru(embeddings, hidden)
         outputs = self.dropout(outputs)
         outputs = self.classifier(outputs)
 
-        return self.softmax(outputs)
+        return outputs
 
     def predict(self, word_embedding, context_vector, max_len=50):
         """Forward pass of DecoderRNN for prediction only
@@ -180,10 +177,9 @@ class DecoderRNN(nn.Module):
         predictions = []
         for di in range(max_len):
             embedded = self.embedding(predicted_token).view(1, 1, -1)
-            embedded = torch.relu(embedded)
             output, hidden = self.gru(embedded, hidden)
             output = self.classifier(output[0])
-            scores[di] = self.softmax(output)
+            scores[di] = output
             topv, topi = output.topk(1)
             predicted_token = topi.squeeze().detach()
             # Increase eos count if produced output is eos
@@ -210,7 +206,7 @@ def test_encoder_decoder():
     decoder_morph_tags = DecoderRNN(10, 50, train_set.morph_tag2id)
 
     # Define loss and optimizers
-    criterion = nn.NLLLoss(ignore_index=0)
+    criterion = nn.CrossEntropyLoss(ignore_index=0)
 
     # Create optimizers
     encoder_optimizer = torch.optim.Adam(encoder.parameters(), lr=0.001)

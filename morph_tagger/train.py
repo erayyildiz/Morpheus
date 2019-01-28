@@ -151,7 +151,7 @@ def train():
                                         dropout_ratio=decoder_dropout).to(device)
 
         # Define loss and optimizers
-        criterion = nn.NLLLoss(ignore_index=0).to(device)
+        criterion = nn.CrossEntropyLoss(ignore_index=0).to(device)
 
         # Create optimizers
         encoder_optimizer = torch.optim.Adam(encoder.parameters(),
