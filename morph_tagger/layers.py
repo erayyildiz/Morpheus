@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import random
+from tqdm import tqdm
 
 
 class EncoderRNN(nn.Module):
@@ -13,7 +13,8 @@ class EncoderRNN(nn.Module):
 
     """
 
-    def __init__(self, embedding_size, hidden_size1, hidden_size2, vocab_len, dropout_ratio=0.2):
+    def __init__(self, embedding_size, hidden_size1, hidden_size2, vocab_len,
+                 dropout_ratio=0.2, device=torch.device('cpu')):
         """ Initialize an EncoderRNN object
 
         Args:
@@ -40,17 +41,19 @@ class EncoderRNN(nn.Module):
         self.char_gru_hidden = None
         self.word_gru_hidden = None
 
+        self.device = device
+
     def init_context_hidden(self):
         """Initializes the hidden units of each context gru
 
         """
-        return torch.zeros(2, 1, self.hidden_size2)
+        return torch.zeros(2, 1, self.hidden_size2).to(self.device)
 
     def init_char_hidden(self, batch_size):
         """Initializes the hidden units of each char gru
 
         """
-        return torch.zeros(1, batch_size, self.hidden_size1)
+        return torch.zeros(1, batch_size, self.hidden_size1).to(self.device)
 
     def forward(self, x):
         """Forward pass of EncoderRNN
@@ -74,12 +77,11 @@ class EncoderRNN(nn.Module):
         char_embeddings = self.dropout(char_embeddings)
 
         # First-level gru layer (char-gru to generate word embeddings)
-        word_embeddings, _ = self.char_gru(char_embeddings.view(char_embeddings.shape[1:]), self.char_gru_hidden)
-        word_embeddings = word_embeddings[:, -1, :]
+        _, word_embeddings = self.char_gru(char_embeddings.view(char_embeddings.shape[1:]), self.char_gru_hidden)
 
         # Second-level gru layer (context-gru)
-        context_embeddings = self.word_gru(word_embeddings.view(1, x.size(1), -1), self.word_gru_hidden)[0]
-        return word_embeddings, context_embeddings[0]
+        context_embeddings = self.word_gru(word_embeddings, self.word_gru_hidden)[0]
+        return word_embeddings[0], context_embeddings[0]
 
 
 class DecoderRNN(nn.Module):
@@ -135,12 +137,11 @@ class DecoderRNN(nn.Module):
 
         # Initilize gru hidden units with context vector (encoder output)
         context_vectors = self.relu(self.W(context_vectors))
-        word_embeddings = word_embeddings
-        hidden = torch.cat([context_vectors, word_embeddings], 1).view(2, *context_vectors.size())
+        hidden = torch.cat([context_vectors.view(1, *context_vectors.size()),
+                            word_embeddings.view(1, *context_vectors.size())], 0)
 
         embeddings = self.embedding(y)
         embeddings = torch.relu(embeddings)
-        embeddings = self.dropout(embeddings)
         outputs, _ = self.gru(embeddings, hidden)
         outputs = self.dropout(outputs)
         outputs = self.classifier(outputs)
@@ -176,7 +177,6 @@ class DecoderRNN(nn.Module):
         predicted_token = torch.LongTensor(1).fill_(2)
 
         # Generate char or tag sequentially
-        eos_count = 0
         predictions = []
         for di in range(max_len):
             embedded = self.embedding(predicted_token).view(1, 1, -1)
@@ -188,12 +188,74 @@ class DecoderRNN(nn.Module):
             predicted_token = topi.squeeze().detach()
             # Increase eos count if produced output is eos
             if predicted_token.item() == 1:
-                eos_count += 1
+                break
             # Add predicted output to predictions if it is not a special character such as eos or padding
             if predicted_token.item() > 2:
                 predictions.append(self.index2token[predicted_token.item()])
-            # If eos count greater than 1, stop iteration
-            if eos_count >= 2:
-                break
 
         return scores, predictions
+
+
+def test_encoder_decoder():
+    train_data_path = '../data/2019/task2/UD_Afrikaans-AfriBooms/af_afribooms-um-train.conllu'
+    from data_loaders import ConllDataset
+    from torch.utils.data import DataLoader
+    from train import predict
+
+    train_set = ConllDataset(train_data_path, max_sentences=1)
+    train_loader = DataLoader(train_set)
+
+    encoder = EncoderRNN(10, 50, 50, len(train_set.surface_char2id))
+    decoder_lemma = DecoderRNN(10, 50, train_set.lemma_char2id)
+    decoder_morph_tags = DecoderRNN(10, 50, train_set.morph_tag2id)
+
+    # Define loss and optimizers
+    criterion = nn.NLLLoss(ignore_index=0)
+
+    # Create optimizers
+    encoder_optimizer = torch.optim.Adam(encoder.parameters(), lr=0.001)
+    decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(), lr=0.001)
+    decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(), lr=0.001)
+
+    # Let the training begin
+    for _ in tqdm(range(1000)):
+        # Training part
+        encoder.train()
+        decoder_lemma.train()
+        decoder_morph_tags.train()
+        for ix, (x, y1, y2) in enumerate(train_loader):
+
+            # Clear gradients for each sentence
+            encoder.zero_grad()
+            decoder_lemma.zero_grad()
+            decoder_morph_tags.zero_grad()
+
+            # Run encoder
+            word_embeddings, context_embeddings = encoder(x)
+
+            # Run decoder for each word
+            sentence_loss = 0.0
+            for _y, decoder in zip([y1, y2], [decoder_lemma, decoder_morph_tags]):
+                decoder_outputs = decoder(word_embeddings, context_embeddings, _y[0, :, :-1])
+
+                for word_ix in range(word_embeddings.size(0)):
+                    sentence_loss += criterion(decoder_outputs[word_ix], _y[0, word_ix, 1:])
+
+                sentence_loss.backward(retain_graph=True)
+
+                # Optimization
+                encoder_optimizer.step()
+                decoder_lemma_optimizer.step()
+                decoder_morph_tags_optimizer.step()
+
+    encoder.eval()
+    decoder_lemma.eval()
+    decoder_morph_tags.eval()
+    # Make predictions and save to file
+    for sentence in train_set.sentences:
+        surface_words = [surface_word for surface_word in sentence.surface_words]
+        conll_sentence = predict(surface_words, encoder, decoder_lemma, decoder_morph_tags, train_set)
+        print(conll_sentence)
+
+if __name__ == '__main__':
+    test_encoder_decoder()

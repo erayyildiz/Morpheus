@@ -12,46 +12,6 @@ from layers import EncoderRNN, DecoderRNN
 from logger import LOGGER
 
 
-# Select cuda as device if available
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# device = torch.device('cpu')
-LOGGER.info("Using {} as default device".format(device))
-
-max_words = 50
-
-# Sentences are batches, do not change
-BATCH_SIZE = 1
-
-# Number of epochs
-num_epochs = 500
-notify_each = 50
-
-# Encoder hyper-parmeters
-embedding_size = 64
-char_gru_hidden_size = 512
-word_gru_hidden_size = 512
-encoder_lr = 0.001
-encoder_dropout = 0.3
-encoder_weight_decay = 0.01
-encoder_scheduler_factor = 0.9
-encoder_momentum = 0.1
-
-# Decoder hyper-parmeters
-output_embedding_size = 256
-decoder_gru_hidden_size = 512
-decoder_lr = 0.001
-decoder_dropout = 0.3
-decoder_weight_decay = 0.01
-decoder_scheduler_factor = 0.9
-decoder_momentum = 0.1
-
-data_path = '../data/2019/task2/'
-language_paths = [data_path + filename for filename in os.listdir(data_path)]
-language_names = [filename.replace('UD_', '') for filename in os.listdir(data_path)]
-
-evaluate_per_epoch = 5
-
-
 # Learning rate decay
 def lr_decay_step(lr, model, factor=0.1, weight_decay=0.0):
     """Learning rate decay step
@@ -123,147 +83,170 @@ def predict(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset, 
     return conll_sentence
 
 
-# Iterate over languages
-for language_path, language_name in zip(language_paths, language_names):
-    # Read dataset for language
-    LOGGER.info('Reading files for language: {}'.format(language_name))
-    language_conll_files = os.listdir(language_path)
-    train_data_path = None
-    val_data_path = None
-    for language_conll_file in language_conll_files:
+def train():
+    # Select cuda as device if available
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # device = torch.device('cpu')
+    LOGGER.info("Using {} as default device".format(device))
 
-        if 'train.' in language_conll_file:
-            train_data_path = language_path + '/' + language_conll_file
-        elif 'dev.' in language_conll_file:
-            val_data_path = language_path + '/' + language_conll_file
+    max_words = 50
 
-    assert train_data_path, 'Training data not found'
-    assert val_data_path, 'Validation data not found'
+    # Number of epochs
+    num_epochs = 500
+    notify_each = 50
 
-    # Load train set
-    train_set = ConllDataset(train_data_path)
-    train_loader = DataLoader(train_set)
+    # Encoder hyper-parmeters
+    embedding_size = 32
+    char_gru_hidden_size = 128
+    word_gru_hidden_size = 128
+    encoder_lr = 0.001
+    encoder_dropout = 0.3
 
-    # Load validation data
-    val_data = read_conllu(val_data_path)
-    val_data_surface_words = read_surfaces(val_data_path)
+    # Decoder hyper-parmeters
+    output_embedding_size = 32
+    decoder_lr = 0.001
+    decoder_dropout = 0.3
 
-    # Build Models
-    # Initialize encoder and decoders
-    LOGGER.info('Building models for language: {}'.format(language_name))
-    encoder = EncoderRNN(embedding_size, char_gru_hidden_size, word_gru_hidden_size,
-                         len(train_set.surface_char2id), dropout_ratio=encoder_dropout)
-    encoder = encoder.to(device)
+    data_path = '../data/2019/task2/'
+    language_paths = [data_path + filename for filename in os.listdir(data_path)]
+    language_names = [filename.replace('UD_', '') for filename in os.listdir(data_path)]
 
-    decoder_lemma = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.lemma_char2id,
-                               dropout_ratio=decoder_dropout).to(device)
+    evaluate_per_epoch = 10
 
-    decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.morph_tag2id,
-                                    dropout_ratio=decoder_dropout).to(device)
+    # Iterate over languages
+    for language_path, language_name in zip(language_paths, language_names):
+        # Read dataset for language
+        LOGGER.info('Reading files for language: {}'.format(language_name))
+        language_conll_files = os.listdir(language_path)
+        train_data_path = None
+        val_data_path = None
+        for language_conll_file in language_conll_files:
 
-    # Define loss and optimizers
-    criterion = nn.NLLLoss(ignore_index=0).to(device)
+            if 'train.' in language_conll_file:
+                train_data_path = language_path + '/' + language_conll_file
+            elif 'dev.' in language_conll_file:
+                val_data_path = language_path + '/' + language_conll_file
 
-    # Create optimizers
-    encoder_optimizer = torch.optim.Adam(encoder.parameters(),
-                                         lr=encoder_lr
-                                         )
-    decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(),
-                                               lr=decoder_lr
-                                               )
+        assert train_data_path, 'Training data not found'
+        assert val_data_path, 'Validation data not found'
 
-    decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(),
-                                                    lr=decoder_lr
-                                                    )
+        # Load train set
+        train_set = ConllDataset(train_data_path)
+        train_loader = DataLoader(train_set)
 
-    LOGGER.info('Training starts for language: {}'.format(language_name))
-    # Let the training begin
-    for epoch in range(num_epochs):
-        LOGGER.info('Epoch {} starts'.format(epoch))
-        total_train_loss = 0.0
-        total_val_loss = 0.0
+        # Load validation data
+        val_data_surface_words = read_surfaces(val_data_path)
+
+        # Build Models
+        # Initialize encoder and decoders
+        LOGGER.info('Building models for language: {}'.format(language_name))
+        encoder = EncoderRNN(embedding_size, char_gru_hidden_size, word_gru_hidden_size,
+                             len(train_set.surface_char2id), dropout_ratio=encoder_dropout, device=device)
+        encoder = encoder.to(device)
+
+        decoder_lemma = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.lemma_char2id,
+                                   dropout_ratio=decoder_dropout).to(device)
+
+        decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.morph_tag2id,
+                                        dropout_ratio=decoder_dropout).to(device)
+
+        # Define loss and optimizers
+        criterion = nn.NLLLoss(ignore_index=0).to(device)
+
+        # Create optimizers
+        encoder_optimizer = torch.optim.Adam(encoder.parameters(),
+                                             lr=encoder_lr
+                                             )
+        decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(),
+                                                   lr=decoder_lr
+                                                   )
+
+        decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(),
+                                                        lr=decoder_lr
+                                                        )
+
         previous_loss = 10000000
-        # Training part
-        encoder.train()
-        decoder_lemma.train()
-        decoder_morph_tags.train()
-        for ix, (x, y1, y2) in enumerate(tqdm(train_loader)):
-            # Skip sentences longer than max_words
-            if x.size(1) > max_words:
-                continue
 
-            # Clear gradients for each sentence
-            encoder.zero_grad()
-            decoder_lemma.zero_grad()
-            decoder_morph_tags.zero_grad()
+        LOGGER.info('Training starts for language: {}'.format(language_name))
+        # Let the training begin
+        for epoch in range(num_epochs):
+            LOGGER.info('Epoch {} starts'.format(epoch))
+            total_train_loss = 0.0
 
-            # Send input to the device
-            x = x.to(device)
-            y1 = y1.to(device)
-            y2 = y2.to(device)
+            # Training part
+            encoder.train()
+            decoder_lemma.train()
+            decoder_morph_tags.train()
+            for ix, (x, y1, y2) in enumerate(tqdm(train_loader)):
+                # Skip sentences longer than max_words
+                if x.size(1) > max_words:
+                    continue
 
-            # Init loss value
-            loss = 0
+                # Clear gradients for each sentence
+                encoder.zero_grad()
+                decoder_lemma.zero_grad()
+                decoder_morph_tags.zero_grad()
 
-            # Run encoder
-            word_embeddings, context_embeddings = encoder(x)
+                # Send input to the device
+                x = x.to(device)
+                y1 = y1.to(device)
+                y2 = y2.to(device)
 
-            # Run decoder for each word
-            sentence_loss = 0.0
-            for _y, decoder in zip([y1, y2], [decoder_lemma, decoder_morph_tags]):
-                decoder_outputs = decoder(word_embeddings, context_embeddings, _y[0])
-                decoder_outputs = decoder_outputs[:, :-1, :]
-                decoder_outputs = decoder_outputs.contiguous().view(
-                    decoder_outputs.shape[0]*decoder_outputs.shape[1], -1
-                )
-                expected_outputs = _y[0, :, 1:].contiguous().view(1, -1).squeeze()
-                loss += criterion(decoder_outputs, expected_outputs)
-            sentence_loss += loss.item()
-            total_train_loss += sentence_loss
+                # Run encoder
+                word_embeddings, context_embeddings = encoder(x)
 
-            # Optimization
-            loss.backward()
+                # Run decoder for each word
+                sentence_loss = 0.0
+                for _y, decoder in zip([y1, y2], [decoder_lemma, decoder_morph_tags]):
+                    decoder_outputs = decoder(word_embeddings, context_embeddings, _y[0, :, :-1])
 
-            encoder_optimizer.step()
-            decoder_lemma_optimizer.step()
-            decoder_morph_tags_optimizer.step()
+                    for word_ix in range(word_embeddings.size(0)):
+                        sentence_loss += criterion(decoder_outputs[word_ix], _y[0, word_ix, 1:])
 
-            if (ix + 1) % notify_each == 0:
-                print(" Epoch {}. Train Loss: {}, Encoder lr: {}, Decoder lr: {}".format(
-                    epoch, total_train_loss / (ix + 1), encoder_lr, decoder_lr)
-                )
+                    sentence_loss.backward(retain_graph=True)
 
-        # LR Decay if no improvement
-        if previous_loss < total_train_loss:
-            encoder_lr, encoder_optimizer = lr_decay_step(encoder_lr, encoder, factor=0.5)
-            decoder_lr, decoder_lemma_optimizer = lr_decay_step(decoder_lr, decoder_lemma, factor=0.8)
-            decoder_lr, decoder_morph_tags_optimizer = lr_decay_step(decoder_lr, decoder_morph_tags, factor=1.0)
-        previous_loss = total_train_loss
+                    # Optimization
+                    encoder_optimizer.step()
+                    decoder_lemma_optimizer.step()
+                    decoder_morph_tags_optimizer.step()
+                    total_train_loss += sentence_loss.item() / 2.0
 
-        LOGGER.info('Epoch {} is completed. Loss: {}'.format(epoch, (1.0 * total_train_loss) / len(train_loader)))
-        if epoch + 2 > evaluate_per_epoch and epoch % evaluate_per_epoch == 0:
-            LOGGER.info('Prediction over validation data...')
-            encoder.eval()
-            decoder_lemma.eval()
-            decoder_morph_tags.eval()
-            # Make predictions and save to file
-            prediction_file = train_data_path.replace('train', 'predictions')
-            with open(prediction_file, 'w', encoding='UTF-8') as f:
-                for sentence in val_data_surface_words:
-                    conll_sentence = predict(sentence, encoder, decoder_lemma, decoder_morph_tags,
-                                             train_set, device=device)
-                    f.write(conll_sentence)
-                    f.write('\n')
+                if (ix + 1) % notify_each == 0:
+                    print(" Epoch {}. Train Loss: {}, Encoder lr: {}, Decoder lr: {}".format(
+                        epoch, total_train_loss / (ix + 1), encoder_lr, decoder_lr)
+                    )
 
-            # Evaluate
-            LOGGER.info('Evaluating...')
-            reference = read_conllu(val_data_path)
-            output = read_conllu(prediction_file)
-            results = manipulate_data(input_pairs(reference, output))
+            # LR Decay if no improvement
+            if previous_loss < total_train_loss:
+                encoder_lr, encoder_optimizer = lr_decay_step(encoder_lr, encoder, factor=0.7)
+                decoder_lr, decoder_lemma_optimizer = lr_decay_step(decoder_lr, decoder_lemma, factor=0.8)
+                decoder_lr, decoder_morph_tags_optimizer = lr_decay_step(decoder_lr, decoder_morph_tags, factor=1.0)
+            previous_loss = total_train_loss
 
-            LOGGER.info('Evaluation completed')
-            LOGGER.info('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
-            LOGGER.info('Writing results to file...')
-            # save results
-            with open(train_data_path.replace('train', 'results').replace('conllu', ''), 'w', encoding='UTF-8') as f:
-                f.write('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
+            LOGGER.info('Epoch {} is completed. Loss: {}'.format(epoch, (1.0 * total_train_loss) / len(train_loader)))
+            if epoch + 2 > evaluate_per_epoch and epoch % evaluate_per_epoch == 0:
+                LOGGER.info('Prediction over validation data...')
+                encoder.eval()
+                decoder_lemma.eval()
+                decoder_morph_tags.eval()
+                # Make predictions and save to file
+                prediction_file = train_data_path.replace('train', 'predictions')
+                with open(prediction_file, 'w', encoding='UTF-8') as f:
+                    for sentence in val_data_surface_words:
+                        conll_sentence = predict(sentence, encoder, decoder_lemma, decoder_morph_tags,
+                                                 train_set, device=device)
+                        f.write(conll_sentence)
+                        f.write('\n')
+
+                # Evaluate
+                LOGGER.info('Evaluating...')
+                reference = read_conllu(val_data_path)
+                output = read_conllu(prediction_file)
+                results = manipulate_data(input_pairs(reference, output))
+
+                LOGGER.info('Evaluation completed')
+                LOGGER.info('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
+                LOGGER.info('Writing results to file...')
+                # save results
+                with open(train_data_path.replace('train', 'results').replace('conllu', ''), 'w', encoding='UTF-8') as f:
+                    f.write('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
