@@ -67,14 +67,14 @@ def predict(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset, 
     words_count = context_aware_representations.size(0)
     for i in range(words_count):
         _, lemma = decoder_lemma.predict(word_representations[i], context_aware_representations[i],
-                                         max_len=max_lemma_len)
+                                         max_len=max_lemma_len, device=device)
         lemmas.append(''.join(lemma))
 
     # Run morph features decoder for each word
     morph_features = []
     for i in range(words_count):
         _, morph_feature = decoder_morph_tags.predict(word_representations[i], context_aware_representations[i],
-                                                      max_len=max_morph_features_len)
+                                                      max_len=max_morph_features_len, device=device)
         morph_features.append(';'.join(morph_feature))
 
     conll_sentence = "# Sentence\n"
@@ -92,18 +92,19 @@ def train():
     max_words = 50
 
     # Number of epochs
-    num_epochs = 500
+    num_epochs = 100
+    patience = 3
     notify_each = 50
 
     # Encoder hyper-parmeters
-    embedding_size = 32
-    char_gru_hidden_size = 128
-    word_gru_hidden_size = 128
+    embedding_size = 64
+    char_gru_hidden_size = 256
+    word_gru_hidden_size = 256
     encoder_lr = 0.001
     encoder_dropout = 0.3
 
     # Decoder hyper-parmeters
-    output_embedding_size = 32
+    output_embedding_size = 128
     decoder_lr = 0.001
     decoder_dropout = 0.3
 
@@ -166,9 +167,11 @@ def train():
                                                         )
 
         previous_loss = 10000000
+        epochs_wo_improvement = 0
 
         LOGGER.info('Training starts for language: {}'.format(language_name))
         # Let the training begin
+        goon = True
         for epoch in range(num_epochs):
             LOGGER.info('Epoch {} starts'.format(epoch))
             total_train_loss = 0.0
@@ -211,16 +214,22 @@ def train():
                     decoder_morph_tags_optimizer.step()
                     total_train_loss += sentence_loss.item() / 2.0
 
-                if (ix + 1) % notify_each == 0:
-                    print(" Epoch {}. Train Loss: {}, Encoder lr: {}, Decoder lr: {}".format(
-                        epoch, total_train_loss / (ix + 1), encoder_lr, decoder_lr)
-                    )
+                # if (ix + 1) % notify_each == 0:
+                #     print(" Epoch {}. Train Loss: {}, Encoder lr: {}, Decoder lr: {}".format(
+                #         epoch, total_train_loss / (ix + 1), encoder_lr, decoder_lr)
+                #     )
 
             # LR Decay if no improvement
             if previous_loss < total_train_loss:
-                encoder_lr, encoder_optimizer = lr_decay_step(encoder_lr, encoder, factor=0.7)
-                decoder_lr, decoder_lemma_optimizer = lr_decay_step(decoder_lr, decoder_lemma, factor=0.8)
+                epochs_wo_improvement += 1
+                if epochs_wo_improvement >= patience:
+                    goon = False
+                    break
+                encoder_lr, encoder_optimizer = lr_decay_step(encoder_lr, encoder, factor=0.5)
+                decoder_lr, decoder_lemma_optimizer = lr_decay_step(decoder_lr, decoder_lemma, factor=0.7)
                 decoder_lr, decoder_morph_tags_optimizer = lr_decay_step(decoder_lr, decoder_morph_tags, factor=1.0)
+            else:
+                epochs_wo_improvement = 0
             previous_loss = total_train_loss
 
             LOGGER.info('Epoch {} is completed. Loss: {}'.format(epoch, (1.0 * total_train_loss) / len(train_loader)))
@@ -250,6 +259,8 @@ def train():
                 # save results
                 with open(train_data_path.replace('train', 'results').replace('conllu', ''), 'w', encoding='UTF-8') as f:
                     f.write('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
+            if not goon:
+                break
 
 
 if __name__ == '__main__':

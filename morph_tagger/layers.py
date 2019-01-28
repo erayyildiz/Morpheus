@@ -23,6 +23,7 @@ class EncoderRNN(nn.Module):
             hidden_size2 (int): The number of units in second-level gru (context-gru)
             vocab_len (int): Number of unique characters to initialize character embedding module
             dropout_ratio(float): Dropout ratio, dropout applied to the outputs of both gru and embedding modules
+            device (`torch.device`): gpu or cpu
         """
         super(EncoderRNN, self).__init__()
 
@@ -145,7 +146,7 @@ class DecoderRNN(nn.Module):
 
         return outputs
 
-    def predict(self, word_embedding, context_vector, max_len=50):
+    def predict(self, word_embedding, context_vector, max_len=50, device=torch.device('cpu')):
         """Forward pass of DecoderRNN for prediction only
 
         The loop for gru is stopped as soon as the end of sentence tag is produced twice.
@@ -155,6 +156,7 @@ class DecoderRNN(nn.Module):
             word_embedding (`torch.tensor`): word representation (outputs of char GRU
             context_vector (`torch.tensor`): Context-aware representation of a word
             max_len (int): Maximum length of produced analysis (Defaault: 50)
+            device (`torch.device`): gpu or cpu
 
         Returns:
             tuple: (scores:`torch.tensor`, predictions:list)
@@ -171,7 +173,7 @@ class DecoderRNN(nn.Module):
         scores = torch.zeros(max_len, self.vocab_size)
 
         # First predicted token is sentence start tag: 2
-        predicted_token = torch.LongTensor(1).fill_(2)
+        predicted_token = torch.LongTensor(1).fill_(2).to(device)
 
         # Generate char or tag sequentially
         predictions = []
@@ -181,7 +183,7 @@ class DecoderRNN(nn.Module):
             output = self.classifier(output[0])
             scores[di] = output
             topv, topi = output.topk(1)
-            predicted_token = topi.squeeze().detach()
+            predicted_token = topi.squeeze().detach().to(device)
             # Increase eos count if produced output is eos
             if predicted_token.item() == 1:
                 break
