@@ -267,7 +267,7 @@ def train():
                 torch.save(encoder.state_dict(), train_data_path.replace('train', 'encoder').replace('conllu', 'model'))
                 torch.save(decoder_lemma.state_dict(), train_data_path.replace('train', 'decoder_lemma').replace('conllu', 'model'))
                 torch.save(decoder_morph_tags.state_dict(), train_data_path.replace('train', 'decoder_morph').replace('conllu', 'model'))
-                with open(train_data_path.replace('-train', '').replace('conllu', 'dataset'), 'w', encoding='UTF-8') as f:
+                with open(train_data_path.replace('-train', '').replace('conllu', 'dataset'), 'wb', encoding='UTF-8') as f:
                     pickle.dump(train_set, f)
             if not goon:
                 break
