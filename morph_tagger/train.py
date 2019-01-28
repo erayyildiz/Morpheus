@@ -174,6 +174,7 @@ def train():
         LOGGER.info('Training starts for language: {}'.format(language_name))
         # Let the training begin
         goon = True
+        max_f1 = 0.0
         for epoch in range(num_epochs):
             LOGGER.info('Epoch {} starts'.format(epoch))
             total_train_loss = 0.0
@@ -257,18 +258,20 @@ def train():
 
                 LOGGER.info('Evaluation completed')
                 LOGGER.info('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
-                LOGGER.info('Writing results to file...')
-                # save results
-                with open(train_data_path.replace('train', 'results').replace('conllu', ''), 'w', encoding='UTF-8') as f:
-                    f.write('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
+                if results[-1] > max_f1:
+                    LOGGER.info('Max accuracy increased, writing results to file...')
+                    # save results
+                    with open(train_data_path.replace('train', 'results').replace('conllu', ''), 'w', encoding='UTF-8') as f:
+                        f.write('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
 
-                # save models
-                LOGGER.info('Saving models...')
-                torch.save(encoder.state_dict(), train_data_path.replace('train', 'encoder').replace('conllu', 'model'))
-                torch.save(decoder_lemma.state_dict(), train_data_path.replace('train', 'decoder_lemma').replace('conllu', 'model'))
-                torch.save(decoder_morph_tags.state_dict(), train_data_path.replace('train', 'decoder_morph').replace('conllu', 'model'))
-                with open(train_data_path.replace('-train', '').replace('conllu', 'dataset'), 'wb', encoding='UTF-8') as f:
-                    pickle.dump(train_set, f)
+                    # save models
+                    LOGGER.info('Saving models...')
+                    torch.save(encoder.state_dict(), train_data_path.replace('train', 'encoder').replace('conllu', 'model'))
+                    torch.save(decoder_lemma.state_dict(), train_data_path.replace('train', 'decoder_lemma').replace('conllu', 'model'))
+                    torch.save(decoder_morph_tags.state_dict(), train_data_path.replace('train', 'decoder_morph').replace('conllu', 'model'))
+                    with open(train_data_path.replace('-train', '').replace('conllu', 'dataset'), 'wb') as f:
+                        pickle.dump(train_set, f)
+                    max_f1 = results[-1]
             if not goon:
                 break
 
