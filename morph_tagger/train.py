@@ -1,5 +1,7 @@
 # Max sentence length
 import os
+import pickle
+
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
@@ -79,7 +81,7 @@ def predict(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset, 
 
     conll_sentence = "# Sentence\n"
     for i, (surface, lemma, morph_feature) in enumerate(zip(surface_words, lemmas, morph_features)):
-        conll_sentence += "{}\t{}\t{}\t_\t_\t{}_\t_\t_\t_\t\n".format(i+1, surface, lemma, morph_feature)
+        conll_sentence += "{}\t{}\t{}\t_\t_\t{}\t_\t_\t_\t_\n".format(i+1, surface, lemma, morph_feature)
     return conll_sentence
 
 
@@ -92,8 +94,8 @@ def train():
     max_words = 50
 
     # Number of epochs
-    num_epochs = 100
-    patience = 3
+    num_epochs = 200
+    patience = 5
     notify_each = 50
 
     # Encoder hyper-parmeters
@@ -259,6 +261,14 @@ def train():
                 # save results
                 with open(train_data_path.replace('train', 'results').replace('conllu', ''), 'w', encoding='UTF-8') as f:
                     f.write('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
+
+                # save models
+                LOGGER.info('Saving models...')
+                torch.save(encoder.state_dict(), train_data_path.replace('train', 'encoder').replace('conllu', 'model'))
+                torch.save(decoder_lemma.state_dict(), train_data_path.replace('train', 'decoder_lemma').replace('conllu', 'model'))
+                torch.save(decoder_morph_tags.state_dict(), train_data_path.replace('train', 'decoder_morph').replace('conllu', 'model'))
+                with open(train_data_path.replace('-train', '').replace('conllu', 'dataset'), 'w', encoding='UTF-8') as f:
+                    pickle.dump(train_set, f)
             if not goon:
                 break
 
