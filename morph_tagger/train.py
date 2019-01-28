@@ -250,3 +250,7 @@ def train():
                 # save results
                 with open(train_data_path.replace('train', 'results').replace('conllu', ''), 'w', encoding='UTF-8') as f:
                     f.write('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
+
+
+if __name__ == '__main__':
+    train()
