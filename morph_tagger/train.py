@@ -32,7 +32,7 @@ def lr_decay_step(lr, model, factor=0.1, weight_decay=0.0):
 
 
 def predict(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset, device=torch.device("cpu"),
-            max_lemma_len=50, max_morph_features_len=50):
+            max_lemma_len=20, max_morph_features_len=10):
     """
 
     Args:
@@ -95,26 +95,23 @@ def train():
 
     # Number of epochs
     num_epochs = 200
-    patience = 5
-    notify_each = 50
+    patience = 2
 
     # Encoder hyper-parmeters
     embedding_size = 64
-    char_gru_hidden_size = 256
-    word_gru_hidden_size = 256
-    encoder_lr = 0.001
+    char_gru_hidden_size = 512
+    word_gru_hidden_size = 512
     encoder_dropout = 0.3
 
     # Decoder hyper-parmeters
-    output_embedding_size = 128
-    decoder_lr = 0.001
+    output_embedding_size = 256
     decoder_dropout = 0.3
 
     data_path = '../data/2019/task2/'
     language_paths = [data_path + filename for filename in os.listdir(data_path)]
     language_names = [filename.replace('UD_', '') for filename in os.listdir(data_path)]
 
-    evaluate_per_epoch = 10
+    evaluate_per_epoch = 20
 
     # Iterate over languages
     for language_path, language_name in zip(language_paths, language_names):
@@ -123,6 +120,7 @@ def train():
         language_conll_files = os.listdir(language_path)
         train_data_path = None
         val_data_path = None
+
         for language_conll_file in language_conll_files:
 
             if 'train.' in language_conll_file:
@@ -157,23 +155,17 @@ def train():
         criterion = nn.CrossEntropyLoss(ignore_index=0).to(device)
 
         # Create optimizers
-        encoder_optimizer = torch.optim.Adam(encoder.parameters(),
-                                             lr=encoder_lr
-                                             )
-        decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(),
-                                                   lr=decoder_lr
-                                                   )
-
-        decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(),
-                                                        lr=decoder_lr
-                                                        )
+        encoder_lr = 0.001
+        decoder_lr = 0.001
+        encoder_optimizer = torch.optim.Adam(encoder.parameters(), lr=encoder_lr)
+        decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(), lr=decoder_lr)
+        decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(), lr=decoder_lr)
 
         previous_loss = 10000000
         epochs_wo_improvement = 0
 
         LOGGER.info('Training starts for language: {}'.format(language_name))
         # Let the training begin
-        goon = True
         max_f1 = 0.0
         for epoch in range(num_epochs):
             LOGGER.info('Epoch {} starts'.format(epoch))
@@ -183,7 +175,8 @@ def train():
             encoder.train()
             decoder_lemma.train()
             decoder_morph_tags.train()
-            for ix, (x, y1, y2) in enumerate(tqdm(train_loader)):
+            ix = 1
+            for x, y1, y2 in tqdm(train_loader):
                 # Skip sentences longer than max_words
                 if x.size(1) > max_words:
                     continue
@@ -217,22 +210,12 @@ def train():
                     decoder_morph_tags_optimizer.step()
                     total_train_loss += sentence_loss.item() / 2.0
 
-                # if (ix + 1) % notify_each == 0:
-                #     print(" Epoch {}. Train Loss: {}, Encoder lr: {}, Decoder lr: {}".format(
-                #         epoch, total_train_loss / (ix + 1), encoder_lr, decoder_lr)
-                #     )
-
             # LR Decay if no improvement
             if previous_loss < total_train_loss:
-                epochs_wo_improvement += 1
-                if epochs_wo_improvement >= patience:
-                    goon = False
-                    break
                 encoder_lr, encoder_optimizer = lr_decay_step(encoder_lr, encoder, factor=0.5)
                 decoder_lr, decoder_lemma_optimizer = lr_decay_step(decoder_lr, decoder_lemma, factor=0.7)
                 decoder_lr, decoder_morph_tags_optimizer = lr_decay_step(decoder_lr, decoder_morph_tags, factor=1.0)
-            else:
-                epochs_wo_improvement = 0
+
             previous_loss = total_train_loss
 
             LOGGER.info('Epoch {} is completed. Loss: {}'.format(epoch, (1.0 * total_train_loss) / len(train_loader)))
@@ -258,7 +241,7 @@ def train():
 
                 LOGGER.info('Evaluation completed')
                 LOGGER.info('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
-                if results[-1] > max_f1:
+                if results[-1] >= max_f1:
                     LOGGER.info('Max accuracy increased, writing results to file...')
                     # save results
                     with open(train_data_path.replace('train', 'results').replace('conllu', ''), 'w', encoding='UTF-8') as f:
@@ -272,8 +255,12 @@ def train():
                     with open(train_data_path.replace('-train', '').replace('conllu', 'dataset'), 'wb') as f:
                         pickle.dump(train_set, f)
                     max_f1 = results[-1]
-            if not goon:
-                break
+                    epochs_wo_improvement = 0
+                else:
+                    epochs_wo_improvement += 1
+                    if epochs_wo_improvement >= patience:
+                        break
+            ix += 1
 
 
 if __name__ == '__main__':
