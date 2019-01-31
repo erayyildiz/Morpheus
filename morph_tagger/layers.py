@@ -75,12 +75,15 @@ class EncoderRNN(nn.Module):
 
         # Embedding layer
         char_embeddings = self.embedding(x)
+        char_embeddings = self.dropout(char_embeddings)
 
         # First-level gru layer (char-gru to generate word embeddings)
         _, word_embeddings = self.char_gru(char_embeddings.view(char_embeddings.shape[1:]), self.char_gru_hidden)
+        word_embeddings = self.dropout(word_embeddings)
 
         # Second-level gru layer (context-gru)
         context_embeddings = self.word_gru(word_embeddings, self.word_gru_hidden)[0]
+        context_embeddings = self.dropout(context_embeddings)
         return word_embeddings[0], context_embeddings[0]
 
 
@@ -140,6 +143,7 @@ class DecoderRNN(nn.Module):
                             word_embeddings.view(1, *context_vectors.size())], 0)
 
         embeddings = self.embedding(y)
+        embeddings = self.dropout(embeddings)
         outputs, _ = self.gru(embeddings, hidden)
         outputs = self.dropout(outputs)
         outputs = self.classifier(outputs)
