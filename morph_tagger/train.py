@@ -1,4 +1,5 @@
 # Max sentence length
+import datetime
 import os
 import pickle
 
@@ -11,11 +12,15 @@ from tqdm import tqdm
 from data_loaders import ConllDataset
 from data_utils import read_surfaces
 from eval import read_conllu, manipulate_data, input_pairs
+from languages import PILOT_LANGUAGES
 from layers import EncoderRNN, DecoderRNN
 from logger import LOGGER
 
 
 # Learning rate decay
+from predict import predict_sentence
+
+
 def lr_decay_step(lr, model, factor=0.1, weight_decay=0.0):
     """Learning rate decay step
 
@@ -32,65 +37,15 @@ def lr_decay_step(lr, model, factor=0.1, weight_decay=0.0):
     return lr, optimizer
 
 
-def predict(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset, device=torch.device("cpu"),
-            max_lemma_len=20, max_morph_features_len=10):
-    """
-
-    Args:
-        surface_words (list): List of tokens (str)
-        encoder (`layers.EncoderRNN`): Encoder RNN
-        decoder_lemma (`layers.DecoderRNN`): Lemma Decoder
-        decoder_morph_tags (`layers.DecoderRNN`): Morphological Features Decoder
-        dataset (`torch.utils.data.Dataset`): Train Dataset. Required for vocab etc.
-        device (`torch.device`): Default is cpu
-        max_lemma_len (int): Maximum length of lemmas
-        max_morph_features_len (int): Maximum length of morphological features
-
-    Returns:
-        str: Predicted conll sentence
-    """
-
-    if len(surface_words) == 0:
-        return ""
-
-    max_token_len = max([len(surface) for surface in surface_words])+1
-
-    encoded_surfaces = torch.zeros((len(surface_words), max_token_len), dtype=torch.long)
-    for ix, surface in enumerate(surface_words):
-        encoded_surface = dataset.encode(surface, dataset.surface_char2id)
-        encoded_surfaces[ix, :encoded_surface.size()[0]] = encoded_surface
-
-    encoded_surfaces = encoded_surfaces.to(device)
-
-    # Run encoder
-    word_representations, context_aware_representations = encoder(encoded_surfaces.view(1, *encoded_surfaces.size()))
-
-    # Run lemma decoder for each word
-    lemmas = []
-    words_count = context_aware_representations.size(0)
-    for i in range(words_count):
-        _, lemma = decoder_lemma.predict(word_representations[i], context_aware_representations[i],
-                                         max_len=max_lemma_len, device=device)
-        lemmas.append(''.join(lemma))
-
-    # Run morph features decoder for each word
-    morph_features = []
-    for i in range(words_count):
-        _, morph_feature = decoder_morph_tags.predict(word_representations[i], context_aware_representations[i],
-                                                      max_len=max_morph_features_len, device=device)
-        morph_features.append(';'.join(morph_feature))
-
-    conll_sentence = "# Sentence\n"
-    for i, (surface, lemma, morph_feature) in enumerate(zip(surface_words, lemmas, morph_features)):
-        conll_sentence += "{}\t{}\t{}\t_\t_\t{}\t_\t_\t_\t_\n".format(i+1, surface, lemma, morph_feature)
-    return conll_sentence
-
-
 def train():
     # Select cuda as device if available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # device = torch.device('cpu')
     LOGGER.info("Using {} as default device".format(device))
+
+    only_pivot_languages = True
+    model_name = 'standard_morphnet'
+    # model_name = datetime.datetime.now().strftime('%Y-%m-%D')
 
     max_words = 50
 
@@ -114,6 +69,11 @@ def train():
 
     # Iterate over languages
     for language_path, language_name in zip(language_paths, language_names):
+
+        # Skip langauges not in pilot languages array (if only_pivot_languages is True)
+        if only_pivot_languages and language_name not in PILOT_LANGUAGES:
+            continue
+
         # Read dataset for language
         LOGGER.info('Reading files for language: {}'.format(language_name))
         language_conll_files = os.listdir(language_path)
@@ -145,6 +105,7 @@ def train():
         LOGGER.info('Building models for language: {}'.format(language_name))
         encoder = EncoderRNN(embedding_size, char_gru_hidden_size, word_gru_hidden_size,
                              len(train_set.surface_char2id), dropout_ratio=encoder_dropout, device=device)
+
         encoder = encoder.to(device)
 
         decoder_lemma = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.lemma_char2id,
@@ -164,14 +125,14 @@ def train():
         decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(), lr=decoder_lemma_lr)
         decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(), lr=decoder_morph_lr)
 
-        encoder_scheduler = MultiStepLR(encoder_optimizer, milestones=[5, 10, 20, 30, 50, 80],
-                                        gamma=0.2)
+        encoder_scheduler = MultiStepLR(encoder_optimizer, milestones=[i for i in range(5, 100, 3)],
+                                        gamma=0.5)
         decoder_lemma_scheduler = MultiStepLR(decoder_lemma_optimizer,
-                                              milestones=[5, 10, 20, 30, 50, 80],
-                                              gamma=0.2)
+                                              milestones=[i for i in range(5, 100, 3)],
+                                              gamma=0.5)
         decoder_morph_tags_scheduler = MultiStepLR(decoder_morph_tags_optimizer,
-                                                   milestones=[5, 10, 20, 30, 50, 80],
-                                                   gamma=0.2)
+                                                   milestones=[i for i in range(5, 100, 3)],
+                                                   gamma=0.5)
         prev_val_loss = 1000000
         num_epochs_wo_improvement = 0
 
@@ -293,11 +254,11 @@ def train():
         decoder_lemma.eval()
         decoder_morph_tags.eval()
         # Make predictions and save to file
-        prediction_file = train_data_path.replace('train', 'predictions')
+        prediction_file = train_data_path.replace('train', 'predictions-{}'.format(model_name))
         with open(prediction_file, 'w', encoding='UTF-8') as f:
             for sentence in val_data_surface_words:
-                conll_sentence = predict(sentence, encoder, decoder_lemma, decoder_morph_tags,
-                                         train_set, device=device)
+                conll_sentence = predict_sentence(sentence, encoder, decoder_lemma, decoder_morph_tags,
+                                                  train_set, device=device)
                 f.write(conll_sentence)
                 f.write('\n')
 
@@ -319,10 +280,10 @@ def train():
 
         # save models
         LOGGER.info('Saving models...')
-        torch.save(encoder.state_dict(), train_data_path.replace('train', 'encoder').replace('conllu', 'model'))
-        torch.save(decoder_lemma.state_dict(), train_data_path.replace('train', 'decoder_lemma').replace('conllu', 'model'))
-        torch.save(decoder_morph_tags.state_dict(), train_data_path.replace('train', 'decoder_morph').replace('conllu', 'model'))
-        with open(train_data_path.replace('-train', '').replace('conllu', 'dataset'), 'wb') as f:
+        torch.save(encoder.state_dict(), train_data_path.replace('train', 'encoder').replace('conllu', '{}.model'.format(model_name)))
+        torch.save(decoder_lemma.state_dict(), train_data_path.replace('train', 'decoder_lemma').replace('conllu', '{}.model'.format(model_name)))
+        torch.save(decoder_morph_tags.state_dict(), train_data_path.replace('train', 'decoder_morph').replace('conllu', '{}.model'.format(model_name)))
+        with open(train_data_path.replace('-train', '').replace('conllu', '{}.dataset'.format(model_name)), 'wb') as f:
             pickle.dump(train_set, f)
 
 if __name__ == '__main__':

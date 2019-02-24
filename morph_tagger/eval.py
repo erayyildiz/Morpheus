@@ -4,22 +4,22 @@ Computes various metrics on input.
 """
 
 import argparse
-import contextlib
-import io
 import logging
-import sys
-
+import os
 import numpy as np
 
-from collections import Counter, namedtuple
+from collections import namedtuple
 from pathlib import Path
+
+from languages import LANGUAGES
+from logger import LOGGER
+import pandas as pd
 
 log = logging.getLogger(Path(__file__).stem)
 
-
 COLUMNS = "ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC".split()
 ConlluRow = namedtuple("ConlluRow", COLUMNS)
-SEPARATOR = "|"
+SEPARATOR = ";"
 
 
 def distance(str1, str2):
@@ -81,7 +81,7 @@ def manipulate_data(pairs):
     f1_recall = f1_recall_scores / (f1_recall_counts or 1)
     f1 = 2 * (f1_precision * f1_recall) / (f1_precision + f1_recall + 1E-20)
 
-    return 100 * lemma_acc / count, lemma_lev / count, 100 * morph_acc / count, 100 * f1
+    return (100 * lemma_acc / count, lemma_lev / count, 100 * morph_acc / count, 100 * f1)
 
 
 def parse_args():
@@ -122,13 +122,51 @@ def input_pairs(reference, output):
             yield r_conllu, o_conllu
 
 
+def evaluate(language_name, language_path):
+    LOGGER.info('Reading files for language: {}'.format(language_name))
+    language_conll_files = os.listdir(language_path)
+
+    for language_conll_file in language_conll_files:
+        if 'dev.' in language_conll_file:
+            val_data_path = language_path + '/' + language_conll_file
+            prediction_file = val_data_path.replace('dev', 'predictions')
+            reference = read_conllu(val_data_path)
+            output = read_conllu(prediction_file)
+            cur_results = manipulate_data(input_pairs(reference, output))
+
+            LOGGER.info('Evaluation completed')
+            LOGGER.info('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*cur_results))
+
+            return {
+                'Language': language_name,
+                'Language Code': LANGUAGES[language_name][0],
+                'Baseline Lemma Acc': float(LANGUAGES[language_name][1]),
+                'Baseline Lemma Lev. Dist': float(LANGUAGES[language_name][2]),
+                'Baseline Morph Acc': float(LANGUAGES[language_name][3]),
+                'Baseline Morph F1': float(LANGUAGES[language_name][4]),
+                'Lemma Acc': cur_results[0],
+                'Lemma Lev. Dist': cur_results[1],
+                'Morph Acc': cur_results[2],
+                'Morph F1': cur_results[3],
+            }
+
+
 def main():
-    args = parse_args()
-    logging.basicConfig(level=args.verbose)
-    reference = read_conllu(args.reference)
-    output = read_conllu(args.output)
-    results = manipulate_data(input_pairs(reference, output))
-    print(*["{0:.2f}".format(v) for v in results], sep='\t')
+    data_path = '../data/2019/task2/'
+    language_paths = [data_path + filename for filename in os.listdir(data_path)]
+    language_names = [filename.replace('UD_', '') for filename in os.listdir(data_path)]
+
+    results = []
+
+    for language_path, language_name in zip(language_paths, language_names):
+        results.append(evaluate(language_name, language_path))
+
+    LOGGER.info('Writing results to file...')
+    df = pd.DataFrame(results, columns=['Language Code', 'Language', 'Baseline Lemma Acc',
+                                        'Baseline Lemma Lev. Dist', 'Baseline Morph Acc', 'Baseline Morph F1',
+                                        'Lemma Acc', 'Lemma Lev. Dist', 'Morph Acc', 'Morph F1'],
+                      index=None)
+    df.to_excel('Results.xlsx')
 
 if __name__ == "__main__":
     main()
