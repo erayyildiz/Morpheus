@@ -3,25 +3,17 @@ import pickle
 import torch
 import os
 
+from tqdm import tqdm
+
 from data_utils import read_surfaces
 from layers import EncoderRNN, DecoderRNN
 from logger import LOGGER
-
-# Encoder hyper-parmeters
-embedding_size = 64
-char_gru_hidden_size = 512
-word_gru_hidden_size = 512
-encoder_dropout = 0.2
-
-# Decoder hyper-parmeters
-output_embedding_size = 256
-decoder_dropout = 0.2
-
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+from train import embedding_size, char_gru_hidden_size, word_gru_hidden_size, encoder_dropout, device, \
+    output_embedding_size, decoder_dropout
 
 
 def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset, device=torch.device("cpu"),
-            max_lemma_len=20, max_morph_features_len=10):
+                     max_lemma_len=20, max_morph_features_len=10):
     """
 
     Args:
@@ -58,6 +50,7 @@ def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, 
     words_count = context_aware_representations.size(0)
     for i in range(words_count):
         _, lemma = decoder_lemma.predict(word_representations[i], context_aware_representations[i],
+                                         # len(surface_words[i]),
                                          max_len=max_lemma_len, device=device)
         lemmas.append(''.join(lemma))
 
@@ -82,10 +75,12 @@ def predict(language_path, model_name, conll_file):
             # LOAD DATASET
             LOGGER.info('Loading dataset...')
             train_data_path = language_path + '/' + language_conll_file
-            train_set = None
             with open(train_data_path.replace('-train', '').replace('conllu', '{}.dataset'.format(model_name)), 'rb') as f:
                 train_set = pickle.load(f)
-            data_surface_words = read_surfaces(language_path + '/' + conll_file)
+            if language_path in conll_file:
+                data_surface_words = read_surfaces(conll_file)
+            else:
+                data_surface_words = read_surfaces(language_path + '/' + conll_file)
 
             # LOAD ENCODER MODEL
             LOGGER.info('Loading Encoder...')
@@ -107,7 +102,7 @@ def predict(language_path, model_name, conll_file):
 
             # LOAD MORPH DECODER MODEL
             LOGGER.info('Loading Morph Decoder...')
-            decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.lemma_char2id,
+            decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.morph_tag2id,
                                             dropout_ratio=decoder_dropout).to(device)
             decoder_morph_tags.load_state_dict(torch.load(
                 train_data_path.replace('train', 'decoder_morph').replace('conllu', '{}.model'.format(model_name))
@@ -121,7 +116,7 @@ def predict(language_path, model_name, conll_file):
             # Make predictions and save to file
             prediction_file = train_data_path.replace('train', 'predictions-{}'.format(model_name))
             with open(prediction_file, 'w', encoding='UTF-8') as f:
-                for sentence in data_surface_words:
+                for sentence in tqdm(data_surface_words):
                     conll_sentence = predict_sentence(sentence, encoder, decoder_lemma, decoder_morph_tags,
                                                       train_set, device=device)
                     f.write(conll_sentence)

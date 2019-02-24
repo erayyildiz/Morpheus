@@ -1,5 +1,3 @@
-# Max sentence length
-import datetime
 import os
 import pickle
 
@@ -10,15 +8,33 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 from data_loaders import ConllDataset
-from data_utils import read_surfaces
-from eval import read_conllu, manipulate_data, input_pairs
+from eval import evaluate
 from languages import PILOT_LANGUAGES
 from layers import EncoderRNN, DecoderRNN
 from logger import LOGGER
 
 
-# Learning rate decay
-from predict import predict_sentence
+# Encoder hyper-parmeters
+embedding_size = 256
+char_gru_hidden_size = 2048
+word_gru_hidden_size = 2048
+encoder_dropout = 0.2
+
+# Decoder hyper-parmeters
+output_embedding_size = 512
+decoder_dropout = 0.2
+
+only_pivot_languages = True
+model_name = 'standard_morphnet'
+
+# Number of epochs
+num_epochs = 100
+patience = 4
+
+# Select cuda as device if available
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# device = torch.device('cpu')
+LOGGER.info("Using {} as default device".format(device))
 
 
 def lr_decay_step(lr, model, factor=0.1, weight_decay=0.0):
@@ -38,41 +54,20 @@ def lr_decay_step(lr, model, factor=0.1, weight_decay=0.0):
 
 
 def train():
-    # Select cuda as device if available
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    # device = torch.device('cpu')
-    LOGGER.info("Using {} as default device".format(device))
-
-    only_pivot_languages = True
-    model_name = 'standard_morphnet'
-    # model_name = datetime.datetime.now().strftime('%Y-%m-%D')
-
     max_words = 50
-
-    # Number of epochs
-    num_epochs = 100
-    patience = 4
-
-    # Encoder hyper-parmeters
-    embedding_size = 64
-    char_gru_hidden_size = 512
-    word_gru_hidden_size = 512
-    encoder_dropout = 0.2
-
-    # Decoder hyper-parmeters
-    output_embedding_size = 256
-    decoder_dropout = 0.2
 
     data_path = '../data/2019/task2/'
     language_paths = [data_path + filename for filename in os.listdir(data_path)]
     language_names = [filename.replace('UD_', '') for filename in os.listdir(data_path)]
 
     # Iterate over languages
-    for language_path, language_name in zip(language_paths, language_names):
+    for language_ix, (language_path, language_name) in enumerate(zip(language_paths, language_names)):
 
         # Skip langauges not in pilot languages array (if only_pivot_languages is True)
         if only_pivot_languages and language_name not in PILOT_LANGUAGES:
             continue
+
+        LOGGER.info('{}th LANGUAGE: {}'.format(language_ix, language_name))
 
         # Read dataset for language
         LOGGER.info('Reading files for language: {}'.format(language_name))
@@ -98,7 +93,6 @@ def train():
         val_set = ConllDataset(val_data_path, surface_char2id=train_set.surface_char2id,
                                lemma_char2id=train_set.lemma_char2id, morph_tag2id=train_set.morph_tag2id, mode='test')
         val_loader = DataLoader(val_set)
-        val_data_surface_words = read_surfaces(val_data_path)
 
         # Build Models
         # Initialize encoder and decoders
@@ -118,21 +112,17 @@ def train():
         criterion = nn.CrossEntropyLoss(ignore_index=0).to(device)
 
         # Create optimizers
-        encoder_lr = 0.0003
-        decoder_lemma_lr = 0.0003
-        decoder_morph_lr = 0.0003
+        encoder_lr = 0.0001
+        decoder_lemma_lr = 0.0001
+        decoder_morph_lr = 0.0001
         encoder_optimizer = torch.optim.Adam(encoder.parameters(), lr=encoder_lr)
         decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(), lr=decoder_lemma_lr)
         decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(), lr=decoder_morph_lr)
 
-        encoder_scheduler = MultiStepLR(encoder_optimizer, milestones=[i for i in range(5, 100, 3)],
-                                        gamma=0.5)
-        decoder_lemma_scheduler = MultiStepLR(decoder_lemma_optimizer,
-                                              milestones=[i for i in range(5, 100, 3)],
-                                              gamma=0.5)
-        decoder_morph_tags_scheduler = MultiStepLR(decoder_morph_tags_optimizer,
-                                                   milestones=[i for i in range(5, 100, 3)],
-                                                   gamma=0.5)
+        encoder_scheduler = MultiStepLR(encoder_optimizer, milestones=list(range(5, 100, 1)), gamma=0.5)
+        decoder_lemma_scheduler = MultiStepLR(decoder_lemma_optimizer, milestones=list(range(5, 100, 1)), gamma=0.5)
+        decoder_morph_tags_scheduler = MultiStepLR(decoder_morph_tags_optimizer, milestones=list(range(5, 100, 1)), gamma=0.5)
+
         prev_val_loss = 1000000
         num_epochs_wo_improvement = 0
 
@@ -246,45 +236,34 @@ def train():
                     break
             else:
                 num_epochs_wo_improvement = 0
+                prev_val_loss = val_loss
 
-            prev_val_loss = val_loss
+                # save models
+                LOGGER.info('Acc Increased, Saving models...')
+                torch.save(encoder.state_dict(),
+                           train_data_path.replace('train', 'encoder').replace('conllu', '{}.model'.format(model_name)))
+                torch.save(decoder_lemma.state_dict(),
+                           train_data_path.replace('train', 'decoder_lemma').replace('conllu',
+                                                                                     '{}.model'.format(model_name)))
+                torch.save(decoder_morph_tags.state_dict(),
+                           train_data_path.replace('train', 'decoder_morph').replace('conllu',
+                                                                                     '{}.model'.format(model_name)))
+                with open(train_data_path.replace('-train', '').replace('conllu', '{}.dataset'.format(model_name)),
+                          'wb') as f:
+                    pickle.dump(train_set, f)
 
-        LOGGER.info('Prediction over validation data...')
-        encoder.eval()
-        decoder_lemma.eval()
-        decoder_morph_tags.eval()
+
+
         # Make predictions and save to file
-        prediction_file = train_data_path.replace('train', 'predictions-{}'.format(model_name))
-        with open(prediction_file, 'w', encoding='UTF-8') as f:
-            for sentence in val_data_surface_words:
-                conll_sentence = predict_sentence(sentence, encoder, decoder_lemma, decoder_morph_tags,
-                                                  train_set, device=device)
-                f.write(conll_sentence)
-                f.write('\n')
-
-        # Evaluate
-        LOGGER.info('Evaluating...')
-        reference = read_conllu(val_data_path)
-        output = read_conllu(prediction_file)
-        results = manipulate_data(input_pairs(reference, output))
+        LOGGER.info('Training completed')
+        LOGGER.info('Evaluation...')
+        from predict import predict
+        predict(language_path, model_name, val_data_path)
+        eval_results = evaluate(language_name, language_path, model_name=model_name)
 
         LOGGER.info('Evaluation completed')
-        LOGGER.info('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*results))
-
-        LOGGER.info('Writing results to file...')
-        # save results
-        with open('results.txt', 'a', encoding='UTF-8') as f:
-            f.write('Language: {}, Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} \n'.format(
-                language_name, *results
-            ))
-
-        # save models
-        LOGGER.info('Saving models...')
-        torch.save(encoder.state_dict(), train_data_path.replace('train', 'encoder').replace('conllu', '{}.model'.format(model_name)))
-        torch.save(decoder_lemma.state_dict(), train_data_path.replace('train', 'decoder_lemma').replace('conllu', '{}.model'.format(model_name)))
-        torch.save(decoder_morph_tags.state_dict(), train_data_path.replace('train', 'decoder_morph').replace('conllu', '{}.model'.format(model_name)))
-        with open(train_data_path.replace('-train', '').replace('conllu', '{}.dataset'.format(model_name)), 'wb') as f:
-            pickle.dump(train_set, f)
+        for k, v in eval_results.items():
+            print('{}: {}'.format(k, v))
 
 if __name__ == '__main__':
     train()

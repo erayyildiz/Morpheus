@@ -1,3 +1,6 @@
+from collections import namedtuple
+from operator import attrgetter
+
 import torch
 import torch.nn as nn
 from tqdm import tqdm
@@ -122,6 +125,7 @@ class DecoderRNN(nn.Module):
         self.classifier = nn.Linear(hidden_size, len(vocab))
         self.dropout = nn.Dropout(p=dropout_ratio)
         self.relu = nn.ReLU()
+        self.softmax = nn.Softmax(dim=1)
 
     def forward(self, word_embeddings, context_vectors, y):
         """Forward pass of DecoderRNN
@@ -197,12 +201,73 @@ class DecoderRNN(nn.Module):
 
         return scores, predictions
 
+    def predict_beam(self, word_embedding, context_vector, surface_len, beam_size=2, max_len=50, device=torch.device('cpu')):
+        """Forward pass of DecoderRNN using beam search for prediction only
+
+        The loop for gru is stopped as soon as the end of sentence tag is produced twice.
+        The first end of sentence tag indicates the end of the root while the second one indicates the end of tags
+
+        Args:
+            word_embedding (`torch.tensor`): word representation (outputs of char GRU
+            context_vector (`torch.tensor`): Context-aware representation of a word
+            max_len (int): Maximum length of produced analysis (Defaault: 50)
+            device (`torch.device`): gpu or cpu
+
+        Returns:
+            tuple: (scores:`torch.tensor`, predictions:list)
+
+        """
+
+        State = namedtuple('State', ['prediction', 'score', 'normalized_score', 'last_output', 'hidden'])
+
+        # Initilize gru hidden units with context vector (encoder output)
+        context_vector = context_vector.view(1, *context_vector.size())
+        context_vector = self.relu(self.W(context_vector).view(1, 1, self.hidden_size))
+        word_embedding = word_embedding.view(1, 1, self.hidden_size)
+        hidden = torch.cat([context_vector, word_embedding], 0)
+
+        states = [State('', 1.0, 1.0, torch.LongTensor(1).fill_(2).to(device), hidden)]
+        completed_states = []
+
+        while states:
+            new_states = []
+            while states:
+                state = states.pop(0)
+                if len(state.prediction) >= surface_len+2:
+                    continue
+                embedded = self.embedding(state.last_output).view(1, 1, -1)
+                gru_outputs, _hidden = self.gru(embedded, state.hidden)
+                scores = self.classifier(gru_outputs[0])
+                scores = self.softmax(scores)
+                scores, indices = scores.topk(beam_size)
+                for ix, score in zip(indices[0], scores[0]):
+                    predicted_token = ix.squeeze().detach().to(device)
+                    _score = state.score * score
+
+                    if predicted_token.item() == 1:
+                        _prediction = state.prediction
+                        prediction_len = len(_prediction) + 1.0
+                        _normalized_score = (_score / ((5.0 + prediction_len) / 6.0)) * (surface_len / prediction_len)
+                    else:
+                        _prediction = state.prediction + self.index2token[predicted_token.item()]
+                        _normalized_score = _score / ((5.0 + len(_prediction)) / 6.0)
+
+                    new_state = State(_prediction, _score, _normalized_score, predicted_token, _hidden)
+
+                    if predicted_token.item() == 1:
+                        completed_states.append(new_state)
+                    else:
+                        new_states.append(new_state)
+
+            states = sorted(new_states, key=attrgetter('normalized_score'), reverse=True)[:beam_size]
+        return sorted(completed_states, key=attrgetter('normalized_score'), reverse=True)[0].prediction
+
 
 def test_encoder_decoder():
     train_data_path = '../data/2019/task2/UD_Afrikaans-AfriBooms/af_afribooms-um-train.conllu'
     from data_loaders import ConllDataset
     from torch.utils.data import DataLoader
-    from train import predict
+    from predict import predict_sentence
 
     train_set = ConllDataset(train_data_path, max_sentences=1)
     train_loader = DataLoader(train_set)
@@ -256,7 +321,7 @@ def test_encoder_decoder():
     # Make predictions and save to file
     for sentence in train_set.sentences:
         surface_words = [surface_word for surface_word in sentence.surface_words]
-        conll_sentence = predict(surface_words, encoder, decoder_lemma, decoder_morph_tags, train_set)
+        conll_sentence = predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, train_set)
         print(conll_sentence)
 
 if __name__ == '__main__':

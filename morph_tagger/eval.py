@@ -122,14 +122,17 @@ def input_pairs(reference, output):
             yield r_conllu, o_conllu
 
 
-def evaluate(language_name, language_path):
+def evaluate(language_name, language_path, model_name=None):
     LOGGER.info('Reading files for language: {}'.format(language_name))
     language_conll_files = os.listdir(language_path)
 
     for language_conll_file in language_conll_files:
         if 'dev.' in language_conll_file:
             val_data_path = language_path + '/' + language_conll_file
-            prediction_file = val_data_path.replace('dev', 'predictions')
+            if model_name:
+                prediction_file = val_data_path.replace('dev', 'predictions-{}'.format(model_name))
+            else:
+                prediction_file = val_data_path.replace('dev', 'predictions')
             reference = read_conllu(val_data_path)
             output = read_conllu(prediction_file)
             cur_results = manipulate_data(input_pairs(reference, output))
@@ -151,7 +154,7 @@ def evaluate(language_name, language_path):
             }
 
 
-def main():
+def evaluate_all(model_name=None):
     data_path = '../data/2019/task2/'
     language_paths = [data_path + filename for filename in os.listdir(data_path)]
     language_names = [filename.replace('UD_', '') for filename in os.listdir(data_path)]
@@ -159,7 +162,7 @@ def main():
     results = []
 
     for language_path, language_name in zip(language_paths, language_names):
-        results.append(evaluate(language_name, language_path))
+        results.append(evaluate(language_name, language_path, model_name=model_name))
 
     LOGGER.info('Writing results to file...')
     df = pd.DataFrame(results, columns=['Language Code', 'Language', 'Baseline Lemma Acc',
@@ -169,4 +172,5 @@ def main():
     df.to_excel('Results.xlsx')
 
 if __name__ == "__main__":
-    main()
+    # evaluate_all()
+    evaluate('Turkish-PUD', '../data/2019/task2/UD_Turkish-PUD', model_name='standard_morphnet')
