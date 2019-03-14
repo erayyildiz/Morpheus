@@ -10,7 +10,7 @@ from tqdm import tqdm
 from data_loaders import ConllDataset
 from eval import evaluate
 from languages import PILOT_LANGUAGES
-from layers import EncoderRNN, DecoderRNN
+from layers import EncoderRNN, DecoderRNN, TransformerRNN
 from logger import LOGGER
 
 
@@ -25,10 +25,11 @@ output_embedding_size = 512
 decoder_dropout = 0.2
 
 only_pivot_languages = True
-model_name = 'standard_morphnet'
+model_name = 'LemmaTransformer'
 
 # Number of epochs
 num_epochs = 100
+max_sentences = 0
 patience = 4
 
 # Select cuda as device if available
@@ -86,12 +87,14 @@ def train():
         assert val_data_path, 'Validation data not found'
 
         # Load train set
-        train_set = ConllDataset(train_data_path)
+        train_set = ConllDataset(train_data_path, max_sentences=max_sentences)
         train_loader = DataLoader(train_set)
 
         # Load validation data
         val_set = ConllDataset(val_data_path, surface_char2id=train_set.surface_char2id,
-                               lemma_char2id=train_set.lemma_char2id, morph_tag2id=train_set.morph_tag2id, mode='test')
+                               lemma_char2id=train_set.lemma_char2id, morph_tag2id=train_set.morph_tag2id,
+                               transformation2id=train_set.transformation2id,
+                               mode='test', max_sentences=max_sentences)
         val_loader = DataLoader(val_set)
 
         # Build Models
@@ -102,8 +105,8 @@ def train():
 
         encoder = encoder.to(device)
 
-        decoder_lemma = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.lemma_char2id,
-                                   dropout_ratio=decoder_dropout).to(device)
+        decoder_lemma = TransformerRNN(output_embedding_size, word_gru_hidden_size, train_set.transformation2id,
+                                       len(train_set.surface_char2id), dropout_ratio=decoder_dropout).to(device)
 
         decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.morph_tag2id,
                                         dropout_ratio=decoder_dropout).to(device)
@@ -147,7 +150,7 @@ def train():
             decoder_lemma_scheduler.step()
             decoder_morph_tags_scheduler.step()
 
-            for x, y1, y2 in tqdm(train_loader, desc='Training'):
+            for x, y1, y2, y3 in tqdm(train_loader, desc='Training'):
                 # Skip sentences longer than max_words
                 if x.size(1) > max_words:
                     continue
@@ -159,63 +162,74 @@ def train():
 
                 # Send input to the device
                 x = x.to(device)
-                y1 = y1.to(device)
+                # y1 = y1.to(device)
                 y2 = y2.to(device)
+                y3 = y3.to(device)
 
                 # Run encoder
                 word_embeddings, context_embeddings = encoder(x)
 
-                # Run decoder for each word
+                # Run morph decoder for each word
                 sentence_loss = 0.0
+                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings, y2[0, :, :-1])
+                word_count = word_embeddings.size(0)
+                for word_ix in range(word_count):
+                    sentence_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
 
-                for j, (_y, decoder) in enumerate(zip([y1, y2], [decoder_lemma, decoder_morph_tags])):
-                    decoder_outputs = decoder(word_embeddings, context_embeddings, _y[0, :, :-1])
-                    word_count = word_embeddings.size(0)
-                    for word_ix in range(word_count):
-                        sentence_loss += criterion(decoder_outputs[word_ix], _y[0, word_ix, 1:])
+                sentence_loss.backward(retain_graph=True)
+                total_train_loss += sentence_loss.item() / (word_count * 2.0)
+                morph_loss += sentence_loss.item() / (word_count * 1.0)
 
-                    sentence_loss.backward(retain_graph=True)
+                lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, x)
+                word_count = word_embeddings.size(0)
+                for word_ix in range(word_count):
+                    sentence_loss += criterion(lemma_decoder_outputs[word_ix], y3[0, word_ix, :])
 
-                    # Optimization
-                    encoder_optimizer.step()
-                    decoder_lemma_optimizer.step()
-                    decoder_morph_tags_optimizer.step()
-                    total_train_loss += sentence_loss.item() / (word_count * 2.0)
-                    if j == 0:
-                        lemma_loss += sentence_loss.item() / (word_count * 1.0)
-                    else:
-                        morph_loss += sentence_loss.item() / (word_count * 1.0)
+                sentence_loss.backward(retain_graph=True)
+                total_train_loss += sentence_loss.item() / (word_count * 2.0)
+                lemma_loss += sentence_loss.item() / (word_count * 1.0)
+
+                encoder_optimizer.step()
+                decoder_lemma_optimizer.step()
+                decoder_morph_tags_optimizer.step()
+
 
             encoder.eval()
             decoder_lemma.eval()
             decoder_morph_tags.eval()
-            for x, y1, y2 in tqdm(val_loader, desc='Validation'):
+            for x, y1, y2, y3 in tqdm(val_loader, desc='Validation'):
                 # Skip sentences longer than max_words
                 if x.size(1) > max_words:
                     continue
 
                 # Send input to the device
                 x = x.to(device)
-                y1 = y1.to(device)
+                # y1 = y1.to(device)
                 y2 = y2.to(device)
+                y3 = y3.to(device)
 
                 # Run encoder
                 word_embeddings, context_embeddings = encoder(x)
 
-                # Run decoder for each word
+                # Run morph decoder
                 sentence_loss = 0.0
+                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings, y2[0, :, :-1])
+                word_count = word_embeddings.size(0)
+                for word_ix in range(word_count):
+                    sentence_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
 
-                for j, (_y, decoder) in enumerate(zip([y1, y2], [decoder_lemma, decoder_morph_tags])):
-                    decoder_outputs = decoder(word_embeddings, context_embeddings, _y[0, :, :-1])
-                    word_count = word_embeddings.size(0)
-                    for word_ix in range(word_count):
-                        sentence_loss += criterion(decoder_outputs[word_ix], _y[0, word_ix, 1:])
+                val_loss += sentence_loss.item() / (word_count * 2.0)
+                val_morph_loss += sentence_loss.item() / (word_count * 1.0)
 
-                    val_loss += sentence_loss.item() / (word_count * 2.0)
-                    if j == 0:
-                        val_lemma_loss += sentence_loss.item() / (word_count * 1.0)
-                    else:
-                        val_morph_loss += sentence_loss.item() / (word_count * 1.0)
+                # Run lemma decoder
+                sentence_loss = 0.0
+                lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, x)
+                word_count = word_embeddings.size(0)
+                for word_ix in range(word_count):
+                    sentence_loss += criterion(lemma_decoder_outputs[word_ix], y3[0, word_ix, :])
+
+                val_loss += sentence_loss.item() / (word_count * 2.0)
+                val_lemma_loss += sentence_loss.item() / (word_count * 1.0)
 
             LOGGER.info('Epoch {0:3d}, Loss: {1:7.3f}, Lemma Loss: {2:7.3f}, Morph Loss: {3:7.3f}'.format(
                 epoch,
@@ -251,8 +265,6 @@ def train():
                 with open(train_data_path.replace('-train', '').replace('conllu', '{}.dataset'.format(model_name)),
                           'wb') as f:
                     pickle.dump(train_set, f)
-
-
 
         # Make predictions and save to file
         LOGGER.info('Training completed')

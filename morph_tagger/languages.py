@@ -1,6 +1,11 @@
-PILOT_LANGUAGES = ('Turkish-PUD',)
+# PILOT_LANGUAGES = ('Turkish-PUD',)
+# PILOT_LANGUAGES = ('Arabic-PUD',)
+PILOT_LANGUAGES = ('Finnish-PUD',)
 
 # PILOT_LANGUAGES = ('Arabic-PUD', 'English-PUD', 'Japanese-Modern', 'Finnish-PUD',
+#                    'Korean-PUD', 'Turkish-PUD', 'Chinese-GSD')
+
+# PILOT_LANGUAGES = ('English-PUD', 'Japanese-Modern', 'Finnish-PUD',
 #                    'Korean-PUD', 'Turkish-PUD', 'Chinese-GSD')
 
 LANGUAGES = {

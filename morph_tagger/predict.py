@@ -6,7 +6,7 @@ import os
 from tqdm import tqdm
 
 from data_utils import read_surfaces
-from layers import EncoderRNN, DecoderRNN
+from layers import EncoderRNN, DecoderRNN, TransformerRNN
 from logger import LOGGER
 from train import embedding_size, char_gru_hidden_size, word_gru_hidden_size, encoder_dropout, device, \
     output_embedding_size, decoder_dropout
@@ -19,7 +19,7 @@ def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, 
     Args:
         surface_words (list): List of tokens (str)
         encoder (`layers.EncoderRNN`): Encoder RNN
-        decoder_lemma (`layers.DecoderRNN`): Lemma Decoder
+        decoder_lemma (`layers.TransformerRNN`): Lemma Decoder
         decoder_morph_tags (`layers.DecoderRNN`): Morphological Features Decoder
         dataset (`torch.utils.data.Dataset`): Train Dataset. Required for vocab etc.
         device (`torch.device`): Default is cpu
@@ -46,13 +46,10 @@ def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, 
     word_representations, context_aware_representations = encoder(encoded_surfaces.view(1, *encoded_surfaces.size()))
 
     # Run lemma decoder for each word
-    lemmas = []
     words_count = context_aware_representations.size(0)
-    for i in range(words_count):
-        _, lemma = decoder_lemma.predict(word_representations[i], context_aware_representations[i],
-                                         # len(surface_words[i]),
-                                         max_len=max_lemma_len, device=device)
-        lemmas.append(''.join(lemma))
+
+    _, lemmas = decoder_lemma.predict(word_representations, context_aware_representations,
+                                      encoded_surfaces.view(1, *encoded_surfaces.size()), surface_words)
 
     # Run morph features decoder for each word
     morph_features = []
@@ -93,8 +90,8 @@ def predict(language_path, model_name, conll_file):
 
             # LOAD LEMMA DECODER MODEL
             LOGGER.info('Loading Lemma Decoder...')
-            decoder_lemma = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.lemma_char2id,
-                                       dropout_ratio=decoder_dropout).to(device)
+            decoder_lemma = TransformerRNN(output_embedding_size, word_gru_hidden_size, train_set.transformation2id,
+                                           len(train_set.surface_char2id), dropout_ratio=decoder_dropout).to(device)
             decoder_lemma.load_state_dict(torch.load(
                 train_data_path.replace('train', 'decoder_lemma').replace('conllu', '{}.model'.format(model_name))
             ))

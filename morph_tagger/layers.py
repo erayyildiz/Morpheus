@@ -5,6 +5,8 @@ import torch
 import torch.nn as nn
 from tqdm import tqdm
 
+from data_utils import inverse_transformation
+
 
 class EncoderRNN(nn.Module):
     """A bidirectional GRU as the context encoder.
@@ -261,6 +263,107 @@ class DecoderRNN(nn.Module):
 
             states = sorted(new_states, key=attrgetter('normalized_score'), reverse=True)[:beam_size]
         return sorted(completed_states, key=attrgetter('normalized_score'), reverse=True)[0].prediction
+
+
+class TransformerRNN(nn.Module):
+    """ The module generates transformations from surface words to lemmas (as Insert, Delete, Replace labels)
+
+    Inputs a context representation of a word and apply grus
+    to predict the transformations between the surface and root forms
+
+    """
+
+    def __init__(self, embedding_size, hidden_size, vocab, input_vocab_size, dropout_ratio=0):
+        """Initialize the decoder object
+
+        Args:
+            embedding_size (int): The dimension of embeddings
+                (output embeddings includes character for roots and tags for analyzes)
+            hidden_size (int): The number of units in gru
+            vocab (dict): Vocab dictionary where keys are either characters or tags and the values are integer
+            dropout_ratio(float): Dropout ratio, dropout applied to the outputs of both gru and embedding modules
+        """
+        super(TransformerRNN, self).__init__()
+
+        # Hyper parameters
+        self.hidden_size = hidden_size
+
+        # Vocab and inverse vocab to converts output indexes to characters and tags
+        self.vocab = vocab
+        self.index2transformation = {v: k for k, v in vocab.items()}
+        self.vocab_size = len(vocab)
+        self.input_vocab_size = input_vocab_size
+
+        # Layers
+        self.W = nn.Linear(2 * hidden_size, hidden_size)
+        self.embedding = nn.Embedding(self.input_vocab_size+1, embedding_size)
+        self.gru = nn.GRU(embedding_size, hidden_size, 2, batch_first=True)
+        self.classifier = nn.Linear(hidden_size, len(vocab))
+        self.dropout = nn.Dropout(p=dropout_ratio)
+        self.relu = nn.ReLU()
+        self.softmax = nn.Softmax(dim=2)
+
+    def forward(self, word_embeddings, context_vectors, x):
+        """Forward pass of DecoderRNN
+
+        Inputs a context-aware vector of a word and produces an analysis consists of root+tags
+
+        Args:
+            word_embeddings (`torch.tensor`): word representations (outputs of char GRU)
+            context_vectors (`torch.tensor`): Context-aware representations of a words
+            x (`torch.tensor`): input tensors (character of words)
+
+        Returns:
+            `torch.tensor`: scores in each time step
+        """
+
+        # Initilize gru hidden units with context vector (encoder output)
+        context_vectors = self.relu(self.W(context_vectors))
+        hidden = torch.cat([context_vectors.view(1, *context_vectors.size()),
+                            word_embeddings.view(1, *context_vectors.size())], 0)
+
+        embeddings = self.embedding(x.view(*x.shape[1:]))
+        embeddings = self.dropout(embeddings)
+        outputs, _ = self.gru(embeddings, hidden)
+        outputs = self.dropout(outputs)
+        outputs = self.classifier(outputs)
+
+        return outputs
+
+    def predict(self, word_embeddings, context_vectors, x, surfaces):
+        """Forward pass of DecoderRNN for prediction only
+
+        The loop for gru is stopped as soon as the end of sentence tag is produced twice.
+        The first end of sentence tag indicates the end of the root while the second one indicates the end of tags
+
+        Args:
+            word_embeddings (`torch.tensor`): word representations (outputs of char GRU)
+            context_vectors (`torch.tensor`): Context-aware representation of a word
+            x (`torch.tensor`): input tensors (character of words)
+            surfaces (list): List of surface words which will be transformed into lemma forms
+
+        Returns:
+            tuple: (scores:`torch.tensor`, predictions:list)
+
+        """
+
+        # Initilize gru hidden units with context vector (encoder output)
+        context_vectors = self.relu(self.W(context_vectors))
+        hidden = torch.cat([context_vectors.view(1, *context_vectors.size()),
+                            word_embeddings.view(1, *context_vectors.size())], 0)
+
+        embeddings = self.embedding(x.view(*x.shape[1:]))
+        embeddings = self.dropout(embeddings)
+        outputs, _ = self.gru(embeddings, hidden)
+        outputs = self.dropout(outputs)
+        outputs = self.classifier(outputs)
+
+        # Output shape (maximum length of a transformation, output size)
+        scores = self.softmax(outputs).to('cpu')
+        predictions = [[self.index2transformation[ix.item()] for ix in _scores] for _scores in torch.argmax(scores, 2)]
+        predictions = [inverse_transformation(surface, prediction[:len(surface)])
+                       for surface, prediction in zip(surfaces, predictions)]
+        return scores, predictions
 
 
 def test_encoder_decoder():

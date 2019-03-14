@@ -1,4 +1,51 @@
 from itertools import chain
+from Levenshtein.StringMatcher import editops
+
+
+def find_transformation(surface, lemma):
+    edits = editops(surface, lemma)
+    l = len(surface)
+    labels = ['same'] * l
+    diff = 0
+    for edit_type, source_ix, target_ix in edits:
+        if edit_type == 'delete':
+            labels[source_ix + diff] = edit_type
+        elif edit_type.startswith('replace'):
+            labels[source_ix + diff] = edit_type + '_' + lemma[target_ix]
+        elif edit_type.startswith('insert'):
+            if source_ix + diff < l:
+                labels[source_ix + diff] = 'replace' + '_' + lemma[target_ix] + surface[source_ix + diff]
+            elif labels[l - 1].startswith('replace'):
+                labels[-1] = labels[l - 1] + lemma[target_ix]
+            elif labels[l - 1].startswith('same'):
+                labels[-1] = 'replace' + '_' + lemma[target_ix] + surface[-1]
+            elif labels[l - 1].startswith('delete'):
+                labels[-1] = 'replace' + '_' + lemma[target_ix]
+
+        if edit_type == 'insert':
+            diff += 1
+
+    assert len(labels) == len(surface), 'Surface and transformation length are different'
+    return labels
+
+
+def inverse_transformation(surface, edits):
+    res = []
+    surface_ix = 0
+    for edit in edits:
+        ch = surface[surface_ix]
+        if edit == 'same':
+            res.append(ch)
+            surface_ix += 1
+        elif edit == 'delete':
+            surface_ix += 1
+            continue
+        elif edit.startswith('replace'):
+            replacement = edit.replace('replace_', '')
+            res.append(replacement)
+            surface_ix += 1
+
+    return ''.join(res)
 
 
 class Sentence(object):
@@ -15,6 +62,7 @@ class Sentence(object):
         self.surface_words = []
         self.lemmas = []
         self.morph_tags = []
+        self.transformations = []
 
         for conll_token in conll_sentence:
             if not conll_token or conll_token.startswith('#'):
@@ -22,6 +70,7 @@ class Sentence(object):
             _splits = conll_token.split('\t')
             self.surface_words.append(_splits[1])
             self.lemmas.append(_splits[2])
+            self.transformations.append(find_transformation(_splits[1], _splits[2]))
             self.morph_tags.append(_splits[5].split(';'))
 
     def get_tags_as_str(self):
