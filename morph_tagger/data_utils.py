@@ -4,26 +4,25 @@ from Levenshtein.StringMatcher import editops
 
 def find_transformation(surface, lemma):
     edits = editops(surface, lemma)
+    # print(edits)
     l = len(surface)
     labels = ['same'] * l
-    diff = 0
     for edit_type, source_ix, target_ix in edits:
-        if edit_type == 'delete':
-            labels[source_ix + diff] = edit_type
-        elif edit_type.startswith('replace'):
-            labels[source_ix + diff] = edit_type + '_' + lemma[target_ix]
-        elif edit_type.startswith('insert'):
-            if source_ix + diff < l:
-                labels[source_ix + diff] = 'replace' + '_' + lemma[target_ix] + surface[source_ix + diff]
-            elif labels[l - 1].startswith('replace'):
-                labels[-1] = labels[l - 1] + lemma[target_ix]
-            elif labels[l - 1].startswith('same'):
-                labels[-1] = 'replace' + '_' + lemma[target_ix] + surface[-1]
-            elif labels[l - 1].startswith('delete'):
-                labels[-1] = 'replace' + '_' + lemma[target_ix]
-
-        if edit_type == 'insert':
-            diff += 1
+        if labels[source_ix] == 'same':
+            if edit_type.startswith('insert'):
+                labels[source_ix] = 'insert_' + lemma[target_ix]
+            elif edit_type.startswith('replace'):
+                labels[source_ix] = 'replace_' + lemma[target_ix]
+            elif edit_type.startswith('delete'):
+                labels[source_ix] = 'delete'
+        elif labels[source_ix].startswith('insert') and edit_type.startswith('replace'):
+            labels[source_ix] = labels[source_ix].replace('insert', 'replace') + lemma[target_ix]
+        elif labels[source_ix].startswith('insert') or labels[source_ix].startswith('replace'):
+            labels[source_ix] = labels[source_ix] + lemma[target_ix]
+        else:
+            raise IOError('Invalid transformation! surfac:{}, lemma:{}, transformation:{}'.format(
+                surface, lemma, transformation)
+            )
 
     assert len(labels) == len(surface), 'Surface and transformation length are different'
     return labels
@@ -43,6 +42,12 @@ def inverse_transformation(surface, edits):
         elif edit.startswith('replace'):
             replacement = edit.replace('replace_', '')
             res.append(replacement)
+            surface_ix += 1
+        elif edit.startswith('insert'):
+            replacement = edit.replace('insert_', '')
+            res.append(replacement)
+            res.append(ch)
+
             surface_ix += 1
 
     return ''.join(res)
@@ -68,9 +73,11 @@ class Sentence(object):
             if not conll_token or conll_token.startswith('#'):
                 continue
             _splits = conll_token.split('\t')
-            self.surface_words.append(_splits[1])
+            self.surface_words.append(_splits[1] + '$')
             self.lemmas.append(_splits[2])
-            self.transformations.append(find_transformation(_splits[1], _splits[2]))
+            self.transformations.append(find_transformation(_splits[1] + '$', _splits[2]))
+            assert inverse_transformation(_splits[1] + '$', self.transformations[-1]) == _splits[2], \
+                'Transformation incorrect: {} - {} - {}'.format(_splits[1], _splits[2], self.transformations[-1])
             self.morph_tags.append(_splits[5].split(';'))
 
     def get_tags_as_str(self):

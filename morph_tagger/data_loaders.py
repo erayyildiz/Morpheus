@@ -92,7 +92,7 @@ class ConllDataset(Dataset):
             self.morph_tag2id[tag] = len(self.morph_tag2id)
 
         print('Surface Chars={}, Lemma Chars={}, Transformations={}, tags={}'.format(
-            len(self.surface_char2id[ch]), len(self.lemma_char2id), len(self.transformation2id), len(self.morph_tag2id)
+            len(self.surface_char2id), len(self.lemma_char2id), len(self.transformation2id), len(self.morph_tag2id)
         ))
 
 

@@ -1,6 +1,7 @@
 # PILOT_LANGUAGES = ('Turkish-PUD',)
 # PILOT_LANGUAGES = ('Arabic-PUD',)
-PILOT_LANGUAGES = ('Finnish-PUD',)
+# PILOT_LANGUAGES = ('Finnish-PUD',)
+PILOT_LANGUAGES = ('Basque-BDT',)
 
 # PILOT_LANGUAGES = ('Arabic-PUD', 'English-PUD', 'Japanese-Modern', 'Finnish-PUD',
 #                    'Korean-PUD', 'Turkish-PUD', 'Chinese-GSD')
@@ -12,8 +13,8 @@ LANGUAGES = {
     'Afrikaans-AfriBooms': ['af_afribooms', '98.64', '0.05', '75.61', '80.05'],
     'Akkadian-PISANDUB': ['akk_pisandub', '65.33', '0.98', '84.00', '84.19'],
     'Amharic-ATT': ['am_att', '98.90', '0.01', '75.70', '80.15'],
-    'Arabic-PADT': ['ar_padt', '94.77', '0.15', '64.68', '69.52'],
-    'Arabic-PUD': ['ar_pud', '86.86', '0.37', '63.66', '67.41'],
+    # 'Arabic-PADT': ['ar_padt', '94.77', '0.15', '64.68', '69.52'],
+    # 'Arabic-PUD': ['ar_pud', '86.86', '0.37', '63.66', '67.41'],
     'Belarusian-HSE': ['be_hse', '90.58', '0.17', '42.05', '45.96'],
     'Bulgarian-BTB': ['bg_btb', '97.24', '0.07', '63.53', '68.32'],
     'Bambara-CRB': ['bm_crb', '88.32', '0.19', '78.86', '84.69'],

@@ -162,7 +162,10 @@ def evaluate_all(model_name=None):
     results = []
 
     for language_path, language_name in zip(language_paths, language_names):
-        results.append(evaluate(language_name, language_path, model_name=model_name))
+        try:
+            results.append(evaluate(language_name, language_path, model_name=model_name))
+        except Exception as e:
+            LOGGER.error(e)
 
     LOGGER.info('Writing results to file...')
     df = pd.DataFrame(results, columns=['Language Code', 'Language', 'Baseline Lemma Acc',
