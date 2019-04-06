@@ -122,13 +122,18 @@ def input_pairs(reference, output):
             yield r_conllu, o_conllu
 
 
-def evaluate(language_name, language_path, model_name=None):
+def evaluate(language_name, language_path, model_name=None, run_prediction=False):
+    from predict import predict
+
     LOGGER.info('Reading files for language: {}'.format(language_name))
     language_conll_files = os.listdir(language_path)
 
     for language_conll_file in language_conll_files:
         if 'dev.' in language_conll_file:
             val_data_path = language_path + '/' + language_conll_file
+            if run_prediction:
+                print('Runnng model for prediction...')
+                predict(language_path, model_name, val_data_path)
             if model_name:
                 prediction_file = val_data_path.replace('dev', 'predictions-{}'.format(model_name))
             else:
@@ -163,7 +168,8 @@ def evaluate_all(model_name=None):
 
     for language_path, language_name in zip(language_paths, language_names):
         try:
-            results.append(evaluate(language_name, language_path, model_name=model_name))
+            results.append(evaluate(language_name, language_path,
+                                    model_name=model_name, run_prediction=True))
         except Exception as e:
             LOGGER.error(e)
 
@@ -175,5 +181,5 @@ def evaluate_all(model_name=None):
     df.to_excel('Results.xlsx')
 
 if __name__ == "__main__":
-    # evaluate_all()
-    evaluate('Turkish-PUD', '../data/2019/task2/UD_Turkish-PUD', model_name='standard_morphnet')
+    evaluate_all(model_name='LemmaTransformer')
+    # evaluate('North_Sami-Giella', '../data/2019/task2/UD_North_Sami-Giella', model_name='LemmaTransformer', run_prediction=True)

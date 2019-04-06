@@ -5,7 +5,7 @@ import os
 
 from tqdm import tqdm
 
-from data_utils import read_surfaces
+from data_utils import read_surfaces, read_surface_lemma_map
 from layers import EncoderRNN, DecoderRNN, TransformerRNN
 from logger import LOGGER
 from train import embedding_size, char_gru_hidden_size, word_gru_hidden_size, encoder_dropout, device, \
@@ -13,7 +13,7 @@ from train import embedding_size, char_gru_hidden_size, word_gru_hidden_size, en
 
 
 def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset, device=torch.device("cpu"),
-                     max_lemma_len=20, max_morph_features_len=10):
+                     max_morph_features_len=10, surface2lemma=None):
     """
 
     Args:
@@ -23,8 +23,10 @@ def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, 
         decoder_morph_tags (`layers.DecoderRNN`): Morphological Features Decoder
         dataset (`torch.utils.data.Dataset`): Train Dataset. Required for vocab etc.
         device (`torch.device`): Default is cpu
-        max_lemma_len (int): Maximum length of lemmas
         max_morph_features_len (int): Maximum length of morphological features
+        surface2lemma (dict): Dictionary where keys are surface words and values are lemmas
+            if surface exists in the dictionary, model prediction is ignored.
+            Default is None
 
     Returns:
         str: Predicted conll sentence
@@ -51,6 +53,17 @@ def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, 
     _, lemmas = decoder_lemma.predict(word_representations, context_aware_representations,
                                       encoded_surfaces.view(1, *encoded_surfaces.size()), surface_words)
 
+    if surface2lemma:
+        modified_lemmas = []
+        for surface, lemma in zip(surface_words, lemmas):
+            if surface[:-1] in surface2lemma and surface2lemma[surface[:-1]] != lemma:
+                modified_lemmas.append(surface2lemma[surface[:-1]])
+                # print('Changing {} to {}'.format(lemma, surface2lemma[surface[:-1]]))
+            else:
+                modified_lemmas.append(lemma)
+        lemmas = modified_lemmas
+
+
     # Run morph features decoder for each word
     morph_features = []
     for i in range(words_count):
@@ -60,11 +73,11 @@ def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, 
 
     conll_sentence = "# Sentence\n"
     for i, (surface, lemma, morph_feature) in enumerate(zip(surface_words, lemmas, morph_features)):
-        conll_sentence += "{}\t{}\t{}\t_\t_\t{}\t_\t_\t_\t_\n".format(i+1, surface, lemma, morph_feature)
+        conll_sentence += "{}\t{}\t{}\t_\t_\t{}\t_\t_\t_\t_\n".format(i+1, surface[:-1], lemma, morph_feature)
     return conll_sentence
 
 
-def predict(language_path, model_name, conll_file):
+def predict(language_path, model_name, conll_file, use_surface_lemma_mapping=True):
     language_conll_files = os.listdir(language_path)
     for language_conll_file in language_conll_files:
         if 'train.' in language_conll_file:
@@ -72,6 +85,12 @@ def predict(language_path, model_name, conll_file):
             # LOAD DATASET
             LOGGER.info('Loading dataset...')
             train_data_path = language_path + '/' + language_conll_file
+
+            surface2lemma = None
+            if use_surface_lemma_mapping:
+                surface2lemma = read_surface_lemma_map(train_data_path)
+                print('Surface Lemma Mapping Length: {}'.format(len(surface2lemma)))
+
             with open(train_data_path.replace('-train', '').replace('conllu', '{}.dataset'.format(model_name)), 'rb') as f:
                 train_set = pickle.load(f)
             if language_path in conll_file:
@@ -115,7 +134,7 @@ def predict(language_path, model_name, conll_file):
             with open(prediction_file, 'w', encoding='UTF-8') as f:
                 for sentence in tqdm(data_surface_words):
                     conll_sentence = predict_sentence(sentence, encoder, decoder_lemma, decoder_morph_tags,
-                                                      train_set, device=device)
+                                                      train_set, device=device, surface2lemma=surface2lemma)
                     f.write(conll_sentence)
                     f.write('\n')
 

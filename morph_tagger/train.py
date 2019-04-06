@@ -15,14 +15,14 @@ from logger import LOGGER
 
 
 # Encoder hyper-parmeters
-embedding_size = 256
-char_gru_hidden_size = 2048
-word_gru_hidden_size = 2048
-encoder_dropout = 0.2
+embedding_size = 128
+char_gru_hidden_size = 1024
+word_gru_hidden_size = 1024
+encoder_dropout = 0.5
 
 # Decoder hyper-parmeters
-output_embedding_size = 512
-decoder_dropout = 0.2
+output_embedding_size = 256
+decoder_dropout = 0.5
 
 only_pivot_languages = False
 model_name = 'LemmaTransformer'
@@ -63,7 +63,8 @@ def train():
 
     # Iterate over languages
     for language_ix, (language_path, language_name) in enumerate(zip(language_paths, language_names)):
-
+        if language_ix < 48:
+            continue
         # Skip langauges not in pilot languages array (if only_pivot_languages is True)
         if only_pivot_languages and language_name not in PILOT_LANGUAGES:
             continue
@@ -115,9 +116,9 @@ def train():
             criterion = nn.CrossEntropyLoss(ignore_index=0).to(device)
 
             # Create optimizers
-            encoder_lr = 0.0001
-            decoder_lemma_lr = 0.0001
-            decoder_morph_lr = 0.0001
+            encoder_lr = 0.0003
+            decoder_lemma_lr = 0.0003
+            decoder_morph_lr = 0.0003
             encoder_optimizer = torch.optim.Adam(encoder.parameters(), lr=encoder_lr)
             decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(), lr=decoder_lemma_lr)
             decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(), lr=decoder_morph_lr)
@@ -279,7 +280,8 @@ def train():
         except Exception as e:
             LOGGER.error(e)
 
-    evaluate_all(model_name=model_name)
+    # evaluate_all(model_name=model_name)
 
 if __name__ == '__main__':
     train()
+    # evaluate_all(model_name=model_name)

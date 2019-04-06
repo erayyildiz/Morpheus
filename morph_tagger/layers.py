@@ -297,8 +297,8 @@ class TransformerRNN(nn.Module):
         # Layers
         self.W = nn.Linear(2 * hidden_size, hidden_size)
         self.embedding = nn.Embedding(self.input_vocab_size+1, embedding_size)
-        self.gru = nn.GRU(embedding_size, hidden_size, 2, batch_first=True)
-        self.classifier = nn.Linear(hidden_size, len(vocab))
+        self.gru = nn.GRU(embedding_size, hidden_size, 2, batch_first=True, bidirectional=True)
+        self.classifier = nn.Linear(2 * hidden_size, len(vocab))
         self.dropout = nn.Dropout(p=dropout_ratio)
         self.relu = nn.ReLU()
         self.softmax = nn.Softmax(dim=2)
@@ -320,6 +320,8 @@ class TransformerRNN(nn.Module):
         # Initilize gru hidden units with context vector (encoder output)
         context_vectors = self.relu(self.W(context_vectors))
         hidden = torch.cat([context_vectors.view(1, *context_vectors.size()),
+                            context_vectors.view(1, *context_vectors.size()),
+                            word_embeddings.view(1, *context_vectors.size()),
                             word_embeddings.view(1, *context_vectors.size())], 0)
 
         embeddings = self.embedding(x.view(*x.shape[1:]))
@@ -350,6 +352,8 @@ class TransformerRNN(nn.Module):
         # Initilize gru hidden units with context vector (encoder output)
         context_vectors = self.relu(self.W(context_vectors))
         hidden = torch.cat([context_vectors.view(1, *context_vectors.size()),
+                            context_vectors.view(1, *context_vectors.size()),
+                            word_embeddings.view(1, *context_vectors.size()),
                             word_embeddings.view(1, *context_vectors.size())], 0)
 
         embeddings = self.embedding(x.view(*x.shape[1:]))

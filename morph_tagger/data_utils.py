@@ -12,7 +12,10 @@ def find_transformation(surface, lemma):
             if edit_type.startswith('insert'):
                 labels[source_ix] = 'insert_' + lemma[target_ix]
             elif edit_type.startswith('replace'):
-                labels[source_ix] = 'replace_' + lemma[target_ix]
+                if surface[source_ix].lower() == lemma[target_ix]:
+                    labels[source_ix] = 'lower'
+                else:
+                    labels[source_ix] = 'replace_' + lemma[target_ix]
             elif edit_type.startswith('delete'):
                 labels[source_ix] = 'delete'
         elif labels[source_ix].startswith('insert') and edit_type.startswith('replace'):
@@ -25,6 +28,14 @@ def find_transformation(surface, lemma):
             )
 
     assert len(labels) == len(surface), 'Surface and transformation length are different'
+
+    ix = len(labels) - 1
+    while ix > 0:
+        if labels[ix].startswith('replace') and labels[ix - 1] == 'delete':
+            labels[ix - 1] = labels[ix]
+            labels[ix] = 'delete'
+        ix -= 1
+
     return labels
 
 
@@ -35,6 +46,9 @@ def inverse_transformation(surface, edits):
         ch = surface[surface_ix]
         if edit == 'same':
             res.append(ch)
+            surface_ix += 1
+        if edit == 'lower':
+            res.append(ch.lower())
             surface_ix += 1
         elif edit == 'delete':
             surface_ix += 1
@@ -115,6 +129,23 @@ def read_dataset(conll_file):
     return sentences
 
 
+def read_surface_lemma_map(conll_file):
+    surface2lemma = {}
+
+    with open(conll_file, 'r', encoding='UTF-8') as f:
+        for line in f:
+            if len(line.strip()) == 0 or line.startswith('#'):
+                continue
+            else:
+                splits = line.split('\t')
+                if splits[1] not in surface2lemma:
+                    surface2lemma[splits[1]] = splits[2]
+                elif surface2lemma[splits[1]] != splits[2]:
+                    surface2lemma[splits[1]] = '<AMBIGUOUS>'
+        surface2lemma = {k: v for k, v in surface2lemma.items() if v != '<AMBIGUOUS>'}
+    return surface2lemma
+
+
 def read_surfaces(conll_file):
     """Read surface words from a Conll dataset
 
@@ -134,7 +165,7 @@ def read_surfaces(conll_file):
                     for conll_token in conll_sentence:
                         if not conll_token or conll_token.startswith('#'):
                             continue
-                        sentence.append(conll_token.split('\t')[1])
+                        sentence.append(conll_token.split('\t')[1] + '$')
                     sentences.append(sentence)
                 conll_sentence = []
             else:
