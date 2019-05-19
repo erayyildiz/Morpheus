@@ -118,3 +118,5 @@ Documentation coming soon.
 | Spanish-GSD | 98.93 | 97.50 |
 | Swedish-Talbanken | 98.08 | 96.89 |
 | Average | 94.15 | 90.52 |
+=======
+
