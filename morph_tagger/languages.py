@@ -1,12 +1,14 @@
-PILOT_LANGUAGES = ('Arabic-PUD', 'Ancient_Greek-PROIEL', 'Ancient_Greek-Perseus', 'Armenian-ArmTDP',
-                   'Finnish-TDT', 'UD_German-GSD', 'UD_Norwegian-Nynorsk', 'UD_Persian-Seraji',
-                   'UD_Portuguese-GSD', 'UD_Russian-GSD', 'UD_Spanish-GSD', 'UD_Swedish-Talbanken')
+# PILOT_LANGUAGES = ('Arabic-PUD')
+
+PILOT_LANGUAGES = ('Russian-GSD', 'Finnish-TDT')
 
 # PILOT_LANGUAGES = ('Arabic-PUD', 'English-PUD', 'Japanese-Modern', 'Finnish-PUD',
 #                    'Korean-PUD', 'Turkish-PUD', 'Chinese-GSD')
 
 # PILOT_LANGUAGES = ('English-PUD', 'Japanese-Modern', 'Finnish-PUD',
 #                    'Korean-PUD', 'Turkish-PUD', 'Chinese-GSD')
+
+NON_TRANSFORMER_LANGUAGES = ('Arabic-PUD', 'Russian-GSD')
 
 LANGUAGES = {
     'Afrikaans-AfriBooms': ['af_afribooms', '98.64', '0.05', '75.61', '80.05'],
@@ -106,5 +108,9 @@ LANGUAGES = {
     'Yoruba-YTB': ['yo_ytb', '95.60', '0.05', '71.20', '78.59'],
     'Cantonese-HK': ['yue_hk', '92.62', '0.28', '70.15', '77.76'],
     'Chinese-CFL': ['zh_cfl', '90.72', '0.13', '74.65', '79.91'],
-    'Chinese-GSD': ['zh_gsd', '98.34', '0.02', '75.83', '81.79']
+    'Chinese-GSD': ['zh_gsd', '98.34', '0.02', '75.83', '81.79'],
+    'Ancient_Greek-Perseus': ['grc_perseus-um', '0', '0', '0', '0'],
+    'Ancient_Greek-PROIEL': ['grc_proiel-um', '0', '0', '0', '0'],
+    'Portuguese-GSD': ['pt_gsd-um', '0', '0', '0', '0'],
+    'Norwegian-Nynorsk': ['pt_gsd-um', '0', '0', '0', '0']
 }

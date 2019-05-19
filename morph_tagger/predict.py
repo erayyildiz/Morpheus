@@ -1,15 +1,20 @@
 import pickle
 
+import re
 import torch
 import os
 
 from tqdm import tqdm
 
 from data_utils import read_surfaces, read_surface_lemma_map
+from languages import NON_TRANSFORMER_LANGUAGES
 from layers import EncoderRNN, DecoderRNN, TransformerRNN
 from logger import LOGGER
 from train import embedding_size, char_gru_hidden_size, word_gru_hidden_size, encoder_dropout, device, \
     output_embedding_size, decoder_dropout
+
+
+REMOVE_EOS_REGEX = re.compile(r'\$$')
 
 
 def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset, device=torch.device("cpu"),
@@ -50,19 +55,30 @@ def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, 
     # Run lemma decoder for each word
     words_count = context_aware_representations.size(0)
 
-    _, lemmas = decoder_lemma.predict(word_representations, context_aware_representations,
-                                      encoded_surfaces.view(1, *encoded_surfaces.size()), surface_words)
+    if isinstance(decoder_lemma, TransformerRNN):
+        _, lemmas = decoder_lemma.predict(word_representations, context_aware_representations,
+                                          encoded_surfaces.view(1, *encoded_surfaces.size()), surface_words)
+    else:
+        lemmas = []
+        for i in range(words_count):
+            _, lemma = decoder_lemma.predict(word_representations[i], context_aware_representations[i],
+                                             max_len=2*max_token_len, device=device)
+            lemmas.append(''.join(lemma))
 
     if surface2lemma:
+
         modified_lemmas = []
         for surface, lemma in zip(surface_words, lemmas):
-            if surface[:-1] in surface2lemma and surface2lemma[surface[:-1]] != lemma:
-                modified_lemmas.append(surface2lemma[surface[:-1]])
-                # print('Changing {} to {}'.format(lemma, surface2lemma[surface[:-1]]))
+            if isinstance(decoder_lemma, TransformerRNN):
+                _surface = surface[:-1]
+            else:
+                _surface = surface
+            if _surface in surface2lemma and surface2lemma[_surface] != lemma:
+                modified_lemmas.append(surface2lemma[_surface])
+                # print('Changing {} to {}'.format(lemma, surface2lemma[_surface]))
             else:
                 modified_lemmas.append(lemma)
         lemmas = modified_lemmas
-
 
     # Run morph features decoder for each word
     morph_features = []
@@ -73,11 +89,13 @@ def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, 
 
     conll_sentence = "# Sentence\n"
     for i, (surface, lemma, morph_feature) in enumerate(zip(surface_words, lemmas, morph_features)):
-        conll_sentence += "{}\t{}\t{}\t_\t_\t{}\t_\t_\t_\t_\n".format(i+1, surface[:-1], lemma, morph_feature)
+        conll_sentence += "{}\t{}\t{}\t_\t_\t{}\t_\t_\t_\t_\n".format(i+1,
+                                                                      REMOVE_EOS_REGEX.sub('', surface),
+                                                                      lemma, morph_feature)
     return conll_sentence
 
 
-def predict(language_path, model_name, conll_file, use_surface_lemma_mapping=True):
+def predict(language_path, model_name, conll_file, use_surface_lemma_mapping=True, prediction_file=None):
     language_conll_files = os.listdir(language_path)
     for language_conll_file in language_conll_files:
         if 'train.' in language_conll_file:
@@ -93,10 +111,14 @@ def predict(language_path, model_name, conll_file, use_surface_lemma_mapping=Tru
 
             with open(train_data_path.replace('-train', '').replace('conllu', '{}.dataset'.format(model_name)), 'rb') as f:
                 train_set = pickle.load(f)
-            if language_path in conll_file:
-                data_surface_words = read_surfaces(conll_file)
+            if any([l in language_path for l in NON_TRANSFORMER_LANGUAGES]):
+                add_eos = False
             else:
-                data_surface_words = read_surfaces(language_path + '/' + conll_file)
+                add_eos = True
+            if language_path in conll_file:
+                data_surface_words = read_surfaces(conll_file, add_eos=add_eos)
+            else:
+                data_surface_words = read_surfaces(language_path + '/' + conll_file, add_eos=add_eos)
 
             # LOAD ENCODER MODEL
             LOGGER.info('Loading Encoder...')
@@ -109,8 +131,14 @@ def predict(language_path, model_name, conll_file, use_surface_lemma_mapping=Tru
 
             # LOAD LEMMA DECODER MODEL
             LOGGER.info('Loading Lemma Decoder...')
-            decoder_lemma = TransformerRNN(output_embedding_size, word_gru_hidden_size, train_set.transformation2id,
-                                           len(train_set.surface_char2id), dropout_ratio=decoder_dropout).to(device)
+
+            if any([l in language_path for l in NON_TRANSFORMER_LANGUAGES]):
+                decoder_lemma = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.lemma_char2id,
+                                           dropout_ratio=decoder_dropout).to(device)
+            else:
+                decoder_lemma = TransformerRNN(output_embedding_size, word_gru_hidden_size, train_set.transformation2id,
+                                               len(train_set.surface_char2id), dropout_ratio=decoder_dropout).to(device)
+
             decoder_lemma.load_state_dict(torch.load(
                 train_data_path.replace('train', 'decoder_lemma').replace('conllu', '{}.model'.format(model_name))
             ))
@@ -130,7 +158,8 @@ def predict(language_path, model_name, conll_file, use_surface_lemma_mapping=Tru
             decoder_morph_tags.eval()
 
             # Make predictions and save to file
-            prediction_file = train_data_path.replace('train', 'predictions-{}'.format(model_name))
+            if not prediction_file:
+                prediction_file = train_data_path.replace('train', 'predictions-{}'.format(model_name))
             with open(prediction_file, 'w', encoding='UTF-8') as f:
                 for sentence in tqdm(data_surface_words):
                     conll_sentence = predict_sentence(sentence, encoder, decoder_lemma, decoder_morph_tags,

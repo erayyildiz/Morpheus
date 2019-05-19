@@ -90,7 +90,6 @@ class ConllDataset(Dataset):
         unique_tags = set(chain(*[morph_tag for morph_tag in unique_morph_tags]))
         for tag in unique_tags:
             self.morph_tag2id[tag] = len(self.morph_tag2id)
-
         print('Surface Chars={}, Lemma Chars={}, Transformations={}, tags={}'.format(
             len(self.surface_char2id), len(self.lemma_char2id), len(self.transformation2id), len(self.morph_tag2id)
         ))

@@ -132,7 +132,7 @@ def evaluate(language_name, language_path, model_name=None, run_prediction=False
         if 'dev.' in language_conll_file:
             val_data_path = language_path + '/' + language_conll_file
             if run_prediction:
-                print('Runnng model for prediction...')
+                print('Runnnig model for prediction...')
                 predict(language_path, model_name, val_data_path)
             if model_name:
                 prediction_file = val_data_path.replace('dev', 'predictions-{}'.format(model_name))
@@ -145,18 +145,27 @@ def evaluate(language_name, language_path, model_name=None, run_prediction=False
             LOGGER.info('Evaluation completed')
             LOGGER.info('Lemma Acc:{}, Lemma Lev. Dist: {}, Morph acc: {}, F1: {} '.format(*cur_results))
 
-            return {
-                'Language': language_name,
-                'Language Code': LANGUAGES[language_name][0],
-                'Baseline Lemma Acc': float(LANGUAGES[language_name][1]),
-                'Baseline Lemma Lev. Dist': float(LANGUAGES[language_name][2]),
-                'Baseline Morph Acc': float(LANGUAGES[language_name][3]),
-                'Baseline Morph F1': float(LANGUAGES[language_name][4]),
-                'Lemma Acc': cur_results[0],
-                'Lemma Lev. Dist': cur_results[1],
-                'Morph Acc': cur_results[2],
-                'Morph F1': cur_results[3],
-            }
+            if language_name in LANGUAGES:
+                return {
+                    'Language': language_name,
+                    'Language Code': LANGUAGES[language_name][0],
+                    'Baseline Lemma Acc': float(LANGUAGES[language_name][1]),
+                    'Baseline Lemma Lev. Dist': float(LANGUAGES[language_name][2]),
+                    'Baseline Morph Acc': float(LANGUAGES[language_name][3]),
+                    'Baseline Morph F1': float(LANGUAGES[language_name][4]),
+                    'Lemma Acc': cur_results[0],
+                    'Lemma Lev. Dist': cur_results[1],
+                    'Morph Acc': cur_results[2],
+                    'Morph F1': cur_results[3],
+                }
+            else:
+                return {
+                    'Language': language_name,
+                    'Lemma Acc': cur_results[0],
+                    'Lemma Lev. Dist': cur_results[1],
+                    'Morph Acc': cur_results[2],
+                    'Morph F1': cur_results[3],
+                }
 
 
 def evaluate_all(model_name=None):
@@ -180,6 +189,39 @@ def evaluate_all(model_name=None):
                       index=None)
     df.to_excel('Results.xlsx')
 
+
+def generate_outputs(language_name, language_path, model_name=None, run_prediction=True):
+    from predict import predict
+
+    LOGGER.info('Reading files for language: {}'.format(language_name))
+    language_conll_files = os.listdir(language_path)
+
+    for language_conll_file in language_conll_files:
+        if 'test.' in language_conll_file and 'output' not in language_conll_file:
+            val_data_path = language_path + '/' + language_conll_file
+            prediction_file = val_data_path + '.output'
+            if run_prediction:
+                print('Running model for {}...'.format(language_name))
+                predict(language_path, model_name, val_data_path, prediction_file=prediction_file)
+
+
+def generate_all(model_name=None):
+    data_path = '../data/2019/task2/'
+    language_paths = [data_path + filename for filename in os.listdir(data_path)]
+    language_names = [filename.replace('UD_', '') for filename in os.listdir(data_path)]
+
+    results = []
+
+    for language_path, language_name in zip(language_paths, language_names):
+        try:
+            results.append(generate_outputs(language_name, language_path,
+                                            model_name=model_name, run_prediction=True))
+        except Exception as e:
+            LOGGER.error(e)
+
+
 if __name__ == "__main__":
-    evaluate_all(model_name='LemmaTransformer')
-    # evaluate('North_Sami-Giella', '../data/2019/task2/UD_North_Sami-Giella', model_name='LemmaTransformer', run_prediction=True)
+    # generate_all(model_name='LemmaTransformer')
+    # evaluate('Afrikaans-AfriBooms', '../data/2019/task2/UD_Afrikaans-AfriBooms', model_name='LemmaTransformer', run_prediction=True)
+    generate_outputs('Finnish-TDT', '../data/2019/task2/UD_Finnish-TDT', model_name='LemmaTransformer', run_prediction=True)
+    generate_outputs('Russian-GSD', '../data/2019/task2/UD_Russian-GSD', model_name='LemmaTransformer', run_prediction=True)

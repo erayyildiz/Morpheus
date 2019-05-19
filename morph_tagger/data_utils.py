@@ -1,10 +1,16 @@
 from itertools import chain
+
+import re
 from Levenshtein.StringMatcher import editops
+
+from languages import NON_TRANSFORMER_LANGUAGES
 
 
 def find_transformation(surface, lemma):
     edits = editops(surface, lemma)
     # print(edits)
+    # print(surface)
+    # print(lemma)
     l = len(surface)
     labels = ['same'] * l
     for edit_type, source_ix, target_ix in edits:
@@ -23,7 +29,7 @@ def find_transformation(surface, lemma):
         elif labels[source_ix].startswith('insert') or labels[source_ix].startswith('replace'):
             labels[source_ix] = labels[source_ix] + lemma[target_ix]
         else:
-            raise IOError('Invalid transformation! surfac:{}, lemma:{}, transformation:{}'.format(
+            raise IOError('Invalid transformation! surface:{}, lemma:{}, transformation:{}'.format(
                 surface, lemma, transformation)
             )
 
@@ -72,26 +78,34 @@ class Sentence(object):
 
     """
 
-    def __init__(self, conll_sentence):
+    def __init__(self, conll_sentence, is_rigth2left=False):
         """Create a Sentence object from a conll sentence
 
         Arguments:
-            conll_sentence: (list) list of conll lines correspond to one sentence
+            conll_sentence (list): list of conll lines correspond to one sentence
+            is_rigth2left (bool): set True for right to left languages such as Arabic
         """
         self.surface_words = []
         self.lemmas = []
         self.morph_tags = []
         self.transformations = []
+        self.is_right2left = is_rigth2left
 
         for conll_token in conll_sentence:
             if not conll_token or conll_token.startswith('#'):
                 continue
             _splits = conll_token.split('\t')
-            self.surface_words.append(_splits[1] + '$')
-            self.lemmas.append(_splits[2])
-            self.transformations.append(find_transformation(_splits[1] + '$', _splits[2]))
-            assert inverse_transformation(_splits[1] + '$', self.transformations[-1]) == _splits[2], \
-                'Transformation incorrect: {} - {} - {}'.format(_splits[1], _splits[2], self.transformations[-1])
+            if self.is_right2left:
+                surface =_splits[1]
+                self.surface_words.append(surface)
+                self.lemmas.append(_splits[2])
+            else:
+                surface = _splits[1] + '$'
+                self.surface_words.append(surface)
+                self.lemmas.append(_splits[2])
+                self.transformations.append(find_transformation(surface, _splits[2]))
+                assert inverse_transformation(surface, self.transformations[-1]) == _splits[2], \
+                    'Transformation incorrect: {} - {} - {}'.format(_splits[1], _splits[2], self.transformations[-1])
             self.morph_tags.append(_splits[5].split(';'))
 
     def get_tags_as_str(self):
@@ -115,13 +129,19 @@ def read_dataset(conll_file):
     Returns:
         list: list of `Sentence` objects
     """
+
+    if any([l in conll_file for l in NON_TRANSFORMER_LANGUAGES]):
+        rigth2left = True
+    else:
+        rigth2left = False
+
     sentences = []
     with open(conll_file, 'r', encoding='UTF-8') as f:
         conll_sentence = []
         for line in f:
             if len(line.strip()) == 0:
                 if len(conll_sentence) > 0:
-                    sentence = Sentence(conll_sentence)
+                    sentence = Sentence(conll_sentence, is_rigth2left=rigth2left)
                     sentences.append(sentence)
                 conll_sentence = []
             else:
@@ -146,7 +166,7 @@ def read_surface_lemma_map(conll_file):
     return surface2lemma
 
 
-def read_surfaces(conll_file):
+def read_surfaces(conll_file, add_eos=True):
     """Read surface words from a Conll dataset
 
     Arguments:
@@ -165,7 +185,10 @@ def read_surfaces(conll_file):
                     for conll_token in conll_sentence:
                         if not conll_token or conll_token.startswith('#'):
                             continue
-                        sentence.append(conll_token.split('\t')[1] + '$')
+                        if add_eos:
+                            sentence.append(conll_token.split('\t')[1] + '$')
+                        else:
+                            sentence.append(conll_token.split('\t')[1])
                     sentences.append(sentence)
                 conll_sentence = []
             else:
