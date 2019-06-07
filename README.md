@@ -1,6 +1,6 @@
-# Morpheus: A Neural Network for Jointly Learning Contextual Lemmatization and Morphological Tagging
-
 <img src="https://raw.githubusercontent.com/erayyildiz/Morpheus/master/assets/Morpheus1.jpg" width="48">
+
+# Morpheus: A Neural Network for Jointly Learning Contextual Lemmatization and Morphological Tagging
 
 **Contextual Lemmatization and Morphological Tagging in 108 different languages. 
 A Participant System for SigMorphon2019 Task 2**
