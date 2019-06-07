@@ -8,7 +8,7 @@ A Participant System for SigMorphon2019 Task 2**
 
 
 ## Introduction
-*Morpheus*, a joint contextual lemmatizer and morphological tagger 
+*Morpheus* is a joint contextual lemmatizer and morphological tagger 
 which is based on a neural sequential architecture where inputs are the characters of the surface words 
 in a sentence and the outputs are the minimum edit operations between surface words and their lemmata as well as the
 morphological tags assigned to the words. 
