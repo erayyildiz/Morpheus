@@ -1,7 +1,7 @@
 # Morpheus: A Neural Network for Jointly Learning Contextual Lemmatization and Morphological Tagging
 
 
-![Morpheus](../master/assets/Morpheus1.jpg?raw=true)
+![Morpheus](../master/assets/Morpheus1.jpg=50x?raw=true)
 
 **Contextual Lemmatization and Morphological Tagging in 108 different languages. 
 A Participant System for SigMorphon2019 Task 2**
@@ -149,7 +149,7 @@ The putput file is also in conll format where third column contains lemmata and 
 
 | **Language** | **Dataset  Size** | **Lemmatization** |  | **Morphological  Tagging** |  |
 |--------------------|:-------------:|:------------:|:-----------:|:---------------:|:------------:|
-|  |  | **Character  Prediction** | **Edit  Prediction** | **Character  Prediction** | **Edit  Prediction** |
+|  |  | **Character  Prediction Model** | **Edit  Prediction Model** | **Character  Prediction Model** | **Edit  Prediction Model** |
 | North-Sami-Giella | 29K | 87.53 | 91.90 | 88.89 | 92.83 |
 | French-GSD | 360K | 97.06 | 98.47 | 97.58 | 97.99 |
 | Japanese-Modern | 14K | 85.39 | 93.88 | 93.06 | 92.44 |
