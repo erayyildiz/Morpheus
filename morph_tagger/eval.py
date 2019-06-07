@@ -123,7 +123,7 @@ def input_pairs(reference, output):
 
 
 def evaluate(language_name, language_path, model_name=None, run_prediction=False):
-    from predict import predict
+    from predict import predict_unimorph
 
     LOGGER.info('Reading files for language: {}'.format(language_name))
     language_conll_files = os.listdir(language_path)
@@ -133,7 +133,7 @@ def evaluate(language_name, language_path, model_name=None, run_prediction=False
             val_data_path = language_path + '/' + language_conll_file
             if run_prediction:
                 print('Runnnig model for prediction...')
-                predict(language_path, model_name, val_data_path)
+                predict_unimorph(language_path, model_name, val_data_path)
             if model_name:
                 prediction_file = val_data_path.replace('dev', 'predictions-{}'.format(model_name))
             else:
@@ -191,7 +191,7 @@ def evaluate_all(model_name=None):
 
 
 def generate_outputs(language_name, language_path, model_name=None, run_prediction=True):
-    from predict import predict
+    from predict import predict_unimorph
 
     LOGGER.info('Reading files for language: {}'.format(language_name))
     language_conll_files = os.listdir(language_path)
@@ -202,7 +202,7 @@ def generate_outputs(language_name, language_path, model_name=None, run_predicti
             prediction_file = val_data_path + '.output'
             if run_prediction:
                 print('Running model for {}...'.format(language_name))
-                predict(language_path, model_name, val_data_path, prediction_file=prediction_file)
+                predict_unimorph(language_path, model_name, val_data_path, prediction_file=prediction_file)
 
 
 def generate_all(model_name=None):
