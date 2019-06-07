@@ -1,11 +1,25 @@
 # Morpheus: A Neural Network for Jointly Learning Contextual Lemmatization and Morphological Tagging
-#### A Participant System for SigMorphon2019 Task 2
 
-A language agnostic neural architecture for contextual lemmatization and mophological tagging.
-The system is 3th in lemmatization and 8th moprhological tagging among all systems submitted to SigMorphon 2019.
+## Intro
+*Morpheus*, a joint contextual lemmatizer and morphological tagger 
+which is based on a neural sequential architecture where inputs are the characters of the surface words 
+in a sentence and the outputs are the minimum edit operations between surface words and their lemmata as well as the
+morphological tags assigned to the words. 
 
-Documentation coming soon.
+*Morpheus* does not rely on any language specific settings so it is able to run over any language without any effort.
+According the results in SigMorphon 2019 Task 2, *Morpheus* performs comparable to current state-of-the-art systems 
+for both lemmatization and morphological tagging tasks in nearly 100 languages.
 
+The experiments show that predicting edit actions instead of characters in the lemmata
+is notably better, not only for lemmatization, but for tagging, as well.
+In low resource languages the performance improvement is significant .
+
+the neural encoder-decoder architecture trained to predict the minimum edit operations 
+can produce considerably better results than the architecture trained to predict the characters in lemmata directly as in previous studies. 
+
+According to the SigMorphon 2019 Shared Task 2 results, Morpheus has placed
+3rd in lemmatization and reached the 9th place
+in morphological tagging among all participant teams.
 ### Experimental Results
 
 | **Language** | **Lemma Acc** | **Morph F1** |
