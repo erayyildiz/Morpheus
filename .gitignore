@@ -1,6 +1,7 @@
 .idea/
 ITU-01-2/
 data/
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
