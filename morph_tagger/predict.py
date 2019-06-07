@@ -150,7 +150,8 @@ def predict(input_file, output_file, dataset_obj_path, encoder_model_path, lemma
             f.write('\n')
 
 
-def predict_unimorph(language_path, model_name, conll_file, use_surface_lemma_mapping=True, prediction_file=None):
+def predict_unimorph(language_path, model_name, conll_file, use_surface_lemma_mapping=True,
+                     prediction_file=None, use_min_edit_operation_decoder=True,):
 
     language_conll_files = os.listdir(language_path)
     for language_conll_file in language_conll_files:
@@ -189,7 +190,7 @@ def predict_unimorph(language_path, model_name, conll_file, use_surface_lemma_ma
             # LOAD LEMMA DECODER MODEL
             LOGGER.info('Loading Lemma Decoder...')
 
-            if any([l in language_path for l in NON_TRANSFORMER_LANGUAGES]):
+            if any([l in language_path for l in NON_TRANSFORMER_LANGUAGES]) or not use_min_edit_operation_decoder:
                 decoder_lemma = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.lemma_char2id,
                                            dropout_ratio=decoder_dropout).to(device)
             else:
