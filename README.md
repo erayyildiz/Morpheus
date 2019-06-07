@@ -247,10 +247,11 @@ The putput file is also in conll format where third column contains lemmata and 
 | Swedish-LinES | 74K | 93.52 | 96.82 | 93.25 | 94.88 |
 | Afrikaans-Af.B. | 45K | 93.75 | 98.74 | 95.08 | 95.96 |
 | English-LinES | 77K | 96.19 | 98.27 | 94.57 | 95.43 |
-=======
+
+
 
 ## Acknowledgement
-This work is carried aout by Eray Yildiz and A. Cuneyd Tantug in Istanbul Technıcal Unıversity.
+This work is carried out by Eray Yildiz and A. Cuneyd Tantug in Istanbul Technical University.
 For questions: yildiz17@itu.edu.tr
 
 We would like to thank the SigMorphon 2019 organizers for the great effort and the reviewers for
