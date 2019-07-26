@@ -48,6 +48,22 @@ pip install -r requirements.txt
 
 ```
 
+### Datasets
+The data is owes its provenance to the [Universal Dependencies](http://universaldependencies.org/) project and have been converted to the [UniMorph schema](https://unimorph.github.io/).
+
+Sentences are annotated in the ten-column CoNLL-U format. 
+
+- The ID column gives each word a unique ID within the sentence.
+- The FORM column gives the word as it appears in the sentence.
+- The LEMMA column contains the form’s lemma.
+- The FEATS column contains morphosyntactic features in the UniMorph schema.
+- 6 remaining columns are nulled out and replaced with undercore (‘_’)
+
+At prediction time, test data also null out the LEMMA and FEATS columns. 
+
+Check the [*UniMorph* dataset collection](https://github.com/sigmorphon/2019/tree/master/task2) which includes 
+datasets for more than 100 languages.
+
 ### Training
 To train joint a contextual lemmatizer and morphological tagger for a language, run the following script in your command line.
 
@@ -58,9 +74,6 @@ train.py -l Turkish-IMST -t ../data/2019/task2/UD_Turkish-IMST/tr_imst-um-train.
 ```
 
 This code will train a model for Turkish language. 
-Check the [*UniMorph* dataset collection](https://github.com/sigmorphon/2019/tree/master/task2) which includes 
-datasets for more than 100 languages.
-
 
 The options of the script as follow:
 
@@ -133,7 +146,7 @@ Options:
 **Note that the files DATASET_OBJ_FILE, LEMMA_DECODER_FILE and MORPH_DECODER_FILE are created during training**
 The input file must be in conll format which is tab separated and the second column contains surface words.
 The other columns are not imported and will be ignored.
-The putput file is also in conll format where third column contains lemmata and sixth column contains morphological tags.
+The output file is also in conll format where third column contains lemmata and sixth column contains morphological tags.
 
 
 ### Experimental Results
