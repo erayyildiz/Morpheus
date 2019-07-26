@@ -36,19 +36,7 @@ Phonology, and Morphology, Florence, Italy. Association for Computational Lingui
 
 The paper can be found in [SIGMORPHON 2019 Proceedings](https://sigmorphon.github.io/workshops/2019/shipout-book.pdf)
 
-## Usage
-
-### Requirements
-You can use any computer with `Python 3` installed.
-We strongly recommend you to use a machine with a GPU if you want to train models.
-To install dependencies, just install the packages written in `requirements.txt` as follow:
-
-```bash
-pip install -r requirements.txt
-
-```
-
-### Datasets
+## Datasets
 The data is owes its provenance to the [Universal Dependencies](http://universaldependencies.org/) project and have been converted to the [UniMorph schema](https://unimorph.github.io/).
 
 Sentences are annotated in the ten-column CoNLL-U format. 
@@ -63,6 +51,18 @@ At prediction time, test data also null out the LEMMA and FEATS columns.
 
 Check the [*UniMorph* dataset collection](https://github.com/sigmorphon/2019/tree/master/task2) which includes 
 datasets for more than 100 languages.
+
+## Usage
+
+### Requirements
+You can use any computer with `Python 3` installed.
+We strongly recommend you to use a machine with a GPU if you want to train models.
+To install dependencies, just install the packages written in `requirements.txt` as follow:
+
+```bash
+pip install -r requirements.txt
+
+```
 
 ### Training
 To train joint a contextual lemmatizer and morphological tagger for a language, run the following script in your command line.
