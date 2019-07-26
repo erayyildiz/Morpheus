@@ -34,6 +34,8 @@ The paper will be available in SIGMORPHON 2019 Proceedings.
 > Eray Yildiz and A. Cuneyd Tantug. 2019. Morpheus: A Neural Network for Jointly Learning Contextual Lemmatization and Morphological Tagging. In Proceedings of the 16th SIGMORPHON Workshop on Computational Research in Phonetics,
 Phonology, and Morphology, Florence, Italy. Association for Computational Linguistics
 
+The paper can be found in [SIGMORPHON 2019 Proceedings](https://sigmorphon.github.io/workshops/2019/shipout-book.pdf)
+
 ## Usage
 
 ### Requirements
