@@ -29,12 +29,12 @@ The improvements especially in low resource languages are significant.
 ## Reference
 
 Please cite the following work if you use the tool. 
-The paper will be available in SIGMORPHON 2019 Proceedings.
 
 > Eray Yildiz and A. Cuneyd Tantug. 2019. Morpheus: A Neural Network for Jointly Learning Contextual Lemmatization and Morphological Tagging. In Proceedings of the 16th SIGMORPHON Workshop on Computational Research in Phonetics,
 Phonology, and Morphology, Florence, Italy. Association for Computational Linguistics
 
-The paper can be found in [SIGMORPHON 2019 Proceedings](https://sigmorphon.github.io/workshops/2019/shipout-book.pdf)
+The paper can be found in ACL anthology: https://www.aclweb.org/anthology/W19-4205
+Have a look at [SIGMORPHON 2019 Proceedings](https://sigmorphon.github.io/workshops/2019/shipout-book.pdf) for all proposed methods in the workshop.
 
 ## Datasets
 The data is owes its provenance to the [Universal Dependencies](http://universaldependencies.org/) project and have been converted to the [UniMorph schema](https://unimorph.github.io/).
