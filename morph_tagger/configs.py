@@ -1,0 +1,12 @@
+
+# Encoder hyper-parmeters
+CHAR_EMBEDDING_SIZE = 128
+CHAR_GRU_HIDDEN_SIZE = 1024
+WORD_GRU_HIDDEN_SIZE = 1024
+ENCODE_DROPOUT = 0.5
+USE_TRANSFORMER = True
+TRANSFORMER_MODEL_NAME = 'erayyildiz/electra-turkish-cased'
+
+# Decoder hyper-parmeters
+OUTPUT_EMBEDDING_SIZE = 256
+DECODER_DROPOUT = 0.5
