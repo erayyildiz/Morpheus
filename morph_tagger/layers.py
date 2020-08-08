@@ -9,7 +9,7 @@ from transformers import AutoModel
 from data_utils import inverse_transformation
 
 
-def segment_sum(data, segment_ids, device=DEVICE):
+def segment_sum(data, segment_ids, device=torch.device("cuda" if torch.cuda.is_available() else "cpu")):
     """
     Analogous to tf.segment_sum (https://www.tensorflow.org/api_docs/python/tf/math/segment_sum).
     """
