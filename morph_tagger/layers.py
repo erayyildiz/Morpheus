@@ -9,13 +9,15 @@ from transformers import AutoModel
 from data_utils import inverse_transformation
 
 
-def segment_sum(data, segment_ids):
+def segment_sum(data, segment_ids, device=DEVICE):
     """
     Analogous to tf.segment_sum (https://www.tensorflow.org/api_docs/python/tf/math/segment_sum).
     """
-    unique_segment_ids = torch.unique(segment_ids)
-    res = torch.zeros(unique_segment_ids.shape[0], data.shape[-1])
-    return res.index_add(0, segment_ids, data.view(data.shape[1:])).view(1, -1, data.shape[-1])
+    data = data.to(device)
+    segment_ids = segment_ids.to(device)
+    unique_segment_ids = torch.unique(segment_ids).to(device)
+    res = torch.zeros(unique_segment_ids.shape[0], data.shape[-1]).to(device)
+    return res.index_add(0, segment_ids, data.view(data.shape[1:])).view(1, -1, data.shape[-1]).to(device)
 
 
 class EncoderRNN(nn.Module):
