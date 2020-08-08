@@ -2,6 +2,8 @@ from itertools import chain
 
 import torch
 from torch.utils.data import Dataset
+from transformers import AutoTokenizer
+
 from data_utils import read_dataset
 
 
@@ -13,7 +15,7 @@ class ConllDataset(Dataset):
     START_TAG = '<s>'
 
     def __init__(self, conll_file_path, surface_char2id=None, lemma_char2id=None, morph_tag2id=None,
-                 transformation2id=None, mode='train', max_sentences=0):
+                 transformation2id=None, transformer_model_name=None, mode='train',  max_sentences=0):
         """Initialize ConllDataset.
 
         Arguments:
@@ -22,6 +24,7 @@ class ConllDataset(Dataset):
             lemma_char2id (dict): Default is None. if None calculated over given data
             morph_tag2id (dict): Default is None. if None calculated over given data
             transformation2id (dict): Default is None. if None calculated over given data
+            transformer_model_name (string): uggingFace style name of the transformer model if used
             mode (str): 'train' or 'test'. If 'test' vocab dicts will not be updated
             max_sentences (int): Maximum number of sentences to be loaded into dataset.
                 Default is 0 which means no limitation
@@ -56,6 +59,12 @@ class ConllDataset(Dataset):
             self.morph_tag2id[self.PAD_token] = len(self.morph_tag2id)
             self.morph_tag2id[self.EOS_token] = len(self.morph_tag2id)
             self.morph_tag2id[self.START_TAG] = len(self.morph_tag2id)
+
+        self.transformer_model_name = transformer_model_name
+        self.tokenizer = None
+        if self.transformer_model_name:
+            self.tokenizer = AutoTokenizer.from_pretrained(self.transformer_model_name)
+            self.tokenizer.basic_tokenizer.do_lower_case = False
         self.mode = mode
         if mode == 'train':
             self.create_vocabs()
@@ -141,4 +150,15 @@ class ConllDataset(Dataset):
                                                  add_start_tag=False, add_end_tag=False)
             encoded_transformations[ix, :encoded_transformation.size()[0]] = encoded_transformation
 
-        return encoded_surfaces, encoded_lemmas, encoded_morph_tags, encoded_transformations
+        encoded_surfaces_pretrained = []
+        if self.transformer_model_name:
+            sub_tokens = []
+            word_ids = []
+            for word_id, surface in enumerate(sentence.surface_words):
+                sub_tokens_ids = self.tokenizer.wordpiece_tokenizer.tokenize(surface[:-1])
+                sub_tokens_ids = self.tokenizer.convert_tokens_to_ids(sub_tokens_ids)
+                sub_tokens += sub_tokens_ids
+                word_ids += [word_id] * len(sub_tokens_ids)
+            encoded_surfaces_pretrained = (torch.LongTensor(sub_tokens), torch.LongTensor(word_ids))
+
+        return encoded_surfaces_pretrained, encoded_surfaces, encoded_lemmas, encoded_morph_tags, encoded_transformations

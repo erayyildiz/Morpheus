@@ -8,6 +8,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 import optparse
 
+from configs import *
 from data_loaders import ConllDataset
 from eval import evaluate
 from languages import PILOT_LANGUAGES, NON_TRANSFORMER_LANGUAGES
@@ -15,14 +16,14 @@ from layers import EncoderRNN, DecoderRNN, TransformerRNN
 from logger import LOGGER
 
 # Encoder hyper-parmeters
-embedding_size = 128
-char_gru_hidden_size = 1024
-word_gru_hidden_size = 1024
-encoder_dropout = 0.5
+embedding_size = CHAR_EMBEDDING_SIZE
+char_gru_hidden_size = CHAR_GRU_HIDDEN_SIZE
+word_gru_hidden_size = WORD_GRU_HIDDEN_SIZE
+encoder_dropout = ENCODE_DROPOUT
 
 # Decoder hyper-parmeters
-output_embedding_size = 256
-decoder_dropout = 0.5
+output_embedding_size = OUTPUT_EMBEDDING_SIZE
+decoder_dropout = DECODER_DROPOUT
 
 # Select cuda as device if available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -30,7 +31,8 @@ LOGGER.info("Using {} as default device".format(device))
 
 
 def train(language_name, train_data_path, val_data_path, use_min_edit_operation_decoder=True,
-          encoder_lr=0.0003, decoder_lemma_lr=0.0003, decoder_morph_lr=0.0003, max_words=50,
+          encoder_lr=0.0003, decoder_lemma_lr=0.0003, decoder_morph_lr=0.0003, transformer_lr=0.00001, max_words=50,
+          use_transformer=True, use_char_lstm=True, transformer_model_name=TRANSFORMER_MODEL_NAME,
           model_name='LemmaTransformer', patience=4, num_epochs=100):
     """
     Trains model for given language.
@@ -46,49 +48,88 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
         decoder_lemma_lr (float): Learning rate for lemma decoder
         decoder_morph_lr (float): Learning rate for morphological tagging decoder
         max_words (int): Maximum number of words in a sentence
+        use_transformer (str): indicates weather to use transformer
+        use_char_lstm (str): indicate whether to use char lstm
+        transformer_model_name (str): HuggingFace style transformer name
         model_name (str): Name of the model
         patience (int): Number of epochs without improvement. Used for early stopping
         num_epochs (int): Maximum number of epochs. Default is 100.
 
 
     """
+
+    assert use_char_lstm or use_transformer, 'One of use_char_lstm and use_transformer should be True'
+    if use_transformer:
+        assert transformer_model_name, 'transformer_model_name should be provided if use_transformer is True'
+
     # Load train set
-    train_set = ConllDataset(train_data_path)
+    train_set = ConllDataset(train_data_path, transformer_model_name=transformer_model_name)
     train_loader = DataLoader(train_set)
 
     # Load validation data
     val_set = ConllDataset(val_data_path, surface_char2id=train_set.surface_char2id,
                            lemma_char2id=train_set.lemma_char2id, morph_tag2id=train_set.morph_tag2id,
+                           transformer_model_name=transformer_model_name,
                            transformation2id=train_set.transformation2id, mode='test')
     val_loader = DataLoader(val_set)
 
     # Build Models
     # Initialize encoder and decoders
     LOGGER.info('Building models for language: {}'.format(language_name))
-    encoder = EncoderRNN(embedding_size, char_gru_hidden_size, word_gru_hidden_size,
-                         len(train_set.surface_char2id), dropout_ratio=encoder_dropout, device=device)
+    if use_transformer:
+        encoder = EncoderRNN(embedding_size, char_gru_hidden_size, word_gru_hidden_size,
+                             len(train_set.surface_char2id), TRANSFORMER_MODEL_NAME,
+                             dropout_ratio=encoder_dropout, device=device)
+    else:
+        encoder = EncoderRNN(embedding_size, char_gru_hidden_size, word_gru_hidden_size,
+                             len(train_set.surface_char2id), None,
+                             dropout_ratio=encoder_dropout, device=device)
 
     encoder = encoder.to(device)
 
     if language_name in NON_TRANSFORMER_LANGUAGES or not use_min_edit_operation_decoder:
-        decoder_lemma = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.lemma_char2id,
-                                   dropout_ratio=decoder_dropout).to(device)
+        if use_transformer:
+            decoder_lemma = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.lemma_char2id,
+                                       layer_size=3, dropout_ratio=decoder_dropout).to(device)
+        else:
+            decoder_lemma = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.lemma_char2id,
+                                       layer_size=2, dropout_ratio=decoder_dropout).to(device)
     else:
-        decoder_lemma = TransformerRNN(output_embedding_size, word_gru_hidden_size, train_set.transformation2id,
-                                       len(train_set.surface_char2id), dropout_ratio=decoder_dropout).to(device)
+        if use_transformer:
+            decoder_lemma = TransformerRNN(output_embedding_size, word_gru_hidden_size, train_set.transformation2id,
+                                           len(train_set.surface_char2id), layer_size=3,
+                                           dropout_ratio=decoder_dropout).to(device)
+        else:
+            decoder_lemma = TransformerRNN(output_embedding_size, word_gru_hidden_size, train_set.transformation2id,
+                                           len(train_set.surface_char2id), layer_size=3,
+                                           dropout_ratio=decoder_dropout).to(device)
 
-    decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.morph_tag2id,
-                                    dropout_ratio=decoder_dropout).to(device)
+    if use_transformer:
+        decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.morph_tag2id,
+                                        layer_size=3, dropout_ratio=decoder_dropout).to(device)
+    else:
+        decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.morph_tag2id,
+                                        layer_size=2, dropout_ratio=decoder_dropout).to(device)
 
     # Define loss and optimizers
     criterion = nn.CrossEntropyLoss(ignore_index=0).to(device)
 
     # Create optimizers
-    encoder_optimizer = torch.optim.Adam(encoder.parameters(), lr=encoder_lr)
+    parameters_except_based_model = [x[1] for x in encoder.named_parameters() if 'based_model' not in x[0]]
+    encoder_optimizer = torch.optim.Adam([
+        {"params": parameters_except_based_model, "lr": encoder_lr}
+    ], lr=encoder_lr)
+    transformer_optimizer = torch.optim.Adam(
+            [
+                {"params": encoder.based_model.parameters(), "lr": transformer_lr},
+            ],
+            lr=transformer_lr, weight_decay=0.01
+        )
     decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(), lr=decoder_lemma_lr)
     decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(), lr=decoder_morph_lr)
 
     encoder_scheduler = MultiStepLR(encoder_optimizer, milestones=list(range(5, 100, 1)), gamma=0.5)
+    transformer_scheduler = MultiStepLR(transformer_optimizer, milestones=list(range(5, 100, 1)), gamma=0.5)
     decoder_lemma_scheduler = MultiStepLR(decoder_lemma_optimizer, milestones=list(range(5, 100, 1)), gamma=0.5)
     decoder_morph_tags_scheduler = MultiStepLR(decoder_morph_tags_optimizer, milestones=list(range(5, 100, 1)),
                                                gamma=0.5)
@@ -112,14 +153,9 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
         decoder_lemma.train()
         decoder_morph_tags.train()
 
-        # LR Schedule
-        encoder_scheduler.step()
-        decoder_lemma_scheduler.step()
-        decoder_morph_tags_scheduler.step()
-
-        for x, y1, y2, y3 in tqdm(train_loader, desc='Training'):
+        for x1, x2, y1, y2, y3 in tqdm(train_loader, desc='Training'):
             # Skip sentences longer than max_words
-            if x.size(1) > max_words:
+            if x2.size(1) > max_words:
                 continue
 
             # Clear gradients for each sentence
@@ -128,17 +164,25 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             decoder_morph_tags.zero_grad()
 
             # Send input to the device
-            x = x.to(device)
+            if use_transformer:
+                x1 = (x1[0].to(device), x1[1].to(device))
+            x2 = x2.to(device)
             y1 = y1.to(device)
             y2 = y2.to(device)
             y3 = y3.to(device)
 
             # Run encoder
-            word_embeddings, context_embeddings = encoder(x)
+            transformer_output, word_embeddings, context_embeddings = encoder(x1, x2)
 
             # Run morph decoder for each word
             sentence_loss = 0.0
-            morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings, y2[0, :, :-1])
+            if use_transformer:
+                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
+                                                           y2[0, :, :-1],
+                                                           transformer_context=transformer_output)
+            else:
+                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
+                                                           y2[0, :, :-1])
             word_count = word_embeddings.size(0)
             for word_ix in range(word_count):
                 sentence_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
@@ -148,9 +192,17 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             morph_loss += sentence_loss.item() / (word_count * 1.0)
 
             if isinstance(decoder_lemma, TransformerRNN):
-                lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, x)
+                if use_transformer:
+                    lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, x2,
+                                                          transformer_context=transformer_output)
+                else:
+                    lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, x2)
             else:
-                lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, y1[0, :, :-1])
+                if use_transformer:
+                    lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, y1[0, :, :-1],
+                                                          transformer_context=transformer_output)
+                else:
+                    lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, y1[0, :, :-1])
 
             word_count = word_embeddings.size(0)
             for word_ix in range(word_count):
@@ -164,29 +216,38 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             lemma_loss += sentence_loss.item() / (word_count * 1.0)
 
             encoder_optimizer.step()
+            transformer_optimizer.step()
             decoder_lemma_optimizer.step()
             decoder_morph_tags_optimizer.step()
 
         encoder.eval()
         decoder_lemma.eval()
         decoder_morph_tags.eval()
-        for x, y1, y2, y3 in tqdm(val_loader, desc='Validation'):
+        for x1, x2, y1, y2, y3 in tqdm(val_loader, desc='Validation'):
             # Skip sentences longer than max_words
-            if x.size(1) > max_words:
+            if x2.size(1) > max_words:
                 continue
 
             # Send input to the device
-            x = x.to(device)
+            if use_transformer:
+                x1 = (x1[0].to(device), x1[1].to(device))
+            x2 = x2.to(device)
             y1 = y1.to(device)
             y2 = y2.to(device)
             y3 = y3.to(device)
 
             # Run encoder
-            word_embeddings, context_embeddings = encoder(x)
+            transformer_output, word_embeddings, context_embeddings = encoder(x1, x2)
 
-            # Run morph decoder
+            # Run morph decoder for each word
             sentence_loss = 0.0
-            morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings, y2[0, :, :-1])
+            if use_transformer:
+                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
+                                                           y2[0, :, :-1],
+                                                           transformer_context=transformer_output)
+            else:
+                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
+                                                           y2[0, :, :-1])
             word_count = word_embeddings.size(0)
             for word_ix in range(word_count):
                 sentence_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
@@ -197,9 +258,17 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             # Run lemma decoder
             sentence_loss = 0.0
             if isinstance(decoder_lemma, TransformerRNN):
-                lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, x)
+                if use_transformer:
+                    lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, x2,
+                                                          transformer_context=transformer_output)
+                else:
+                    lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, x2)
             else:
-                lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, y1[0, :, :-1])
+                if use_transformer:
+                    lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, y1[0, :, :-1],
+                                                          transformer_context=transformer_output)
+                else:
+                    lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, y1[0, :, :-1])
             word_count = word_embeddings.size(0)
             for word_ix in range(word_count):
                 if isinstance(decoder_lemma, TransformerRNN):
@@ -209,6 +278,13 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
 
             val_loss += sentence_loss.item() / (word_count * 2.0)
             val_lemma_loss += sentence_loss.item() / (word_count * 1.0)
+
+        # LR Schedule
+        encoder_scheduler.step()
+        if epoch > 3:
+            transformer_scheduler.step()
+        decoder_lemma_scheduler.step()
+        decoder_morph_tags_scheduler.step()
 
         LOGGER.info('Epoch {0:3d}, Loss: {1:7.3f}, Lemma Loss: {2:7.3f}, Morph Loss: {3:7.3f}'.format(
             epoch,
@@ -258,7 +334,7 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
         print('{}: {}'.format(k, v))
 
 
-def train_all(data_path='../data/2019/task2/', only_pivot_languages=False):
+def train_all(data_path='../data/2019/task2/', only_pivot_languages=True):
     """
     Trains models for all languages in a given data folder.
 
@@ -296,7 +372,7 @@ def train_all(data_path='../data/2019/task2/', only_pivot_languages=False):
 
         assert train_data_path, 'Training data not found'
         assert val_data_path, 'Validation data not found'
-        train(train_data_path, val_data_path)
+        train(language_name, train_data_path, val_data_path, model_name='ElectraTransformer')
 
 
 if __name__ == '__main__':
