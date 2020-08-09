@@ -117,7 +117,10 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
 
     # Define loss and optimizers
     criterion = nn.CrossEntropyLoss(ignore_index=0).to(device)
-    bce_criterion = nn.BCEWithLogitsLoss().to(device)
+    bce_criterion = None
+    if not use_rnn_morph:
+        pos_weight = torch.ones([decoder_morph_tags.vocab_size])
+        bce_criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight, reduction='sum').to(device)
 
     # Create optimizers
     parameters_except_based_model = [x[1] for x in encoder.named_parameters() if 'based_model' not in x[0]]
