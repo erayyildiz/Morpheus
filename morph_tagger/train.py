@@ -31,7 +31,7 @@ LOGGER.info("Using {} as default device".format(device))
 
 
 def train(language_name, train_data_path, val_data_path, use_min_edit_operation_decoder=True,
-          encoder_lr=0.0003, decoder_lemma_lr=0.0003, decoder_morph_lr=0.0003, transformer_lr=0.00001, max_words=50,
+          encoder_lr=0.0001, decoder_lemma_lr=0.0003, decoder_morph_lr=0.0003, transformer_lr=0.00001, max_words=50,
           use_transformer=True, use_char_lstm=True, transformer_model_name=TRANSFORMER_MODEL_NAME,
           model_name='LemmaTransformer', patience=4, num_epochs=100):
     """
@@ -128,10 +128,10 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
     decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(), lr=decoder_lemma_lr)
     decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(), lr=decoder_morph_lr)
 
-    encoder_scheduler = MultiStepLR(encoder_optimizer, milestones=list(range(5, 100, 1)), gamma=0.5)
-    transformer_scheduler = MultiStepLR(transformer_optimizer, milestones=list(range(5, 100, 1)), gamma=0.5)
-    decoder_lemma_scheduler = MultiStepLR(decoder_lemma_optimizer, milestones=list(range(5, 100, 1)), gamma=0.5)
-    decoder_morph_tags_scheduler = MultiStepLR(decoder_morph_tags_optimizer, milestones=list(range(5, 100, 1)),
+    encoder_scheduler = MultiStepLR(encoder_optimizer, milestones=list(range(3, 100, 1)), gamma=0.5)
+    transformer_scheduler = MultiStepLR(transformer_optimizer, milestones=list(range(3, 100, 1)), gamma=0.5)
+    decoder_lemma_scheduler = MultiStepLR(decoder_lemma_optimizer, milestones=list(range(3, 100, 1)), gamma=0.5)
+    decoder_morph_tags_scheduler = MultiStepLR(decoder_morph_tags_optimizer, milestones=list(range(3, 100, 1)),
                                                gamma=0.5)
 
     prev_val_loss = 1000000

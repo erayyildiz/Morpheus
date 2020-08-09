@@ -31,7 +31,7 @@ class EncoderRNN(nn.Module):
     """
 
     def __init__(self, embedding_size, hidden_size1, hidden_size2, vocab_len,
-                 transformer_model_name, dropout_ratio=0.2, device=torch.device('cpu')):
+                 transformer_model_name, dropout_ratio=0.3, device=torch.device('cpu')):
         """ Initialize an EncoderRNN object
 
         Args:
