@@ -1,0 +1,2233 @@
+# sent_id = n01042008
+# text = İnceleme, Eylül ayındaki Kuzey Ontario'daki polis memurlarından geldiği iddia edilen viral Facebook yayınlarını ele alıyor.
+# text_en = The review is also investigating inflammatory Facebook posts from September, alleged to come from police officers in the northern Ontario city.
+1	İnceleme	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	Eylül	_	_	_	_	_	_	_	_
+4	ayında	_	_	_	_	_	_	_	_
+5	ki	_	_	_	_	_	_	_	_
+6	Kuzey	_	_	_	_	_	_	_	_
+7	Ontario'da	_	_	_	_	_	_	_	_
+8	ki	_	_	_	_	_	_	_	_
+9	polis	_	_	_	_	_	_	_	_
+10	memurlarından	_	_	_	_	_	_	_	_
+11	geldiği	_	_	_	_	_	_	_	_
+12	iddia	_	_	_	_	_	_	_	_
+13	edilen	_	_	_	_	_	_	_	_
+14	viral	_	_	_	_	_	_	_	_
+15	Facebook	_	_	_	_	_	_	_	_
+16	yayınlarını	_	_	_	_	_	_	_	_
+17	ele	_	_	_	_	_	_	_	_
+18	alıyor	_	_	_	_	_	_	_	_
+19	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01022
+# sent_id = n01022002
+# text = Birleşmiş Milletler'in karbon azaltma planları üzerindeki incelemesi, bunların küresel hava sıcaklıklarındaki artışın 2 C'nin altında kalması için gereken seviyelerin çok altında olduğunu gösteriyor.
+# text_en = A UN review of national plans to cut carbon says they are well short of the levels needed to keep the rise in global temperatures under 2C.
+1	Birleşmiş	_	_	_	_	_	_	_	_
+2	Milletler'in	_	_	_	_	_	_	_	_
+3	karbon	_	_	_	_	_	_	_	_
+4	azaltma	_	_	_	_	_	_	_	_
+5	planları	_	_	_	_	_	_	_	_
+6	üzerinde	_	_	_	_	_	_	_	_
+7	ki	_	_	_	_	_	_	_	_
+8	incelemesi	_	_	_	_	_	_	_	_
+9	,	_	_	_	_	_	_	_	_
+10	bunların	_	_	_	_	_	_	_	_
+11	küresel	_	_	_	_	_	_	_	_
+12	hava	_	_	_	_	_	_	_	_
+13	sıcaklıklarında	_	_	_	_	_	_	_	_
+14	ki	_	_	_	_	_	_	_	_
+15	artışın	_	_	_	_	_	_	_	_
+16	2	_	_	_	_	_	_	_	_
+17	C'nin	_	_	_	_	_	_	_	_
+18	altında	_	_	_	_	_	_	_	_
+19	kalması	_	_	_	_	_	_	_	_
+20	için	_	_	_	_	_	_	_	_
+21	gereken	_	_	_	_	_	_	_	_
+22	seviyelerin	_	_	_	_	_	_	_	_
+23	çok	_	_	_	_	_	_	_	_
+24	altında	_	_	_	_	_	_	_	_
+25	olduğunu	_	_	_	_	_	_	_	_
+26	gösteriyor	_	_	_	_	_	_	_	_
+27	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n02069
+# sent_id = n02069039
+# text = Mevcut tutuklamalar "bize karşı tezgahlanan gizli oyunların devamı" diyor Dündar.
+# text_en = The current arrests are "a continuation of the shenanigans against us," said Dündar.
+1	Mevcut	_	_	_	_	_	_	_	_
+2	tutuklamalar	_	_	_	_	_	_	_	_
+3	"	_	_	_	_	_	_	_	_
+4	bize	_	_	_	_	_	_	_	_
+5	karşı	_	_	_	_	_	_	_	_
+6	tezgahlanan	_	_	_	_	_	_	_	_
+7	gizli	_	_	_	_	_	_	_	_
+8	oyunların	_	_	_	_	_	_	_	_
+9	devamı	_	_	_	_	_	_	_	_
+10	"	_	_	_	_	_	_	_	_
+11	diyor	_	_	_	_	_	_	_	_
+12	Dündar	_	_	_	_	_	_	_	_
+13	.	_	_	_	_	_	_	_	_
+
+# newdoc id = w02008
+# sent_id = w02008010
+# text = Kapsamı, bilinen birçok kazı alanına sahip, zamanın en yaygın kültürlerine aittir.
+# text_en = In its scope it belongs to the most far-reaching cultures of the time, in which many sites are known.
+1	Kapsamı	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	bilinen	_	_	_	_	_	_	_	_
+4	birçok	_	_	_	_	_	_	_	_
+5	kazı	_	_	_	_	_	_	_	_
+6	alanına	_	_	_	_	_	_	_	_
+7	sahip	_	_	_	_	_	_	_	_
+8	,	_	_	_	_	_	_	_	_
+9	zamanın	_	_	_	_	_	_	_	_
+10	en	_	_	_	_	_	_	_	_
+11	yaygın	_	_	_	_	_	_	_	_
+12	kültürlerine	_	_	_	_	_	_	_	_
+13	ait	_	_	_	_	_	_	_	_
+14	tir	_	_	_	_	_	_	_	_
+15	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01021
+# sent_id = n01021007
+# text = Hack Forums'ın kurucusu Jesse LaBrocca bölümün kapatılma sebebini açıklayan bir mesajda "Ne yazık ki, bir kez daha azınlığın talebiyle çoğunluk eğlencesinden oldu." diye yazdı.
+# text_en = "Unfortunately once again the few ruin it for the many," wrote Jesse LaBrocca, founder of Hack Forums, in a message explaining why the section was being closed.
+1	Hack	_	_	_	_	_	_	_	_
+2	Forums'ın	_	_	_	_	_	_	_	_
+3	kurucusu	_	_	_	_	_	_	_	_
+4	Jesse	_	_	_	_	_	_	_	_
+5	LaBrocca	_	_	_	_	_	_	_	_
+6	bölümün	_	_	_	_	_	_	_	_
+7	kapatılma	_	_	_	_	_	_	_	_
+8	sebebini	_	_	_	_	_	_	_	_
+9	açıklayan	_	_	_	_	_	_	_	_
+10	bir	_	_	_	_	_	_	_	_
+11	mesajda	_	_	_	_	_	_	_	_
+12	"	_	_	_	_	_	_	_	_
+13	Ne	_	_	_	_	_	_	_	_
+14	yazık	_	_	_	_	_	_	_	_
+15	ki	_	_	_	_	_	_	_	_
+16	,	_	_	_	_	_	_	_	_
+17	bir	_	_	_	_	_	_	_	_
+18	kez	_	_	_	_	_	_	_	_
+19	daha	_	_	_	_	_	_	_	_
+20	azınlığın	_	_	_	_	_	_	_	_
+21	talebiyle	_	_	_	_	_	_	_	_
+22	çoğunluk	_	_	_	_	_	_	_	_
+23	eğlencesinden	_	_	_	_	_	_	_	_
+24	oldu	_	_	_	_	_	_	_	_
+25	.	_	_	_	_	_	_	_	_
+26	"	_	_	_	_	_	_	_	_
+27	diye	_	_	_	_	_	_	_	_
+28	yazdı	_	_	_	_	_	_	_	_
+29	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01023120
+# text = Kurallar ne olursa olsun, kavgalar genellikle atlardan birinin ölümüyle sonuçlanırdı.
+# text_en = Whatever the rules were, the fights often resulted in the death of one of the stallions.
+1	Kurallar	_	_	_	_	_	_	_	_
+2	ne	_	_	_	_	_	_	_	_
+3	olursa	_	_	_	_	_	_	_	_
+4	olsun	_	_	_	_	_	_	_	_
+5	,	_	_	_	_	_	_	_	_
+6	kavgalar	_	_	_	_	_	_	_	_
+7	genellikle	_	_	_	_	_	_	_	_
+8	atlardan	_	_	_	_	_	_	_	_
+9	birinin	_	_	_	_	_	_	_	_
+10	ölümüyle	_	_	_	_	_	_	_	_
+11	sonuçlanırdı	_	_	_	_	_	_	_	_
+12	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01079
+# sent_id = n01079015
+# text = Köşede başörtülü ve kot pantolonlu bir kız var ve o kadar mütevazi görünüyor ki onun da bir asistan olduğunu düşünüyorum.
+# text_en = In the corner is a girl in a headscarf and jeans who looks so unassuming I think it’s another assistant.
+1	Köşede	_	_	_	_	_	_	_	_
+2	başörtülü	_	_	_	_	_	_	_	_
+3	ve	_	_	_	_	_	_	_	_
+4	kot	_	_	_	_	_	_	_	_
+5	pantolonlu	_	_	_	_	_	_	_	_
+6	bir	_	_	_	_	_	_	_	_
+7	kız	_	_	_	_	_	_	_	_
+8	var	_	_	_	_	_	_	_	_
+9	ve	_	_	_	_	_	_	_	_
+10	o	_	_	_	_	_	_	_	_
+11	kadar	_	_	_	_	_	_	_	_
+12	mütevazi	_	_	_	_	_	_	_	_
+13	görünüyor	_	_	_	_	_	_	_	_
+14	ki	_	_	_	_	_	_	_	_
+15	onun	_	_	_	_	_	_	_	_
+16	da	_	_	_	_	_	_	_	_
+17	bir	_	_	_	_	_	_	_	_
+18	asistan	_	_	_	_	_	_	_	_
+19	olduğunu	_	_	_	_	_	_	_	_
+20	düşünüyorum	_	_	_	_	_	_	_	_
+21	.	_	_	_	_	_	_	_	_
+
+# newdoc id = w01030
+# sent_id = w01030092
+# text = Alpler, Avrupa'nın düz bölgelerine içme suyu, sulama ve hidroelektrik enerji sağlar.
+# text_en = The Alps provide lowland Europe with drinking water, irrigation, and hydroelectric power.
+1	Alpler	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	Avrupa'nın	_	_	_	_	_	_	_	_
+4	düz	_	_	_	_	_	_	_	_
+5	bölgelerine	_	_	_	_	_	_	_	_
+6	içme	_	_	_	_	_	_	_	_
+7	suyu	_	_	_	_	_	_	_	_
+8	,	_	_	_	_	_	_	_	_
+9	sulama	_	_	_	_	_	_	_	_
+10	ve	_	_	_	_	_	_	_	_
+11	hidroelektrik	_	_	_	_	_	_	_	_
+12	enerji	_	_	_	_	_	_	_	_
+13	sağlar	_	_	_	_	_	_	_	_
+14	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01061023
+# text = Donald Trump taklitçisi John Di Domenico geçen sene Slate'e yaptığı açıklamada "Onu oynarken güçlü hissediyorum." demişti.
+# text_en = “When I’m playing him, I feel powerful,” the Donald Trump impersonator John Di Domenico explained to Slate last year.
+1	Donald	_	_	_	_	_	_	_	_
+2	Trump	_	_	_	_	_	_	_	_
+3	taklitçisi	_	_	_	_	_	_	_	_
+4	John	_	_	_	_	_	_	_	_
+5	Di	_	_	_	_	_	_	_	_
+6	Domenico	_	_	_	_	_	_	_	_
+7	geçen	_	_	_	_	_	_	_	_
+8	sene	_	_	_	_	_	_	_	_
+9	Slate'e	_	_	_	_	_	_	_	_
+10	yaptığı	_	_	_	_	_	_	_	_
+11	açıklamada	_	_	_	_	_	_	_	_
+12	"	_	_	_	_	_	_	_	_
+13	Onu	_	_	_	_	_	_	_	_
+14	oynarken	_	_	_	_	_	_	_	_
+15	güçlü	_	_	_	_	_	_	_	_
+16	hissediyorum	_	_	_	_	_	_	_	_
+17	.	_	_	_	_	_	_	_	_
+18	"	_	_	_	_	_	_	_	_
+19	demişti	_	_	_	_	_	_	_	_
+20	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n02056
+# sent_id = n02056019
+# text = Videonun Almanya'da tanıtılmasının nedeni belli değil.
+# text_en = The reason for advertising the video in Germany is unclear.
+1	Videonun	_	_	_	_	_	_	_	_
+2	Almanya'da	_	_	_	_	_	_	_	_
+3	tanıtılmasının	_	_	_	_	_	_	_	_
+4	nedeni	_	_	_	_	_	_	_	_
+5	belli	_	_	_	_	_	_	_	_
+6	değil	_	_	_	_	_	_	_	_
+7	.	_	_	_	_	_	_	_	_
+
+# sent_id = n05006013
+# text = Vurgular, ince ironi, kinayeler ve diğer iyi kullanılan dil araçları parlamentoya yakışır, ancak birbirine vurmak ve bayağı espriler buraya yakışmamaktadır.
+# text_en = Emphasis, fine irony, blunt innuendos and other well used verbal devices fit into parliamentary oratory, but flicking at each other and slapstick comedy do not.
+1	Vurgular	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	ince	_	_	_	_	_	_	_	_
+4	ironi	_	_	_	_	_	_	_	_
+5	,	_	_	_	_	_	_	_	_
+6	kinayeler	_	_	_	_	_	_	_	_
+7	ve	_	_	_	_	_	_	_	_
+8	diğer	_	_	_	_	_	_	_	_
+9	iyi	_	_	_	_	_	_	_	_
+10	kullanılan	_	_	_	_	_	_	_	_
+11	dil	_	_	_	_	_	_	_	_
+12	araçları	_	_	_	_	_	_	_	_
+13	parlamentoya	_	_	_	_	_	_	_	_
+14	yakışır	_	_	_	_	_	_	_	_
+15	,	_	_	_	_	_	_	_	_
+16	ancak	_	_	_	_	_	_	_	_
+17	birbirine	_	_	_	_	_	_	_	_
+18	vurmak	_	_	_	_	_	_	_	_
+19	ve	_	_	_	_	_	_	_	_
+20	bayağı	_	_	_	_	_	_	_	_
+21	espriler	_	_	_	_	_	_	_	_
+22	buraya	_	_	_	_	_	_	_	_
+23	yakışmamaktadır	_	_	_	_	_	_	_	_
+24	.	_	_	_	_	_	_	_	_
+
+# newdoc id = w01082
+# sent_id = w01082055
+# text = Savaş boyunca, Pearl Harbor genellikle Amerikan propagandasında kullanıldı.
+# text_en = Throughout the war, Pearl Harbor was frequently used in American propaganda.
+1	Savaş	_	_	_	_	_	_	_	_
+2	boyunca	_	_	_	_	_	_	_	_
+3	,	_	_	_	_	_	_	_	_
+4	Pearl	_	_	_	_	_	_	_	_
+5	Harbor	_	_	_	_	_	_	_	_
+6	genellikle	_	_	_	_	_	_	_	_
+7	Amerikan	_	_	_	_	_	_	_	_
+8	propagandasında	_	_	_	_	_	_	_	_
+9	kullanıldı	_	_	_	_	_	_	_	_
+10	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01115024
+# text = 21 Nisan 1882'de mezun olup master derecesini elde etti.
+# text_en = He graduated and obtained an M.A. on 21 April 1882.
+1	21	_	_	_	_	_	_	_	_
+2	Nisan	_	_	_	_	_	_	_	_
+3	1882'de	_	_	_	_	_	_	_	_
+4	mezun	_	_	_	_	_	_	_	_
+5	olup	_	_	_	_	_	_	_	_
+6	master	_	_	_	_	_	_	_	_
+7	derecesini	_	_	_	_	_	_	_	_
+8	elde	_	_	_	_	_	_	_	_
+9	etti	_	_	_	_	_	_	_	_
+10	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01143
+# sent_id = n01143003
+# text = Brisbane Nine News "Şaka olsun diye Kuzey Kore golf turnuvasına katıldılar" diye yazdı.
+# text_en = "Pair prank their way into North Korean golf tournament," read Brisbane's Nine News.
+1	Brisbane	_	_	_	_	_	_	_	_
+2	Nine	_	_	_	_	_	_	_	_
+3	News	_	_	_	_	_	_	_	_
+4	"	_	_	_	_	_	_	_	_
+5	Şaka	_	_	_	_	_	_	_	_
+6	olsun	_	_	_	_	_	_	_	_
+7	diye	_	_	_	_	_	_	_	_
+8	Kuzey	_	_	_	_	_	_	_	_
+9	Kore	_	_	_	_	_	_	_	_
+10	golf	_	_	_	_	_	_	_	_
+11	turnuvasına	_	_	_	_	_	_	_	_
+12	katıldılar	_	_	_	_	_	_	_	_
+13	"	_	_	_	_	_	_	_	_
+14	diye	_	_	_	_	_	_	_	_
+15	yazdı	_	_	_	_	_	_	_	_
+16	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01142008
+# text = Amerikalı, "Andy'yi tebrik etmek zorundayım! Dünyada bir numara olmak, bu inanılmaz bir başarı!" dedi.
+# text_en = "I have to congratulate Andy -- to get to No. 1 in the world that's an incredible achievement," the American said.
+1	Amerikalı	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	"	_	_	_	_	_	_	_	_
+4	Andy'yi	_	_	_	_	_	_	_	_
+5	tebrik	_	_	_	_	_	_	_	_
+6	etmek	_	_	_	_	_	_	_	_
+7	zorunda	_	_	_	_	_	_	_	_
+8	yım	_	_	_	_	_	_	_	_
+9	!	_	_	_	_	_	_	_	_
+10	Dünyada	_	_	_	_	_	_	_	_
+11	bir	_	_	_	_	_	_	_	_
+12	numara	_	_	_	_	_	_	_	_
+13	olmak	_	_	_	_	_	_	_	_
+14	,	_	_	_	_	_	_	_	_
+15	bu	_	_	_	_	_	_	_	_
+16	inanılmaz	_	_	_	_	_	_	_	_
+17	bir	_	_	_	_	_	_	_	_
+18	başarı	_	_	_	_	_	_	_	_
+19	!	_	_	_	_	_	_	_	_
+20	"	_	_	_	_	_	_	_	_
+21	dedi	_	_	_	_	_	_	_	_
+22	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01097104
+# text = Chandler ve Weller gibi bazı tarihçiler, İngiliz ağır süvari askerlerinin ilk epik şarjlarını takiben uygulanabilir bir güç olarak yok edildiğini iddia ediyorlar.
+# text_en = Some historians, such as Chandler and Weller, assert that the British heavy cavalry were destroyed as a viable force following their first, epic charge.
+1	Chandler	_	_	_	_	_	_	_	_
+2	ve	_	_	_	_	_	_	_	_
+3	Weller	_	_	_	_	_	_	_	_
+4	gibi	_	_	_	_	_	_	_	_
+5	bazı	_	_	_	_	_	_	_	_
+6	tarihçiler	_	_	_	_	_	_	_	_
+7	,	_	_	_	_	_	_	_	_
+8	İngiliz	_	_	_	_	_	_	_	_
+9	ağır	_	_	_	_	_	_	_	_
+10	süvari	_	_	_	_	_	_	_	_
+11	askerlerinin	_	_	_	_	_	_	_	_
+12	ilk	_	_	_	_	_	_	_	_
+13	epik	_	_	_	_	_	_	_	_
+14	şarjlarını	_	_	_	_	_	_	_	_
+15	takiben	_	_	_	_	_	_	_	_
+16	uygulanabilir	_	_	_	_	_	_	_	_
+17	bir	_	_	_	_	_	_	_	_
+18	güç	_	_	_	_	_	_	_	_
+19	olarak	_	_	_	_	_	_	_	_
+20	yok	_	_	_	_	_	_	_	_
+21	edildiğini	_	_	_	_	_	_	_	_
+22	iddia	_	_	_	_	_	_	_	_
+23	ediyorlar	_	_	_	_	_	_	_	_
+24	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01139
+# sent_id = n01139006
+# text = Barratt, "Kurduğumuz veya yapım aşamasında olduğumuz şehirlerde çalışmalarımıza devam edeceğiz." dedi.
+# text_en = "In the cities where we've launched or are under construction, our work will continue," Barratt said.
+1	Barratt	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	"	_	_	_	_	_	_	_	_
+4	Kurduğumuz	_	_	_	_	_	_	_	_
+5	veya	_	_	_	_	_	_	_	_
+6	yapım	_	_	_	_	_	_	_	_
+7	aşamasında	_	_	_	_	_	_	_	_
+8	olduğumuz	_	_	_	_	_	_	_	_
+9	şehirlerde	_	_	_	_	_	_	_	_
+10	çalışmalarımıza	_	_	_	_	_	_	_	_
+11	devam	_	_	_	_	_	_	_	_
+12	edeceğiz	_	_	_	_	_	_	_	_
+13	.	_	_	_	_	_	_	_	_
+14	"	_	_	_	_	_	_	_	_
+15	dedi	_	_	_	_	_	_	_	_
+16	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01052006
+# text = Onu öyküleriyle edebi dünyada iz bırakan "dikkat çekici" ve "sevecen ve muhteşem" bir kadın olarak tanımladı.
+# text_en = He described her as a "remarkable" and "loving and wonderful" woman who left her mark in the literary world with her stories.
+1	Onu	_	_	_	_	_	_	_	_
+2	öyküleriyle	_	_	_	_	_	_	_	_
+3	edebi	_	_	_	_	_	_	_	_
+4	dünyada	_	_	_	_	_	_	_	_
+5	iz	_	_	_	_	_	_	_	_
+6	bırakan	_	_	_	_	_	_	_	_
+7	"	_	_	_	_	_	_	_	_
+8	dikkat	_	_	_	_	_	_	_	_
+9	çekici	_	_	_	_	_	_	_	_
+10	"	_	_	_	_	_	_	_	_
+11	ve	_	_	_	_	_	_	_	_
+12	"	_	_	_	_	_	_	_	_
+13	sevecen	_	_	_	_	_	_	_	_
+14	ve	_	_	_	_	_	_	_	_
+15	muhteşem	_	_	_	_	_	_	_	_
+16	"	_	_	_	_	_	_	_	_
+17	bir	_	_	_	_	_	_	_	_
+18	kadın	_	_	_	_	_	_	_	_
+19	olarak	_	_	_	_	_	_	_	_
+20	tanımladı	_	_	_	_	_	_	_	_
+21	.	_	_	_	_	_	_	_	_
+
+# sent_id = n05002015
+# text = Ancak, yönetimi eleştiriden muaf değildi.
+# text_en = Its management, however, hasn't been devoid of criticism.
+1	Ancak	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	yönetimi	_	_	_	_	_	_	_	_
+4	eleştiriden	_	_	_	_	_	_	_	_
+5	muaf	_	_	_	_	_	_	_	_
+6	değil	_	_	_	_	_	_	_	_
+7	di	_	_	_	_	_	_	_	_
+8	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01014
+# sent_id = n01014003
+# text = Michael Fallon, işe başlama tarihinin yeni yatırımların güvenliğinin sağlanmasına ve 2035 yılına kadar yüzlerce nitelikli işin korunmasına yardımcı olacağını açıkladı.
+# text_en = Michael Fallon said the date for cutting the first steel would help secure new investment and safeguard hundreds of skilled jobs until 2035.
+1	Michael	_	_	_	_	_	_	_	_
+2	Fallon	_	_	_	_	_	_	_	_
+3	,	_	_	_	_	_	_	_	_
+4	işe	_	_	_	_	_	_	_	_
+5	başlama	_	_	_	_	_	_	_	_
+6	tarihinin	_	_	_	_	_	_	_	_
+7	yeni	_	_	_	_	_	_	_	_
+8	yatırımların	_	_	_	_	_	_	_	_
+9	güvenliğinin	_	_	_	_	_	_	_	_
+10	sağlanmasına	_	_	_	_	_	_	_	_
+11	ve	_	_	_	_	_	_	_	_
+12	2035	_	_	_	_	_	_	_	_
+13	yılına	_	_	_	_	_	_	_	_
+14	kadar	_	_	_	_	_	_	_	_
+15	yüzlerce	_	_	_	_	_	_	_	_
+16	nitelikli	_	_	_	_	_	_	_	_
+17	işin	_	_	_	_	_	_	_	_
+18	korunmasına	_	_	_	_	_	_	_	_
+19	yardımcı	_	_	_	_	_	_	_	_
+20	olacağını	_	_	_	_	_	_	_	_
+21	açıkladı	_	_	_	_	_	_	_	_
+22	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01025087
+# text = Danevirke o zamandan beri Alman mülkiyetindedir.
+# text_en = The Danevirke has remained in German possession ever since.
+1	Danevirke	_	_	_	_	_	_	_	_
+2	o	_	_	_	_	_	_	_	_
+3	zamandan	_	_	_	_	_	_	_	_
+4	beri	_	_	_	_	_	_	_	_
+5	Alman	_	_	_	_	_	_	_	_
+6	mülkiyetinde	_	_	_	_	_	_	_	_
+7	dir	_	_	_	_	_	_	_	_
+8	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01011017
+# text = Ben zaten her şekilde hapse gireceğim, umarım buna değmiştir.
+# text_en = "I'm going to jail either way, hope it was worth it."
+1	Ben	_	_	_	_	_	_	_	_
+2	zaten	_	_	_	_	_	_	_	_
+3	her	_	_	_	_	_	_	_	_
+4	şekilde	_	_	_	_	_	_	_	_
+5	hapse	_	_	_	_	_	_	_	_
+6	gireceğim	_	_	_	_	_	_	_	_
+7	,	_	_	_	_	_	_	_	_
+8	umarım	_	_	_	_	_	_	_	_
+9	buna	_	_	_	_	_	_	_	_
+10	değmiştir	_	_	_	_	_	_	_	_
+11	.	_	_	_	_	_	_	_	_
+
+# sent_id = w04007049
+# text = Napolyon, Austerlitz'in açık başarısının genel bir barış antlaşmasına dönüşebileceğinden emindi, ancak umutları kısa sürede tükendi: yeni İngiliz Başbakanı Lord Grenville de, Çar Alexander da herhangi bir anlaşma yapılmasını reddetti.
+# text_en = Napoleon was confident that the clear success of Austerlitz could lead to a general peace treaty, but his hopes were soon dashed: the new British Prime Minister Lord Grenville refused any agreement, and so did Tsar Alexander.
+1	Napolyon	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	Austerlitz'in	_	_	_	_	_	_	_	_
+4	açık	_	_	_	_	_	_	_	_
+5	başarısının	_	_	_	_	_	_	_	_
+6	genel	_	_	_	_	_	_	_	_
+7	bir	_	_	_	_	_	_	_	_
+8	barış	_	_	_	_	_	_	_	_
+9	antlaşmasına	_	_	_	_	_	_	_	_
+10	dönüşebileceğinden	_	_	_	_	_	_	_	_
+11	emin	_	_	_	_	_	_	_	_
+12	di	_	_	_	_	_	_	_	_
+13	,	_	_	_	_	_	_	_	_
+14	ancak	_	_	_	_	_	_	_	_
+15	umutları	_	_	_	_	_	_	_	_
+16	kısa	_	_	_	_	_	_	_	_
+17	sürede	_	_	_	_	_	_	_	_
+18	tükendi	_	_	_	_	_	_	_	_
+19	:	_	_	_	_	_	_	_	_
+20	yeni	_	_	_	_	_	_	_	_
+21	İngiliz	_	_	_	_	_	_	_	_
+22	Başbakanı	_	_	_	_	_	_	_	_
+23	Lord	_	_	_	_	_	_	_	_
+24	Grenville	_	_	_	_	_	_	_	_
+25	de	_	_	_	_	_	_	_	_
+26	,	_	_	_	_	_	_	_	_
+27	Çar	_	_	_	_	_	_	_	_
+28	Alexander	_	_	_	_	_	_	_	_
+29	da	_	_	_	_	_	_	_	_
+30	herhangi	_	_	_	_	_	_	_	_
+31	bir	_	_	_	_	_	_	_	_
+32	anlaşma	_	_	_	_	_	_	_	_
+33	yapılmasını	_	_	_	_	_	_	_	_
+34	reddetti	_	_	_	_	_	_	_	_
+35	.	_	_	_	_	_	_	_	_
+
+# sent_id = n03001019
+# text = Eğer ki o, demokrat başkanlığına seçilecek olursa, onun yıllarca soruşturma altında olacağının sözünü verdi.
+# text_en = If his Democrat opponent were to be elected, he assured that she would be 'under investigation for years'.
+1	Eğer	_	_	_	_	_	_	_	_
+2	ki	_	_	_	_	_	_	_	_
+3	o	_	_	_	_	_	_	_	_
+4	,	_	_	_	_	_	_	_	_
+5	demokrat	_	_	_	_	_	_	_	_
+6	başkanlığına	_	_	_	_	_	_	_	_
+7	seçilecek	_	_	_	_	_	_	_	_
+8	olursa	_	_	_	_	_	_	_	_
+9	,	_	_	_	_	_	_	_	_
+10	onun	_	_	_	_	_	_	_	_
+11	yıllarca	_	_	_	_	_	_	_	_
+12	soruşturma	_	_	_	_	_	_	_	_
+13	altında	_	_	_	_	_	_	_	_
+14	olacağının	_	_	_	_	_	_	_	_
+15	sözünü	_	_	_	_	_	_	_	_
+16	verdi	_	_	_	_	_	_	_	_
+17	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01080
+# sent_id = n01080039
+# text = Bunu hayatımla yapabilirim.
+# text_en = I can just do that with my life.
+1	Bunu	_	_	_	_	_	_	_	_
+2	hayatımla	_	_	_	_	_	_	_	_
+3	yapabilirim	_	_	_	_	_	_	_	_
+4	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01112014
+# text = Ocak ayında yayınlanan önemli bir raporda, dünyada çöplerin denizlere sızmasını önlemek için ciddi anlamda harekete geçilmediği sürece, 2050 yılında okyanuslarda balıktan çok plastik olacağı söyleniyor.
+# text_en = A major report in January said oceans would contain more plastic than fish by 2050 unless the world took radical action to stop rubbish leaking into the seas.
+1	Ocak	_	_	_	_	_	_	_	_
+2	ayında	_	_	_	_	_	_	_	_
+3	yayınlanan	_	_	_	_	_	_	_	_
+4	önemli	_	_	_	_	_	_	_	_
+5	bir	_	_	_	_	_	_	_	_
+6	raporda	_	_	_	_	_	_	_	_
+7	,	_	_	_	_	_	_	_	_
+8	dünyada	_	_	_	_	_	_	_	_
+9	çöplerin	_	_	_	_	_	_	_	_
+10	denizlere	_	_	_	_	_	_	_	_
+11	sızmasını	_	_	_	_	_	_	_	_
+12	önlemek	_	_	_	_	_	_	_	_
+13	için	_	_	_	_	_	_	_	_
+14	ciddi	_	_	_	_	_	_	_	_
+15	anlamda	_	_	_	_	_	_	_	_
+16	harekete	_	_	_	_	_	_	_	_
+17	geçilmediği	_	_	_	_	_	_	_	_
+18	sürece	_	_	_	_	_	_	_	_
+19	,	_	_	_	_	_	_	_	_
+20	2050	_	_	_	_	_	_	_	_
+21	yılında	_	_	_	_	_	_	_	_
+22	okyanuslarda	_	_	_	_	_	_	_	_
+23	balıktan	_	_	_	_	_	_	_	_
+24	çok	_	_	_	_	_	_	_	_
+25	plastik	_	_	_	_	_	_	_	_
+26	olacağı	_	_	_	_	_	_	_	_
+27	söyleniyor	_	_	_	_	_	_	_	_
+28	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01135
+# sent_id = n01135002
+# text = Çin'in kızarmış tavuğa karşı doymayan iştahı, yatırımcıların KFC çatı şirketi Yum Brands'i sevmelerinin büyük bir nedeniydi.
+# text_en = China's insatiable appetite for fried chicken used to be a big reason why investors loved KFC-parent Yum Brands.
+1	Çin'in	_	_	_	_	_	_	_	_
+2	kızarmış	_	_	_	_	_	_	_	_
+3	tavuğa	_	_	_	_	_	_	_	_
+4	karşı	_	_	_	_	_	_	_	_
+5	doymayan	_	_	_	_	_	_	_	_
+6	iştahı	_	_	_	_	_	_	_	_
+7	,	_	_	_	_	_	_	_	_
+8	yatırımcıların	_	_	_	_	_	_	_	_
+9	KFC	_	_	_	_	_	_	_	_
+10	çatı	_	_	_	_	_	_	_	_
+11	şirketi	_	_	_	_	_	_	_	_
+12	Yum	_	_	_	_	_	_	_	_
+13	Brands'i	_	_	_	_	_	_	_	_
+14	sevmelerinin	_	_	_	_	_	_	_	_
+15	büyük	_	_	_	_	_	_	_	_
+16	bir	_	_	_	_	_	_	_	_
+17	nedeni	_	_	_	_	_	_	_	_
+18	ydi	_	_	_	_	_	_	_	_
+19	.	_	_	_	_	_	_	_	_
+
+# newdoc id = w03009
+# sent_id = w03009029
+# text = Tamamıyla Bernard Tapie'nin kendi parasıyla finanse edilen bu okullar, iflas ilan ettiği 1994 yılında kapatıldı.
+# text_en = Financed entirely with Bernard Tapie's own money, these schools were closed in 1994 when he was declared bankrupt.
+1	Tamamıyla	_	_	_	_	_	_	_	_
+2	Bernard	_	_	_	_	_	_	_	_
+3	Tapie'nin	_	_	_	_	_	_	_	_
+4	kendi	_	_	_	_	_	_	_	_
+5	parasıyla	_	_	_	_	_	_	_	_
+6	finanse	_	_	_	_	_	_	_	_
+7	edilen	_	_	_	_	_	_	_	_
+8	bu	_	_	_	_	_	_	_	_
+9	okullar	_	_	_	_	_	_	_	_
+10	,	_	_	_	_	_	_	_	_
+11	iflas	_	_	_	_	_	_	_	_
+12	ilan	_	_	_	_	_	_	_	_
+13	ettiği	_	_	_	_	_	_	_	_
+14	1994	_	_	_	_	_	_	_	_
+15	yılında	_	_	_	_	_	_	_	_
+16	kapatıldı	_	_	_	_	_	_	_	_
+17	.	_	_	_	_	_	_	_	_
+
+# sent_id = w05001036
+# text = Apsisde üç paralel şapel ve payandalar arasında birçok yan şapel bulunmaktadır.
+# text_en = It has three parallel chapels at the apse and many lateral chapels between the buttresses.
+1	Apsisde	_	_	_	_	_	_	_	_
+2	üç	_	_	_	_	_	_	_	_
+3	paralel	_	_	_	_	_	_	_	_
+4	şapel	_	_	_	_	_	_	_	_
+5	ve	_	_	_	_	_	_	_	_
+6	payandalar	_	_	_	_	_	_	_	_
+7	arasında	_	_	_	_	_	_	_	_
+8	birçok	_	_	_	_	_	_	_	_
+9	yan	_	_	_	_	_	_	_	_
+10	şapel	_	_	_	_	_	_	_	_
+11	bulunmaktadır	_	_	_	_	_	_	_	_
+12	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01037
+# sent_id = n01037020
+# text = Ancak Çin'in büyüyen orta sınıfı, Pekin gibi nefes almayı zorlaştıran bir is bulutu içerisinde günlerini geçiren şehirlerdeki zehirli hava kirliliğiyle ilgili şikayetlerinde beklenmedik bir şekilde ısrarcı olmuştur.
+# text_en = But China's growing middle class has been unusually vocal in its complaints about toxic air in cities like Beijing, which can see day after day of lung-choking smog.
+1	Ancak	_	_	_	_	_	_	_	_
+2	Çin'in	_	_	_	_	_	_	_	_
+3	büyüyen	_	_	_	_	_	_	_	_
+4	orta	_	_	_	_	_	_	_	_
+5	sınıfı	_	_	_	_	_	_	_	_
+6	,	_	_	_	_	_	_	_	_
+7	Pekin	_	_	_	_	_	_	_	_
+8	gibi	_	_	_	_	_	_	_	_
+9	nefes	_	_	_	_	_	_	_	_
+10	almayı	_	_	_	_	_	_	_	_
+11	zorlaştıran	_	_	_	_	_	_	_	_
+12	bir	_	_	_	_	_	_	_	_
+13	is	_	_	_	_	_	_	_	_
+14	bulutu	_	_	_	_	_	_	_	_
+15	içerisinde	_	_	_	_	_	_	_	_
+16	günlerini	_	_	_	_	_	_	_	_
+17	geçiren	_	_	_	_	_	_	_	_
+18	şehirlerde	_	_	_	_	_	_	_	_
+19	ki	_	_	_	_	_	_	_	_
+20	zehirli	_	_	_	_	_	_	_	_
+21	hava	_	_	_	_	_	_	_	_
+22	kirliliğiyle	_	_	_	_	_	_	_	_
+23	ilgili	_	_	_	_	_	_	_	_
+24	şikayetlerinde	_	_	_	_	_	_	_	_
+25	beklenmedik	_	_	_	_	_	_	_	_
+26	bir	_	_	_	_	_	_	_	_
+27	şekilde	_	_	_	_	_	_	_	_
+28	ısrarcı	_	_	_	_	_	_	_	_
+29	olmuştur	_	_	_	_	_	_	_	_
+30	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01112012
+# text = Tüketici, değişim talebini artırabilir.
+# text_en = The consumer can boost the demand for change.
+1	Tüketici	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	değişim	_	_	_	_	_	_	_	_
+4	talebini	_	_	_	_	_	_	_	_
+5	artırabilir	_	_	_	_	_	_	_	_
+6	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01095
+# sent_id = n01095004
+# text = Bizim zamanımızda bunlar yoktu ve çocuk sahibi olmayan insanlar, modern ebeveynlikle ilgili tüm nefretlerini onaylamayarak ifade ediyor.
+# text_en = They didn’t have them in our day, and people without children express through their disapproval all their hatred of modern parenting.
+1	Bizim	_	_	_	_	_	_	_	_
+2	zamanımızda	_	_	_	_	_	_	_	_
+3	bunlar	_	_	_	_	_	_	_	_
+4	yok	_	_	_	_	_	_	_	_
+5	tu	_	_	_	_	_	_	_	_
+6	ve	_	_	_	_	_	_	_	_
+7	çocuk	_	_	_	_	_	_	_	_
+8	sahibi	_	_	_	_	_	_	_	_
+9	olmayan	_	_	_	_	_	_	_	_
+10	insanlar	_	_	_	_	_	_	_	_
+11	,	_	_	_	_	_	_	_	_
+12	modern	_	_	_	_	_	_	_	_
+13	ebeveynlikle	_	_	_	_	_	_	_	_
+14	ilgili	_	_	_	_	_	_	_	_
+15	tüm	_	_	_	_	_	_	_	_
+16	nefretlerini	_	_	_	_	_	_	_	_
+17	onaylamayarak	_	_	_	_	_	_	_	_
+18	ifade	_	_	_	_	_	_	_	_
+19	ediyor	_	_	_	_	_	_	_	_
+20	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01016070
+# text = Hava kontrolünün son zamanlardaki bir örneği, Çin'in 2008 Yaz Olimpiyatları'na hazırlığı olmuştur.
+# text_en = A recent example of weather control was China's preparation for the 2008 Summer Olympic Games.
+1	Hava	_	_	_	_	_	_	_	_
+2	kontrolünün	_	_	_	_	_	_	_	_
+3	son	_	_	_	_	_	_	_	_
+4	zamanlarda	_	_	_	_	_	_	_	_
+5	ki	_	_	_	_	_	_	_	_
+6	bir	_	_	_	_	_	_	_	_
+7	örneği	_	_	_	_	_	_	_	_
+8	,	_	_	_	_	_	_	_	_
+9	Çin'in	_	_	_	_	_	_	_	_
+10	2008	_	_	_	_	_	_	_	_
+11	Yaz	_	_	_	_	_	_	_	_
+12	Olimpiyatları'na	_	_	_	_	_	_	_	_
+13	hazırlığı	_	_	_	_	_	_	_	_
+14	olmuştur	_	_	_	_	_	_	_	_
+15	.	_	_	_	_	_	_	_	_
+
+# sent_id = n05009030
+# text = Onlarca FSLN takipçisi şimdiden Plaza de las Victorias'da zaferi kutlamaya başladılar.
+# text_en = Dozens of FSLN followers are already celebrating the victory in the Plaza de las Victorias.
+1	Onlarca	_	_	_	_	_	_	_	_
+2	FSLN	_	_	_	_	_	_	_	_
+3	takipçisi	_	_	_	_	_	_	_	_
+4	şimdiden	_	_	_	_	_	_	_	_
+5	Plaza	_	_	_	_	_	_	_	_
+6	de	_	_	_	_	_	_	_	_
+7	las	_	_	_	_	_	_	_	_
+8	Victorias'da	_	_	_	_	_	_	_	_
+9	zaferi	_	_	_	_	_	_	_	_
+10	kutlamaya	_	_	_	_	_	_	_	_
+11	başladılar	_	_	_	_	_	_	_	_
+12	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01049082
+# text = Burada her şeyden önce, hızlı bir şekilde inşa edilen bir bölgedeki kasaba halkı ve yerel sakinlerin yararına açık alan sağlanmıştı.
+# text_en = First and foremost was the provision of open space for the benefit of townspeople and local residents within an area that was being rapidly built up.
+1	Burada	_	_	_	_	_	_	_	_
+2	her	_	_	_	_	_	_	_	_
+3	şeyden	_	_	_	_	_	_	_	_
+4	önce	_	_	_	_	_	_	_	_
+5	,	_	_	_	_	_	_	_	_
+6	hızlı	_	_	_	_	_	_	_	_
+7	bir	_	_	_	_	_	_	_	_
+8	şekilde	_	_	_	_	_	_	_	_
+9	inşa	_	_	_	_	_	_	_	_
+10	edilen	_	_	_	_	_	_	_	_
+11	bir	_	_	_	_	_	_	_	_
+12	bölgede	_	_	_	_	_	_	_	_
+13	ki	_	_	_	_	_	_	_	_
+14	kasaba	_	_	_	_	_	_	_	_
+15	halkı	_	_	_	_	_	_	_	_
+16	ve	_	_	_	_	_	_	_	_
+17	yerel	_	_	_	_	_	_	_	_
+18	sakinlerin	_	_	_	_	_	_	_	_
+19	yararına	_	_	_	_	_	_	_	_
+20	açık	_	_	_	_	_	_	_	_
+21	alan	_	_	_	_	_	_	_	_
+22	sağlanmıştı	_	_	_	_	_	_	_	_
+23	.	_	_	_	_	_	_	_	_
+
+# newdoc id = w04009
+# sent_id = w04009042
+# text = Adam, kendisinin ve Walter'ın tahmin ettiği gibi, iki evren arasında bir savaşın geldiğini söylemiştir; bu nedenle, Olivia, diğerlerinin yanında, bir çocukken eğitim görmüştür.
+# text_en = The man told him that a war between the two universes is coming, as he and Walter had predicted; it is for this reason that Olivia, among others, was trained as a child.
+1	Adam	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	kendisinin	_	_	_	_	_	_	_	_
+4	ve	_	_	_	_	_	_	_	_
+5	Walter'ın	_	_	_	_	_	_	_	_
+6	tahmin	_	_	_	_	_	_	_	_
+7	ettiği	_	_	_	_	_	_	_	_
+8	gibi	_	_	_	_	_	_	_	_
+9	,	_	_	_	_	_	_	_	_
+10	iki	_	_	_	_	_	_	_	_
+11	evren	_	_	_	_	_	_	_	_
+12	arasında	_	_	_	_	_	_	_	_
+13	bir	_	_	_	_	_	_	_	_
+14	savaşın	_	_	_	_	_	_	_	_
+15	geldiğini	_	_	_	_	_	_	_	_
+16	söylemiştir	_	_	_	_	_	_	_	_
+17	;	_	_	_	_	_	_	_	_
+18	bu	_	_	_	_	_	_	_	_
+19	nedenle	_	_	_	_	_	_	_	_
+20	,	_	_	_	_	_	_	_	_
+21	Olivia	_	_	_	_	_	_	_	_
+22	,	_	_	_	_	_	_	_	_
+23	diğerlerinin	_	_	_	_	_	_	_	_
+24	yanında	_	_	_	_	_	_	_	_
+25	,	_	_	_	_	_	_	_	_
+26	bir	_	_	_	_	_	_	_	_
+27	çocuk	_	_	_	_	_	_	_	_
+28	ken	_	_	_	_	_	_	_	_
+29	eğitim	_	_	_	_	_	_	_	_
+30	görmüştür	_	_	_	_	_	_	_	_
+31	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01028050
+# text = Çatışmanın merkezinde, Kansas'ın Birliğe özgür bir devlet mi yoksa köle bir devlet olarak mı gireceği sorusu yer almıştır.
+# text_en = At the heart of the conflict was the question of whether Kansas would enter the Union as a free state or slave state.
+1	Çatışmanın	_	_	_	_	_	_	_	_
+2	merkezinde	_	_	_	_	_	_	_	_
+3	,	_	_	_	_	_	_	_	_
+4	Kansas'ın	_	_	_	_	_	_	_	_
+5	Birliğe	_	_	_	_	_	_	_	_
+6	özgür	_	_	_	_	_	_	_	_
+7	bir	_	_	_	_	_	_	_	_
+8	devlet	_	_	_	_	_	_	_	_
+9	mi	_	_	_	_	_	_	_	_
+10	yok	_	_	_	_	_	_	_	_
+11	sa	_	_	_	_	_	_	_	_
+12	köle	_	_	_	_	_	_	_	_
+13	bir	_	_	_	_	_	_	_	_
+14	devlet	_	_	_	_	_	_	_	_
+15	olarak	_	_	_	_	_	_	_	_
+16	mı	_	_	_	_	_	_	_	_
+17	gireceği	_	_	_	_	_	_	_	_
+18	sorusu	_	_	_	_	_	_	_	_
+19	yer	_	_	_	_	_	_	_	_
+20	almıştır	_	_	_	_	_	_	_	_
+21	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01147
+# sent_id = n01147026
+# text = Bir F1 bileti, aynı gün yapılan konsere katılma hakkını da sunar.
+# text_en = An F1 ticket grants access to the concert on the same day.
+1	Bir	_	_	_	_	_	_	_	_
+2	F1	_	_	_	_	_	_	_	_
+3	bileti	_	_	_	_	_	_	_	_
+4	,	_	_	_	_	_	_	_	_
+5	aynı	_	_	_	_	_	_	_	_
+6	gün	_	_	_	_	_	_	_	_
+7	yapılan	_	_	_	_	_	_	_	_
+8	konsere	_	_	_	_	_	_	_	_
+9	katılma	_	_	_	_	_	_	_	_
+10	hakkını	_	_	_	_	_	_	_	_
+11	da	_	_	_	_	_	_	_	_
+12	sunar	_	_	_	_	_	_	_	_
+13	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01024
+# sent_id = n01024010
+# text = Dünyadan gelen tohumlardan yetişen bitkilerin yüzde 70'inden biraz fazlası 17 günün ardından hâlâ hayattaydı; uzaydan gelen tohumlardan yetişen bitkilerden ise yalnızca birazcık daha azı, yani yüzde 66'sı hayatta kalmıştı.
+# text_en = Just over 70% of the plants grown from Earth seeds were alive after 17 days - just slightly more than the plants grown from space seeds - just over 66%.
+1	Dünyadan	_	_	_	_	_	_	_	_
+2	gelen	_	_	_	_	_	_	_	_
+3	tohumlardan	_	_	_	_	_	_	_	_
+4	yetişen	_	_	_	_	_	_	_	_
+5	bitkilerin	_	_	_	_	_	_	_	_
+6	yüzde	_	_	_	_	_	_	_	_
+7	70'inden	_	_	_	_	_	_	_	_
+8	biraz	_	_	_	_	_	_	_	_
+9	fazlası	_	_	_	_	_	_	_	_
+10	17	_	_	_	_	_	_	_	_
+11	günün	_	_	_	_	_	_	_	_
+12	ardından	_	_	_	_	_	_	_	_
+13	hâlâ	_	_	_	_	_	_	_	_
+14	hayatta	_	_	_	_	_	_	_	_
+15	ydı	_	_	_	_	_	_	_	_
+16	;	_	_	_	_	_	_	_	_
+17	uzaydan	_	_	_	_	_	_	_	_
+18	gelen	_	_	_	_	_	_	_	_
+19	tohumlardan	_	_	_	_	_	_	_	_
+20	yetişen	_	_	_	_	_	_	_	_
+21	bitkilerden	_	_	_	_	_	_	_	_
+22	ise	_	_	_	_	_	_	_	_
+23	yalnızca	_	_	_	_	_	_	_	_
+24	birazcık	_	_	_	_	_	_	_	_
+25	daha	_	_	_	_	_	_	_	_
+26	azı	_	_	_	_	_	_	_	_
+27	,	_	_	_	_	_	_	_	_
+28	yani	_	_	_	_	_	_	_	_
+29	yüzde	_	_	_	_	_	_	_	_
+30	66'sı	_	_	_	_	_	_	_	_
+31	hayatta	_	_	_	_	_	_	_	_
+32	kalmıştı	_	_	_	_	_	_	_	_
+33	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01125035
+# text = Grafton'un hükümetinin 1770 yılında parçalanması, Lord North liderliğindeki muhafazakarların iktidara dönmesini sağladı.
+# text_en = Grafton's government disintegrated in 1770, allowing the Tories led by Lord North to return to power.
+1	Grafton'un	_	_	_	_	_	_	_	_
+2	hükümetinin	_	_	_	_	_	_	_	_
+3	1770	_	_	_	_	_	_	_	_
+4	yılında	_	_	_	_	_	_	_	_
+5	parçalanması	_	_	_	_	_	_	_	_
+6	,	_	_	_	_	_	_	_	_
+7	Lord	_	_	_	_	_	_	_	_
+8	North	_	_	_	_	_	_	_	_
+9	liderliğinde	_	_	_	_	_	_	_	_
+10	ki	_	_	_	_	_	_	_	_
+11	muhafazakarların	_	_	_	_	_	_	_	_
+12	iktidara	_	_	_	_	_	_	_	_
+13	dönmesini	_	_	_	_	_	_	_	_
+14	sağladı	_	_	_	_	_	_	_	_
+15	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01072065
+# text = Yarımada Romalılaştırmanın ilk aşamalarında Romalılar tarafından yönetim amaçlı olarak ikiye bölünmüştür.
+# text_en = During the first stages of Romanization, the peninsula was divided in two by the Romans for administrative purposes.
+1	Yarımada	_	_	_	_	_	_	_	_
+2	Romalılaştırmanın	_	_	_	_	_	_	_	_
+3	ilk	_	_	_	_	_	_	_	_
+4	aşamalarında	_	_	_	_	_	_	_	_
+5	Romalılar	_	_	_	_	_	_	_	_
+6	tarafından	_	_	_	_	_	_	_	_
+7	yönetim	_	_	_	_	_	_	_	_
+8	amaçlı	_	_	_	_	_	_	_	_
+9	olarak	_	_	_	_	_	_	_	_
+10	ikiye	_	_	_	_	_	_	_	_
+11	bölünmüştür	_	_	_	_	_	_	_	_
+12	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01017013
+# text = Çoğu kişi hava alanında kablosuz internet erişimi olmasını uçaktayken e-posta gönderebilmekten daha yararlı bulacaktır.
+# text_en = "Most people would find airport wi-fi more useful than being able to send emails on a plane."
+1	Çoğu	_	_	_	_	_	_	_	_
+2	kişi	_	_	_	_	_	_	_	_
+3	hava	_	_	_	_	_	_	_	_
+4	alanında	_	_	_	_	_	_	_	_
+5	kablosuz	_	_	_	_	_	_	_	_
+6	internet	_	_	_	_	_	_	_	_
+7	erişimi	_	_	_	_	_	_	_	_
+8	olmasını	_	_	_	_	_	_	_	_
+9	uçakta	_	_	_	_	_	_	_	_
+10	yken	_	_	_	_	_	_	_	_
+11	e-posta	_	_	_	_	_	_	_	_
+12	gönderebilmekten	_	_	_	_	_	_	_	_
+13	daha	_	_	_	_	_	_	_	_
+14	yararlı	_	_	_	_	_	_	_	_
+15	bulacaktır	_	_	_	_	_	_	_	_
+16	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01129017
+# text = Salı günü tamamen oyların toplanmasıyla ilgili, ancak kayıtlı bir seçmen listede yoksa bu hiçbir şey ifade etmiyor.
+# text_en = Tuesday is all about getting out the vote, but it means nothing if a registered voter isn't on the list.
+1	Salı	_	_	_	_	_	_	_	_
+2	günü	_	_	_	_	_	_	_	_
+3	tamamen	_	_	_	_	_	_	_	_
+4	oyların	_	_	_	_	_	_	_	_
+5	toplanmasıyla	_	_	_	_	_	_	_	_
+6	ilgili	_	_	_	_	_	_	_	_
+7	,	_	_	_	_	_	_	_	_
+8	ancak	_	_	_	_	_	_	_	_
+9	kayıtlı	_	_	_	_	_	_	_	_
+10	bir	_	_	_	_	_	_	_	_
+11	seçmen	_	_	_	_	_	_	_	_
+12	listede	_	_	_	_	_	_	_	_
+13	yok	_	_	_	_	_	_	_	_
+14	sa	_	_	_	_	_	_	_	_
+15	bu	_	_	_	_	_	_	_	_
+16	hiçbir	_	_	_	_	_	_	_	_
+17	şey	_	_	_	_	_	_	_	_
+18	ifade	_	_	_	_	_	_	_	_
+19	etmiyor	_	_	_	_	_	_	_	_
+20	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01025086
+# text = Geri çekilme haberi, Danevirke'yi geçilmez gören Danimarka kamuoyu üzerinde büyük bir şok etkisi yarattı ve General de Meza derhal komutasından çekildi.
+# text_en = News of the retreat came as a great shock to Danish public opinion which had considered the Danevirke to be impregnable, and General de Meza was promptly relieved of his command.
+1	Geri	_	_	_	_	_	_	_	_
+2	çekilme	_	_	_	_	_	_	_	_
+3	haberi	_	_	_	_	_	_	_	_
+4	,	_	_	_	_	_	_	_	_
+5	Danevirke'yi	_	_	_	_	_	_	_	_
+6	geçilmez	_	_	_	_	_	_	_	_
+7	gören	_	_	_	_	_	_	_	_
+8	Danimarka	_	_	_	_	_	_	_	_
+9	kamuoyu	_	_	_	_	_	_	_	_
+10	üzerinde	_	_	_	_	_	_	_	_
+11	büyük	_	_	_	_	_	_	_	_
+12	bir	_	_	_	_	_	_	_	_
+13	şok	_	_	_	_	_	_	_	_
+14	etkisi	_	_	_	_	_	_	_	_
+15	yarattı	_	_	_	_	_	_	_	_
+16	ve	_	_	_	_	_	_	_	_
+17	General	_	_	_	_	_	_	_	_
+18	de	_	_	_	_	_	_	_	_
+19	Meza	_	_	_	_	_	_	_	_
+20	derhal	_	_	_	_	_	_	_	_
+21	komutasından	_	_	_	_	_	_	_	_
+22	çekildi	_	_	_	_	_	_	_	_
+23	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n05004
+# sent_id = n05004020
+# text = Pedro Sánchez, diğer pek çok sosyalist gibi Évole adlı programda İspanya'nın çeşitli uluslardan oluşan bir millet olduğunu söyledi.
+# text_en = Pedro Sánchez, like many other socialists, said in the programme Évole that Spain is a nation of nations.
+1	Pedro	_	_	_	_	_	_	_	_
+2	Sánchez	_	_	_	_	_	_	_	_
+3	,	_	_	_	_	_	_	_	_
+4	diğer	_	_	_	_	_	_	_	_
+5	pek	_	_	_	_	_	_	_	_
+6	çok	_	_	_	_	_	_	_	_
+7	sosyalist	_	_	_	_	_	_	_	_
+8	gibi	_	_	_	_	_	_	_	_
+9	Évole	_	_	_	_	_	_	_	_
+10	adlı	_	_	_	_	_	_	_	_
+11	programda	_	_	_	_	_	_	_	_
+12	İspanya'nın	_	_	_	_	_	_	_	_
+13	çeşitli	_	_	_	_	_	_	_	_
+14	uluslardan	_	_	_	_	_	_	_	_
+15	oluşan	_	_	_	_	_	_	_	_
+16	bir	_	_	_	_	_	_	_	_
+17	millet	_	_	_	_	_	_	_	_
+18	olduğunu	_	_	_	_	_	_	_	_
+19	söyledi	_	_	_	_	_	_	_	_
+20	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01060038
+# text = Shen 1072'de Wang'ın başkent dışındaki Bian Kanalı'ndaki kum yataklarının inşasını inceleme programını denetlemek üzere gönderildi.
+# text_en = In 1072, Shen was sent to supervise Wang's program of surveying the building of silt deposits in the Bian Canal outside the capital city.
+1	Shen	_	_	_	_	_	_	_	_
+2	1072'de	_	_	_	_	_	_	_	_
+3	Wang'ın	_	_	_	_	_	_	_	_
+4	başkent	_	_	_	_	_	_	_	_
+5	dışında	_	_	_	_	_	_	_	_
+6	ki	_	_	_	_	_	_	_	_
+7	Bian	_	_	_	_	_	_	_	_
+8	Kanalı'nda	_	_	_	_	_	_	_	_
+9	ki	_	_	_	_	_	_	_	_
+10	kum	_	_	_	_	_	_	_	_
+11	yataklarının	_	_	_	_	_	_	_	_
+12	inşasını	_	_	_	_	_	_	_	_
+13	inceleme	_	_	_	_	_	_	_	_
+14	programını	_	_	_	_	_	_	_	_
+15	denetlemek	_	_	_	_	_	_	_	_
+16	üzere	_	_	_	_	_	_	_	_
+17	gönderildi	_	_	_	_	_	_	_	_
+18	.	_	_	_	_	_	_	_	_
+
+# sent_id = w04007037
+# text = Villeneuve'in filosunun engellenmesi, Britanya Adaları'nın işgal edilmesi planından vazgeçilmesine yol açtı; çünkü kıtada aynı zamanda yeni gelişmeler yaşanmaktaydı.
+# text_en = The blockage of Villeneuve's fleet resulted in giving up the invasion plan of the British Isles, also because new developments were taking place in the continent.
+1	Villeneuve'in	_	_	_	_	_	_	_	_
+2	filosunun	_	_	_	_	_	_	_	_
+3	engellenmesi	_	_	_	_	_	_	_	_
+4	,	_	_	_	_	_	_	_	_
+5	Britanya	_	_	_	_	_	_	_	_
+6	Adaları'nın	_	_	_	_	_	_	_	_
+7	işgal	_	_	_	_	_	_	_	_
+8	edilmesi	_	_	_	_	_	_	_	_
+9	planından	_	_	_	_	_	_	_	_
+10	vazgeçilmesine	_	_	_	_	_	_	_	_
+11	yol	_	_	_	_	_	_	_	_
+12	açtı	_	_	_	_	_	_	_	_
+13	;	_	_	_	_	_	_	_	_
+14	çünkü	_	_	_	_	_	_	_	_
+15	kıtada	_	_	_	_	_	_	_	_
+16	aynı	_	_	_	_	_	_	_	_
+17	zamanda	_	_	_	_	_	_	_	_
+18	yeni	_	_	_	_	_	_	_	_
+19	gelişmeler	_	_	_	_	_	_	_	_
+20	yaşanmaktaydı	_	_	_	_	_	_	_	_
+21	.	_	_	_	_	_	_	_	_
+
+# newdoc id = w01018
+# sent_id = w01018019
+# text = Fransa, Kamerun ekonomisini Fransa'nın ekonomisine entegre etmiş ve zorunlu emek sistemini değiştirerek altyapıyı sermaye yatırımları ve nitelikli işçilerle geliştirmiştir.
+# text_en = France integrated the economy of Cameroun with that of France and improved the infrastructure with capital investments and skilled workers, modifying the system of forced labour.
+1	Fransa	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	Kamerun	_	_	_	_	_	_	_	_
+4	ekonomisini	_	_	_	_	_	_	_	_
+5	Fransa'nın	_	_	_	_	_	_	_	_
+6	ekonomisine	_	_	_	_	_	_	_	_
+7	entegre	_	_	_	_	_	_	_	_
+8	etmiş	_	_	_	_	_	_	_	_
+9	ve	_	_	_	_	_	_	_	_
+10	zorunlu	_	_	_	_	_	_	_	_
+11	emek	_	_	_	_	_	_	_	_
+12	sistemini	_	_	_	_	_	_	_	_
+13	değiştirerek	_	_	_	_	_	_	_	_
+14	altyapıyı	_	_	_	_	_	_	_	_
+15	sermaye	_	_	_	_	_	_	_	_
+16	yatırımları	_	_	_	_	_	_	_	_
+17	ve	_	_	_	_	_	_	_	_
+18	nitelikli	_	_	_	_	_	_	_	_
+19	işçilerle	_	_	_	_	_	_	_	_
+20	geliştirmiştir	_	_	_	_	_	_	_	_
+21	.	_	_	_	_	_	_	_	_
+
+# newdoc id = w02019
+# sent_id = w02019048
+# text = Springer Yahudi halkıyla uzlaşma sağlamak için hem gizli hem kamuya açık şekilde gayretle çalıştı ve İsrail'i pek çok kez ziyaret etti.
+# text_en = Privately as well as publicly, Springer vigorously pursued reconciliation with the Jewish people and took many trips to Israel.
+1	Springer	_	_	_	_	_	_	_	_
+2	Yahudi	_	_	_	_	_	_	_	_
+3	halkıyla	_	_	_	_	_	_	_	_
+4	uzlaşma	_	_	_	_	_	_	_	_
+5	sağlamak	_	_	_	_	_	_	_	_
+6	için	_	_	_	_	_	_	_	_
+7	hem	_	_	_	_	_	_	_	_
+8	gizli	_	_	_	_	_	_	_	_
+9	hem	_	_	_	_	_	_	_	_
+10	kamuya	_	_	_	_	_	_	_	_
+11	açık	_	_	_	_	_	_	_	_
+12	şekilde	_	_	_	_	_	_	_	_
+13	gayretle	_	_	_	_	_	_	_	_
+14	çalıştı	_	_	_	_	_	_	_	_
+15	ve	_	_	_	_	_	_	_	_
+16	İsrail'i	_	_	_	_	_	_	_	_
+17	pek	_	_	_	_	_	_	_	_
+18	çok	_	_	_	_	_	_	_	_
+19	kez	_	_	_	_	_	_	_	_
+20	ziyaret	_	_	_	_	_	_	_	_
+21	etti	_	_	_	_	_	_	_	_
+22	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01027041
+# text = Ardından ona insanların neden Trump'a oy verebileceğini anlayıp anlamadığını sordum.
+# text_en = I asked her afterwards if she understood why people might vote for Trump.
+1	Ardından	_	_	_	_	_	_	_	_
+2	ona	_	_	_	_	_	_	_	_
+3	insanların	_	_	_	_	_	_	_	_
+4	neden	_	_	_	_	_	_	_	_
+5	Trump'a	_	_	_	_	_	_	_	_
+6	oy	_	_	_	_	_	_	_	_
+7	verebileceğini	_	_	_	_	_	_	_	_
+8	anlayıp	_	_	_	_	_	_	_	_
+9	anlamadığını	_	_	_	_	_	_	_	_
+10	sordum	_	_	_	_	_	_	_	_
+11	.	_	_	_	_	_	_	_	_
+
+# newdoc id = w01089
+# sent_id = w01089017
+# text = Döneme ilişkin bilgilerin çoğu, defin yerlerinden bunların içinde bulunan mezar öğelerinden gelmektedir.
+# text_en = Most of the information about the period comes from burial sites and the grave goods contained within them.
+1	Döneme	_	_	_	_	_	_	_	_
+2	ilişkin	_	_	_	_	_	_	_	_
+3	bilgilerin	_	_	_	_	_	_	_	_
+4	çoğu	_	_	_	_	_	_	_	_
+5	,	_	_	_	_	_	_	_	_
+6	defin	_	_	_	_	_	_	_	_
+7	yerlerinden	_	_	_	_	_	_	_	_
+8	bunların	_	_	_	_	_	_	_	_
+9	içinde	_	_	_	_	_	_	_	_
+10	bulunan	_	_	_	_	_	_	_	_
+11	mezar	_	_	_	_	_	_	_	_
+12	öğelerinden	_	_	_	_	_	_	_	_
+13	gelmektedir	_	_	_	_	_	_	_	_
+14	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01035081
+# text = Tarım arazisi, manzaranın etrafındaki tahribattan zarar görebilir.
+# text_en = Agricultural land can actually suffer from the destruction of the surrounding landscape.
+1	Tarım	_	_	_	_	_	_	_	_
+2	arazisi	_	_	_	_	_	_	_	_
+3	,	_	_	_	_	_	_	_	_
+4	manzaranın	_	_	_	_	_	_	_	_
+5	etrafında	_	_	_	_	_	_	_	_
+6	ki	_	_	_	_	_	_	_	_
+7	tahribattan	_	_	_	_	_	_	_	_
+8	zarar	_	_	_	_	_	_	_	_
+9	görebilir	_	_	_	_	_	_	_	_
+10	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01079057
+# text = Zorunlu vaftiz Katolik Kilisesi kanunlarına aykırıydı ve teorik olarak zorla vaftiz edilen herkes yasal olarak Yahudiliğe geri dönebilirdi.
+# text_en = Forced baptism was contrary to the law of the Catholic Church, and theoretically anybody who had been forcibly baptized could legally return to Judaism.
+1	Zorunlu	_	_	_	_	_	_	_	_
+2	vaftiz	_	_	_	_	_	_	_	_
+3	Katolik	_	_	_	_	_	_	_	_
+4	Kilisesi	_	_	_	_	_	_	_	_
+5	kanunlarına	_	_	_	_	_	_	_	_
+6	aykırı	_	_	_	_	_	_	_	_
+7	ydı	_	_	_	_	_	_	_	_
+8	ve	_	_	_	_	_	_	_	_
+9	teorik	_	_	_	_	_	_	_	_
+10	olarak	_	_	_	_	_	_	_	_
+11	zorla	_	_	_	_	_	_	_	_
+12	vaftiz	_	_	_	_	_	_	_	_
+13	edilen	_	_	_	_	_	_	_	_
+14	herkes	_	_	_	_	_	_	_	_
+15	yasal	_	_	_	_	_	_	_	_
+16	olarak	_	_	_	_	_	_	_	_
+17	Yahudiliğe	_	_	_	_	_	_	_	_
+18	geri	_	_	_	_	_	_	_	_
+19	dönebilirdi	_	_	_	_	_	_	_	_
+20	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01092025
+# text = Bunun üzerine, Fas'taki bir günlük noktası da gelişmiş ülkelerin birbirlerini kendi planları ve hedefleri konusunda açıkça sorgulayacakları Orta Cumartesi olacak.
+# text_en = On this, one diary point in Morocco will be the middle Saturday, when developed countries get to publicly question each other about their plans and ambitions.
+1	Bunun	_	_	_	_	_	_	_	_
+2	üzerine	_	_	_	_	_	_	_	_
+3	,	_	_	_	_	_	_	_	_
+4	Fas'ta	_	_	_	_	_	_	_	_
+5	ki	_	_	_	_	_	_	_	_
+6	bir	_	_	_	_	_	_	_	_
+7	günlük	_	_	_	_	_	_	_	_
+8	noktası	_	_	_	_	_	_	_	_
+9	da	_	_	_	_	_	_	_	_
+10	gelişmiş	_	_	_	_	_	_	_	_
+11	ülkelerin	_	_	_	_	_	_	_	_
+12	birbirlerini	_	_	_	_	_	_	_	_
+13	kendi	_	_	_	_	_	_	_	_
+14	planları	_	_	_	_	_	_	_	_
+15	ve	_	_	_	_	_	_	_	_
+16	hedefleri	_	_	_	_	_	_	_	_
+17	konusunda	_	_	_	_	_	_	_	_
+18	açıkça	_	_	_	_	_	_	_	_
+19	sorgulayacakları	_	_	_	_	_	_	_	_
+20	Orta	_	_	_	_	_	_	_	_
+21	Cumartesi	_	_	_	_	_	_	_	_
+22	olacak	_	_	_	_	_	_	_	_
+23	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01100048
+# text = Hong Kong Adası İngiltere'ye devredildi ve Şanghay ve Guangzhou da dahil olmak üzere bazı limanlar İngiliz ticaret ve ikamet yerlerine açıldı.
+# text_en = Hong Kong Island was ceded to Britain, and certain ports, including Shanghai and Guangzhou, were opened to British trade and residence.
+1	Hong	_	_	_	_	_	_	_	_
+2	Kong	_	_	_	_	_	_	_	_
+3	Adası	_	_	_	_	_	_	_	_
+4	İngiltere'ye	_	_	_	_	_	_	_	_
+5	devredildi	_	_	_	_	_	_	_	_
+6	ve	_	_	_	_	_	_	_	_
+7	Şanghay	_	_	_	_	_	_	_	_
+8	ve	_	_	_	_	_	_	_	_
+9	Guangzhou	_	_	_	_	_	_	_	_
+10	da	_	_	_	_	_	_	_	_
+11	dahil	_	_	_	_	_	_	_	_
+12	olmak	_	_	_	_	_	_	_	_
+13	üzere	_	_	_	_	_	_	_	_
+14	bazı	_	_	_	_	_	_	_	_
+15	limanlar	_	_	_	_	_	_	_	_
+16	İngiliz	_	_	_	_	_	_	_	_
+17	ticaret	_	_	_	_	_	_	_	_
+18	ve	_	_	_	_	_	_	_	_
+19	ikamet	_	_	_	_	_	_	_	_
+20	yerlerine	_	_	_	_	_	_	_	_
+21	açıldı	_	_	_	_	_	_	_	_
+22	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n02046
+# sent_id = n02046037
+# text = Artık hangisinin olduğu sadece belirsiz.
+# text_en = It is now only unclear, in which one.
+1	Artık	_	_	_	_	_	_	_	_
+2	hangisinin	_	_	_	_	_	_	_	_
+3	olduğu	_	_	_	_	_	_	_	_
+4	sadece	_	_	_	_	_	_	_	_
+5	belirsiz	_	_	_	_	_	_	_	_
+6	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01072079
+# text = İmparator Caracalla 3. yüzyılda kısa bir süre geçerli olan yeni bir bölünme uygulamıştır.
+# text_en = By the 3rd century the emperor Caracalla made a new division which lasted only a short time.
+1	İmparator	_	_	_	_	_	_	_	_
+2	Caracalla	_	_	_	_	_	_	_	_
+3	3.	_	_	_	_	_	_	_	_
+4	yüzyılda	_	_	_	_	_	_	_	_
+5	kısa	_	_	_	_	_	_	_	_
+6	bir	_	_	_	_	_	_	_	_
+7	süre	_	_	_	_	_	_	_	_
+8	geçerli	_	_	_	_	_	_	_	_
+9	olan	_	_	_	_	_	_	_	_
+10	yeni	_	_	_	_	_	_	_	_
+11	bir	_	_	_	_	_	_	_	_
+12	bölünme	_	_	_	_	_	_	_	_
+13	uygulamıştır	_	_	_	_	_	_	_	_
+14	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01133
+# sent_id = n01133014
+# text = Hollandalı öğrenciler henüz elektrikli motosikletlerini ticarete dökme konusunda karar vermiş değil.
+# text_en = The Dutch students have yet to decide if they will be commercializing their electric motorcycle.
+1	Hollandalı	_	_	_	_	_	_	_	_
+2	öğrenciler	_	_	_	_	_	_	_	_
+3	henüz	_	_	_	_	_	_	_	_
+4	elektrikli	_	_	_	_	_	_	_	_
+5	motosikletlerini	_	_	_	_	_	_	_	_
+6	ticarete	_	_	_	_	_	_	_	_
+7	dökme	_	_	_	_	_	_	_	_
+8	konusunda	_	_	_	_	_	_	_	_
+9	karar	_	_	_	_	_	_	_	_
+10	vermiş	_	_	_	_	_	_	_	_
+11	değil	_	_	_	_	_	_	_	_
+12	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01140031
+# text = Hans Pettersson, Rona'nın masraflarını karşılamak için para biriktirebilince Joliot-Curie onun Paris'te bulunan Curie Enstitüsü'nde polonyum ayırma sürecinde çalışmasına izin verdi.
+# text_en = Once Hans Pettersson was able to secure funds to pay Rona's expenses, Joliot-Curie allowed her to come and study polonium separation at the Curie Institute in Paris.
+1	Hans	_	_	_	_	_	_	_	_
+2	Pettersson	_	_	_	_	_	_	_	_
+3	,	_	_	_	_	_	_	_	_
+4	Rona'nın	_	_	_	_	_	_	_	_
+5	masraflarını	_	_	_	_	_	_	_	_
+6	karşılamak	_	_	_	_	_	_	_	_
+7	için	_	_	_	_	_	_	_	_
+8	para	_	_	_	_	_	_	_	_
+9	biriktirebilince	_	_	_	_	_	_	_	_
+10	Joliot	_	_	_	_	_	_	_	_
+11	-	_	_	_	_	_	_	_	_
+12	Curie	_	_	_	_	_	_	_	_
+13	onun	_	_	_	_	_	_	_	_
+14	Paris'te	_	_	_	_	_	_	_	_
+15	bulunan	_	_	_	_	_	_	_	_
+16	Curie	_	_	_	_	_	_	_	_
+17	Enstitüsü'nde	_	_	_	_	_	_	_	_
+18	polonyum	_	_	_	_	_	_	_	_
+19	ayırma	_	_	_	_	_	_	_	_
+20	sürecinde	_	_	_	_	_	_	_	_
+21	çalışmasına	_	_	_	_	_	_	_	_
+22	izin	_	_	_	_	_	_	_	_
+23	verdi	_	_	_	_	_	_	_	_
+24	.	_	_	_	_	_	_	_	_
+
+# newdoc id = w01093
+# sent_id = w01093028
+# text = Sparta İkinci Messenia Savaşı'nda kendisini Mora Yardım Adası ve Yunanistan'ın geri kalanında yerel bir güç olarak kurdu.
+# text_en = In the Second Messenian War, Sparta established itself as a local power in Peloponnesus and the rest of Greece.
+1	Sparta	_	_	_	_	_	_	_	_
+2	İkinci	_	_	_	_	_	_	_	_
+3	Messenia	_	_	_	_	_	_	_	_
+4	Savaşı'nda	_	_	_	_	_	_	_	_
+5	kendisini	_	_	_	_	_	_	_	_
+6	Mora	_	_	_	_	_	_	_	_
+7	Yardım	_	_	_	_	_	_	_	_
+8	Adası	_	_	_	_	_	_	_	_
+9	ve	_	_	_	_	_	_	_	_
+10	Yunanistan'ın	_	_	_	_	_	_	_	_
+11	geri	_	_	_	_	_	_	_	_
+12	kalanında	_	_	_	_	_	_	_	_
+13	yerel	_	_	_	_	_	_	_	_
+14	bir	_	_	_	_	_	_	_	_
+15	güç	_	_	_	_	_	_	_	_
+16	olarak	_	_	_	_	_	_	_	_
+17	kurdu	_	_	_	_	_	_	_	_
+18	.	_	_	_	_	_	_	_	_
+
+# sent_id = w04002048
+# text = 1928'de, Parkın kuzey doğu bölümünde, yarış pistinin yanında 90 hektarlık bir golf sahası inşa edilmiştir.
+# text_en = In 1928, a 90-hectare golf course was built in the north-eastern part of the park, next to the racetrack.
+1	1928'de	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	Parkın	_	_	_	_	_	_	_	_
+4	kuzey	_	_	_	_	_	_	_	_
+5	doğu	_	_	_	_	_	_	_	_
+6	bölümünde	_	_	_	_	_	_	_	_
+7	,	_	_	_	_	_	_	_	_
+8	yarış	_	_	_	_	_	_	_	_
+9	pistinin	_	_	_	_	_	_	_	_
+10	yanında	_	_	_	_	_	_	_	_
+11	90	_	_	_	_	_	_	_	_
+12	hektarlık	_	_	_	_	_	_	_	_
+13	bir	_	_	_	_	_	_	_	_
+14	golf	_	_	_	_	_	_	_	_
+15	sahası	_	_	_	_	_	_	_	_
+16	inşa	_	_	_	_	_	_	_	_
+17	edilmiştir	_	_	_	_	_	_	_	_
+18	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01120010
+# text = Doss'un hikayesi, onu daha da ilgi çekici hale getiren olağan dışı bir özelliğe sahip.
+# text_en = Doss’s story also has an unlikely quality to it that makes it all the more appealing.
+1	Doss'un	_	_	_	_	_	_	_	_
+2	hikayesi	_	_	_	_	_	_	_	_
+3	,	_	_	_	_	_	_	_	_
+4	onu	_	_	_	_	_	_	_	_
+5	daha	_	_	_	_	_	_	_	_
+6	da	_	_	_	_	_	_	_	_
+7	ilgi	_	_	_	_	_	_	_	_
+8	çekici	_	_	_	_	_	_	_	_
+9	hale	_	_	_	_	_	_	_	_
+10	getiren	_	_	_	_	_	_	_	_
+11	olağan	_	_	_	_	_	_	_	_
+12	dışı	_	_	_	_	_	_	_	_
+13	bir	_	_	_	_	_	_	_	_
+14	özelliğe	_	_	_	_	_	_	_	_
+15	sahip	_	_	_	_	_	_	_	_
+16	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01150045
+# text = Altı Büyük Güç'ün büyükelçileri, Aralık 1912'deki Londra konferansının başında, bağımsız bir Arnavutluk kurma planını reddetti.
+# text_en = At the beginning of the London conference in December 1912 the ambassadors of all six Great Powers rejected the plan for establishing an independent Albania.
+1	Altı	_	_	_	_	_	_	_	_
+2	Büyük	_	_	_	_	_	_	_	_
+3	Güç'ün	_	_	_	_	_	_	_	_
+4	büyükelçileri	_	_	_	_	_	_	_	_
+5	,	_	_	_	_	_	_	_	_
+6	Aralık	_	_	_	_	_	_	_	_
+7	1912'de	_	_	_	_	_	_	_	_
+8	ki	_	_	_	_	_	_	_	_
+9	Londra	_	_	_	_	_	_	_	_
+10	konferansının	_	_	_	_	_	_	_	_
+11	başında	_	_	_	_	_	_	_	_
+12	,	_	_	_	_	_	_	_	_
+13	bağımsız	_	_	_	_	_	_	_	_
+14	bir	_	_	_	_	_	_	_	_
+15	Arnavutluk	_	_	_	_	_	_	_	_
+16	kurma	_	_	_	_	_	_	_	_
+17	planını	_	_	_	_	_	_	_	_
+18	reddetti	_	_	_	_	_	_	_	_
+19	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n02081
+# sent_id = n02081019
+# text = Dolayısıyla, bıktırıcı işaretler tamamen kaybolmayacak: Haber ajansı dpa'dan gelen bilgilere göre, bunlar sadece, örneğin, sanatçı ya da plak şirketi GEMA üyesi değilse ve YouTube ile bir anlaşması yoksa etkinleştirilecek.
+# text_en = Therefore the irksome signs will not completely disappear: According to information from the news agency dpa, they will only be activated if, for instance, the artist or record label is not a member of GEMA and does not have an agreement with YouTube.
+1	Dolayısıyla	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	bıktırıcı	_	_	_	_	_	_	_	_
+4	işaretler	_	_	_	_	_	_	_	_
+5	tamamen	_	_	_	_	_	_	_	_
+6	kaybolmayacak	_	_	_	_	_	_	_	_
+7	:	_	_	_	_	_	_	_	_
+8	Haber	_	_	_	_	_	_	_	_
+9	ajansı	_	_	_	_	_	_	_	_
+10	dpa'dan	_	_	_	_	_	_	_	_
+11	gelen	_	_	_	_	_	_	_	_
+12	bilgilere	_	_	_	_	_	_	_	_
+13	göre	_	_	_	_	_	_	_	_
+14	,	_	_	_	_	_	_	_	_
+15	bunlar	_	_	_	_	_	_	_	_
+16	sadece	_	_	_	_	_	_	_	_
+17	,	_	_	_	_	_	_	_	_
+18	örneğin	_	_	_	_	_	_	_	_
+19	,	_	_	_	_	_	_	_	_
+20	sanatçı	_	_	_	_	_	_	_	_
+21	ya	_	_	_	_	_	_	_	_
+22	da	_	_	_	_	_	_	_	_
+23	plak	_	_	_	_	_	_	_	_
+24	şirketi	_	_	_	_	_	_	_	_
+25	GEMA	_	_	_	_	_	_	_	_
+26	üyesi	_	_	_	_	_	_	_	_
+27	değil	_	_	_	_	_	_	_	_
+28	se	_	_	_	_	_	_	_	_
+29	ve	_	_	_	_	_	_	_	_
+30	YouTube	_	_	_	_	_	_	_	_
+31	ile	_	_	_	_	_	_	_	_
+32	bir	_	_	_	_	_	_	_	_
+33	anlaşması	_	_	_	_	_	_	_	_
+34	yok	_	_	_	_	_	_	_	_
+35	sa	_	_	_	_	_	_	_	_
+36	etkinleştirilecek	_	_	_	_	_	_	_	_
+37	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n03006
+# sent_id = n03006003
+# text = Özel şirketlerde dini inancın dışa vurumunu kısıtlayabilecek yasaklar nelerdir?
+# text_en = What are the limits that could inhibit the expression of religious beliefs in private companies?
+1	Özel	_	_	_	_	_	_	_	_
+2	şirketlerde	_	_	_	_	_	_	_	_
+3	dini	_	_	_	_	_	_	_	_
+4	inancın	_	_	_	_	_	_	_	_
+5	dışa	_	_	_	_	_	_	_	_
+6	vurumunu	_	_	_	_	_	_	_	_
+7	kısıtlayabilecek	_	_	_	_	_	_	_	_
+8	yasaklar	_	_	_	_	_	_	_	_
+9	neler	_	_	_	_	_	_	_	_
+10	dir	_	_	_	_	_	_	_	_
+11	?	_	_	_	_	_	_	_	_
+
+# sent_id = w01045003
+# text = Amerika'nın 1492 yılında Kristof Kolomb tarafından keşfedilmesinden sonra, İspanyolca Antillas terimi topraklara uygulanmıştır; bunun sonucunda "Antiller Denizi", çeşitli Avrupa dillerinde "Karayip Denizi" için ortak bir alternatif isim haline gelmiştir.
+# text_en = After the discovery of America by Christopher Columbus in 1492, the Spanish term Antillas applied to the lands; stemming from this, "Sea of the Antilles" became a common alternative name for "Caribbean Sea" in various European languages.
+1	Amerika'nın	_	_	_	_	_	_	_	_
+2	1492	_	_	_	_	_	_	_	_
+3	yılında	_	_	_	_	_	_	_	_
+4	Kristof	_	_	_	_	_	_	_	_
+5	Kolomb	_	_	_	_	_	_	_	_
+6	tarafından	_	_	_	_	_	_	_	_
+7	keşfedilmesinden	_	_	_	_	_	_	_	_
+8	sonra	_	_	_	_	_	_	_	_
+9	,	_	_	_	_	_	_	_	_
+10	İspanyolca	_	_	_	_	_	_	_	_
+11	Antillas	_	_	_	_	_	_	_	_
+12	terimi	_	_	_	_	_	_	_	_
+13	topraklara	_	_	_	_	_	_	_	_
+14	uygulanmıştır	_	_	_	_	_	_	_	_
+15	;	_	_	_	_	_	_	_	_
+16	bunun	_	_	_	_	_	_	_	_
+17	sonucunda	_	_	_	_	_	_	_	_
+18	"	_	_	_	_	_	_	_	_
+19	Antiller	_	_	_	_	_	_	_	_
+20	Denizi	_	_	_	_	_	_	_	_
+21	"	_	_	_	_	_	_	_	_
+22	,	_	_	_	_	_	_	_	_
+23	çeşitli	_	_	_	_	_	_	_	_
+24	Avrupa	_	_	_	_	_	_	_	_
+25	dillerinde	_	_	_	_	_	_	_	_
+26	"	_	_	_	_	_	_	_	_
+27	Karayip	_	_	_	_	_	_	_	_
+28	Denizi	_	_	_	_	_	_	_	_
+29	"	_	_	_	_	_	_	_	_
+30	için	_	_	_	_	_	_	_	_
+31	ortak	_	_	_	_	_	_	_	_
+32	bir	_	_	_	_	_	_	_	_
+33	alternatif	_	_	_	_	_	_	_	_
+34	isim	_	_	_	_	_	_	_	_
+35	haline	_	_	_	_	_	_	_	_
+36	gelmiştir	_	_	_	_	_	_	_	_
+37	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01149
+# sent_id = n01149002
+# text = Yerin 100 metre (328 feet) altındaki Pyongyang Metrosu dünyadaki en derin banliyö sistemlerinden biridir.
+# text_en = Buried 100 meters (328 feet) underground, the Pyongyang Metro is one of the deepest commuter systems in the world.
+1	Yerin	_	_	_	_	_	_	_	_
+2	100	_	_	_	_	_	_	_	_
+3	metre	_	_	_	_	_	_	_	_
+4	(	_	_	_	_	_	_	_	_
+5	328	_	_	_	_	_	_	_	_
+6	feet	_	_	_	_	_	_	_	_
+7	)	_	_	_	_	_	_	_	_
+8	altında	_	_	_	_	_	_	_	_
+9	ki	_	_	_	_	_	_	_	_
+10	Pyongyang	_	_	_	_	_	_	_	_
+11	Metrosu	_	_	_	_	_	_	_	_
+12	dünyada	_	_	_	_	_	_	_	_
+13	ki	_	_	_	_	_	_	_	_
+14	en	_	_	_	_	_	_	_	_
+15	derin	_	_	_	_	_	_	_	_
+16	banliyö	_	_	_	_	_	_	_	_
+17	sistemlerinden	_	_	_	_	_	_	_	_
+18	biri	_	_	_	_	_	_	_	_
+19	dir	_	_	_	_	_	_	_	_
+20	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01113046
+# text = Ayrıca 2013'te beş ve 2014'te dört geleneksel pazar inşa edip yeniledi.
+# text_en = He also built and renovated five traditional markets in 2013 and four traditional markets in 2014.
+1	Ayrıca	_	_	_	_	_	_	_	_
+2	2013'te	_	_	_	_	_	_	_	_
+3	beş	_	_	_	_	_	_	_	_
+4	ve	_	_	_	_	_	_	_	_
+5	2014'te	_	_	_	_	_	_	_	_
+6	dört	_	_	_	_	_	_	_	_
+7	geleneksel	_	_	_	_	_	_	_	_
+8	pazar	_	_	_	_	_	_	_	_
+9	inşa	_	_	_	_	_	_	_	_
+10	edip	_	_	_	_	_	_	_	_
+11	yeniledi	_	_	_	_	_	_	_	_
+12	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01016034
+# text = Yağmur yağması sırasında su damlacıkları havada bulunan karbondioksiti emer ve çözer.
+# text_en = During rains precipitation, the water droplets absorb and dissolve carbon dioxide from the surrounding air.
+1	Yağmur	_	_	_	_	_	_	_	_
+2	yağması	_	_	_	_	_	_	_	_
+3	sırasında	_	_	_	_	_	_	_	_
+4	su	_	_	_	_	_	_	_	_
+5	damlacıkları	_	_	_	_	_	_	_	_
+6	havada	_	_	_	_	_	_	_	_
+7	bulunan	_	_	_	_	_	_	_	_
+8	karbondioksiti	_	_	_	_	_	_	_	_
+9	emer	_	_	_	_	_	_	_	_
+10	ve	_	_	_	_	_	_	_	_
+11	çözer	_	_	_	_	_	_	_	_
+12	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n02068
+# sent_id = n02068010
+# text = Barroso için konu kapanmış olmayabilir.
+# text_en = The issue might not be over for Barroso.
+1	Barroso	_	_	_	_	_	_	_	_
+2	için	_	_	_	_	_	_	_	_
+3	konu	_	_	_	_	_	_	_	_
+4	kapanmış	_	_	_	_	_	_	_	_
+5	olmayabilir	_	_	_	_	_	_	_	_
+6	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01144084
+# text = İyileşerek hastaneden 11 Nisan'da taburcu edildi ve bir suikast girişimi sırasında hayatta kalan görevdeki ilk ABD başkanı oldu.
+# text_en = He recovered and was released from the hospital on April 11, becoming the first serving U.S. president to survive being shot in an assassination attempt.
+1	İyileşerek	_	_	_	_	_	_	_	_
+2	hastaneden	_	_	_	_	_	_	_	_
+3	11	_	_	_	_	_	_	_	_
+4	Nisan'da	_	_	_	_	_	_	_	_
+5	taburcu	_	_	_	_	_	_	_	_
+6	edildi	_	_	_	_	_	_	_	_
+7	ve	_	_	_	_	_	_	_	_
+8	bir	_	_	_	_	_	_	_	_
+9	suikast	_	_	_	_	_	_	_	_
+10	girişimi	_	_	_	_	_	_	_	_
+11	sırasında	_	_	_	_	_	_	_	_
+12	hayatta	_	_	_	_	_	_	_	_
+13	kalan	_	_	_	_	_	_	_	_
+14	görevde	_	_	_	_	_	_	_	_
+15	ki	_	_	_	_	_	_	_	_
+16	ilk	_	_	_	_	_	_	_	_
+17	ABD	_	_	_	_	_	_	_	_
+18	başkanı	_	_	_	_	_	_	_	_
+19	oldu	_	_	_	_	_	_	_	_
+20	.	_	_	_	_	_	_	_	_
+
+# sent_id = n05003019
+# text = Buna rağmen, partideki herkes cumhurbaşkanının dün vermeye çalıştığı mesajları anlamadı.
+# text_en = In spite of them, not everyone in the party understood the messages that the president tried to send to them yesterday.
+1	Buna	_	_	_	_	_	_	_	_
+2	rağmen	_	_	_	_	_	_	_	_
+3	,	_	_	_	_	_	_	_	_
+4	partide	_	_	_	_	_	_	_	_
+5	ki	_	_	_	_	_	_	_	_
+6	herkes	_	_	_	_	_	_	_	_
+7	cumhurbaşkanının	_	_	_	_	_	_	_	_
+8	dün	_	_	_	_	_	_	_	_
+9	vermeye	_	_	_	_	_	_	_	_
+10	çalıştığı	_	_	_	_	_	_	_	_
+11	mesajları	_	_	_	_	_	_	_	_
+12	anlamadı	_	_	_	_	_	_	_	_
+13	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01141007
+# text = Ayrıca platform üzerinden emoji, GIF, özel komik resim ve çıkartma gönderme ve Twitter beslemenize bağlama seçeneği de mevcut.
+# text_en = There's also an option to send emoji, GIFs, custom memes and stickers via the platform, and connect your Twitter feed.
+1	Ayrıca	_	_	_	_	_	_	_	_
+2	platform	_	_	_	_	_	_	_	_
+3	üzerinden	_	_	_	_	_	_	_	_
+4	emoji	_	_	_	_	_	_	_	_
+5	,	_	_	_	_	_	_	_	_
+6	GIF	_	_	_	_	_	_	_	_
+7	,	_	_	_	_	_	_	_	_
+8	özel	_	_	_	_	_	_	_	_
+9	komik	_	_	_	_	_	_	_	_
+10	resim	_	_	_	_	_	_	_	_
+11	ve	_	_	_	_	_	_	_	_
+12	çıkartma	_	_	_	_	_	_	_	_
+13	gönderme	_	_	_	_	_	_	_	_
+14	ve	_	_	_	_	_	_	_	_
+15	Twitter	_	_	_	_	_	_	_	_
+16	beslemenize	_	_	_	_	_	_	_	_
+17	bağlama	_	_	_	_	_	_	_	_
+18	seçeneği	_	_	_	_	_	_	_	_
+19	de	_	_	_	_	_	_	_	_
+20	mevcut	_	_	_	_	_	_	_	_
+21	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n02042
+# sent_id = n02042005
+# text = 30 Ağustos 2015, ördeklerden oluşan bir ordu interneti ele geçirdi.
+# text_en = It was August 30, 2015, as an army of ducks conquered the internet.
+1	30	_	_	_	_	_	_	_	_
+2	Ağustos	_	_	_	_	_	_	_	_
+3	2015	_	_	_	_	_	_	_	_
+4	,	_	_	_	_	_	_	_	_
+5	ördeklerden	_	_	_	_	_	_	_	_
+6	oluşan	_	_	_	_	_	_	_	_
+7	bir	_	_	_	_	_	_	_	_
+8	ordu	_	_	_	_	_	_	_	_
+9	interneti	_	_	_	_	_	_	_	_
+10	ele	_	_	_	_	_	_	_	_
+11	geçirdi	_	_	_	_	_	_	_	_
+12	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01059025
+# text = "Washington ve Lincoln dönemlerindeki gayrisafi yurt içi hasıla büyümesi nasıldı, bilmiyorum, ancak o dönemlerdeki kurumsal gelişmeler büyük kapsamlı ve uzun süreli etkilere sahip olmuştu."
+# text_en = “I don’t know what G.D.P. growth was during the Washington and Lincoln Administrations, but the institutional developments in those terms had large and long-lasting effects.”
+1	"	_	_	_	_	_	_	_	_
+2	Washington	_	_	_	_	_	_	_	_
+3	ve	_	_	_	_	_	_	_	_
+4	Lincoln	_	_	_	_	_	_	_	_
+5	dönemlerinde	_	_	_	_	_	_	_	_
+6	ki	_	_	_	_	_	_	_	_
+7	gayrisafi	_	_	_	_	_	_	_	_
+8	yurt	_	_	_	_	_	_	_	_
+9	içi	_	_	_	_	_	_	_	_
+10	hasıla	_	_	_	_	_	_	_	_
+11	büyümesi	_	_	_	_	_	_	_	_
+12	nasıl	_	_	_	_	_	_	_	_
+13	dı	_	_	_	_	_	_	_	_
+14	,	_	_	_	_	_	_	_	_
+15	bilmiyorum	_	_	_	_	_	_	_	_
+16	,	_	_	_	_	_	_	_	_
+17	ancak	_	_	_	_	_	_	_	_
+18	o	_	_	_	_	_	_	_	_
+19	dönemlerde	_	_	_	_	_	_	_	_
+20	ki	_	_	_	_	_	_	_	_
+21	kurumsal	_	_	_	_	_	_	_	_
+22	gelişmeler	_	_	_	_	_	_	_	_
+23	büyük	_	_	_	_	_	_	_	_
+24	kapsamlı	_	_	_	_	_	_	_	_
+25	ve	_	_	_	_	_	_	_	_
+26	uzun	_	_	_	_	_	_	_	_
+27	süreli	_	_	_	_	_	_	_	_
+28	etkilere	_	_	_	_	_	_	_	_
+29	sahip	_	_	_	_	_	_	_	_
+30	olmuştu	_	_	_	_	_	_	_	_
+31	.	_	_	_	_	_	_	_	_
+32	"	_	_	_	_	_	_	_	_
+
+# newdoc id = n03007
+# sent_id = n03007003
+# text = Sözü edilen maddede müşteri ziyaretlerinde ulaşımda geçen süre de çalışma saatlerine dahil edilmiştir.
+# text_en = This clause included the time taken to travel to clients' homes in working hours.
+1	Sözü	_	_	_	_	_	_	_	_
+2	edilen	_	_	_	_	_	_	_	_
+3	maddede	_	_	_	_	_	_	_	_
+4	müşteri	_	_	_	_	_	_	_	_
+5	ziyaretlerinde	_	_	_	_	_	_	_	_
+6	ulaşımda	_	_	_	_	_	_	_	_
+7	geçen	_	_	_	_	_	_	_	_
+8	süre	_	_	_	_	_	_	_	_
+9	de	_	_	_	_	_	_	_	_
+10	çalışma	_	_	_	_	_	_	_	_
+11	saatlerine	_	_	_	_	_	_	_	_
+12	dahil	_	_	_	_	_	_	_	_
+13	edilmiştir	_	_	_	_	_	_	_	_
+14	.	_	_	_	_	_	_	_	_
+
+# sent_id = w04010028
+# text = Aralarında uzun yıllar süren profesyonel ve dostane bir ilişki gelişmiştir.
+# text_en = Between them bloomed a long professional and amicable relationship that lasted for years.
+1	Aralarında	_	_	_	_	_	_	_	_
+2	uzun	_	_	_	_	_	_	_	_
+3	yıllar	_	_	_	_	_	_	_	_
+4	süren	_	_	_	_	_	_	_	_
+5	profesyonel	_	_	_	_	_	_	_	_
+6	ve	_	_	_	_	_	_	_	_
+7	dostane	_	_	_	_	_	_	_	_
+8	bir	_	_	_	_	_	_	_	_
+9	ilişki	_	_	_	_	_	_	_	_
+10	gelişmiştir	_	_	_	_	_	_	_	_
+11	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01136006
+# text = Filmin açıkça gösterdiği gibi Lovings -ve özellikle Richard- tarihteki isteksiz katılımcılardı.
+# text_en = As the movie makes clear, the Lovings -- and Richard in particular -- were reluctant participants in history.
+1	Filmin	_	_	_	_	_	_	_	_
+2	açıkça	_	_	_	_	_	_	_	_
+3	gösterdiği	_	_	_	_	_	_	_	_
+4	gibi	_	_	_	_	_	_	_	_
+5	Lovings	_	_	_	_	_	_	_	_
+6	-	_	_	_	_	_	_	_	_
+7	ve	_	_	_	_	_	_	_	_
+8	özellikle	_	_	_	_	_	_	_	_
+9	Richard	_	_	_	_	_	_	_	_
+10	-	_	_	_	_	_	_	_	_
+11	tarihte	_	_	_	_	_	_	_	_
+12	ki	_	_	_	_	_	_	_	_
+13	isteksiz	_	_	_	_	_	_	_	_
+14	katılımcılar	_	_	_	_	_	_	_	_
+15	dı	_	_	_	_	_	_	_	_
+16	.	_	_	_	_	_	_	_	_
+
+# sent_id = w02008038
+# text = Muhtemelen Bakır Çağından en tanınmış kişi, M.Ö. 3300 yıllarında yaşayan donmuş mumya Ötzi'dir.
+# text_en = Likely the most well-known person from the Copper Age is Ötzi, the frozen mummy who lived during 3300 BC.
+1	Muhtemelen	_	_	_	_	_	_	_	_
+2	Bakır	_	_	_	_	_	_	_	_
+3	Çağından	_	_	_	_	_	_	_	_
+4	en	_	_	_	_	_	_	_	_
+5	tanınmış	_	_	_	_	_	_	_	_
+6	kişi	_	_	_	_	_	_	_	_
+7	,	_	_	_	_	_	_	_	_
+8	M.Ö.	_	_	_	_	_	_	_	_
+9	3300	_	_	_	_	_	_	_	_
+10	yıllarında	_	_	_	_	_	_	_	_
+11	yaşayan	_	_	_	_	_	_	_	_
+12	donmuş	_	_	_	_	_	_	_	_
+13	mumya	_	_	_	_	_	_	_	_
+14	Ötzi	_	_	_	_	_	_	_	_
+15	'dir	_	_	_	_	_	_	_	_
+16	.	_	_	_	_	_	_	_	_
+
+# newdoc id = w05009
+# sent_id = w05009044
+# text = 1976'da, Kendisi için bir başka dikkat çekici başarı daha olan "Don't Go Breaking My Heart"ı kaydetmek üzere, plak şirketi Rocket Record Şirketi olan Kiki Dee ile çalışan bir arkadaşıyla bir araya geldi.
+# text_en = In 1976 he met with a friend who worked with his record label The Rocket Record Company, Kiki Dee, to record what would be another remarkable success for him: "Don't Go Breaking My Heart".
+1	1976'da	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	Kendisi	_	_	_	_	_	_	_	_
+4	için	_	_	_	_	_	_	_	_
+5	bir	_	_	_	_	_	_	_	_
+6	başka	_	_	_	_	_	_	_	_
+7	dikkat	_	_	_	_	_	_	_	_
+8	çekici	_	_	_	_	_	_	_	_
+9	başarı	_	_	_	_	_	_	_	_
+10	daha	_	_	_	_	_	_	_	_
+11	olan	_	_	_	_	_	_	_	_
+12	"	_	_	_	_	_	_	_	_
+13	Don't	_	_	_	_	_	_	_	_
+14	Go	_	_	_	_	_	_	_	_
+15	Breaking	_	_	_	_	_	_	_	_
+16	My	_	_	_	_	_	_	_	_
+17	Heart"ı	_	_	_	_	_	_	_	_
+18	kaydetmek	_	_	_	_	_	_	_	_
+19	üzere	_	_	_	_	_	_	_	_
+20	,	_	_	_	_	_	_	_	_
+21	plak	_	_	_	_	_	_	_	_
+22	şirketi	_	_	_	_	_	_	_	_
+23	Rocket	_	_	_	_	_	_	_	_
+24	Record	_	_	_	_	_	_	_	_
+25	Şirketi	_	_	_	_	_	_	_	_
+26	olan	_	_	_	_	_	_	_	_
+27	Kiki	_	_	_	_	_	_	_	_
+28	Dee	_	_	_	_	_	_	_	_
+29	ile	_	_	_	_	_	_	_	_
+30	çalışan	_	_	_	_	_	_	_	_
+31	bir	_	_	_	_	_	_	_	_
+32	arkadaşıyla	_	_	_	_	_	_	_	_
+33	bir	_	_	_	_	_	_	_	_
+34	araya	_	_	_	_	_	_	_	_
+35	geldi	_	_	_	_	_	_	_	_
+36	.	_	_	_	_	_	_	_	_
+
+# newdoc id = w01010
+# sent_id = w01010044
+# text = Çeşitli Alman ve büyük Slav kabileleri, Slavların M.S. 6. yüzyılda yerleşmesinden önceki Göç Döneminde Moravia'yı geçmiştir.
+# text_en = A variety of Germanic and major Slavic tribes crossed through Moravia during the Migration Period before Slavs established themselves in the 6th century AD.
+1	Çeşitli	_	_	_	_	_	_	_	_
+2	Alman	_	_	_	_	_	_	_	_
+3	ve	_	_	_	_	_	_	_	_
+4	büyük	_	_	_	_	_	_	_	_
+5	Slav	_	_	_	_	_	_	_	_
+6	kabileleri	_	_	_	_	_	_	_	_
+7	,	_	_	_	_	_	_	_	_
+8	Slavların	_	_	_	_	_	_	_	_
+9	M.S.	_	_	_	_	_	_	_	_
+10	6.	_	_	_	_	_	_	_	_
+11	yüzyılda	_	_	_	_	_	_	_	_
+12	yerleşmesinden	_	_	_	_	_	_	_	_
+13	önce	_	_	_	_	_	_	_	_
+14	ki	_	_	_	_	_	_	_	_
+15	Göç	_	_	_	_	_	_	_	_
+16	Döneminde	_	_	_	_	_	_	_	_
+17	Moravia'yı	_	_	_	_	_	_	_	_
+18	geçmiştir	_	_	_	_	_	_	_	_
+19	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01069094
+# text = Akdeniz'deki Osmanlı İmparatorluğu'na karşı mücadelesi, Hollanda'daki isyancılara karşı uygulayabileceği askeri güce ciddi sınırlamalar getirdi.
+# text_en = Its struggle against the Ottoman Empire in the Mediterranean Sea put serious limits on the military power it could deploy against the rebels in the Netherlands.
+1	Akdeniz'de	_	_	_	_	_	_	_	_
+2	ki	_	_	_	_	_	_	_	_
+3	Osmanlı	_	_	_	_	_	_	_	_
+4	İmparatorluğu'na	_	_	_	_	_	_	_	_
+5	karşı	_	_	_	_	_	_	_	_
+6	mücadelesi	_	_	_	_	_	_	_	_
+7	,	_	_	_	_	_	_	_	_
+8	Hollanda'da	_	_	_	_	_	_	_	_
+9	ki	_	_	_	_	_	_	_	_
+10	isyancılara	_	_	_	_	_	_	_	_
+11	karşı	_	_	_	_	_	_	_	_
+12	uygulayabileceği	_	_	_	_	_	_	_	_
+13	askeri	_	_	_	_	_	_	_	_
+14	güce	_	_	_	_	_	_	_	_
+15	ciddi	_	_	_	_	_	_	_	_
+16	sınırlamalar	_	_	_	_	_	_	_	_
+17	getirdi	_	_	_	_	_	_	_	_
+18	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01066006
+# text = Zodyak hayvanı Maymun'dur ve geleneksel önem taşıyan altmışıncı yıldönümü 1992'ye denk gelmiştir.
+# text_en = Her zodiacal animal is the Monkey and her traditionally significant sixtieth anniversary year was 1992.
+1	Zodyak	_	_	_	_	_	_	_	_
+2	hayvanı	_	_	_	_	_	_	_	_
+3	Maymun	_	_	_	_	_	_	_	_
+4	'dur	_	_	_	_	_	_	_	_
+5	ve	_	_	_	_	_	_	_	_
+6	geleneksel	_	_	_	_	_	_	_	_
+7	önem	_	_	_	_	_	_	_	_
+8	taşıyan	_	_	_	_	_	_	_	_
+9	altmışıncı	_	_	_	_	_	_	_	_
+10	yıldönümü	_	_	_	_	_	_	_	_
+11	1992'ye	_	_	_	_	_	_	_	_
+12	denk	_	_	_	_	_	_	_	_
+13	gelmiştir	_	_	_	_	_	_	_	_
+14	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01045006
+# text = Karayip Denizi, Kristof Kolomb'un Karayip sularına, Asya'ya bir deniz yolu bulma arayışıyla ilk kez gittiği 1492 yılına kadar Avrasya'daki nüfus tarafından bilinmiyordu.
+# text_en = The Caribbean Sea had been unknown to the populations of Eurasia until 1492, when Christopher Columbus first sailed into Caribbean waters on a quest to find a sea route to Asia.
+1	Karayip	_	_	_	_	_	_	_	_
+2	Denizi	_	_	_	_	_	_	_	_
+3	,	_	_	_	_	_	_	_	_
+4	Kristof	_	_	_	_	_	_	_	_
+5	Kolomb'un	_	_	_	_	_	_	_	_
+6	Karayip	_	_	_	_	_	_	_	_
+7	sularına	_	_	_	_	_	_	_	_
+8	,	_	_	_	_	_	_	_	_
+9	Asya'ya	_	_	_	_	_	_	_	_
+10	bir	_	_	_	_	_	_	_	_
+11	deniz	_	_	_	_	_	_	_	_
+12	yolu	_	_	_	_	_	_	_	_
+13	bulma	_	_	_	_	_	_	_	_
+14	arayışıyla	_	_	_	_	_	_	_	_
+15	ilk	_	_	_	_	_	_	_	_
+16	kez	_	_	_	_	_	_	_	_
+17	gittiği	_	_	_	_	_	_	_	_
+18	1492	_	_	_	_	_	_	_	_
+19	yılına	_	_	_	_	_	_	_	_
+20	kadar	_	_	_	_	_	_	_	_
+21	Avrasya'da	_	_	_	_	_	_	_	_
+22	ki	_	_	_	_	_	_	_	_
+23	nüfus	_	_	_	_	_	_	_	_
+24	tarafından	_	_	_	_	_	_	_	_
+25	bilinmiyordu	_	_	_	_	_	_	_	_
+26	.	_	_	_	_	_	_	_	_
+
+# newdoc id = w04010
+# sent_id = w04010027
+# text = Goffredo Petrassi'nin her iki öğrencisi Ennio Morricone ve Bruno Nicolai Santa (Saint) Cecelia konservatuarı'nda bir araya gelmiştir.
+# text_en = Both students of Goffredo Petrassi, Ennio Morricone and Bruno Nicolai met at the Santa (Saint) Cecelia conservatory.
+1	Goffredo	_	_	_	_	_	_	_	_
+2	Petrassi'nin	_	_	_	_	_	_	_	_
+3	her	_	_	_	_	_	_	_	_
+4	iki	_	_	_	_	_	_	_	_
+5	öğrencisi	_	_	_	_	_	_	_	_
+6	Ennio	_	_	_	_	_	_	_	_
+7	Morricone	_	_	_	_	_	_	_	_
+8	ve	_	_	_	_	_	_	_	_
+9	Bruno	_	_	_	_	_	_	_	_
+10	Nicolai	_	_	_	_	_	_	_	_
+11	Santa	_	_	_	_	_	_	_	_
+12	(	_	_	_	_	_	_	_	_
+13	Saint	_	_	_	_	_	_	_	_
+14	)	_	_	_	_	_	_	_	_
+15	Cecelia	_	_	_	_	_	_	_	_
+16	konservatuarı'nda	_	_	_	_	_	_	_	_
+17	bir	_	_	_	_	_	_	_	_
+18	araya	_	_	_	_	_	_	_	_
+19	gelmiştir	_	_	_	_	_	_	_	_
+20	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01033025
+# text = 1975 yılında yaban hayat tapınağı ilan edilmiştir.
+# text_en = It was declared a wildlife sanctuary in 1975.
+1	1975	_	_	_	_	_	_	_	_
+2	yılında	_	_	_	_	_	_	_	_
+3	yaban	_	_	_	_	_	_	_	_
+4	hayat	_	_	_	_	_	_	_	_
+5	tapınağı	_	_	_	_	_	_	_	_
+6	ilan	_	_	_	_	_	_	_	_
+7	edilmiştir	_	_	_	_	_	_	_	_
+8	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01009017
+# text = Hava kütlesi tanımlaması ilk olarak 1950'lerde hava tahminlerinde kullanılmışken, iklimbilimciler 1973'te bu fikri temel alan sinoptik klimatolojileri kurmaya başlamışlardır.
+# text_en = While air mass identification was originally used in weather forecasting during the 1950s, climatologists began to establish synoptic climatologies based on this idea in 1973.
+1	Hava	_	_	_	_	_	_	_	_
+2	kütlesi	_	_	_	_	_	_	_	_
+3	tanımlaması	_	_	_	_	_	_	_	_
+4	ilk	_	_	_	_	_	_	_	_
+5	olarak	_	_	_	_	_	_	_	_
+6	1950'lerde	_	_	_	_	_	_	_	_
+7	hava	_	_	_	_	_	_	_	_
+8	tahminlerinde	_	_	_	_	_	_	_	_
+9	kullanılmışken	_	_	_	_	_	_	_	_
+10	,	_	_	_	_	_	_	_	_
+11	iklimbilimciler	_	_	_	_	_	_	_	_
+12	1973'te	_	_	_	_	_	_	_	_
+13	bu	_	_	_	_	_	_	_	_
+14	fikri	_	_	_	_	_	_	_	_
+15	temel	_	_	_	_	_	_	_	_
+16	alan	_	_	_	_	_	_	_	_
+17	sinoptik	_	_	_	_	_	_	_	_
+18	klimatolojileri	_	_	_	_	_	_	_	_
+19	kurmaya	_	_	_	_	_	_	_	_
+20	başlamışlardır	_	_	_	_	_	_	_	_
+21	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01116018
+# text = Sahip olduğu bu enerjinin kaynağı ne? Peki ya şok dalgalarını tetikleyecek kadar gür çıkan sesinin?
+# text_en = Where does all her energy come from? Or that voice, which can blast out with a force to induce shockwaves?
+1	Sahip	_	_	_	_	_	_	_	_
+2	olduğu	_	_	_	_	_	_	_	_
+3	bu	_	_	_	_	_	_	_	_
+4	enerjinin	_	_	_	_	_	_	_	_
+5	kaynağı	_	_	_	_	_	_	_	_
+6	ne	_	_	_	_	_	_	_	_
+7	?	_	_	_	_	_	_	_	_
+8	Peki	_	_	_	_	_	_	_	_
+9	ya	_	_	_	_	_	_	_	_
+10	şok	_	_	_	_	_	_	_	_
+11	dalgalarını	_	_	_	_	_	_	_	_
+12	tetikleyecek	_	_	_	_	_	_	_	_
+13	kadar	_	_	_	_	_	_	_	_
+14	gür	_	_	_	_	_	_	_	_
+15	çıkan	_	_	_	_	_	_	_	_
+16	sesinin	_	_	_	_	_	_	_	_
+17	?	_	_	_	_	_	_	_	_
+
+# sent_id = n01021012
+# text = Analiz, bozulmaya sebep olmak için inanılmaz boyutta verilerin kullanıldığını ortaya koydu.
+# text_en = Analysis revealed that historic amounts of data had been used to cause the disruption.
+1	Analiz	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	bozulmaya	_	_	_	_	_	_	_	_
+4	sebep	_	_	_	_	_	_	_	_
+5	olmak	_	_	_	_	_	_	_	_
+6	için	_	_	_	_	_	_	_	_
+7	inanılmaz	_	_	_	_	_	_	_	_
+8	boyutta	_	_	_	_	_	_	_	_
+9	verilerin	_	_	_	_	_	_	_	_
+10	kullanıldığını	_	_	_	_	_	_	_	_
+11	ortaya	_	_	_	_	_	_	_	_
+12	koydu	_	_	_	_	_	_	_	_
+13	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01112098
+# text = Disney, bir tam boyutlu ve yedi minyatür Oscar heykelciklerinden oluşan başka bir Onursal Akademi Ödülü kazandı.
+# text_en = Disney won another Honorary Academy Award, which consisted of one full-sized and seven miniature Oscar statuettes.
+1	Disney	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	bir	_	_	_	_	_	_	_	_
+4	tam	_	_	_	_	_	_	_	_
+5	boyutlu	_	_	_	_	_	_	_	_
+6	ve	_	_	_	_	_	_	_	_
+7	yedi	_	_	_	_	_	_	_	_
+8	minyatür	_	_	_	_	_	_	_	_
+9	Oscar	_	_	_	_	_	_	_	_
+10	heykelciklerinden	_	_	_	_	_	_	_	_
+11	oluşan	_	_	_	_	_	_	_	_
+12	başka	_	_	_	_	_	_	_	_
+13	bir	_	_	_	_	_	_	_	_
+14	Onursal	_	_	_	_	_	_	_	_
+15	Akademi	_	_	_	_	_	_	_	_
+16	Ödülü	_	_	_	_	_	_	_	_
+17	kazandı	_	_	_	_	_	_	_	_
+18	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n04002
+# sent_id = n04002020
+# text = İtalya'nın Madrid'den daha kısa bir metro hattı olduğunu tasavvur etmek zor.
+# text_en = It is difficult to think that Italy has fewer km of underground line than Madrid.
+1	İtalya'nın	_	_	_	_	_	_	_	_
+2	Madrid'den	_	_	_	_	_	_	_	_
+3	daha	_	_	_	_	_	_	_	_
+4	kısa	_	_	_	_	_	_	_	_
+5	bir	_	_	_	_	_	_	_	_
+6	metro	_	_	_	_	_	_	_	_
+7	hattı	_	_	_	_	_	_	_	_
+8	olduğunu	_	_	_	_	_	_	_	_
+9	tasavvur	_	_	_	_	_	_	_	_
+10	etmek	_	_	_	_	_	_	_	_
+11	zor	_	_	_	_	_	_	_	_
+12	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01072046
+# text = Ama Hispania'nın yeni gelenler üzerindeki etkisi büyüktü.
+# text_en = But the impact of Hispania in the newcomers was also big.
+1	Ama	_	_	_	_	_	_	_	_
+2	Hispania'nın	_	_	_	_	_	_	_	_
+3	yeni	_	_	_	_	_	_	_	_
+4	gelenler	_	_	_	_	_	_	_	_
+5	üzerinde	_	_	_	_	_	_	_	_
+6	ki	_	_	_	_	_	_	_	_
+7	etkisi	_	_	_	_	_	_	_	_
+8	büyük	_	_	_	_	_	_	_	_
+9	tü	_	_	_	_	_	_	_	_
+10	.	_	_	_	_	_	_	_	_
+
+# sent_id = w03002055
+# text = Uluslararası Af Örgütü, büyücülükle suçlanan elli kişinin öldürülmesini anlatan 2008 tarihli gazete yazılarına atıfta bulunuyor.
+# text_en = Amnesty International cites newspaper articles from 2008 describing the murder of fifty people accused of witchcraft.
+1	Uluslararası	_	_	_	_	_	_	_	_
+2	Af	_	_	_	_	_	_	_	_
+3	Örgütü	_	_	_	_	_	_	_	_
+4	,	_	_	_	_	_	_	_	_
+5	büyücülükle	_	_	_	_	_	_	_	_
+6	suçlanan	_	_	_	_	_	_	_	_
+7	elli	_	_	_	_	_	_	_	_
+8	kişinin	_	_	_	_	_	_	_	_
+9	öldürülmesini	_	_	_	_	_	_	_	_
+10	anlatan	_	_	_	_	_	_	_	_
+11	2008	_	_	_	_	_	_	_	_
+12	tarihli	_	_	_	_	_	_	_	_
+13	gazete	_	_	_	_	_	_	_	_
+14	yazılarına	_	_	_	_	_	_	_	_
+15	atıfta	_	_	_	_	_	_	_	_
+16	bulunuyor	_	_	_	_	_	_	_	_
+17	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01140
+# sent_id = n01140012
+# text = Hollanda'da yetkililer, insansız hava araçlarını izlemek için daha düşük teknolojili bir yaklaşım benimsediler.
+# text_en = In the Netherlands, authorities have taken a lower-tech approach to tracking drones.
+1	Hollanda'da	_	_	_	_	_	_	_	_
+2	yetkililer	_	_	_	_	_	_	_	_
+3	,	_	_	_	_	_	_	_	_
+4	insansız	_	_	_	_	_	_	_	_
+5	hava	_	_	_	_	_	_	_	_
+6	araçlarını	_	_	_	_	_	_	_	_
+7	izlemek	_	_	_	_	_	_	_	_
+8	için	_	_	_	_	_	_	_	_
+9	daha	_	_	_	_	_	_	_	_
+10	düşük	_	_	_	_	_	_	_	_
+11	teknolojili	_	_	_	_	_	_	_	_
+12	bir	_	_	_	_	_	_	_	_
+13	yaklaşım	_	_	_	_	_	_	_	_
+14	benimsediler	_	_	_	_	_	_	_	_
+15	.	_	_	_	_	_	_	_	_
+
+# newdoc id = n01142
+# sent_id = n01142007
+# text = En iyi tenis oyunlarından bazılarını bir sette dengelediği ve karar vermeye zorladığı maçlarda sergileyen Isner, borcunu da ödedi.
+# text_en = Isner, who produced some of his best tennis as he leveled at one set all and forced a decider, also paid his tribute.
+1	En	_	_	_	_	_	_	_	_
+2	iyi	_	_	_	_	_	_	_	_
+3	tenis	_	_	_	_	_	_	_	_
+4	oyunlarından	_	_	_	_	_	_	_	_
+5	bazılarını	_	_	_	_	_	_	_	_
+6	bir	_	_	_	_	_	_	_	_
+7	sette	_	_	_	_	_	_	_	_
+8	dengelediği	_	_	_	_	_	_	_	_
+9	ve	_	_	_	_	_	_	_	_
+10	karar	_	_	_	_	_	_	_	_
+11	vermeye	_	_	_	_	_	_	_	_
+12	zorladığı	_	_	_	_	_	_	_	_
+13	maçlarda	_	_	_	_	_	_	_	_
+14	sergileyen	_	_	_	_	_	_	_	_
+15	Isner	_	_	_	_	_	_	_	_
+16	,	_	_	_	_	_	_	_	_
+17	borcunu	_	_	_	_	_	_	_	_
+18	da	_	_	_	_	_	_	_	_
+19	ödedi	_	_	_	_	_	_	_	_
+20	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01098041
+# text = İki minareli küçük bir kasaba yanımızdan geçip gidiyor.
+# text_en = A small town with two minarets glides by.
+1	İki	_	_	_	_	_	_	_	_
+2	minareli	_	_	_	_	_	_	_	_
+3	küçük	_	_	_	_	_	_	_	_
+4	bir	_	_	_	_	_	_	_	_
+5	kasaba	_	_	_	_	_	_	_	_
+6	yanımızdan	_	_	_	_	_	_	_	_
+7	geçip	_	_	_	_	_	_	_	_
+8	gidiyor	_	_	_	_	_	_	_	_
+9	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01035080
+# text = Öte yandan, iyi yönetim uygulamalarının uygulandığı sağlıklı bir ekosistem, bu olayların oluşma ihtimalini veya en azından olumsuz etkileri azaltacaktır.
+# text_en = On the other hand, a healthy ecosystem with good management practices will reduce the chance of these events happening, or will at least mitigate adverse impacts.
+1	Öte	_	_	_	_	_	_	_	_
+2	yandan	_	_	_	_	_	_	_	_
+3	,	_	_	_	_	_	_	_	_
+4	iyi	_	_	_	_	_	_	_	_
+5	yönetim	_	_	_	_	_	_	_	_
+6	uygulamalarının	_	_	_	_	_	_	_	_
+7	uygulandığı	_	_	_	_	_	_	_	_
+8	sağlıklı	_	_	_	_	_	_	_	_
+9	bir	_	_	_	_	_	_	_	_
+10	ekosistem	_	_	_	_	_	_	_	_
+11	,	_	_	_	_	_	_	_	_
+12	bu	_	_	_	_	_	_	_	_
+13	olayların	_	_	_	_	_	_	_	_
+14	oluşma	_	_	_	_	_	_	_	_
+15	ihtimalini	_	_	_	_	_	_	_	_
+16	veya	_	_	_	_	_	_	_	_
+17	en	_	_	_	_	_	_	_	_
+18	azından	_	_	_	_	_	_	_	_
+19	olumsuz	_	_	_	_	_	_	_	_
+20	etkileri	_	_	_	_	_	_	_	_
+21	azaltacaktır	_	_	_	_	_	_	_	_
+22	.	_	_	_	_	_	_	_	_
+
+# sent_id = n01092040
+# text = Dava kapsamını yalnızca bir projede gerçekten görev alanlarla sınırlamanın muhtemel yollarını araştırıyoruz. dedi.
+# text_en = “We are actively thinking of possible ways to limit the scope of litigation to only those with a real standing in a project,” he was quoted as saying.
+1	Dava	_	_	_	_	_	_	_	_
+2	kapsamını	_	_	_	_	_	_	_	_
+3	yalnızca	_	_	_	_	_	_	_	_
+4	bir	_	_	_	_	_	_	_	_
+5	projede	_	_	_	_	_	_	_	_
+6	gerçekten	_	_	_	_	_	_	_	_
+7	görev	_	_	_	_	_	_	_	_
+8	alanlarla	_	_	_	_	_	_	_	_
+9	sınırlamanın	_	_	_	_	_	_	_	_
+10	muhtemel	_	_	_	_	_	_	_	_
+11	yollarını	_	_	_	_	_	_	_	_
+12	araştırıyoruz	_	_	_	_	_	_	_	_
+13	.	_	_	_	_	_	_	_	_
+14	dedi	_	_	_	_	_	_	_	_
+15	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01132081
+# text = Yelkenler, tarih öncesi Mezo Amerikalı ikonografisinde ya da metinlerde temsil edilmemektedir; bunun yerine, kanoların antik Maya için birincil su taşımacılığı modeli olarak kullanıldığı teorisine göre hazırlanmıştır.
+# text_en = Sails are not represented in prehistoric Mesoamerican iconography or texts, instead, it is theorized that canoes were used as a primary mode of water transportation for the ancient Maya.
+1	Yelkenler	_	_	_	_	_	_	_	_
+2	,	_	_	_	_	_	_	_	_
+3	tarih	_	_	_	_	_	_	_	_
+4	öncesi	_	_	_	_	_	_	_	_
+5	Mezo	_	_	_	_	_	_	_	_
+6	Amerikalı	_	_	_	_	_	_	_	_
+7	ikonografisinde	_	_	_	_	_	_	_	_
+8	ya	_	_	_	_	_	_	_	_
+9	da	_	_	_	_	_	_	_	_
+10	metinlerde	_	_	_	_	_	_	_	_
+11	temsil	_	_	_	_	_	_	_	_
+12	edilmemektedir	_	_	_	_	_	_	_	_
+13	;	_	_	_	_	_	_	_	_
+14	bunun	_	_	_	_	_	_	_	_
+15	yerine	_	_	_	_	_	_	_	_
+16	,	_	_	_	_	_	_	_	_
+17	kanoların	_	_	_	_	_	_	_	_
+18	antik	_	_	_	_	_	_	_	_
+19	Maya	_	_	_	_	_	_	_	_
+20	için	_	_	_	_	_	_	_	_
+21	birincil	_	_	_	_	_	_	_	_
+22	su	_	_	_	_	_	_	_	_
+23	taşımacılığı	_	_	_	_	_	_	_	_
+24	modeli	_	_	_	_	_	_	_	_
+25	olarak	_	_	_	_	_	_	_	_
+26	kullanıldığı	_	_	_	_	_	_	_	_
+27	teorisine	_	_	_	_	_	_	_	_
+28	göre	_	_	_	_	_	_	_	_
+29	hazırlanmıştır	_	_	_	_	_	_	_	_
+30	.	_	_	_	_	_	_	_	_
+
+# sent_id = w01047094
+# text = Brooks ve Carson 1962 yılının ortalarına gelindiğinde düzenlemeyi büyük oranda bitirmişler ve metni, nihai öneriler için seçilen bireylere göndererek kitabın tanıtımına zemin hazırlıyorlardı.
+# text_en = By mid-1962, Brooks and Carson had largely finished the editing, and were laying the groundwork for promoting the book by sending the manuscript out to select individuals for final suggestions.
+1	Brooks	_	_	_	_	_	_	_	_
+2	ve	_	_	_	_	_	_	_	_
+3	Carson	_	_	_	_	_	_	_	_
+4	1962	_	_	_	_	_	_	_	_
+5	yılının	_	_	_	_	_	_	_	_
+6	ortalarına	_	_	_	_	_	_	_	_
+7	gelindiğinde	_	_	_	_	_	_	_	_
+8	düzenlemeyi	_	_	_	_	_	_	_	_
+9	büyük	_	_	_	_	_	_	_	_
+10	oranda	_	_	_	_	_	_	_	_
+11	bitirmişler	_	_	_	_	_	_	_	_
+12	ve	_	_	_	_	_	_	_	_
+13	metni	_	_	_	_	_	_	_	_
+14	,	_	_	_	_	_	_	_	_
+15	nihai	_	_	_	_	_	_	_	_
+16	öneriler	_	_	_	_	_	_	_	_
+17	için	_	_	_	_	_	_	_	_
+18	seçilen	_	_	_	_	_	_	_	_
+19	bireylere	_	_	_	_	_	_	_	_
+20	göndererek	_	_	_	_	_	_	_	_
+21	kitabın	_	_	_	_	_	_	_	_
+22	tanıtımına	_	_	_	_	_	_	_	_
+23	zemin	_	_	_	_	_	_	_	_
+24	hazırlıyorlardı	_	_	_	_	_	_	_	_
+25	.	_	_	_	_	_	_	_	_
+

@@ -1,0 +1,2233 @@
+# sent_id = n01042008
+# text = İnceleme, Eylül ayındaki Kuzey Ontario'daki polis memurlarından geldiği iddia edilen viral Facebook yayınlarını ele alıyor.
+# text_en = The review is also investigating inflammatory Facebook posts from September, alleged to come from police officers in the northern Ontario city.
+1	İnceleme	incele	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	Eylül	eylül	_	_	N;SG	_	_	_	_
+4	ayında	ay	_	_	PSS3S;N;SG;ESS	_	_	_	_
+5	ki	ki	_	_	ADP	_	_	_	_
+6	Kuzey	kuzey	_	_	N;SG	_	_	_	_
+7	Ontario'da	Ontario	_	_	ESS;PROPN;SG	_	_	_	_
+8	ki	ki	_	_	ADP	_	_	_	_
+9	polis	polis	_	_	N;SG	_	_	_	_
+10	memurlarından	memur	_	_	PSS3S;AT+ABL;N;PL	_	_	_	_
+11	geldiği	gel	_	_	PSS3S;N;SG;POS;NOM	_	_	_	_
+12	iddia	iddia	_	_	N;SG	_	_	_	_
+13	edilen	et	_	_	POS;ADJ;SG	_	_	_	_
+14	viral	viral	_	_	ADJ;SG	_	_	_	_
+15	Facebook	Facebk	_	_	PROPN;SG	_	_	_	_
+16	yayınlarını	yayın	_	_	PSS3S;N;ACC;PL	_	_	_	_
+17	ele	el	_	_	SG;N;DAT	_	_	_	_
+18	alıyor	al	_	_	PRS;V;IND;SG;PROG;3	_	_	_	_
+19	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01022
+# sent_id = n01022002
+# text = Birleşmiş Milletler'in karbon azaltma planları üzerindeki incelemesi, bunların küresel hava sıcaklıklarındaki artışın 2 C'nin altında kalması için gereken seviyelerin çok altında olduğunu gösteriyor.
+# text_en = A UN review of national plans to cut carbon says they are well short of the levels needed to keep the rise in global temperatures under 2C.
+1	Birleşmiş	Birleş	_	_	ADJ;IND;SG;PFV;PST;NFH;3	_	_	_	_
+2	Milletler'in	Milletler	_	_	GEN;N;SG	_	_	_	_
+3	karbon	karbon	_	_	N;SG	_	_	_	_
+4	azaltma	azal	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+5	planları	plan	_	_	PSS3S;N;PL	_	_	_	_
+6	üzerinde	üzer	_	_	PSS3S;N;SG;ESS	_	_	_	_
+7	ki	ki	_	_	ADP	_	_	_	_
+8	incelemesi	incele	_	_	PSS3S;V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+9	,	,	_	_	_	_	_	_	_
+10	bunların	bu	_	_	PRO;POS;GEN;PL	_	_	_	_
+11	küresel	küresel	_	_	ADJ;SG	_	_	_	_
+12	hava	hava	_	_	N;SG	_	_	_	_
+13	sıcaklıklarında	sıcaklık	_	_	PSS3S;N;ESS;PL	_	_	_	_
+14	ki	ki	_	_	ADP	_	_	_	_
+15	artışın	artış	_	_	GEN;N;POS;SG	_	_	_	_
+16	2	2	_	_	NUM;SG	_	_	_	_
+17	C'nin	C	_	_	GEN;N;SG	_	_	_	_
+18	altında	alt	_	_	PSS3S;N;SG;ESS	_	_	_	_
+19	kalması	kal	_	_	PSS3S;V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+20	için	için	_	_	ADP	_	_	_	_
+21	gereken	gerek	_	_	POS;ADJ;SG	_	_	_	_
+22	seviyelerin	seviye	_	_	GEN;N;PL	_	_	_	_
+23	çok	çok	_	_	ADJ	_	_	_	_
+24	altında	alt	_	_	PSS3S;N;SG;ESS	_	_	_	_
+25	olduğunu	ol	_	_	PSS3S;N;ACC;SG;POS	_	_	_	_
+26	gösteriyor	göster	_	_	PRS;V;IND;SG;PROG;3	_	_	_	_
+27	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n02069
+# sent_id = n02069039
+# text = Mevcut tutuklamalar "bize karşı tezgahlanan gizli oyunların devamı" diyor Dündar.
+# text_en = The current arrests are "a continuation of the shenanigans against us," said Dündar.
+1	Mevcut	mevcut	_	_	ADJ;SG	_	_	_	_
+2	tutuklamalar	tutukla	_	_	POS;N;NOM;PL	_	_	_	_
+3	"	"	_	_	_	_	_	_	_
+4	bize	biz	_	_	1;SG;DAT;PRO;POS	_	_	_	_
+5	karşı	karşı	_	_	ADP	_	_	_	_
+6	tezgahlanan	tezgahla	_	_	POS;ADJ;SG	_	_	_	_
+7	gizli	gizli	_	_	ADJ;SG	_	_	_	_
+8	oyunların	oyun	_	_	GEN;N;PL	_	_	_	_
+9	devamı	devam	_	_	PSS3S;N;SG	_	_	_	_
+10	"	"	_	_	_	_	_	_	_
+11	diyor	de	_	_	PRS;V;IND;SG;PROG;3	_	_	_	_
+12	Dündar	Dündar	_	_	PROPN;NOM;SG	_	_	_	_
+13	.	.	_	_	_	_	_	_	_
+
+# newdoc id = w02008
+# sent_id = w02008010
+# text = Kapsamı, bilinen birçok kazı alanına sahip, zamanın en yaygın kültürlerine aittir.
+# text_en = In its scope it belongs to the most far-reaching cultures of the time, in which many sites are known.
+1	Kapsamı	kapsam	_	_	PSS3S;N;SG;NOM	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	bilinen	bil	_	_	POS;ADJ;SG	_	_	_	_
+4	birçok	birçok	_	_	DET;POS;INDF;SG	_	_	_	_
+5	kazı	kazı	_	_	N;SG	_	_	_	_
+6	alanına	alan	_	_	PSS3S;N;SG;DAT	_	_	_	_
+7	sahip	sahip	_	_	ADJ;SG	_	_	_	_
+8	,	,	_	_	_	_	_	_	_
+9	zamanın	zaman	_	_	GEN;N;SG	_	_	_	_
+10	en	en	_	_	ADV	_	_	_	_
+11	yaygın	yaygın	_	_	ADJ;SG	_	_	_	_
+12	kültürlerine	kültür	_	_	PSS3S;N;DAT;PL	_	_	_	_
+13	ait	ait	_	_	N;SG	_	_	_	_
+14	tir	i	_	_	PRS;SG;PFV;V;3	_	_	_	_
+15	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01021
+# sent_id = n01021007
+# text = Hack Forums'ın kurucusu Jesse LaBrocca bölümün kapatılma sebebini açıklayan bir mesajda "Ne yazık ki, bir kez daha azınlığın talebiyle çoğunluk eğlencesinden oldu." diye yazdı.
+# text_en = "Unfortunately once again the few ruin it for the many," wrote Jesse LaBrocca, founder of Hack Forums, in a message explaining why the section was being closed.
+1	Hack	Hack	_	_	_	_	_	_	_
+2	Forums'ın	Forums	_	_	_	_	_	_	_
+3	kurucusu	kurucu	_	_	PSS3S;N;SG	_	_	_	_
+4	Jesse	Jesse	_	_	PROPN;SG	_	_	_	_
+5	LaBrocca	LaBrocca	_	_	PROPN;NOM;SG	_	_	_	_
+6	bölümün	bölüm	_	_	GEN;N;SG	_	_	_	_
+7	kapatılma	kapat	_	_	V.MSDR;N;PRS;IND;PFV;PASS;NOM	_	_	_	_
+8	sebebini	sebep	_	_	PSS3S;N;ACC;SG	_	_	_	_
+9	açıklayan	açıkla	_	_	POS;ADJ;SG	_	_	_	_
+10	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+11	mesajda	mesaj	_	_	ESS;N;SG	_	_	_	_
+12	"	"	_	_	_	_	_	_	_
+13	Ne	ne	_	_	ADV;SG	_	_	_	_
+14	yazık	yazık	_	_	N;SG	_	_	_	_
+15	ki	ki	_	_	CONJ	_	_	_	_
+16	,	,	_	_	_	_	_	_	_
+17	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+18	kez	kez	_	_	N;SG	_	_	_	_
+19	daha	daha	_	_	ADV	_	_	_	_
+20	azınlığın	azınlık	_	_	GEN;N;SG	_	_	_	_
+21	talebiyle	talebi	_	_	PSS3S;N;INS;SG	_	_	_	_
+22	çoğunluk	çoğunluk	_	_	N;NOM;SG	_	_	_	_
+23	eğlencesinden	eğlence	_	_	PSS3S;N;SG;AT+ABL	_	_	_	_
+24	oldu	ol	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+25	.	_	_	_	_	_	_	_	_
+26	"	_	_	_	_	_	_	_	_
+27	diye	diye	_	_	ADP	_	_	_	_
+28	yazdı	yaz	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+29	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01023120
+# text = Kurallar ne olursa olsun, kavgalar genellikle atlardan birinin ölümüyle sonuçlanırdı.
+# text_en = Whatever the rules were, the fights often resulted in the death of one of the stallions.
+1	Kurallar	Kural	_	_	N;NOM;PL	_	_	_	_
+2	ne	ne	_	_	PRO;SG	_	_	_	_
+3	olursa	ol	_	_	HAB;PRS;V;SG;3	_	_	_	_
+4	olsun	ol	_	_	PRS;SG;IMP;V;3	_	_	_	_
+5	,	,	_	_	_	_	_	_	_
+6	kavgalar	kavga	_	_	N;NOM;PL	_	_	_	_
+7	genellikle	genellikle	_	_	ADV	_	_	_	_
+8	atlardan	at	_	_	PL;N;AT+ABL	_	_	_	_
+9	birinin	biri	_	_	PSS3S;GEN;SG;PRO;POS	_	_	_	_
+10	ölümüyle	ölüm	_	_	PSS3S;N;INS;SG	_	_	_	_
+11	sonuçlanırdı	sonuçlan	_	_	HAB;3;SG;PST;V	_	_	_	_
+12	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01079
+# sent_id = n01079015
+# text = Köşede başörtülü ve kot pantolonlu bir kız var ve o kadar mütevazi görünüyor ki onun da bir asistan olduğunu düşünüyorum.
+# text_en = In the corner is a girl in a headscarf and jeans who looks so unassuming I think it’s another assistant.
+1	Köşede	köşe	_	_	ESS;N;SG	_	_	_	_
+2	başörtülü	_	_	_	ADJ;SG	_	_	_	_
+3	ve	ve	_	_	CONJ	_	_	_	_
+4	kot	kot	_	_	ADJ;SG	_	_	_	_
+5	pantolonlu	pantolonl	_	_	ADJ;SG	_	_	_	_
+6	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+7	kız	kız	_	_	N;NOM;SG	_	_	_	_
+8	var	var	_	_	POS;ADJ	_	_	_	_
+9	ve	ve	_	_	CONJ	_	_	_	_
+10	o	o	_	_	DET;DEF;POS;SG	_	_	_	_
+11	kadar	kadar	_	_	ADP	_	_	_	_
+12	mütevazi	mütevazi	_	_	ADJ;SG	_	_	_	_
+13	görünüyor	görün	_	_	PRS;IND;SG;PROG;V;3	_	_	_	_
+14	ki	ki	_	_	CONJ	_	_	_	_
+15	onun	o	_	_	PRO;POS;GEN;SG	_	_	_	_
+16	da	da	_	_	ADV	_	_	_	_
+17	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+18	asistan	asis	_	_	N;SG	_	_	_	_
+19	olduğunu	ol	_	_	PSS3S;POS;ACC;SG;V	_	_	_	_
+20	düşünüyorum	düşün	_	_	PRS;1;IND;SG;PROG;V	_	_	_	_
+21	.	.	_	_	_	_	_	_	_
+
+# newdoc id = w01030
+# sent_id = w01030092
+# text = Alpler, Avrupa'nın düz bölgelerine içme suyu, sulama ve hidroelektrik enerji sağlar.
+# text_en = The Alps provide lowland Europe with drinking water, irrigation, and hydroelectric power.
+1	Alpler	Alp	_	_	PROPN;NOM;PL	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	Avrupa'nın	Avrupa	_	_	PROPN;GEN;SG	_	_	_	_
+4	düz	düz	_	_	ADJ;SG	_	_	_	_
+5	bölgelerine	bölge	_	_	PSS3S;N;DAT;PL	_	_	_	_
+6	içme	iç	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+7	suyu	su	_	_	PSS3S;N;SG	_	_	_	_
+8	,	,	_	_	_	_	_	_	_
+9	sulama	sula	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+10	ve	ve	_	_	CONJ	_	_	_	_
+11	hidroelektrik	hidroelektrik	_	_	ADJ;SG	_	_	_	_
+12	enerji	enerji	_	_	N;SG	_	_	_	_
+13	sağlar	sağla	_	_	HAB;PRS;3;SG;V	_	_	_	_
+14	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01061023
+# text = Donald Trump taklitçisi John Di Domenico geçen sene Slate'e yaptığı açıklamada "Onu oynarken güçlü hissediyorum." demişti.
+# text_en = “When I’m playing him, I feel powerful,” the Donald Trump impersonator John Di Domenico explained to Slate last year.
+1	Donald	Donald	_	_	PROPN;SG	_	_	_	_
+2	Trump	Trump	_	_	PROPN;SG	_	_	_	_
+3	taklitçisi	taklitçi	_	_	N;SG	_	_	_	_
+4	John	John	_	_	PROPN;SG	_	_	_	_
+5	Di	i	_	_	PROPN;SG	_	_	_	_
+6	Domenico	Domenico	_	_	PROPN;SG	_	_	_	_
+7	geçen	geç	_	_	POS;ADJ;SG	_	_	_	_
+8	sene	sen	_	_	N;SG	_	_	_	_
+9	Slate'e	Slate	_	_	PROPN;SG;DAT	_	_	_	_
+10	yaptığı	yap	_	_	PSS3S;ADJ;SG;POS	_	_	_	_
+11	açıklamada	açıkla	_	_	ESS;POS;N;SG	_	_	_	_
+12	"	"	_	_	_	_	_	_	_
+13	Onu	o	_	_	ACC;PRO;POS;SG	_	_	_	_
+14	oynarken	oyna	_	_	POS;ADV	_	_	_	_
+15	güçlü	güçlü	_	_	ADJ;SG	_	_	_	_
+16	hissediyorum	hissed	_	_	PRS;1;IND;SG;PROG;V	_	_	_	_
+17	.	_	_	_	_	_	_	_	_
+18	"	_	_	_	_	_	_	_	_
+19	demişti	de	_	_	3;PST+PRF;IND;SG;PFV;NFH;V	_	_	_	_
+20	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n02056
+# sent_id = n02056019
+# text = Videonun Almanya'da tanıtılmasının nedeni belli değil.
+# text_en = The reason for advertising the video in Germany is unclear.
+1	Videonun	Videon	_	_	GEN;N;SG	_	_	_	_
+2	Almanya'da	Almanya	_	_	ESS;PROPN;SG	_	_	_	_
+3	tanıtılmasının	tanıtılmas	_	_	PSS3S;V.MSDR;N;PRS;GEN;IND;PFV;PASS	_	_	_	_
+4	nedeni	neden	_	_	PSS3S;N;SG;NOM	_	_	_	_
+5	belli	belli	_	_	ADJ;SG	_	_	_	_
+6	değil	değil	_	_	PRS;IND;SG;V;3;NEG	_	_	_	_
+7	.	.	_	_	_	_	_	_	_
+
+# sent_id = n05006013
+# text = Vurgular, ince ironi, kinayeler ve diğer iyi kullanılan dil araçları parlamentoya yakışır, ancak birbirine vurmak ve bayağı espriler buraya yakışmamaktadır.
+# text_en = Emphasis, fine irony, blunt innuendos and other well used verbal devices fit into parliamentary oratory, but flicking at each other and slapstick comedy do not.
+1	Vurgular	vurgular	_	_	N;PL	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	ince	ince	_	_	ADJ;SG	_	_	_	_
+4	ironi	ironi	_	_	N;SG	_	_	_	_
+5	,	,	_	_	_	_	_	_	_
+6	kinayeler	kinaye	_	_	N;PL	_	_	_	_
+7	ve	ve	_	_	CONJ	_	_	_	_
+8	diğer	diğer	_	_	DET;DEF;POS;SG	_	_	_	_
+9	iyi	iyi	_	_	ADJ;SG	_	_	_	_
+10	kullanılan	kullan	_	_	POS;ADJ;SG	_	_	_	_
+11	dil	dil	_	_	N;SG	_	_	_	_
+12	araçları	araç	_	_	PSS3S;N;NOM;PL	_	_	_	_
+13	parlamentoya	parlamento	_	_	SG;N;DAT	_	_	_	_
+14	yakışır	yakış	_	_	HAB;PRS;3;SG;V	_	_	_	_
+15	,	,	_	_	_	_	_	_	_
+16	ancak	ancak	_	_	CONJ	_	_	_	_
+17	birbirine	birbiri	_	_	SG;DAT;PRO;3	_	_	_	_
+18	vurmak	vur	_	_	N;IND;SG;PFV;3;FUT	_	_	_	_
+19	ve	ve	_	_	CONJ	_	_	_	_
+20	bayağı	bayağ	_	_	ADJ;SG	_	_	_	_
+21	espriler	espri	_	_	N;NOM;PL	_	_	_	_
+22	buraya	bura	_	_	PRO;POS;SG;DAT	_	_	_	_
+23	yakışmamaktadır	yakışma	_	_	PRS;V;SG;PROG;3;NEG	_	_	_	_
+24	.	.	_	_	_	_	_	_	_
+
+# newdoc id = w01082
+# sent_id = w01082055
+# text = Savaş boyunca, Pearl Harbor genellikle Amerikan propagandasında kullanıldı.
+# text_en = Throughout the war, Pearl Harbor was frequently used in American propaganda.
+1	Savaş	savaş	_	_	N;SG	_	_	_	_
+2	boyunca	boyunca	_	_	PSS3S;ADP	_	_	_	_
+3	,	,	_	_	_	_	_	_	_
+4	Pearl	Pearl	_	_	PROPN;SG	_	_	_	_
+5	Harbor	Harbor	_	_	PROPN;NOM;SG	_	_	_	_
+6	genellikle	genellikle	_	_	ADV	_	_	_	_
+7	Amerikan	amerikan	_	_	PROPN;SG	_	_	_	_
+8	propagandasında	propaganda	_	_	PSS3S;N;SG;ESS	_	_	_	_
+9	kullanıldı	kullan	_	_	3;IND;SG;PFV;PST;V;PASS	_	_	_	_
+10	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01115024
+# text = 21 Nisan 1882'de mezun olup master derecesini elde etti.
+# text_en = He graduated and obtained an M.A. on 21 April 1882.
+1	21	21	_	_	NUM;SG	_	_	_	_
+2	Nisan	Nisan	_	_	N;SG	_	_	_	_
+3	1882'de	1882	_	_	ESS;N;SG	_	_	_	_
+4	mezun	mezun	_	_	ADJ;SG	_	_	_	_
+5	olup	ol	_	_	V;POS	_	_	_	_
+6	master	master	_	_	N;SG	_	_	_	_
+7	derecesini	derece	_	_	PSS3S;N;ACC;SG	_	_	_	_
+8	elde	el	_	_	ESS;N;SG	_	_	_	_
+9	etti	et	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+10	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01143
+# sent_id = n01143003
+# text = Brisbane Nine News "Şaka olsun diye Kuzey Kore golf turnuvasına katıldılar" diye yazdı.
+# text_en = "Pair prank their way into North Korean golf tournament," read Brisbane's Nine News.
+1	Brisbane	Brisbane	_	_	PROPN;SG	_	_	_	_
+2	Nine	in	_	_	PROPN;SG	_	_	_	_
+3	News	News	_	_	NOM	_	_	_	_
+4	"	"	_	_	_	_	_	_	_
+5	Şaka	şaka	_	_	N;SG	_	_	_	_
+6	olsun	ol	_	_	PRS;SG;IMP;V;3	_	_	_	_
+7	diye	diye	_	_	ADP	_	_	_	_
+8	Kuzey	kuzey	_	_	N;SG	_	_	_	_
+9	Kore	Kore	_	_	PROPN;SG	_	_	_	_
+10	golf	golf	_	_	N;SG	_	_	_	_
+11	turnuvasına	turnuva	_	_	PSS3S;N;SG;DAT	_	_	_	_
+12	katıldılar	kat	_	_	3;IND;PFV;PST;V;PASS;PL	_	_	_	_
+13	"	"	_	_	_	_	_	_	_
+14	diye	diye	_	_	ADP	_	_	_	_
+15	yazdı	yaz	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+16	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01142008
+# text = Amerikalı, "Andy'yi tebrik etmek zorundayım! Dünyada bir numara olmak, bu inanılmaz bir başarı!" dedi.
+# text_en = "I have to congratulate Andy -- to get to No. 1 in the world that's an incredible achievement," the American said.
+1	Amerikalı	Amerikalı	_	_	PROPN;NOM;SG	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	"	"	_	_	_	_	_	_	_
+4	Andy'yi	Andy	_	_	ACC;PROPN;SG	_	_	_	_
+5	tebrik	tebrik	_	_	N;SG	_	_	_	_
+6	etmek	et	_	_	N;IND;SG;PFV;3;FUT	_	_	_	_
+7	zorunda	zorun	_	_	ESS;N;SG	_	_	_	_
+8	yım	i	_	_	PRS;1;IND;SG;PFV;V	_	_	_	_
+9	!	!	_	_	_	_	_	_	_
+10	Dünyada	dünya	_	_	ESS;N;SG	_	_	_	_
+11	bir	bir	_	_	POS;NUM;INDF;SG	_	_	_	_
+12	numara	numar	_	_	N;SG	_	_	_	_
+13	olmak	ol	_	_	IND;SG;PFV;V;3;FUT;NOM	_	_	_	_
+14	,	,	_	_	_	_	_	_	_
+15	bu	bu	_	_	PRO;POS;DEF;SG	_	_	_	_
+16	inanılmaz	inan	_	_	ADJ;HAB;PRS;SG;PASS;3;NEG	_	_	_	_
+17	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+18	başarı	başarı	_	_	N;SG	_	_	_	_
+19	!	!	_	_	_	_	_	_	_
+20	"	"	_	_	_	_	_	_	_
+21	dedi	de	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+22	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01097104
+# text = Chandler ve Weller gibi bazı tarihçiler, İngiliz ağır süvari askerlerinin ilk epik şarjlarını takiben uygulanabilir bir güç olarak yok edildiğini iddia ediyorlar.
+# text_en = Some historians, such as Chandler and Weller, assert that the British heavy cavalry were destroyed as a viable force following their first, epic charge.
+1	Chandler	Chand	_	_	PROPN;SG	_	_	_	_
+2	ve	ve	_	_	CONJ	_	_	_	_
+3	Weller	Weller	_	_	PROPN;SG	_	_	_	_
+4	gibi	gibi	_	_	ADP	_	_	_	_
+5	bazı	bazı	_	_	DET;POS;INDF;SG	_	_	_	_
+6	tarihçiler	tarihçi	_	_	N;NOM;PL	_	_	_	_
+7	,	,	_	_	_	_	_	_	_
+8	İngiliz	İngiliz	_	_	PROPN;SG	_	_	_	_
+9	ağır	ağır	_	_	ADJ;SG	_	_	_	_
+10	süvari	süvari	_	_	N;SG	_	_	_	_
+11	askerlerinin	asker	_	_	PSS3S;N;GEN;PL	_	_	_	_
+12	ilk	ilk	_	_	ADJ;SG	_	_	_	_
+13	epik	epik	_	_	ADJ;SG	_	_	_	_
+14	şarjlarını	şarj	_	_	PSS3S;N;ACC;PL	_	_	_	_
+15	takiben	takiben	_	_	ADP	_	_	_	_
+16	uygulanabilir	uygulanab	_	_	ADJ;HAB;PRS;SG;3;PASS	_	_	_	_
+17	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+18	güç	güç	_	_	N;SG	_	_	_	_
+19	olarak	olarak	_	_	V;POS	_	_	_	_
+20	yok	yok	_	_	ADJ;NEG	_	_	_	_
+21	edildiğini	et	_	_	PSS3S;POS;ACC;SG;V	_	_	_	_
+22	iddia	iddia	_	_	N;SG	_	_	_	_
+23	ediyorlar	et	_	_	PRS;V;IND;PROG;3;PL	_	_	_	_
+24	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01139
+# sent_id = n01139006
+# text = Barratt, "Kurduğumuz veya yapım aşamasında olduğumuz şehirlerde çalışmalarımıza devam edeceğiz." dedi.
+# text_en = "In the cities where we've launched or are under construction, our work will continue," Barratt said.
+1	Barratt	Barratt	_	_	PROPN;NOM;SG	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	"	"	_	_	_	_	_	_	_
+4	Kurduğumuz	Kurduk	_	_	PSS1P;ADJ;SG;POS	_	_	_	_
+5	veya	veya	_	_	CONJ	_	_	_	_
+6	yapım	yap	_	_	N;SG	_	_	_	_
+7	aşamasında	aşamas	_	_	PSS3S;N;SG;ESS	_	_	_	_
+8	olduğumuz	ol	_	_	PSS1P;ADJ;SG;POS	_	_	_	_
+9	şehirlerde	şehir	_	_	ESS;N;PL	_	_	_	_
+10	çalışmalarımıza	çalışmaları	_	_	PSS1P;N;DAT;POS;PL	_	_	_	_
+11	devam	devam	_	_	N;SG	_	_	_	_
+12	edeceğiz	et	_	_	1;IND;PFV;V;FUT;PL	_	_	_	_
+13	.	_	_	_	_	_	_	_	_
+14	"	_	_	_	_	_	_	_	_
+15	dedi	de	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+16	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01052006
+# text = Onu öyküleriyle edebi dünyada iz bırakan "dikkat çekici" ve "sevecen ve muhteşem" bir kadın olarak tanımladı.
+# text_en = He described her as a "remarkable" and "loving and wonderful" woman who left her mark in the literary world with her stories.
+1	Onu	o	_	_	ACC;PRO;POS;SG	_	_	_	_
+2	öyküleriyle	öykü	_	_	PSS3S;N;INS;PL	_	_	_	_
+3	edebi	edebi	_	_	ADJ;SG	_	_	_	_
+4	dünyada	dünya	_	_	ESS;N;SG	_	_	_	_
+5	iz	iz	_	_	N;SG	_	_	_	_
+6	bırakan	bırak	_	_	POS;ADJ;SG	_	_	_	_
+7	"	"	_	_	_	_	_	_	_
+8	dikkat	dikkat	_	_	N;SG	_	_	_	_
+9	çekici	çekici	_	_	ADJ;SG	_	_	_	_
+10	"	"	_	_	_	_	_	_	_
+11	ve	ve	_	_	CONJ	_	_	_	_
+12	"	"	_	_	_	_	_	_	_
+13	sevecen	sevec	_	_	ADJ;SG	_	_	_	_
+14	ve	ve	_	_	CONJ	_	_	_	_
+15	muhteşem	muhteşem	_	_	ADJ;SG	_	_	_	_
+16	"	"	_	_	_	_	_	_	_
+17	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+18	kadın	kadın	_	_	N;SG	_	_	_	_
+19	olarak	olarak	_	_	V;POS	_	_	_	_
+20	tanımladı	tanımla	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+21	.	.	_	_	_	_	_	_	_
+
+# sent_id = n05002015
+# text = Ancak, yönetimi eleştiriden muaf değildi.
+# text_en = Its management, however, hasn't been devoid of criticism.
+1	Ancak	ancak	_	_	ADV	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	yönetimi	yönetim	_	_	PSS3S;N;SG;NOM	_	_	_	_
+4	eleştiriden	eleştiri	_	_	SG;N;AT+ABL	_	_	_	_
+5	muaf	muaf	_	_	ADJ;SG	_	_	_	_
+6	değil	_	_	_	PRS;IND;SG;V;3;NEG	_	_	_	_
+7	di	_	_	_	V;SG	_	_	_	_
+8	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01014
+# sent_id = n01014003
+# text = Michael Fallon, işe başlama tarihinin yeni yatırımların güvenliğinin sağlanmasına ve 2035 yılına kadar yüzlerce nitelikli işin korunmasına yardımcı olacağını açıkladı.
+# text_en = Michael Fallon said the date for cutting the first steel would help secure new investment and safeguard hundreds of skilled jobs until 2035.
+1	Michael	Michael	_	_	PROPN;SG	_	_	_	_
+2	Fallon	Fallon	_	_	PROPN;NOM;SG	_	_	_	_
+3	,	,	_	_	_	_	_	_	_
+4	işe	iş	_	_	SG;N;DAT	_	_	_	_
+5	başlama	başla	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+6	tarihinin	tarih	_	_	PSS3S;N;GEN;SG	_	_	_	_
+7	yeni	yeni	_	_	ADJ;SG	_	_	_	_
+8	yatırımların	yatırım	_	_	GEN;N;PL	_	_	_	_
+9	güvenliğinin	güvenliğ	_	_	PSS3S;N;GEN;SG	_	_	_	_
+10	sağlanmasına	sağla	_	_	PSS3S;V.MSDR;N;PRS;IND;DAT;PFV;PASS	_	_	_	_
+11	ve	ve	_	_	CONJ	_	_	_	_
+12	2035	2035	_	_	NUM;SG	_	_	_	_
+13	yılına	yıl	_	_	PSS3S;N;SG;DAT	_	_	_	_
+14	kadar	kadar	_	_	ADP	_	_	_	_
+15	yüzlerce	yüzlerce	_	_	ADJ;SG	_	_	_	_
+16	nitelikli	_	_	_	ADJ;SG	_	_	_	_
+17	işin	iş	_	_	GEN;N;SG	_	_	_	_
+18	korunmasına	koru	_	_	PSS3S;V.MSDR;N;PRS;IND;DAT;PFV;PASS	_	_	_	_
+19	yardımcı	yardımcı	_	_	N;SG	_	_	_	_
+20	olacağını	olacak	_	_	PSS3S;POS;ACC;SG;V	_	_	_	_
+21	açıkladı	açıkla	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+22	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01025087
+# text = Danevirke o zamandan beri Alman mülkiyetindedir.
+# text_en = The Danevirke has remained in German possession ever since.
+1	Danevirke	Danevirk	_	_	PROPN;NOM;SG	_	_	_	_
+2	o	o	_	_	DET;DEF;POS;SG	_	_	_	_
+3	zamandan	zaman	_	_	SG;N;AT+ABL	_	_	_	_
+4	beri	beri	_	_	ADP	_	_	_	_
+5	Alman	Alman	_	_	PROPN;SG	_	_	_	_
+6	mülkiyetinde	mülkiyet	_	_	PSS3S;N;SG;ESS	_	_	_	_
+7	dir	i	_	_	PRS;SG;PFV;V;3	_	_	_	_
+8	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01011017
+# text = Ben zaten her şekilde hapse gireceğim, umarım buna değmiştir.
+# text_en = "I'm going to jail either way, hope it was worth it."
+1	Ben	ben	_	_	1;SG;PRO;POS;NOM	_	_	_	_
+2	zaten	zaten	_	_	ADV	_	_	_	_
+3	her	her	_	_	DET;DEF;POS;SG	_	_	_	_
+4	şekilde	şekil	_	_	ESS;N;SG	_	_	_	_
+5	hapse	haps	_	_	SG;N;DAT	_	_	_	_
+6	gireceğim	gir	_	_	1;IND;SG;PFV;V;FUT	_	_	_	_
+7	,	,	_	_	_	_	_	_	_
+8	umarım	um	_	_	1;V;SG	_	_	_	_
+9	buna	bu	_	_	PRO;POS;SG;DAT	_	_	_	_
+10	değmiştir	değmiş	_	_	3;SG;PFV;PST;NFH;V	_	_	_	_
+11	.	.	_	_	_	_	_	_	_
+
+# sent_id = w04007049
+# text = Napolyon, Austerlitz'in açık başarısının genel bir barış antlaşmasına dönüşebileceğinden emindi, ancak umutları kısa sürede tükendi: yeni İngiliz Başbakanı Lord Grenville de, Çar Alexander da herhangi bir anlaşma yapılmasını reddetti.
+# text_en = Napoleon was confident that the clear success of Austerlitz could lead to a general peace treaty, but his hopes were soon dashed: the new British Prime Minister Lord Grenville refused any agreement, and so did Tsar Alexander.
+1	Napolyon	Napolyon	_	_	PROPN;NOM;SG	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	Austerlitz'in	Austerlitz	_	_	PROPN;GEN;SG	_	_	_	_
+4	açık	açık	_	_	ADJ;SG	_	_	_	_
+5	başarısının	başarı	_	_	PSS3S;N;GEN;SG	_	_	_	_
+6	genel	genel	_	_	ADJ;SG	_	_	_	_
+7	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+8	barış	barış	_	_	N;SG	_	_	_	_
+9	antlaşmasına	antlaş	_	_	PSS3S;N;SG;DAT	_	_	_	_
+10	dönüşebileceğinden	dönüşebileceğ	_	_	PSS3S;N;SG;POS;AT+ABL	_	_	_	_
+11	emin	_	_	_	ADJ;SG	_	_	_	_
+12	di	_	_	_	IND;SG;PFV;PST;V;3	_	_	_	_
+13	,	,	_	_	_	_	_	_	_
+14	ancak	ancak	_	_	ADV	_	_	_	_
+15	umutları	umut	_	_	PSS3S;N;NOM;PL	_	_	_	_
+16	kısa	kısa	_	_	ADJ;SG	_	_	_	_
+17	sürede	süre	_	_	ESS;N;SG	_	_	_	_
+18	tükendi	_	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+19	:	:	_	_	_	_	_	_	_
+20	yeni	yeni	_	_	ADJ;SG	_	_	_	_
+21	İngiliz	İngiliz	_	_	PROPN;SG	_	_	_	_
+22	Başbakanı	Başbakanı	_	_	PSS3S;N;SG	_	_	_	_
+23	Lord	Lord	_	_	N;SG	_	_	_	_
+24	Grenville	Grenvil	_	_	PROPN;SG	_	_	_	_
+25	de	de	_	_	ADV	_	_	_	_
+26	,	,	_	_	_	_	_	_	_
+27	Çar	Çar	_	_	N;SG	_	_	_	_
+28	Alexander	Alexander	_	_	PROPN;NOM;SG	_	_	_	_
+29	da	da	_	_	ADV	_	_	_	_
+30	herhangi	herhangi	_	_	DET;POS;INDF;SG	_	_	_	_
+31	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+32	anlaşma	anlaşma	_	_	N;NOM;SG	_	_	_	_
+33	yapılmasını	yapıl	_	_	PSS3S;V.MSDR;N;PRS;IND;ACC;PFV;PASS	_	_	_	_
+34	reddetti	reddet	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+35	.	.	_	_	_	_	_	_	_
+
+# sent_id = n03001019
+# text = Eğer ki o, demokrat başkanlığına seçilecek olursa, onun yıllarca soruşturma altında olacağının sözünü verdi.
+# text_en = If his Democrat opponent were to be elected, he assured that she would be 'under investigation for years'.
+1	Eğer	eğer	_	_	CONJ	_	_	_	_
+2	ki	ki	_	_	CONJ	_	_	_	_
+3	o	o	_	_	SG;PRO;DEF;POS;NOM	_	_	_	_
+4	,	,	_	_	_	_	_	_	_
+5	demokrat	demokrat	_	_	N;SG	_	_	_	_
+6	başkanlığına	başkanlık	_	_	PSS3S;N;SG;DAT	_	_	_	_
+7	seçilecek	seç	_	_	POS;V;SG	_	_	_	_
+8	olursa	ol	_	_	HAB;PRS;V;SG;3	_	_	_	_
+9	,	,	_	_	_	_	_	_	_
+10	onun	o	_	_	PRO;POS;GEN;SG	_	_	_	_
+11	yıllarca	yıl	_	_	ADV	_	_	_	_
+12	soruşturma	soruşturma	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+13	altında	alt	_	_	PSS3S;N;SG;ESS	_	_	_	_
+14	olacağının	olacak	_	_	PSS2S;N;GEN;SG;POS	_	_	_	_
+15	sözünü	söz	_	_	PSS3S;N;ACC;SG	_	_	_	_
+16	verdi	ver	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+17	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01080
+# sent_id = n01080039
+# text = Bunu hayatımla yapabilirim.
+# text_en = I can just do that with my life.
+1	Bunu	bu	_	_	ACC;PRO;POS;SG	_	_	_	_
+2	hayatımla	hayatım	_	_	PSS1S;N;INS;SG	_	_	_	_
+3	yapabilirim	yap	_	_	HAB;PRS;1;SG;V	_	_	_	_
+4	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01112014
+# text = Ocak ayında yayınlanan önemli bir raporda, dünyada çöplerin denizlere sızmasını önlemek için ciddi anlamda harekete geçilmediği sürece, 2050 yılında okyanuslarda balıktan çok plastik olacağı söyleniyor.
+# text_en = A major report in January said oceans would contain more plastic than fish by 2050 unless the world took radical action to stop rubbish leaking into the seas.
+1	Ocak	ocak	_	_	N;SG	_	_	_	_
+2	ayında	ay	_	_	PSS3S;N;SG;ESS	_	_	_	_
+3	yayınlanan	yayınla	_	_	POS;ADJ;SG	_	_	_	_
+4	önemli	_	_	_	ADJ;SG	_	_	_	_
+5	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+6	raporda	rapor	_	_	ESS;N;SG	_	_	_	_
+7	,	,	_	_	_	_	_	_	_
+8	dünyada	dünya	_	_	ESS;N;SG	_	_	_	_
+9	çöplerin	çöp	_	_	GEN;N;PL	_	_	_	_
+10	denizlere	deniz	_	_	PL;N;DAT	_	_	_	_
+11	sızmasını	sız	_	_	PSS3S;V.MSDR;N;PRS;IND;ACC;PFV	_	_	_	_
+12	önlemek	önle	_	_	N;IND;SG;PFV;3;FUT	_	_	_	_
+13	için	için	_	_	ADP	_	_	_	_
+14	ciddi	ciddi	_	_	ADJ;SG	_	_	_	_
+15	anlamda	anlam	_	_	ESS;N;SG	_	_	_	_
+16	harekete	hareket	_	_	SG;N;DAT	_	_	_	_
+17	geçilmediği	geçilme	_	_	PSS3S;N;SG;NEG	_	_	_	_
+18	sürece	süre	_	_	ADP	_	_	_	_
+19	,	,	_	_	_	_	_	_	_
+20	2050	2050	_	_	NUM;SG	_	_	_	_
+21	yılında	yıl	_	_	PSS3S;N;SG;ESS	_	_	_	_
+22	okyanuslarda	okyanus	_	_	ESS;N;PL	_	_	_	_
+23	balıktan	balık	_	_	SG;N;AT+ABL	_	_	_	_
+24	çok	çok	_	_	ADV	_	_	_	_
+25	plastik	plastik	_	_	N;NOM;SG	_	_	_	_
+26	olacağı	ol	_	_	PSS3S;N;SG;POS;NOM	_	_	_	_
+27	söyleniyor	söylene	_	_	PRS;V;IND;SG;PROG;3;PASS	_	_	_	_
+28	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01135
+# sent_id = n01135002
+# text = Çin'in kızarmış tavuğa karşı doymayan iştahı, yatırımcıların KFC çatı şirketi Yum Brands'i sevmelerinin büyük bir nedeniydi.
+# text_en = China's insatiable appetite for fried chicken used to be a big reason why investors loved KFC-parent Yum Brands.
+1	Çin'in	Çin	_	_	PROPN;GEN;SG	_	_	_	_
+2	kızarmış	kızar	_	_	POS;ADJ;SG	_	_	_	_
+3	tavuğa	tavuk	_	_	SG;N;DAT	_	_	_	_
+4	karşı	karşı	_	_	ADP	_	_	_	_
+5	doymayan	doyma	_	_	ADJ;NEG;SG	_	_	_	_
+6	iştahı	iştah	_	_	PSS3S;N;SG;NOM	_	_	_	_
+7	,	,	_	_	_	_	_	_	_
+8	yatırımcıların	yatırımcı	_	_	GEN;N;PL	_	_	_	_
+9	KFC	KFC	_	_	PROPN;SG	_	_	_	_
+10	çatı	çatı	_	_	N;SG	_	_	_	_
+11	şirketi	şirket	_	_	PSS3S;N;SG	_	_	_	_
+12	Yum	i	_	_	PROPN;PRS;2;SG;IMP	_	_	_	_
+13	Brands'i	Brands	_	_	ACC;PROPN;SG	_	_	_	_
+14	sevmelerinin	sevmeler	_	_	PSS3P;V.MSDR;N;PRS;GEN;IND;PFV	_	_	_	_
+15	büyük	büyük	_	_	ADJ;SG	_	_	_	_
+16	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+17	nedeni	_	_	_	PSS3S;N;SG	_	_	_	_
+18	ydi	_	_	_	IND;SG;PFV;PST;V;3	_	_	_	_
+19	.	.	_	_	_	_	_	_	_
+
+# newdoc id = w03009
+# sent_id = w03009029
+# text = Tamamıyla Bernard Tapie'nin kendi parasıyla finanse edilen bu okullar, iflas ilan ettiği 1994 yılında kapatıldı.
+# text_en = Financed entirely with Bernard Tapie's own money, these schools were closed in 1994 when he was declared bankrupt.
+1	Tamamıyla	Tamam	_	_	ADV	_	_	_	_
+2	Bernard	Bernard	_	_	PROPN;SG	_	_	_	_
+3	Tapie'nin	Tapie	_	_	PROPN;GEN;SG	_	_	_	_
+4	kendi	kendi	_	_	PRO;REFL;SG	_	_	_	_
+5	parasıyla	para	_	_	PSS3S;N;INS;SG	_	_	_	_
+6	finanse	finans	_	_	N;SG	_	_	_	_
+7	edilen	et	_	_	POS;ADJ;SG	_	_	_	_
+8	bu	bu	_	_	DET;DEF;POS;SG	_	_	_	_
+9	okullar	okul	_	_	N;NOM;PL	_	_	_	_
+10	,	,	_	_	_	_	_	_	_
+11	iflas	iflas	_	_	N;SG	_	_	_	_
+12	ilan	ilan	_	_	N;SG	_	_	_	_
+13	ettiği	et	_	_	PSS3S;ADJ;SG;POS	_	_	_	_
+14	1994	1994	_	_	NUM;SG	_	_	_	_
+15	yılında	yıl	_	_	PSS3S;N;SG;ESS	_	_	_	_
+16	kapatıldı	kapa	_	_	3;IND;SG;PFV;PST;V;PASS	_	_	_	_
+17	.	.	_	_	_	_	_	_	_
+
+# sent_id = w05001036
+# text = Apsisde üç paralel şapel ve payandalar arasında birçok yan şapel bulunmaktadır.
+# text_en = It has three parallel chapels at the apse and many lateral chapels between the buttresses.
+1	Apsisde	Apsis	_	_	ESS;N;SG	_	_	_	_
+2	üç	üç	_	_	NUM;SG	_	_	_	_
+3	paralel	paralel	_	_	ADJ;SG	_	_	_	_
+4	şapel	şapel	_	_	N;SG	_	_	_	_
+5	ve	ve	_	_	CONJ	_	_	_	_
+6	payandalar	_	_	_	N;HAB;PRS;SG;3	_	_	_	_
+7	arasında	ara	_	_	PSS3S;N;SG;ESS	_	_	_	_
+8	birçok	birçok	_	_	DET;POS;INDF;SG	_	_	_	_
+9	yan	yan	_	_	ADJ;SG	_	_	_	_
+10	şapel	şapel	_	_	N;NOM;SG	_	_	_	_
+11	bulunmaktadır	bulun	_	_	PRS;V;SG;PROG;3	_	_	_	_
+12	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01037
+# sent_id = n01037020
+# text = Ancak Çin'in büyüyen orta sınıfı, Pekin gibi nefes almayı zorlaştıran bir is bulutu içerisinde günlerini geçiren şehirlerdeki zehirli hava kirliliğiyle ilgili şikayetlerinde beklenmedik bir şekilde ısrarcı olmuştur.
+# text_en = But China's growing middle class has been unusually vocal in its complaints about toxic air in cities like Beijing, which can see day after day of lung-choking smog.
+1	Ancak	ancak	_	_	ADV	_	_	_	_
+2	Çin'in	Çin	_	_	PROPN;GEN;SG	_	_	_	_
+3	büyüyen	büyü	_	_	POS;ADJ;SG	_	_	_	_
+4	orta	orta	_	_	N;SG	_	_	_	_
+5	sınıfı	sınıf	_	_	PSS3S;N;SG;NOM	_	_	_	_
+6	,	,	_	_	_	_	_	_	_
+7	Pekin	Pekin	_	_	PROPN;SG	_	_	_	_
+8	gibi	gibi	_	_	ADP	_	_	_	_
+9	nefes	nefes	_	_	N;SG	_	_	_	_
+10	almayı	al	_	_	V.MSDR;N;PRS;IND;ACC;PFV	_	_	_	_
+11	zorlaştıran	zorlaş	_	_	ADJ;PRS;IND;SG;V.PTCP;PFV;CAUS	_	_	_	_
+12	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+13	is	is	_	_	N;SG	_	_	_	_
+14	bulutu	bulu	_	_	PSS3S;N;SG	_	_	_	_
+15	içerisinde	içeri	_	_	PSS3S;N;SG;ESS	_	_	_	_
+16	günlerini	gün	_	_	PSS3S;N;ACC;PL	_	_	_	_
+17	geçiren	geçir	_	_	POS;ADJ;SG	_	_	_	_
+18	şehirlerde	şehir	_	_	ESS;N;PL	_	_	_	_
+19	ki	ki	_	_	ADP	_	_	_	_
+20	zehirli	zehirli	_	_	ADJ;SG	_	_	_	_
+21	hava	hava	_	_	N;SG	_	_	_	_
+22	kirliliğiyle	_	_	_	PSS3S;N;INS;SG	_	_	_	_
+23	ilgili	ilgili	_	_	ADP;SG	_	_	_	_
+24	şikayetlerinde	şikayet	_	_	PSS3S;N;ESS;PL	_	_	_	_
+25	beklenmedik	beklenme	_	_	ADJ;1;IND;PFV;PASS;PST;NEG;PL	_	_	_	_
+26	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+27	şekilde	şekil	_	_	ESS;N;SG	_	_	_	_
+28	ısrarcı	srarci	_	_	N;SG	_	_	_	_
+29	olmuştur	ol	_	_	SG;PFV;PST;V;NFH;3	_	_	_	_
+30	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01112012
+# text = Tüketici, değişim talebini artırabilir.
+# text_en = The consumer can boost the demand for change.
+1	Tüketici	tüketici	_	_	POS;N;NOM;SG	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	değişim	değişim	_	_	N;SG	_	_	_	_
+4	talebini	talep	_	_	PSS3S;N;ACC;SG	_	_	_	_
+5	artırabilir	artırab	_	_	HAB;PRS;V;SG;CAUS;3	_	_	_	_
+6	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01095
+# sent_id = n01095004
+# text = Bizim zamanımızda bunlar yoktu ve çocuk sahibi olmayan insanlar, modern ebeveynlikle ilgili tüm nefretlerini onaylamayarak ifade ediyor.
+# text_en = They didn’t have them in our day, and people without children express through their disapproval all their hatred of modern parenting.
+1	Bizim	biz	_	_	1;GEN;SG;PRO;POS	_	_	_	_
+2	zamanımızda	zaman	_	_	PSS1P;N;SG;ESS	_	_	_	_
+3	bunlar	bu	_	_	PRO;POS;NOM;PL	_	_	_	_
+4	yok	yok	_	_	ADJ;NEG	_	_	_	_
+5	tu	i	_	_	IND;SG;PFV;PST;V;3	_	_	_	_
+6	ve	ve	_	_	CONJ	_	_	_	_
+7	çocuk	çocuk	_	_	N;SG	_	_	_	_
+8	sahibi	sahip	_	_	N;SG	_	_	_	_
+9	olmayan	ol	_	_	V;NEG;SG	_	_	_	_
+10	insanlar	insan	_	_	N;NOM;PL	_	_	_	_
+11	,	,	_	_	_	_	_	_	_
+12	modern	modern	_	_	ADJ;SG	_	_	_	_
+13	ebeveynlikle	ebeveynlik	_	_	INS;N;SG	_	_	_	_
+14	ilgili	ilgili	_	_	ADP;SG	_	_	_	_
+15	tüm	tüm	_	_	DET;DEF;POS;SG	_	_	_	_
+16	nefretlerini	nefretler	_	_	PSS3S;N;ACC;PL	_	_	_	_
+17	onaylamayarak	onayla	_	_	NEG;ADV	_	_	_	_
+18	ifade	ifade	_	_	N;SG	_	_	_	_
+19	ediyor	et	_	_	PRS;V;IND;SG;PROG;3	_	_	_	_
+20	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01016070
+# text = Hava kontrolünün son zamanlardaki bir örneği, Çin'in 2008 Yaz Olimpiyatları'na hazırlığı olmuştur.
+# text_en = A recent example of weather control was China's preparation for the 2008 Summer Olympic Games.
+1	Hava	hava	_	_	N;SG	_	_	_	_
+2	kontrolünün	kontrol	_	_	PSS3S;N;GEN;SG	_	_	_	_
+3	son	son	_	_	ADJ;SG	_	_	_	_
+4	zamanlarda	zaman	_	_	ESS;N;PL	_	_	_	_
+5	ki	ki	_	_	ADP	_	_	_	_
+6	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+7	örneği	örnek	_	_	PSS3S;N;SG;NOM	_	_	_	_
+8	,	,	_	_	_	_	_	_	_
+9	Çin'in	Çin	_	_	PROPN;GEN;SG	_	_	_	_
+10	2008	2008	_	_	NUM;SG	_	_	_	_
+11	Yaz	yaz	_	_	N;SG	_	_	_	_
+12	Olimpiyatları'na	olimpiyatları'na	_	_	PSS3S;N;DAT;PL	_	_	_	_
+13	hazırlığı	hazırlık	_	_	PSS3S;N;SG	_	_	_	_
+14	olmuştur	ol	_	_	SG;PFV;PST;V;NFH;3	_	_	_	_
+15	.	.	_	_	_	_	_	_	_
+
+# sent_id = n05009030
+# text = Onlarca FSLN takipçisi şimdiden Plaza de las Victorias'da zaferi kutlamaya başladılar.
+# text_en = Dozens of FSLN followers are already celebrating the victory in the Plaza de las Victorias.
+1	Onlarca	onlarca	_	_	ADJ;SG	_	_	_	_
+2	FSLN	Fsln	_	_	PROPN;SG	_	_	_	_
+3	takipçisi	takipçi	_	_	N;NOM;SG	_	_	_	_
+4	şimdiden	şimdiden	_	_	ADV	_	_	_	_
+5	Plaza	Plaza	_	_	PROPN;SG	_	_	_	_
+6	de	de	_	_	PROPN	_	_	_	_
+7	las	las	_	_	PROPN	_	_	_	_
+8	Victorias'da	Victorias	_	_	ESS;PROPN;SG	_	_	_	_
+9	zaferi	zafer	_	_	ACC;N;SG	_	_	_	_
+10	kutlamaya	kutla	_	_	V.MSDR;N;PRS;IND;DAT;PFV	_	_	_	_
+11	başladılar	başla	_	_	3;IND;PFV;PST;V;PL	_	_	_	_
+12	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01049082
+# text = Burada her şeyden önce, hızlı bir şekilde inşa edilen bir bölgedeki kasaba halkı ve yerel sakinlerin yararına açık alan sağlanmıştı.
+# text_en = First and foremost was the provision of open space for the benefit of townspeople and local residents within an area that was being rapidly built up.
+1	Burada	bura	_	_	ESS;PRO;POS;SG	_	_	_	_
+2	her	her	_	_	DET;DEF;POS;SG	_	_	_	_
+3	şeyden	şey	_	_	SG;N;AT+ABL	_	_	_	_
+4	önce	önce	_	_	ADP	_	_	_	_
+5	,	,	_	_	_	_	_	_	_
+6	hızlı	hızlı	_	_	ADJ;SG	_	_	_	_
+7	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+8	şekilde	şekil	_	_	ESS;N;SG	_	_	_	_
+9	inşa	inşa	_	_	N;SG	_	_	_	_
+10	edilen	et	_	_	POS;ADJ;SG	_	_	_	_
+11	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+12	bölgede	bölge	_	_	ESS;N;SG	_	_	_	_
+13	ki	ki	_	_	ADP	_	_	_	_
+14	kasaba	kasaba	_	_	N;SG	_	_	_	_
+15	halkı	halk	_	_	PSS3S;N;SG	_	_	_	_
+16	ve	ve	_	_	CONJ	_	_	_	_
+17	yerel	yerel	_	_	ADJ;SG	_	_	_	_
+18	sakinlerin	sakin	_	_	GEN;N;PL	_	_	_	_
+19	yararına	yararın	_	_	PSS3S;N;SG;DAT	_	_	_	_
+20	açık	açık	_	_	ADJ;SG	_	_	_	_
+21	alan	al	_	_	N;3;NOM;SG	_	_	_	_
+22	sağlanmıştı	sağlanmış	_	_	3;PST+PRF;IND;SG;PFV;NFH;V;PASS	_	_	_	_
+23	.	.	_	_	_	_	_	_	_
+
+# newdoc id = w04009
+# sent_id = w04009042
+# text = Adam, kendisinin ve Walter'ın tahmin ettiği gibi, iki evren arasında bir savaşın geldiğini söylemiştir; bu nedenle, Olivia, diğerlerinin yanında, bir çocukken eğitim görmüştür.
+# text_en = The man told him that a war between the two universes is coming, as he and Walter had predicted; it is for this reason that Olivia, among others, was trained as a child.
+1	Adam	adam	_	_	PROPN;NOM;SG	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	kendisinin	kendi	_	_	PSS3S;GEN;REFL;SG;PRO;3	_	_	_	_
+4	ve	ve	_	_	CONJ	_	_	_	_
+5	Walter'ın	Walter	_	_	PROPN;GEN;SG	_	_	_	_
+6	tahmin	tahmin	_	_	N;SG	_	_	_	_
+7	ettiği	et	_	_	PSS3S;N;SG;POS	_	_	_	_
+8	gibi	gibi	_	_	ADP	_	_	_	_
+9	,	,	_	_	_	_	_	_	_
+10	iki	iki	_	_	NUM;SG	_	_	_	_
+11	evren	evren	_	_	N;SG	_	_	_	_
+12	arasında	ara	_	_	PSS3S;N;SG;ESS	_	_	_	_
+13	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+14	savaşın	savaş	_	_	GEN;N;SG	_	_	_	_
+15	geldiğini	gel	_	_	PSS3S;N;ACC;SG;POS	_	_	_	_
+16	söylemiştir	söyle	_	_	3;SG;PFV;PST;NFH;V	_	_	_	_
+17	;	;	_	_	_	_	_	_	_
+18	bu	bu	_	_	DET;DEF;POS;SG	_	_	_	_
+19	nedenle	neden	_	_	INS;N;SG	_	_	_	_
+20	,	,	_	_	_	_	_	_	_
+21	Olivia	Olivia	_	_	PROPN;NOM;SG	_	_	_	_
+22	,	,	_	_	_	_	_	_	_
+23	diğerlerinin	diğer	_	_	PSS3S;GEN;PRO;POS;PL	_	_	_	_
+24	yanında	yan	_	_	PSS3S;N;SG;ESS	_	_	_	_
+25	,	,	_	_	_	_	_	_	_
+26	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+27	çocuk	çocuk	_	_	N;SG	_	_	_	_
+28	ken	i	_	_	PRS;IND;PFV;V.CVB;V	_	_	_	_
+29	eğitim	eğitim	_	_	N;SG	_	_	_	_
+30	görmüştür	gör	_	_	3;SG;PFV;PST;NFH;V	_	_	_	_
+31	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01028050
+# text = Çatışmanın merkezinde, Kansas'ın Birliğe özgür bir devlet mi yoksa köle bir devlet olarak mı gireceği sorusu yer almıştır.
+# text_en = At the heart of the conflict was the question of whether Kansas would enter the Union as a free state or slave state.
+1	Çatışmanın	çatış	_	_	GEN;N;POS;SG	_	_	_	_
+2	merkezinde	merkez	_	_	PSS3S;N;SG;ESS	_	_	_	_
+3	,	,	_	_	_	_	_	_	_
+4	Kansas'ın	Kansas	_	_	PROPN;GEN;SG	_	_	_	_
+5	Birliğe	Birliğe	_	_	SG;N;DAT	_	_	_	_
+6	özgür	özgür	_	_	ADJ;SG	_	_	_	_
+7	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+8	devlet	devlet	_	_	N;SG	_	_	_	_
+9	mi	mi	_	_	V;3;SG	_	_	_	_
+10	yok	yok	_	_	ADJ;NEG	_	_	_	_
+11	sa	i	_	_	COND;SG;V;POS;3	_	_	_	_
+12	köle	köle	_	_	N;SG	_	_	_	_
+13	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+14	devlet	devlet	_	_	N;SG	_	_	_	_
+15	olarak	olarak	_	_	V;POS	_	_	_	_
+16	mı	mı	_	_	V;3;SG	_	_	_	_
+17	gireceği	gir	_	_	PSS3S;N;SG;POS	_	_	_	_
+18	sorusu	soru	_	_	PSS3S;N;SG;NOM	_	_	_	_
+19	yer	yer	_	_	N;SG	_	_	_	_
+20	almıştır	al	_	_	3;SG;PFV;PST;NFH;V	_	_	_	_
+21	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01147
+# sent_id = n01147026
+# text = Bir F1 bileti, aynı gün yapılan konsere katılma hakkını da sunar.
+# text_en = An F1 ticket grants access to the concert on the same day.
+1	Bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+2	F1	F1	_	_	PROPN;SG	_	_	_	_
+3	bileti	bile	_	_	PSS3S;N;SG;NOM	_	_	_	_
+4	,	,	_	_	_	_	_	_	_
+5	aynı	aynı	_	_	ADJ;SG	_	_	_	_
+6	gün	gün	_	_	N;SG	_	_	_	_
+7	yapılan	yap	_	_	POS;ADJ;SG	_	_	_	_
+8	konsere	konser	_	_	SG;N;DAT	_	_	_	_
+9	katılma	kat	_	_	V.MSDR;N;PRS;IND;PFV	_	_	_	_
+10	hakkını	hak	_	_	PSS3S;N;ACC;SG	_	_	_	_
+11	da	da	_	_	ADV	_	_	_	_
+12	sunar	sun	_	_	HAB;PRS;3;SG;V	_	_	_	_
+13	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01024
+# sent_id = n01024010
+# text = Dünyadan gelen tohumlardan yetişen bitkilerin yüzde 70'inden biraz fazlası 17 günün ardından hâlâ hayattaydı; uzaydan gelen tohumlardan yetişen bitkilerden ise yalnızca birazcık daha azı, yani yüzde 66'sı hayatta kalmıştı.
+# text_en = Just over 70% of the plants grown from Earth seeds were alive after 17 days - just slightly more than the plants grown from space seeds - just over 66%.
+1	Dünyadan	dünya	_	_	SG;N;AT+ABL	_	_	_	_
+2	gelen	gel	_	_	POS;ADJ;SG	_	_	_	_
+3	tohumlardan	tohum	_	_	PL;N;AT+ABL	_	_	_	_
+4	yetişen	yetiş	_	_	POS;ADJ;SG	_	_	_	_
+5	bitkilerin	bitkiler	_	_	GEN;N;PL	_	_	_	_
+6	yüzde	yüz	_	_	ESS;N;SG	_	_	_	_
+7	70'inden	70'in	_	_	PSS3S;N;SG;AT+ABL	_	_	_	_
+8	biraz	biraz	_	_	ADV	_	_	_	_
+9	fazlası	fazla	_	_	PSS3S;N;SG;NOM	_	_	_	_
+10	17	17	_	_	NUM;SG	_	_	_	_
+11	günün	gün	_	_	GEN;N;SG	_	_	_	_
+12	ardından	art	_	_	ADP	_	_	_	_
+13	hâlâ	hâlâ	_	_	ADV	_	_	_	_
+14	hayatta	_	_	_	ESS;N;SG	_	_	_	_
+15	ydı	_	_	_	IND;SG;PFV;PST;V;3	_	_	_	_
+16	;	;	_	_	_	_	_	_	_
+17	uzaydan	uzay	_	_	SG;N;AT+ABL	_	_	_	_
+18	gelen	gel	_	_	POS;ADJ;SG	_	_	_	_
+19	tohumlardan	tohum	_	_	PL;N;AT+ABL	_	_	_	_
+20	yetişen	yetiş	_	_	POS;ADJ;SG	_	_	_	_
+21	bitkilerden	bitkiler	_	_	PL;N;AT+ABL	_	_	_	_
+22	ise	ise	_	_	COND;3;SG;POS;V	_	_	_	_
+23	yalnızca	yalnızca	_	_	ADV	_	_	_	_
+24	birazcık	birazcık	_	_	ADV	_	_	_	_
+25	daha	daha	_	_	ADV	_	_	_	_
+26	azı	az	_	_	PSS3S;N;SG	_	_	_	_
+27	,	,	_	_	_	_	_	_	_
+28	yani	yani	_	_	ADV	_	_	_	_
+29	yüzde	yüz	_	_	ESS;N;SG	_	_	_	_
+30	66'sı	66'	_	_	PSS3S;N;SG;NOM	_	_	_	_
+31	hayatta	hayat	_	_	ESS;N;SG	_	_	_	_
+32	kalmıştı	kal	_	_	3;PST+PRF;IND;SG;PFV;NFH;V	_	_	_	_
+33	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01125035
+# text = Grafton'un hükümetinin 1770 yılında parçalanması, Lord North liderliğindeki muhafazakarların iktidara dönmesini sağladı.
+# text_en = Grafton's government disintegrated in 1770, allowing the Tories led by Lord North to return to power.
+1	Grafton'un	Grafton	_	_	PROPN;GEN;SG	_	_	_	_
+2	hükümetinin	hükümet	_	_	PSS3S;N;GEN;SG	_	_	_	_
+3	1770	_	_	_	NUM;SG	_	_	_	_
+4	yılında	yıl	_	_	PSS3S;N;SG;ESS	_	_	_	_
+5	parçalanması	parçala	_	_	PSS3S;V.MSDR;N;PRS;IND;PFV;PASS;NOM	_	_	_	_
+6	,	,	_	_	_	_	_	_	_
+7	Lord	Lord	_	_	N;SG	_	_	_	_
+8	North	North	_	_	_	_	_	_	_
+9	liderliğinde	liderliğ	_	_	ESS;N;SG	_	_	_	_
+10	ki	ki	_	_	ADP	_	_	_	_
+11	muhafazakarların	muhafazakar	_	_	GEN;N;PL	_	_	_	_
+12	iktidara	iktidar	_	_	SG;N;DAT	_	_	_	_
+13	dönmesini	dön	_	_	PSS3S;V.MSDR;N;PRS;IND;ACC;PFV	_	_	_	_
+14	sağladı	sağla	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+15	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01072065
+# text = Yarımada Romalılaştırmanın ilk aşamalarında Romalılar tarafından yönetim amaçlı olarak ikiye bölünmüştür.
+# text_en = During the first stages of Romanization, the peninsula was divided in two by the Romans for administrative purposes.
+1	Yarımada	Yarı	_	_	PROPN;NOM;SG	_	_	_	_
+2	Romalılaştırmanın	Romalılaştır	_	_	PSS2S;N;GEN;SG;POS	_	_	_	_
+3	ilk	ilk	_	_	ADJ;SG	_	_	_	_
+4	aşamalarında	aşamalar	_	_	PSS3S;N;ESS;PL	_	_	_	_
+5	Romalılar	Romalı	_	_	PROPN;PL	_	_	_	_
+6	tarafından	taraf	_	_	PSS3S;N;SG;AT+ABL	_	_	_	_
+7	yönetim	yönetim	_	_	N;SG	_	_	_	_
+8	amaçlı	amaçlı	_	_	ADJ;SG	_	_	_	_
+9	olarak	olarak	_	_	V;POS	_	_	_	_
+10	ikiye	iki	_	_	SG;N;DAT	_	_	_	_
+11	bölünmüştür	bölünmüş	_	_	3;SG;PFV;PST;NFH;V;PASS	_	_	_	_
+12	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01017013
+# text = Çoğu kişi hava alanında kablosuz internet erişimi olmasını uçaktayken e-posta gönderebilmekten daha yararlı bulacaktır.
+# text_en = "Most people would find airport wi-fi more useful than being able to send emails on a plane."
+1	Çoğu	çoğu	_	_	DET;ACC;INDF;SG	_	_	_	_
+2	kişi	kişi	_	_	N;NOM;SG	_	_	_	_
+3	hava	hava	_	_	N;SG	_	_	_	_
+4	alanında	alan	_	_	PSS3S;N;SG;ESS	_	_	_	_
+5	kablosuz	kablosuz	_	_	ADJ;SG	_	_	_	_
+6	internet	internet	_	_	N;SG	_	_	_	_
+7	erişimi	erişim	_	_	PSS3S;N;SG;NOM	_	_	_	_
+8	olmasını	ol	_	_	PSS3S;V.MSDR;N;PRS;IND;ACC;PFV	_	_	_	_
+9	uçakta	uçak	_	_	ESS;N;SG	_	_	_	_
+10	yken	i	_	_	PRS;IND;PFV;V.CVB;V	_	_	_	_
+11	e-posta	_	_	_	N;SG	_	_	_	_
+12	gönderebilmekten	gönderebil	_	_	V.MSDR;N;PRS;PFV;CAUS;AT+ABL	_	_	_	_
+13	daha	daha	_	_	ADV	_	_	_	_
+14	yararlı	yararlı	_	_	ADJ;SG	_	_	_	_
+15	bulacaktır	bul	_	_	SG;PFV;V;3;FUT	_	_	_	_
+16	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01129017
+# text = Salı günü tamamen oyların toplanmasıyla ilgili, ancak kayıtlı bir seçmen listede yoksa bu hiçbir şey ifade etmiyor.
+# text_en = Tuesday is all about getting out the vote, but it means nothing if a registered voter isn't on the list.
+1	Salı	salı	_	_	N;SG	_	_	_	_
+2	günü	gün	_	_	PSS3S;N;SG;NOM	_	_	_	_
+3	tamamen	tamamen	_	_	ADV	_	_	_	_
+4	oyların	oy	_	_	GEN;N;PL	_	_	_	_
+5	toplanmasıyla	toplanma	_	_	PSS3S;V.MSDR;N;PRS;IND;INS;PFV;CAUS	_	_	_	_
+6	ilgili	ilgili	_	_	ADJ;SG	_	_	_	_
+7	,	,	_	_	_	_	_	_	_
+8	ancak	ancak	_	_	ADV	_	_	_	_
+9	kayıtlı	_	_	_	ADJ;SG	_	_	_	_
+10	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+11	seçmen	seçmen	_	_	N;NOM;SG	_	_	_	_
+12	listede	liste	_	_	ESS;N;SG	_	_	_	_
+13	yok	yok	_	_	ADJ;NEG	_	_	_	_
+14	sa	i	_	_	PRS;COND;SG;PFV;V;3	_	_	_	_
+15	bu	bu	_	_	SG;PRO;DEF;POS;NOM	_	_	_	_
+16	hiçbir	hiçbir	_	_	DET;INDF;NEG;SG	_	_	_	_
+17	şey	şey	_	_	N;SG	_	_	_	_
+18	ifade	ifade	_	_	N;SG	_	_	_	_
+19	etmiyor	et	_	_	PRS;V;IND;SG;PROG;3;NEG	_	_	_	_
+20	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01025086
+# text = Geri çekilme haberi, Danevirke'yi geçilmez gören Danimarka kamuoyu üzerinde büyük bir şok etkisi yarattı ve General de Meza derhal komutasından çekildi.
+# text_en = News of the retreat came as a great shock to Danish public opinion which had considered the Danevirke to be impregnable, and General de Meza was promptly relieved of his command.
+1	Geri	ger	_	_	ADV	_	_	_	_
+2	çekilme	çek	_	_	V.MSDR;N;PRS;IND;SG;PFV;NOM	_	_	_	_
+3	haberi	haber	_	_	PSS3S;N;SG;NOM	_	_	_	_
+4	,	,	_	_	_	_	_	_	_
+5	Danevirke'yi	Danevirke	_	_	ACC;PROPN;SG	_	_	_	_
+6	geçilmez	geç	_	_	ADJ;NEG;SG	_	_	_	_
+7	gören	gör	_	_	V;POS;SG	_	_	_	_
+8	Danimarka	Danimark	_	_	PROPN;SG	_	_	_	_
+9	kamuoyu	kamuoyu	_	_	PSS3S;N;SG	_	_	_	_
+10	üzerinde	üzer	_	_	PSS3S;N;SG;ESS	_	_	_	_
+11	büyük	büyük	_	_	ADJ;SG	_	_	_	_
+12	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+13	şok	şok	_	_	N;SG	_	_	_	_
+14	etkisi	etki	_	_	PSS3S;N;SG	_	_	_	_
+15	yarattı	yarat	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+16	ve	ve	_	_	CONJ	_	_	_	_
+17	General	General	_	_	N;SG	_	_	_	_
+18	de	de	_	_	PROPN	_	_	_	_
+19	Meza	Meza	_	_	PROPN;NOM;SG	_	_	_	_
+20	derhal	derhal	_	_	ADV	_	_	_	_
+21	komutasından	komutas	_	_	PSS3S;N;SG;AT+ABL	_	_	_	_
+22	çekildi	çek	_	_	3;IND;SG;PFV;PST;V;PASS	_	_	_	_
+23	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n05004
+# sent_id = n05004020
+# text = Pedro Sánchez, diğer pek çok sosyalist gibi Évole adlı programda İspanya'nın çeşitli uluslardan oluşan bir millet olduğunu söyledi.
+# text_en = Pedro Sánchez, like many other socialists, said in the programme Évole that Spain is a nation of nations.
+1	Pedro	Pedro	_	_	PROPN;SG	_	_	_	_
+2	Sánchez	Sánchez	_	_	PROPN;NOM;SG	_	_	_	_
+3	,	,	_	_	_	_	_	_	_
+4	diğer	diğer	_	_	DET;DEF;POS;SG	_	_	_	_
+5	pek	pek	_	_	ADV	_	_	_	_
+6	çok	çok	_	_	ADV	_	_	_	_
+7	sosyalist	sosyalist	_	_	N;SG	_	_	_	_
+8	gibi	gibi	_	_	ADP	_	_	_	_
+9	Évole	Évol	_	_	PROPN;SG	_	_	_	_
+10	adlı	_	_	_	ADJ;SG	_	_	_	_
+11	programda	program	_	_	ESS;N;SG	_	_	_	_
+12	İspanya'nın	İspanya	_	_	PROPN;GEN;SG	_	_	_	_
+13	çeşitli	çeşitli	_	_	ADJ;SG	_	_	_	_
+14	uluslardan	ulus	_	_	PL;N;AT+ABL	_	_	_	_
+15	oluşan	oluş	_	_	POS;ADJ;SG	_	_	_	_
+16	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+17	millet	millet	_	_	N;SG	_	_	_	_
+18	olduğunu	ol	_	_	PSS3S;POS;ACC;SG;V	_	_	_	_
+19	söyledi	söyle	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+20	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01060038
+# text = Shen 1072'de Wang'ın başkent dışındaki Bian Kanalı'ndaki kum yataklarının inşasını inceleme programını denetlemek üzere gönderildi.
+# text_en = In 1072, Shen was sent to supervise Wang's program of surveying the building of silt deposits in the Bian Canal outside the capital city.
+1	Shen	Shan	_	_	PROPN;NOM;SG	_	_	_	_
+2	1072'de	1072	_	_	ESS;N;SG	_	_	_	_
+3	Wang'ın	Wang	_	_	PROPN;GEN;SG	_	_	_	_
+4	başkent	başkent	_	_	N;SG	_	_	_	_
+5	dışında	dış	_	_	PSS3S;N;SG;ESS	_	_	_	_
+6	ki	ki	_	_	ADP	_	_	_	_
+7	Bian	Bian	_	_	PROPN;SG	_	_	_	_
+8	Kanalı'nda	Kanalı'nda	_	_	PSS3S;N;SG;ESS	_	_	_	_
+9	ki	ki	_	_	ADP	_	_	_	_
+10	kum	kum	_	_	N;SG	_	_	_	_
+11	yataklarının	yatak	_	_	PSS3S;N;GEN;PL	_	_	_	_
+12	inşasını	inşa	_	_	PSS3S;N;ACC;SG	_	_	_	_
+13	inceleme	incele	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+14	programını	program	_	_	PSS3S;N;ACC;SG	_	_	_	_
+15	denetlemek	denetle	_	_	N;IND;SG;PFV;3;FUT	_	_	_	_
+16	üzere	üzere	_	_	ADP	_	_	_	_
+17	gönderildi	gönder	_	_	3;IND;SG;PFV;PST;V;PASS	_	_	_	_
+18	.	.	_	_	_	_	_	_	_
+
+# sent_id = w04007037
+# text = Villeneuve'in filosunun engellenmesi, Britanya Adaları'nın işgal edilmesi planından vazgeçilmesine yol açtı; çünkü kıtada aynı zamanda yeni gelişmeler yaşanmaktaydı.
+# text_en = The blockage of Villeneuve's fleet resulted in giving up the invasion plan of the British Isles, also because new developments were taking place in the continent.
+1	Villeneuve'in	Villeneuve	_	_	PROPN;GEN;SG	_	_	_	_
+2	filosunun	filos	_	_	PSS3S;N;GEN;SG	_	_	_	_
+3	engellenmesi	engellen	_	_	PSS3S;V.MSDR;N;PRS;IND;PFV;PASS;NOM	_	_	_	_
+4	,	,	_	_	_	_	_	_	_
+5	Britanya	Britanya	_	_	PROPN;SG	_	_	_	_
+6	Adaları'nın	Adaları	_	_	PSS3S;N;GEN;SG	_	_	_	_
+7	işgal	işgal	_	_	N;SG	_	_	_	_
+8	edilmesi	et	_	_	PSS3S;V.MSDR;N;PRS;IND;PFV;PASS;NOM	_	_	_	_
+9	planından	plan	_	_	PSS3S;N;SG;AT+ABL	_	_	_	_
+10	vazgeçilmesine	vazgeçil	_	_	PSS3S;V.MSDR;N;PRS;IND;DAT;PFV;PASS	_	_	_	_
+11	yol	yol	_	_	N;SG	_	_	_	_
+12	açtı	aç	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+13	;	;	_	_	_	_	_	_	_
+14	çünkü	çünkü	_	_	ADV	_	_	_	_
+15	kıtada	kıta	_	_	ESS;N;SG	_	_	_	_
+16	aynı	aynı	_	_	ADJ;SG	_	_	_	_
+17	zamanda	zaman	_	_	ESS;N;SG	_	_	_	_
+18	yeni	yeni	_	_	ADJ;SG	_	_	_	_
+19	gelişmeler	geliş	_	_	POS;N;NOM;PL	_	_	_	_
+20	yaşanmaktaydı	yaşanmaktay	_	_	V;SG;PST;PROG;3	_	_	_	_
+21	.	.	_	_	_	_	_	_	_
+
+# newdoc id = w01018
+# sent_id = w01018019
+# text = Fransa, Kamerun ekonomisini Fransa'nın ekonomisine entegre etmiş ve zorunlu emek sistemini değiştirerek altyapıyı sermaye yatırımları ve nitelikli işçilerle geliştirmiştir.
+# text_en = France integrated the economy of Cameroun with that of France and improved the infrastructure with capital investments and skilled workers, modifying the system of forced labour.
+1	Fransa	Fra	_	_	PROPN;NOM;SG	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	Kamerun	Kamerun	_	_	PROPN;SG	_	_	_	_
+4	ekonomisini	ekonomi	_	_	PSS3S;N;ACC;SG	_	_	_	_
+5	Fransa'nın	Fransa	_	_	PROPN;GEN;SG	_	_	_	_
+6	ekonomisine	ekonomi	_	_	PSS3S;N;SG;DAT	_	_	_	_
+7	entegre	entegre	_	_	N;SG	_	_	_	_
+8	etmiş	et	_	_	3;IND;SG;PFV;PST;NFH;V	_	_	_	_
+9	ve	ve	_	_	CONJ	_	_	_	_
+10	zorunlu	zorunlu	_	_	ADJ;SG	_	_	_	_
+11	emek	emek	_	_	N;SG	_	_	_	_
+12	sistemini	sistem	_	_	PSS3S;N;ACC;SG	_	_	_	_
+13	değiştirerek	değiştir	_	_	POS;ADV	_	_	_	_
+14	altyapıyı	altyapı	_	_	ACC;N;SG	_	_	_	_
+15	sermaye	sermaye	_	_	N;SG	_	_	_	_
+16	yatırımları	yatırım	_	_	PSS3S;N;PL	_	_	_	_
+17	ve	ve	_	_	CONJ	_	_	_	_
+18	nitelikli	_	_	_	ADJ;SG	_	_	_	_
+19	işçilerle	işçi	_	_	INS;N;PL	_	_	_	_
+20	geliştirmiştir	geliştirmiş	_	_	3;SG;PFV;PST;CAUS;NFH;V	_	_	_	_
+21	.	.	_	_	_	_	_	_	_
+
+# newdoc id = w02019
+# sent_id = w02019048
+# text = Springer Yahudi halkıyla uzlaşma sağlamak için hem gizli hem kamuya açık şekilde gayretle çalıştı ve İsrail'i pek çok kez ziyaret etti.
+# text_en = Privately as well as publicly, Springer vigorously pursued reconciliation with the Jewish people and took many trips to Israel.
+1	Springer	Springer	_	_	PROPN;NOM;SG	_	_	_	_
+2	Yahudi	yahudi	_	_	PROPN;SG	_	_	_	_
+3	halkıyla	halk	_	_	PSS3S;N;INS;SG	_	_	_	_
+4	uzlaşma	uzlaş	_	_	V.MSDR;N;PRS;IND;PFV	_	_	_	_
+5	sağlamak	sağla	_	_	N;IND;SG;PFV;3;FUT	_	_	_	_
+6	için	için	_	_	ADP	_	_	_	_
+7	hem	hem	_	_	CONJ	_	_	_	_
+8	gizli	gizli	_	_	ADJ;SG	_	_	_	_
+9	hem	hem	_	_	CONJ	_	_	_	_
+10	kamuya	kamu	_	_	SG;N;DAT	_	_	_	_
+11	açık	açık	_	_	ADJ;SG	_	_	_	_
+12	şekilde	şekil	_	_	ESS;N;SG	_	_	_	_
+13	gayretle	gayretle	_	_	INS;N;SG	_	_	_	_
+14	çalıştı	çalış	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+15	ve	ve	_	_	CONJ	_	_	_	_
+16	İsrail'i	İsrail	_	_	ACC;PROPN;SG	_	_	_	_
+17	pek	pek	_	_	ADV	_	_	_	_
+18	çok	çok	_	_	ADV	_	_	_	_
+19	kez	kez	_	_	N;SG	_	_	_	_
+20	ziyaret	ziyaret	_	_	N;SG	_	_	_	_
+21	etti	et	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+22	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01027041
+# text = Ardından ona insanların neden Trump'a oy verebileceğini anlayıp anlamadığını sordum.
+# text_en = I asked her afterwards if she understood why people might vote for Trump.
+1	Ardından	ardından	_	_	ADV	_	_	_	_
+2	ona	o	_	_	PRO;POS;SG;DAT	_	_	_	_
+3	insanların	insan	_	_	GEN;N;PL	_	_	_	_
+4	neden	neden	_	_	ADV;SG	_	_	_	_
+5	Trump'a	Trump	_	_	PROPN;SG;DAT	_	_	_	_
+6	oy	oy	_	_	N;SG	_	_	_	_
+7	verebileceğini	ver	_	_	PSS3S;N;ACC;SG;POS	_	_	_	_
+8	anlayıp	anlay	_	_	POS;ADV	_	_	_	_
+9	anlamadığını	anla	_	_	PSS3S;N;ACC;SG;NEG	_	_	_	_
+10	sordum	sor	_	_	1;IND;SG;PFV;PST;V	_	_	_	_
+11	.	.	_	_	_	_	_	_	_
+
+# newdoc id = w01089
+# sent_id = w01089017
+# text = Döneme ilişkin bilgilerin çoğu, defin yerlerinden bunların içinde bulunan mezar öğelerinden gelmektedir.
+# text_en = Most of the information about the period comes from burial sites and the grave goods contained within them.
+1	Döneme	Döne	_	_	SG;N;DAT	_	_	_	_
+2	ilişkin	ilişkin	_	_	ADP	_	_	_	_
+3	bilgilerin	bilgi	_	_	GEN;N;PL	_	_	_	_
+4	çoğu	çok	_	_	PSS3S;N;SG;NOM	_	_	_	_
+5	,	,	_	_	_	_	_	_	_
+6	defin	defin	_	_	N;SG	_	_	_	_
+7	yerlerinden	yer	_	_	PSS3P;AT+ABL;N;PL	_	_	_	_
+8	bunların	bu	_	_	PRO;POS;GEN;PL	_	_	_	_
+9	içinde	iç	_	_	PSS3S;N;SG;ESS	_	_	_	_
+10	bulunan	bul	_	_	POS;ADJ;SG	_	_	_	_
+11	mezar	mezar	_	_	N;SG	_	_	_	_
+12	öğelerinden	öğe	_	_	PSS3S;AT+ABL;N;PL	_	_	_	_
+13	gelmektedir	gel	_	_	PRS;V;SG;PROG;3	_	_	_	_
+14	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01035081
+# text = Tarım arazisi, manzaranın etrafındaki tahribattan zarar görebilir.
+# text_en = Agricultural land can actually suffer from the destruction of the surrounding landscape.
+1	Tarım	tarım	_	_	N;SG	_	_	_	_
+2	arazisi	arazi	_	_	PSS3S;N;SG;NOM	_	_	_	_
+3	,	,	_	_	_	_	_	_	_
+4	manzaranın	manzara	_	_	GEN;N;SG	_	_	_	_
+5	etrafında	etraf	_	_	PSS3S;N;SG;ESS	_	_	_	_
+6	ki	ki	_	_	ADP	_	_	_	_
+7	tahribattan	tahribat	_	_	SG;N;AT+ABL	_	_	_	_
+8	zarar	zarar	_	_	N;SG	_	_	_	_
+9	görebilir	gör	_	_	HAB;PRS;V;SG;3	_	_	_	_
+10	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01079057
+# text = Zorunlu vaftiz Katolik Kilisesi kanunlarına aykırıydı ve teorik olarak zorla vaftiz edilen herkes yasal olarak Yahudiliğe geri dönebilirdi.
+# text_en = Forced baptism was contrary to the law of the Catholic Church, and theoretically anybody who had been forcibly baptized could legally return to Judaism.
+1	Zorunlu	zorunlu	_	_	ADJ;SG	_	_	_	_
+2	vaftiz	vaftiz	_	_	N;NOM;SG	_	_	_	_
+3	Katolik	Katolik	_	_	PROPN;SG	_	_	_	_
+4	Kilisesi	kilise	_	_	PSS3S;N;SG	_	_	_	_
+5	kanunlarına	kanun	_	_	PSS3P;N;DAT;PL	_	_	_	_
+6	aykırı	aykırı	_	_	ADJ;SG	_	_	_	_
+7	ydı	i	_	_	IND;SG;PFV;PST;V;3	_	_	_	_
+8	ve	ve	_	_	CONJ	_	_	_	_
+9	teorik	teorik	_	_	ADJ;SG	_	_	_	_
+10	olarak	olarak	_	_	V;POS	_	_	_	_
+11	zorla	zor	_	_	PRS;2;ADV;SG;IMP	_	_	_	_
+12	vaftiz	vaftiz	_	_	N;SG	_	_	_	_
+13	edilen	et	_	_	POS;ADJ;SG	_	_	_	_
+14	herkes	herkes	_	_	SG;PRO;POS;3;NOM	_	_	_	_
+15	yasal	yasal	_	_	ADJ;SG	_	_	_	_
+16	olarak	olarak	_	_	V;POS	_	_	_	_
+17	Yahudiliğe	Yahudilik	_	_	SG;N;DAT	_	_	_	_
+18	geri	geri	_	_	ADV	_	_	_	_
+19	dönebilirdi	dön	_	_	HAB;V;SG;PST;3	_	_	_	_
+20	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01092025
+# text = Bunun üzerine, Fas'taki bir günlük noktası da gelişmiş ülkelerin birbirlerini kendi planları ve hedefleri konusunda açıkça sorgulayacakları Orta Cumartesi olacak.
+# text_en = On this, one diary point in Morocco will be the middle Saturday, when developed countries get to publicly question each other about their plans and ambitions.
+1	Bunun	bu	_	_	PRO;POS;GEN;SG	_	_	_	_
+2	üzerine	üzer	_	_	PSS3S;N;SG;DAT	_	_	_	_
+3	,	,	_	_	_	_	_	_	_
+4	Fas'ta	Fas	_	_	ESS;PROPN;SG	_	_	_	_
+5	ki	ki	_	_	ADP	_	_	_	_
+6	bir	bir	_	_	POS;NUM;INDF;SG	_	_	_	_
+7	günlük	günlük	_	_	ADJ;SG	_	_	_	_
+8	noktası	nokta	_	_	PSS3S;N;SG;NOM	_	_	_	_
+9	da	da	_	_	ADV	_	_	_	_
+10	gelişmiş	geliş	_	_	ADJ;IND;SG;PFV;PST;NFH;3	_	_	_	_
+11	ülkelerin	ülke	_	_	GEN;N;PL	_	_	_	_
+12	birbirlerini	birbiri	_	_	PSS3P;ACC;PRO;3;PL	_	_	_	_
+13	kendi	kendi	_	_	PRO;REFL;SG	_	_	_	_
+14	planları	plan	_	_	PSS3S;N;PL	_	_	_	_
+15	ve	ve	_	_	CONJ	_	_	_	_
+16	hedefleri	hedef	_	_	PSS3S;N;NOM;PL	_	_	_	_
+17	konusunda	konu	_	_	PSS3S;N;SG;ESS	_	_	_	_
+18	açıkça	_	_	_	ADV;SG	_	_	_	_
+19	sorgulayacakları	sorgulayacak	_	_	PSS3P;ADJ;FUT;V.PTCP;PFV;NEG;NOM	_	_	_	_
+20	Orta	Or	_	_	N;SG	_	_	_	_
+21	Cumartesi	cumartesi	_	_	N;SG	_	_	_	_
+22	olacak	ol	_	_	IND;SG;PFV;V;3;FUT	_	_	_	_
+23	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01100048
+# text = Hong Kong Adası İngiltere'ye devredildi ve Şanghay ve Guangzhou da dahil olmak üzere bazı limanlar İngiliz ticaret ve ikamet yerlerine açıldı.
+# text_en = Hong Kong Island was ceded to Britain, and certain ports, including Shanghai and Guangzhou, were opened to British trade and residence.
+1	Hong	Hong	_	_	PROPN;SG	_	_	_	_
+2	Kong	Kong	_	_	PROPN;SG	_	_	_	_
+3	Adası	adası	_	_	PSS3S;N;SG;NOM	_	_	_	_
+4	İngiltere'ye	İngiltere	_	_	PROPN;SG;DAT	_	_	_	_
+5	devredildi	devred	_	_	3;IND;SG;PFV;PST;V;PASS	_	_	_	_
+6	ve	ve	_	_	CONJ	_	_	_	_
+7	Şanghay	Şanghay	_	_	PROPN;SG	_	_	_	_
+8	ve	ve	_	_	CONJ	_	_	_	_
+9	Guangzhou	Guangzhou	_	_	PROPN;NOM;SG	_	_	_	_
+10	da	da	_	_	ADV	_	_	_	_
+11	dahil	dahil	_	_	N;SG	_	_	_	_
+12	olmak	ol	_	_	IND;SG;PFV;V;3;FUT	_	_	_	_
+13	üzere	üzere	_	_	ADP	_	_	_	_
+14	bazı	bazı	_	_	DET;POS;INDF;SG	_	_	_	_
+15	limanlar	liman	_	_	N;NOM;PL	_	_	_	_
+16	İngiliz	İngiliz	_	_	PROPN;SG	_	_	_	_
+17	ticaret	ticaret	_	_	N;SG	_	_	_	_
+18	ve	ve	_	_	CONJ	_	_	_	_
+19	ikamet	ikamet	_	_	N;SG	_	_	_	_
+20	yerlerine	yer	_	_	PSS3S;N;DAT;PL	_	_	_	_
+21	açıldı	aç	_	_	3;IND;SG;PFV;PST;V;PASS	_	_	_	_
+22	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n02046
+# sent_id = n02046037
+# text = Artık hangisinin olduğu sadece belirsiz.
+# text_en = It is now only unclear, in which one.
+1	Artık	artık	_	_	ADV	_	_	_	_
+2	hangisinin	hangi	_	_	PRO;GEN;SG	_	_	_	_
+3	olduğu	ol	_	_	PSS3S;N;SG;POS;NOM	_	_	_	_
+4	sadece	sadece	_	_	ADV	_	_	_	_
+5	belirsiz	belirsiz	_	_	ADJ;SG	_	_	_	_
+6	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01072079
+# text = İmparator Caracalla 3. yüzyılda kısa bir süre geçerli olan yeni bir bölünme uygulamıştır.
+# text_en = By the 3rd century the emperor Caracalla made a new division which lasted only a short time.
+1	İmparator	İmparator	_	_	N;SG	_	_	_	_
+2	Caracalla	Caracalla	_	_	PROPN;NOM;SG	_	_	_	_
+3	3.	3	_	_	NUM;SG	_	_	_	_
+4	yüzyılda	yüzyıl	_	_	ESS;N;SG	_	_	_	_
+5	kısa	kısa	_	_	ADJ;SG	_	_	_	_
+6	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+7	süre	süre	_	_	N;SG	_	_	_	_
+8	geçerli	geçerli	_	_	ADJ;SG	_	_	_	_
+9	olan	ol	_	_	V;POS;SG	_	_	_	_
+10	yeni	yeni	_	_	ADJ;SG	_	_	_	_
+11	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+12	bölünme	bölü	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+13	uygulamıştır	uygulamış	_	_	3;SG;PFV;PST;NFH;V	_	_	_	_
+14	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01133
+# sent_id = n01133014
+# text = Hollandalı öğrenciler henüz elektrikli motosikletlerini ticarete dökme konusunda karar vermiş değil.
+# text_en = The Dutch students have yet to decide if they will be commercializing their electric motorcycle.
+1	Hollandalı	_	_	_	ADJ;SG	_	_	_	_
+2	öğrenciler	öğrenci	_	_	N;NOM;PL	_	_	_	_
+3	henüz	henüz	_	_	ADV	_	_	_	_
+4	elektrikli	_	_	_	ADJ;SG	_	_	_	_
+5	motosikletlerini	motosiklet	_	_	PSS3S;N;ACC;PL	_	_	_	_
+6	ticarete	ticaret	_	_	SG;N;DAT	_	_	_	_
+7	dökme	dök	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+8	konusunda	konu	_	_	PSS3S;N;SG;ESS	_	_	_	_
+9	karar	karar	_	_	N;SG	_	_	_	_
+10	vermiş	ver	_	_	3;IND;SG;PFV;PST;NFH;V	_	_	_	_
+11	değil	değil	_	_	PRS;ADV;IND;SG;3;NEG	_	_	_	_
+12	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01140031
+# text = Hans Pettersson, Rona'nın masraflarını karşılamak için para biriktirebilince Joliot-Curie onun Paris'te bulunan Curie Enstitüsü'nde polonyum ayırma sürecinde çalışmasına izin verdi.
+# text_en = Once Hans Pettersson was able to secure funds to pay Rona's expenses, Joliot-Curie allowed her to come and study polonium separation at the Curie Institute in Paris.
+1	Hans	Hans	_	_	PROPN;SG	_	_	_	_
+2	Pettersson	Pettersson	_	_	PROPN;NOM;SG	_	_	_	_
+3	,	,	_	_	_	_	_	_	_
+4	Rona'nın	Rona	_	_	PROPN;GEN;SG	_	_	_	_
+5	masraflarını	masraf	_	_	PSS3S;N;ACC;PL	_	_	_	_
+6	karşılamak	karşıla	_	_	N;IND;SG;PFV;3;FUT	_	_	_	_
+7	için	için	_	_	ADP	_	_	_	_
+8	para	para	_	_	N;SG	_	_	_	_
+9	biriktirebilince	biriktirebil	_	_	POS;ADV	_	_	_	_
+10	Joliot	Joliot	_	_	PROPN;SG	_	_	_	_
+11	-	-	_	_	_	_	_	_	_
+12	Curie	Curie	_	_	PROPN;NOM;SG	_	_	_	_
+13	onun	o	_	_	PRO;POS;GEN;SG	_	_	_	_
+14	Paris'te	Paris	_	_	ESS;PROPN;SG	_	_	_	_
+15	bulunan	bul	_	_	POS;ADJ;SG	_	_	_	_
+16	Curie	Curie	_	_	PROPN;SG	_	_	_	_
+17	Enstitüsü'nde	Enstitüsü'nde	_	_	PSS3S;N;SG;ESS	_	_	_	_
+18	polonyum	polonyum	_	_	N;SG	_	_	_	_
+19	ayırma	ayır	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+20	sürecinde	sürec	_	_	PSS3S;N;SG;ESS	_	_	_	_
+21	çalışmasına	çalış	_	_	PSS3S;V.MSDR;N;PRS;IND;DAT;PFV	_	_	_	_
+22	izin	izin	_	_	N;SG	_	_	_	_
+23	verdi	ver	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+24	.	.	_	_	_	_	_	_	_
+
+# newdoc id = w01093
+# sent_id = w01093028
+# text = Sparta İkinci Messenia Savaşı'nda kendisini Mora Yardım Adası ve Yunanistan'ın geri kalanında yerel bir güç olarak kurdu.
+# text_en = In the Second Messenian War, Sparta established itself as a local power in Peloponnesus and the rest of Greece.
+1	Sparta	Sparta	_	_	PROPN;NOM;SG	_	_	_	_
+2	İkinci	ikinci	_	_	NUM;SG	_	_	_	_
+3	Messenia	Messenia	_	_	PROPN;SG	_	_	_	_
+4	Savaşı'nda	Savaşı'nda	_	_	PSS3S;PROPN;SG;ESS	_	_	_	_
+5	kendisini	kendi	_	_	REFL;SG;ACC;PRO;3	_	_	_	_
+6	Mora	Mora	_	_	PROPN;SG	_	_	_	_
+7	Yardım	yardım	_	_	N;SG	_	_	_	_
+8	Adası	adası	_	_	PSS3S;N;SG	_	_	_	_
+9	ve	ve	_	_	CONJ	_	_	_	_
+10	Yunanistan'ın	Yunanistan	_	_	PROPN;GEN;SG	_	_	_	_
+11	geri	geri	_	_	ADV	_	_	_	_
+12	kalanında	kalan	_	_	PSS3S;N;SG;ESS	_	_	_	_
+13	yerel	yerel	_	_	ADJ;SG	_	_	_	_
+14	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+15	güç	güç	_	_	N;SG	_	_	_	_
+16	olarak	olarak	_	_	V;POS	_	_	_	_
+17	kurdu	kur	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+18	.	.	_	_	_	_	_	_	_
+
+# sent_id = w04002048
+# text = 1928'de, Parkın kuzey doğu bölümünde, yarış pistinin yanında 90 hektarlık bir golf sahası inşa edilmiştir.
+# text_en = In 1928, a 90-hectare golf course was built in the north-eastern part of the park, next to the racetrack.
+1	1928'de	1928	_	_	ESS;N;SG	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	Parkın	park	_	_	GEN;N;SG	_	_	_	_
+4	kuzey	kuzey	_	_	N;SG	_	_	_	_
+5	doğu	doğu	_	_	N;SG	_	_	_	_
+6	bölümünde	bölüm	_	_	PSS3S;N;SG;ESS	_	_	_	_
+7	,	,	_	_	_	_	_	_	_
+8	yarış	yarış	_	_	N;SG	_	_	_	_
+9	pistinin	pist	_	_	PSS3S;N;GEN;SG	_	_	_	_
+10	yanında	yan	_	_	PSS3S;N;SG;ESS	_	_	_	_
+11	90	_	_	_	NUM;SG	_	_	_	_
+12	hektarlık	hektarlık	_	_	ADJ;SG	_	_	_	_
+13	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+14	golf	golf	_	_	N;SG	_	_	_	_
+15	sahası	saha	_	_	PSS3S;N;SG;NOM	_	_	_	_
+16	inşa	inşa	_	_	N;SG	_	_	_	_
+17	edilmiştir	et	_	_	3;SG;PFV;PST;NFH;V;PASS	_	_	_	_
+18	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01120010
+# text = Doss'un hikayesi, onu daha da ilgi çekici hale getiren olağan dışı bir özelliğe sahip.
+# text_en = Doss’s story also has an unlikely quality to it that makes it all the more appealing.
+1	Doss'un	Doss	_	_	PROPN;GEN;SG	_	_	_	_
+2	hikayesi	hikaye	_	_	PSS3S;N;SG;NOM	_	_	_	_
+3	,	,	_	_	_	_	_	_	_
+4	onu	o	_	_	ACC;PRO;POS;SG	_	_	_	_
+5	daha	daha	_	_	ADV	_	_	_	_
+6	da	da	_	_	ADV	_	_	_	_
+7	ilgi	ilgi	_	_	N;SG	_	_	_	_
+8	çekici	çekici	_	_	ADJ;SG	_	_	_	_
+9	hale	hal	_	_	SG;N;DAT	_	_	_	_
+10	getiren	getir	_	_	POS;ADJ;SG	_	_	_	_
+11	olağan	olağan	_	_	ADJ;SG	_	_	_	_
+12	dışı	dış	_	_	PSS3S;N;SG	_	_	_	_
+13	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+14	özelliğe	özellik	_	_	SG;N;DAT	_	_	_	_
+15	sahip	sah	_	_	ADJ;SG	_	_	_	_
+16	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01150045
+# text = Altı Büyük Güç'ün büyükelçileri, Aralık 1912'deki Londra konferansının başında, bağımsız bir Arnavutluk kurma planını reddetti.
+# text_en = At the beginning of the London conference in December 1912 the ambassadors of all six Great Powers rejected the plan for establishing an independent Albania.
+1	Altı	altı	_	_	NUM;SG	_	_	_	_
+2	Büyük	Büyük	_	_	ADJ;SG	_	_	_	_
+3	Güç'ün	Güç	_	_	GEN;N;SG	_	_	_	_
+4	büyükelçileri	büyükelçi	_	_	PSS3S;N;NOM;PL	_	_	_	_
+5	,	,	_	_	_	_	_	_	_
+6	Aralık	Aralık	_	_	N;SG	_	_	_	_
+7	1912'de	1912	_	_	ESS;N;SG	_	_	_	_
+8	ki	ki	_	_	ADP	_	_	_	_
+9	Londra	Londra	_	_	PROPN;SG	_	_	_	_
+10	konferansının	konferans	_	_	PSS3S;N;GEN;SG	_	_	_	_
+11	başında	baş	_	_	PSS3S;N;SG;ESS	_	_	_	_
+12	,	,	_	_	_	_	_	_	_
+13	bağımsız	bağımsız	_	_	ADJ;SG	_	_	_	_
+14	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+15	Arnavutluk	Arnavutluk	_	_	PROPN;SG	_	_	_	_
+16	kurma	kur	_	_	V.MSDR;N;PRS;IND;PFV	_	_	_	_
+17	planını	plan	_	_	PSS3S;N;ACC;SG	_	_	_	_
+18	reddetti	reddet	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+19	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n02081
+# sent_id = n02081019
+# text = Dolayısıyla, bıktırıcı işaretler tamamen kaybolmayacak: Haber ajansı dpa'dan gelen bilgilere göre, bunlar sadece, örneğin, sanatçı ya da plak şirketi GEMA üyesi değilse ve YouTube ile bir anlaşması yoksa etkinleştirilecek.
+# text_en = Therefore the irksome signs will not completely disappear: According to information from the news agency dpa, they will only be activated if, for instance, the artist or record label is not a member of GEMA and does not have an agreement with YouTube.
+1	Dolayısıyla	dolayısıyla	_	_	ADV	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	bıktırıcı	_	_	_	POS;ADJ;SG	_	_	_	_
+4	işaretler	işaret	_	_	N;NOM;PL	_	_	_	_
+5	tamamen	tamamen	_	_	ADV	_	_	_	_
+6	kaybolmayacak	kaybol	_	_	FUT;3;IND;SG;PFV;V;NEG	_	_	_	_
+7	:	:	_	_	_	_	_	_	_
+8	Haber	haber	_	_	N;SG	_	_	_	_
+9	ajansı	ajans	_	_	PSS3S;N;SG	_	_	_	_
+10	dpa'dan	dpa'	_	_	PROPN;SG;AT+ABL	_	_	_	_
+11	gelen	gel	_	_	POS;ADJ;SG	_	_	_	_
+12	bilgilere	bilgi	_	_	PL;N;DAT	_	_	_	_
+13	göre	göre	_	_	ADP	_	_	_	_
+14	,	,	_	_	_	_	_	_	_
+15	bunlar	bu	_	_	PRO;POS;NOM;PL	_	_	_	_
+16	sadece	sadece	_	_	ADV	_	_	_	_
+17	,	,	_	_	_	_	_	_	_
+18	örneğin	örneğin	_	_	GEN;N;SG	_	_	_	_
+19	,	,	_	_	_	_	_	_	_
+20	sanatçı	sanatçı	_	_	N;SG	_	_	_	_
+21	ya	ya	_	_	CONJ	_	_	_	_
+22	da	da	_	_	ADV	_	_	_	_
+23	plak	plak	_	_	N;SG	_	_	_	_
+24	şirketi	şirket	_	_	PSS3S;N;SG	_	_	_	_
+25	GEMA	GEMA	_	_	PROPN;SG	_	_	_	_
+26	üyesi	üye	_	_	PSS3S;N;SG	_	_	_	_
+27	değil	_	_	_	PRS;IND;SG;V;3;NEG	_	_	_	_
+28	se	_	_	_	PRS;COND;SG;PFV;V;3	_	_	_	_
+29	ve	ve	_	_	CONJ	_	_	_	_
+30	YouTube	YouTube	_	_	PROPN;SG	_	_	_	_
+31	ile	ile	_	_	ADP	_	_	_	_
+32	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+33	anlaşması	anlaşma	_	_	PSS3S;N;SG;NOM	_	_	_	_
+34	yok	yok	_	_	ADJ;NEG	_	_	_	_
+35	sa	i	_	_	PRS;COND;SG;PFV;V;3	_	_	_	_
+36	etkinleştirilecek	etkinleştiril	_	_	3;IND;SG;PFV;V;FUT	_	_	_	_
+37	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n03006
+# sent_id = n03006003
+# text = Özel şirketlerde dini inancın dışa vurumunu kısıtlayabilecek yasaklar nelerdir?
+# text_en = What are the limits that could inhibit the expression of religious beliefs in private companies?
+1	Özel	özel	_	_	ADJ;SG	_	_	_	_
+2	şirketlerde	şirket	_	_	ESS;N;PL	_	_	_	_
+3	dini	din	_	_	PSS3S;ADJ;SG	_	_	_	_
+4	inancın	inanç	_	_	GEN;N;SG	_	_	_	_
+5	dışa	dış	_	_	SG;N;DAT	_	_	_	_
+6	vurumunu	vurum	_	_	PSS3S;N;ACC;SG	_	_	_	_
+7	kısıtlayabilecek	kısıtlayabil	_	_	ADJ;SG;PFV;3;FUT	_	_	_	_
+8	yasaklar	yasak	_	_	N;NOM;PL	_	_	_	_
+9	neler	_	_	_	PRO;PL	_	_	_	_
+10	dir	_	_	_	PRS;SG;PFV;V;3	_	_	_	_
+11	?	?	_	_	_	_	_	_	_
+
+# sent_id = w01045003
+# text = Amerika'nın 1492 yılında Kristof Kolomb tarafından keşfedilmesinden sonra, İspanyolca Antillas terimi topraklara uygulanmıştır; bunun sonucunda "Antiller Denizi", çeşitli Avrupa dillerinde "Karayip Denizi" için ortak bir alternatif isim haline gelmiştir.
+# text_en = After the discovery of America by Christopher Columbus in 1492, the Spanish term Antillas applied to the lands; stemming from this, "Sea of the Antilles" became a common alternative name for "Caribbean Sea" in various European languages.
+1	Amerika'nın	Amerika	_	_	PROPN;GEN;SG	_	_	_	_
+2	1492	1492	_	_	NUM;SG	_	_	_	_
+3	yılında	yıl	_	_	PSS3S;N;SG;ESS	_	_	_	_
+4	Kristof	Kristof	_	_	PROPN;SG	_	_	_	_
+5	Kolomb	Kolomb	_	_	PROPN;SG	_	_	_	_
+6	tarafından	taraf	_	_	PSS3S;N;SG;AT+ABL	_	_	_	_
+7	keşfedilmesinden	keşfedilmes	_	_	PSS3S;V.MSDR;N;PRS;IND;PFV;PASS;AT+ABL	_	_	_	_
+8	sonra	sonra	_	_	ADP	_	_	_	_
+9	,	,	_	_	_	_	_	_	_
+10	İspanyolca	_	_	_	PROPN;SG	_	_	_	_
+11	Antillas	Antillas	_	_	PROPN;SG	_	_	_	_
+12	terimi	terim	_	_	PSS3S;N;SG;NOM	_	_	_	_
+13	topraklara	toprak	_	_	PL;N;DAT	_	_	_	_
+14	uygulanmıştır	uygulanmış	_	_	3;SG;PFV;PST;NFH;V;PASS	_	_	_	_
+15	;	;	_	_	_	_	_	_	_
+16	bunun	bu	_	_	PRO;POS;GEN;SG	_	_	_	_
+17	sonucunda	sonuç	_	_	PSS3S;N;SG;ESS	_	_	_	_
+18	"	"	_	_	_	_	_	_	_
+19	Antiller	Antiller	_	_	PROPN;SG	_	_	_	_
+20	Denizi	deniz	_	_	PSS3S;N;SG;NOM	_	_	_	_
+21	"	"	_	_	_	_	_	_	_
+22	,	,	_	_	_	_	_	_	_
+23	çeşitli	çeşitli	_	_	ADJ;SG	_	_	_	_
+24	Avrupa	Avrupa	_	_	PROPN;SG	_	_	_	_
+25	dillerinde	diller	_	_	PSS3S;N;ESS;PL	_	_	_	_
+26	"	"	_	_	_	_	_	_	_
+27	Karayip	Karayip	_	_	PROPN;SG	_	_	_	_
+28	Denizi	deniz	_	_	ACC;N;SG	_	_	_	_
+29	"	"	_	_	_	_	_	_	_
+30	için	için	_	_	ADP	_	_	_	_
+31	ortak	ortak	_	_	ADJ;SG	_	_	_	_
+32	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+33	alternatif	alternatif	_	_	ADJ;SG	_	_	_	_
+34	isim	isim	_	_	N;SG	_	_	_	_
+35	haline	hal	_	_	PSS3S;N;SG;DAT	_	_	_	_
+36	gelmiştir	gel	_	_	3;SG;PFV;PST;NFH;V	_	_	_	_
+37	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01149
+# sent_id = n01149002
+# text = Yerin 100 metre (328 feet) altındaki Pyongyang Metrosu dünyadaki en derin banliyö sistemlerinden biridir.
+# text_en = Buried 100 meters (328 feet) underground, the Pyongyang Metro is one of the deepest commuter systems in the world.
+1	Yerin	Yerin	_	_	GEN;N;SG	_	_	_	_
+2	100	100	_	_	NUM;SG	_	_	_	_
+3	metre	metre	_	_	N;SG	_	_	_	_
+4	(	(	_	_	_	_	_	_	_
+5	328	328	_	_	NUM;SG	_	_	_	_
+6	feet	feet	_	_	_	_	_	_	_
+7	)	)	_	_	_	_	_	_	_
+8	altında	altı	_	_	PSS3S;N;SG;ESS	_	_	_	_
+9	ki	ki	_	_	ADP	_	_	_	_
+10	Pyongyang	Pyongyang	_	_	PROPN;SG	_	_	_	_
+11	Metrosu	Metrosu	_	_	PSS3S;N;SG;NOM	_	_	_	_
+12	dünyada	dünya	_	_	ESS;N;SG	_	_	_	_
+13	ki	ki	_	_	ADP	_	_	_	_
+14	en	en	_	_	ADV	_	_	_	_
+15	derin	derin	_	_	ADJ;SG	_	_	_	_
+16	banliyö	banliyö	_	_	N;SG	_	_	_	_
+17	sistemlerinden	sistem	_	_	PSS3S;AT+ABL;N;PL	_	_	_	_
+18	biri	biri	_	_	PSS3;PRO;POS;SG	_	_	_	_
+19	dir	i	_	_	PRS;SG;PFV;V;3	_	_	_	_
+20	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01113046
+# text = Ayrıca 2013'te beş ve 2014'te dört geleneksel pazar inşa edip yeniledi.
+# text_en = He also built and renovated five traditional markets in 2013 and four traditional markets in 2014.
+1	Ayrıca	ayrıca	_	_	ADV	_	_	_	_
+2	2013'te	2013	_	_	ESS;N;SG	_	_	_	_
+3	beş	beş	_	_	NUM;SG	_	_	_	_
+4	ve	ve	_	_	CONJ	_	_	_	_
+5	2014'te	2014	_	_	ESS;N;SG	_	_	_	_
+6	dört	dört	_	_	NUM;SG	_	_	_	_
+7	geleneksel	geleneksel	_	_	ADJ;SG	_	_	_	_
+8	pazar	pazar	_	_	N;NOM;SG	_	_	_	_
+9	inşa	inşa	_	_	N;SG	_	_	_	_
+10	edip	et	_	_	POS;ADV	_	_	_	_
+11	yeniledi	yenile	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+12	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01016034
+# text = Yağmur yağması sırasında su damlacıkları havada bulunan karbondioksiti emer ve çözer.
+# text_en = During rains precipitation, the water droplets absorb and dissolve carbon dioxide from the surrounding air.
+1	Yağmur	yağmur	_	_	N;NOM;SG	_	_	_	_
+2	yağması	yağ	_	_	PSS3S;N;SG	_	_	_	_
+3	sırasında	sıra	_	_	PSS3S;N;SG;ESS	_	_	_	_
+4	su	su	_	_	N;SG	_	_	_	_
+5	damlacıkları	damlacık	_	_	N;NOM;PL	_	_	_	_
+6	havada	hava	_	_	ESS;N;SG	_	_	_	_
+7	bulunan	bul	_	_	POS;ADJ;SG	_	_	_	_
+8	karbondioksiti	karbondioksit	_	_	ACC;N;SG	_	_	_	_
+9	emer	emer	_	_	HAB;PRS;3;SG;V	_	_	_	_
+10	ve	ve	_	_	CONJ	_	_	_	_
+11	çözer	çöz	_	_	HAB;PRS;3;SG;V	_	_	_	_
+12	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n02068
+# sent_id = n02068010
+# text = Barroso için konu kapanmış olmayabilir.
+# text_en = The issue might not be over for Barroso.
+1	Barroso	Barroso	_	_	PROPN;SG	_	_	_	_
+2	için	için	_	_	ADP	_	_	_	_
+3	konu	konu	_	_	N;NOM;SG	_	_	_	_
+4	kapanmış	kapa	_	_	3;IND;SG;PFV;PST;NFH;V	_	_	_	_
+5	olmayabilir	olmay	_	_	HAB;PRS;V;SG;3;NEG	_	_	_	_
+6	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01144084
+# text = İyileşerek hastaneden 11 Nisan'da taburcu edildi ve bir suikast girişimi sırasında hayatta kalan görevdeki ilk ABD başkanı oldu.
+# text_en = He recovered and was released from the hospital on April 11, becoming the first serving U.S. president to survive being shot in an assassination attempt.
+1	İyileşerek	iyileşerek	_	_	PRS;ADV;IND;PFV;V.CVB	_	_	_	_
+2	hastaneden	hastane	_	_	SG;N;AT+ABL	_	_	_	_
+3	11	11	_	_	NUM;SG	_	_	_	_
+4	Nisan'da	Nisan	_	_	ESS;N;SG	_	_	_	_
+5	taburcu	taburcu	_	_	N;SG	_	_	_	_
+6	edildi	et	_	_	IND;SG;PFV;PST;V;3;PASS	_	_	_	_
+7	ve	ve	_	_	CONJ	_	_	_	_
+8	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+9	suikast	suikast	_	_	N;SG	_	_	_	_
+10	girişimi	giriş	_	_	PSS3S;N;SG	_	_	_	_
+11	sırasında	sıra	_	_	PSS3S;N;SG;ESS	_	_	_	_
+12	hayatta	hayat	_	_	ESS;N;SG	_	_	_	_
+13	kalan	kal	_	_	POS;ADJ;SG	_	_	_	_
+14	görevde	görev	_	_	ESS;N;SG	_	_	_	_
+15	ki	ki	_	_	ADP	_	_	_	_
+16	ilk	ilk	_	_	ADJ;SG	_	_	_	_
+17	ABD	Abd	_	_	PROPN;SG	_	_	_	_
+18	başkanı	başkan	_	_	PSS3S;N;SG	_	_	_	_
+19	oldu	ol	_	_	IND;SG;PFV;PST;V;3	_	_	_	_
+20	.	.	_	_	_	_	_	_	_
+
+# sent_id = n05003019
+# text = Buna rağmen, partideki herkes cumhurbaşkanının dün vermeye çalıştığı mesajları anlamadı.
+# text_en = In spite of them, not everyone in the party understood the messages that the president tried to send to them yesterday.
+1	Buna	bu	_	_	PRO;POS;SG;DAT	_	_	_	_
+2	rağmen	rağmen	_	_	ADP	_	_	_	_
+3	,	,	_	_	_	_	_	_	_
+4	partide	parti	_	_	ESS;N;SG	_	_	_	_
+5	ki	ki	_	_	ADP	_	_	_	_
+6	herkes	herkes	_	_	SG;PRO;POS;3;NOM	_	_	_	_
+7	cumhurbaşkanının	cumhurbaşkanı	_	_	PSS3S;N;GEN;SG	_	_	_	_
+8	dün	dün	_	_	N;SG	_	_	_	_
+9	vermeye	ver	_	_	V.MSDR;N;PRS;IND;DAT;PFV	_	_	_	_
+10	çalıştığı	çalış	_	_	PSS3S;ADJ;SG;POS	_	_	_	_
+11	mesajları	mesaj	_	_	ACC;N;PL	_	_	_	_
+12	anlamadı	anla	_	_	3;IND;SG;PFV;PST;V;NEG	_	_	_	_
+13	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01141007
+# text = Ayrıca platform üzerinden emoji, GIF, özel komik resim ve çıkartma gönderme ve Twitter beslemenize bağlama seçeneği de mevcut.
+# text_en = There's also an option to send emoji, GIFs, custom memes and stickers via the platform, and connect your Twitter feed.
+1	Ayrıca	ayrıca	_	_	ADV	_	_	_	_
+2	platform	platform	_	_	N;SG	_	_	_	_
+3	üzerinden	üzer	_	_	PSS3S;N;SG;AT+ABL	_	_	_	_
+4	emoji	emoji	_	_	N;SG	_	_	_	_
+5	,	,	_	_	_	_	_	_	_
+6	GIF	Gif	_	_	N;SG	_	_	_	_
+7	,	,	_	_	_	_	_	_	_
+8	özel	özel	_	_	ADJ;SG	_	_	_	_
+9	komik	komik	_	_	ADJ;SG	_	_	_	_
+10	resim	resim	_	_	N;SG	_	_	_	_
+11	ve	ve	_	_	CONJ	_	_	_	_
+12	çıkartma	çıkar	_	_	N;SG	_	_	_	_
+13	gönderme	gönder	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+14	ve	ve	_	_	CONJ	_	_	_	_
+15	Twitter	Twitter	_	_	PROPN;SG	_	_	_	_
+16	beslemenize	beslemeniz	_	_	PSS2P;N;SG;DAT	_	_	_	_
+17	bağlama	bağla	_	_	N;SG	_	_	_	_
+18	seçeneği	seçenek	_	_	N;NOM;SG	_	_	_	_
+19	de	de	_	_	ADV	_	_	_	_
+20	mevcut	mevcut	_	_	ADJ;SG	_	_	_	_
+21	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n02042
+# sent_id = n02042005
+# text = 30 Ağustos 2015, ördeklerden oluşan bir ordu interneti ele geçirdi.
+# text_en = It was August 30, 2015, as an army of ducks conquered the internet.
+1	30	30	_	_	NUM;SG	_	_	_	_
+2	Ağustos	ağustos	_	_	N;SG	_	_	_	_
+3	2015	2015	_	_	NUM;SG	_	_	_	_
+4	,	,	_	_	_	_	_	_	_
+5	ördeklerden	ördek	_	_	PL;N;AT+ABL	_	_	_	_
+6	oluşan	oluş	_	_	POS;ADJ;SG	_	_	_	_
+7	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+8	ordu	ordu	_	_	N;NOM;SG	_	_	_	_
+9	interneti	internet	_	_	PSS3S;N;ACC;SG	_	_	_	_
+10	ele	el	_	_	SG;N;DAT	_	_	_	_
+11	geçirdi	geç	_	_	3;IND;SG;PFV;PST;CAUS;V	_	_	_	_
+12	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01059025
+# text = "Washington ve Lincoln dönemlerindeki gayrisafi yurt içi hasıla büyümesi nasıldı, bilmiyorum, ancak o dönemlerdeki kurumsal gelişmeler büyük kapsamlı ve uzun süreli etkilere sahip olmuştu."
+# text_en = “I don’t know what G.D.P. growth was during the Washington and Lincoln Administrations, but the institutional developments in those terms had large and long-lasting effects.”
+1	"	"	_	_	_	_	_	_	_
+2	Washington	Washington	_	_	PROPN;SG	_	_	_	_
+3	ve	ve	_	_	CONJ	_	_	_	_
+4	Lincoln	Lincoln	_	_	PROPN;SG	_	_	_	_
+5	dönemlerinde	dönem	_	_	PSS3S;N;ESS;PL	_	_	_	_
+6	ki	ki	_	_	ADP	_	_	_	_
+7	gayrisafi	gayrisaif	_	_	ADJ;SG	_	_	_	_
+8	yurt	yurt	_	_	N;SG	_	_	_	_
+9	içi	iç	_	_	PSS3S;N;SG	_	_	_	_
+10	hasıla	hasıla	_	_	N;SG	_	_	_	_
+11	büyümesi	büyü	_	_	PSS3S;V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+12	nasıl	nasıl	_	_	ADV	_	_	_	_
+13	dı	i	_	_	IND;SG;PFV;PST;V;3	_	_	_	_
+14	,	,	_	_	_	_	_	_	_
+15	bilmiyorum	bil	_	_	PRS;1;IND;SG;PROG;V;NEG	_	_	_	_
+16	,	,	_	_	_	_	_	_	_
+17	ancak	ancak	_	_	ADV	_	_	_	_
+18	o	o	_	_	DET;DEF;POS;SG	_	_	_	_
+19	dönemlerde	dönem	_	_	ESS;N;PL	_	_	_	_
+20	ki	ki	_	_	ADP	_	_	_	_
+21	kurumsal	kurumsal	_	_	ADJ;SG	_	_	_	_
+22	gelişmeler	geliş	_	_	POS;N;PL	_	_	_	_
+23	büyük	büyük	_	_	ADJ;SG	_	_	_	_
+24	kapsamlı	_	_	_	ADJ;SG	_	_	_	_
+25	ve	ve	_	_	CONJ	_	_	_	_
+26	uzun	uzun	_	_	ADJ;SG	_	_	_	_
+27	süreli	_	_	_	ADJ;SG	_	_	_	_
+28	etkilere	_	_	_	PL;N;DAT	_	_	_	_
+29	sahip	sahip	_	_	ADJ;SG	_	_	_	_
+30	olmuştu	ol	_	_	PST+PRF;IND;SG;PFV;V;NFH;3	_	_	_	_
+31	.	_	_	_	_	_	_	_	_
+32	"	_	_	_	_	_	_	_	_
+
+# newdoc id = n03007
+# sent_id = n03007003
+# text = Sözü edilen maddede müşteri ziyaretlerinde ulaşımda geçen süre de çalışma saatlerine dahil edilmiştir.
+# text_en = This clause included the time taken to travel to clients' homes in working hours.
+1	Sözü	söz	_	_	PSS3S;N;SG	_	_	_	_
+2	edilen	et	_	_	POS;ADJ;SG	_	_	_	_
+3	maddede	madde	_	_	ESS;N;SG	_	_	_	_
+4	müşteri	müşteri	_	_	N;SG	_	_	_	_
+5	ziyaretlerinde	ziyaret	_	_	PSS3S;N;ESS;PL	_	_	_	_
+6	ulaşımda	ulaş	_	_	ESS;N;SG	_	_	_	_
+7	geçen	geç	_	_	POS;ADJ;SG	_	_	_	_
+8	süre	süre	_	_	N;NOM;SG	_	_	_	_
+9	de	de	_	_	ADV	_	_	_	_
+10	çalışma	çalış	_	_	V.MSDR;N;PRS;IND;PFV	_	_	_	_
+11	saatlerine	saat	_	_	PSS3S;N;DAT;PL	_	_	_	_
+12	dahil	dahil	_	_	N;SG	_	_	_	_
+13	edilmiştir	et	_	_	3;SG;PFV;PST;NFH;V;PASS	_	_	_	_
+14	.	.	_	_	_	_	_	_	_
+
+# sent_id = w04010028
+# text = Aralarında uzun yıllar süren profesyonel ve dostane bir ilişki gelişmiştir.
+# text_en = Between them bloomed a long professional and amicable relationship that lasted for years.
+1	Aralarında	ara	_	_	PSS3P;N;SG;ESS	_	_	_	_
+2	uzun	uzun	_	_	ADJ;SG	_	_	_	_
+3	yıllar	yıl	_	_	N;PL	_	_	_	_
+4	süren	sür	_	_	POS;ADJ;SG	_	_	_	_
+5	profesyonel	profesyonel	_	_	ADJ;SG	_	_	_	_
+6	ve	ve	_	_	CONJ	_	_	_	_
+7	dostane	dostane	_	_	ADJ	_	_	_	_
+8	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+9	ilişki	ilişki	_	_	N;NOM;SG	_	_	_	_
+10	gelişmiştir	geliş	_	_	3;SG;PFV;PST;NFH;V	_	_	_	_
+11	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01136006
+# text = Filmin açıkça gösterdiği gibi Lovings -ve özellikle Richard- tarihteki isteksiz katılımcılardı.
+# text_en = As the movie makes clear, the Lovings -- and Richard in particular -- were reluctant participants in history.
+1	Filmin	Film	_	_	GEN;N;SG	_	_	_	_
+2	açıkça	_	_	_	ADV;SG	_	_	_	_
+3	gösterdiği	göster	_	_	PSS3S;N;SG;POS	_	_	_	_
+4	gibi	gibi	_	_	ADP	_	_	_	_
+5	Lovings	Lovings	_	_	PROPN;SG	_	_	_	_
+6	-	-	_	_	_	_	_	_	_
+7	ve	ve	_	_	CONJ	_	_	_	_
+8	özellikle	özellikle	_	_	ADV	_	_	_	_
+9	Richard	Richard	_	_	PROPN;NOM;SG	_	_	_	_
+10	-	-	_	_	_	_	_	_	_
+11	tarihte	tarih	_	_	ESS;N;SG	_	_	_	_
+12	ki	ki	_	_	ADP	_	_	_	_
+13	isteksiz	isteksiz	_	_	ADJ;SG	_	_	_	_
+14	katılımcılar	_	_	_	N;PL	_	_	_	_
+15	dı	_	_	_	IND;SG;PFV;PST;V;3	_	_	_	_
+16	.	.	_	_	_	_	_	_	_
+
+# sent_id = w02008038
+# text = Muhtemelen Bakır Çağından en tanınmış kişi, M.Ö. 3300 yıllarında yaşayan donmuş mumya Ötzi'dir.
+# text_en = Likely the most well-known person from the Copper Age is Ötzi, the frozen mummy who lived during 3300 BC.
+1	Muhtemelen	muhtemelen	_	_	ADV	_	_	_	_
+2	Bakır	bakır	_	_	N;SG	_	_	_	_
+3	Çağından	Çağ	_	_	PSS3S;N;SG;AT+ABL	_	_	_	_
+4	en	en	_	_	ADV	_	_	_	_
+5	tanınmış	tanı	_	_	ADJ;IND;SG;PFV;PST;NFH;3;PASS	_	_	_	_
+6	kişi	kişi	_	_	N;NOM;SG	_	_	_	_
+7	,	,	_	_	_	_	_	_	_
+8	M.Ö.	M.Ö.	_	_	N;SG	_	_	_	_
+9	3300	3300	_	_	NUM;SG	_	_	_	_
+10	yıllarında	yıl	_	_	PSS3S;N;ESS;PL	_	_	_	_
+11	yaşayan	yaşa	_	_	POS;ADJ;SG	_	_	_	_
+12	donmuş	don	_	_	ADJ;IND;SG;PFV;PST;NFH;3	_	_	_	_
+13	mumya	mumya	_	_	N;SG	_	_	_	_
+14	Ötzi	_	_	_	PROPN;SG	_	_	_	_
+15	'dir	_	_	_	V	_	_	_	_
+16	.	.	_	_	_	_	_	_	_
+
+# newdoc id = w05009
+# sent_id = w05009044
+# text = 1976'da, Kendisi için bir başka dikkat çekici başarı daha olan "Don't Go Breaking My Heart"ı kaydetmek üzere, plak şirketi Rocket Record Şirketi olan Kiki Dee ile çalışan bir arkadaşıyla bir araya geldi.
+# text_en = In 1976 he met with a friend who worked with his record label The Rocket Record Company, Kiki Dee, to record what would be another remarkable success for him: "Don't Go Breaking My Heart".
+1	1976'da	1976	_	_	ESS;N;SG	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	Kendisi	kendi	_	_	PRO;3;REFL;SG	_	_	_	_
+4	için	için	_	_	ADP	_	_	_	_
+5	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+6	başka	başka	_	_	ADJ;SG	_	_	_	_
+7	dikkat	dikkat	_	_	N;SG	_	_	_	_
+8	çekici	çekici	_	_	ADJ;SG	_	_	_	_
+9	başarı	başarı	_	_	N;SG	_	_	_	_
+10	daha	daha	_	_	ADV	_	_	_	_
+11	olan	ol	_	_	V;POS;SG	_	_	_	_
+12	"	"	_	_	_	_	_	_	_
+13	Don't	Don't	_	_	_	_	_	_	_
+14	Go	Go	_	_	SG	_	_	_	_
+15	Breaking	Breaking	_	_	_	_	_	_	_
+16	My	My	_	_	_	_	_	_	_
+17	Heart"ı	_	_	_	ACC	_	_	_	_
+18	kaydetmek	kaydet	_	_	N;IND;SG;PFV;3;FUT	_	_	_	_
+19	üzere	üzere	_	_	ADP	_	_	_	_
+20	,	,	_	_	_	_	_	_	_
+21	plak	plak	_	_	N;SG	_	_	_	_
+22	şirketi	şirket	_	_	PSS3S;N;SG;NOM	_	_	_	_
+23	Rocket	Rocket	_	_	_	_	_	_	_
+24	Record	Record	_	_	_	_	_	_	_
+25	Şirketi	şirket	_	_	PSS3S;N;SG	_	_	_	_
+26	olan	ol	_	_	V;POS;SG	_	_	_	_
+27	Kiki	Kiki	_	_	PSS3S;PROPN;SG	_	_	_	_
+28	Dee	Dee	_	_	PROPN;SG	_	_	_	_
+29	ile	ile	_	_	ADP	_	_	_	_
+30	çalışan	çalış	_	_	POS;ADJ;SG	_	_	_	_
+31	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+32	arkadaşıyla	arkadaş	_	_	PSS3S;N;INS;SG	_	_	_	_
+33	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+34	araya	ara	_	_	SG;N;DAT	_	_	_	_
+35	geldi	gel	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+36	.	.	_	_	_	_	_	_	_
+
+# newdoc id = w01010
+# sent_id = w01010044
+# text = Çeşitli Alman ve büyük Slav kabileleri, Slavların M.S. 6. yüzyılda yerleşmesinden önceki Göç Döneminde Moravia'yı geçmiştir.
+# text_en = A variety of Germanic and major Slavic tribes crossed through Moravia during the Migration Period before Slavs established themselves in the 6th century AD.
+1	Çeşitli	çeşitli	_	_	ADJ;SG	_	_	_	_
+2	Alman	Alman	_	_	PROPN;SG	_	_	_	_
+3	ve	ve	_	_	CONJ	_	_	_	_
+4	büyük	büyük	_	_	ADJ;SG	_	_	_	_
+5	Slav	Slav	_	_	PROPN;SG	_	_	_	_
+6	kabileleri	kabilei	_	_	PSS3S;N;NOM;PL	_	_	_	_
+7	,	,	_	_	_	_	_	_	_
+8	Slavların	Slav	_	_	PROPN;GEN;PL	_	_	_	_
+9	M.S.	M.S.	_	_	N;SG	_	_	_	_
+10	6.	_	_	_	NUM;SG	_	_	_	_
+11	yüzyılda	yüzyıl	_	_	ESS;N;SG	_	_	_	_
+12	yerleşmesinden	yerleşmes	_	_	PSS3S;V.MSDR;N;PRS;IND;PFV;AT+ABL	_	_	_	_
+13	önce	önce	_	_	ADP	_	_	_	_
+14	ki	ki	_	_	ADP	_	_	_	_
+15	Göç	göç	_	_	N;SG	_	_	_	_
+16	Döneminde	dönem	_	_	PSS3S;N;SG;ESS	_	_	_	_
+17	Moravia'yı	Moravia	_	_	ACC;PROPN;SG	_	_	_	_
+18	geçmiştir	geç	_	_	3;SG;PFV;PST;NFH;V	_	_	_	_
+19	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01069094
+# text = Akdeniz'deki Osmanlı İmparatorluğu'na karşı mücadelesi, Hollanda'daki isyancılara karşı uygulayabileceği askeri güce ciddi sınırlamalar getirdi.
+# text_en = Its struggle against the Ottoman Empire in the Mediterranean Sea put serious limits on the military power it could deploy against the rebels in the Netherlands.
+1	Akdeniz'de	Akdeniz	_	_	ESS;PROPN;SG	_	_	_	_
+2	ki	ki	_	_	ADP	_	_	_	_
+3	Osmanlı	OsmanlıCA	_	_	PROPN;SG	_	_	_	_
+4	İmparatorluğu'na	İmparatorluğu	_	_	SG;N;DAT	_	_	_	_
+5	karşı	karşı	_	_	ADP	_	_	_	_
+6	mücadelesi	mücadele	_	_	PSS3S;N;SG;NOM	_	_	_	_
+7	,	,	_	_	_	_	_	_	_
+8	Hollanda'da	Hollanda	_	_	ESS;PROPN;SG	_	_	_	_
+9	ki	ki	_	_	ADP	_	_	_	_
+10	isyancılara	isyancı	_	_	PL;N;DAT	_	_	_	_
+11	karşı	karşı	_	_	ADP	_	_	_	_
+12	uygulayabileceği	uygulayabil	_	_	PSS3S;ADJ;SG;POS	_	_	_	_
+13	askeri	askeri	_	_	ADJ;SG	_	_	_	_
+14	güce	güç	_	_	SG;N;DAT	_	_	_	_
+15	ciddi	ciddi	_	_	ADJ;SG	_	_	_	_
+16	sınırlamalar	sınırla	_	_	POS;N;PL	_	_	_	_
+17	getirdi	getir	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+18	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01066006
+# text = Zodyak hayvanı Maymun'dur ve geleneksel önem taşıyan altmışıncı yıldönümü 1992'ye denk gelmiştir.
+# text_en = Her zodiacal animal is the Monkey and her traditionally significant sixtieth anniversary year was 1992.
+1	Zodyak	Zodyak	_	_	N;SG	_	_	_	_
+2	hayvanı	hayvan	_	_	PSS3S;N;SG;NOM	_	_	_	_
+3	Maymun	_	_	_	N;SG	_	_	_	_
+4	'dur	_	_	_	PRS;SG;PFV;V;3	_	_	_	_
+5	ve	ve	_	_	CONJ	_	_	_	_
+6	geleneksel	geleneksel	_	_	ADJ;SG	_	_	_	_
+7	önem	önem	_	_	N;SG	_	_	_	_
+8	taşıyan	taşı	_	_	V;POS;SG	_	_	_	_
+9	altmışıncı	altmışıncı	_	_	NUM;SG	_	_	_	_
+10	yıldönümü	yıldön	_	_	PSS3S;N;SG;NOM	_	_	_	_
+11	1992'ye	1992	_	_	SG;N;DAT	_	_	_	_
+12	denk	denk	_	_	ADJ	_	_	_	_
+13	gelmiştir	gel	_	_	3;SG;PFV;PST;NFH;V	_	_	_	_
+14	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01045006
+# text = Karayip Denizi, Kristof Kolomb'un Karayip sularına, Asya'ya bir deniz yolu bulma arayışıyla ilk kez gittiği 1492 yılına kadar Avrasya'daki nüfus tarafından bilinmiyordu.
+# text_en = The Caribbean Sea had been unknown to the populations of Eurasia until 1492, when Christopher Columbus first sailed into Caribbean waters on a quest to find a sea route to Asia.
+1	Karayip	Karay	_	_	PROPN;SG	_	_	_	_
+2	Denizi	deniz	_	_	PSS3S;N;SG;NOM	_	_	_	_
+3	,	,	_	_	_	_	_	_	_
+4	Kristof	Kristof	_	_	PROPN;SG	_	_	_	_
+5	Kolomb'un	Kolomb	_	_	PROPN;GEN;SG	_	_	_	_
+6	Karayip	Karay	_	_	PROPN;SG	_	_	_	_
+7	sularına	su	_	_	PSS3S;N;DAT;PL	_	_	_	_
+8	,	,	_	_	_	_	_	_	_
+9	Asya'ya	Asya	_	_	PROPN;SG;DAT	_	_	_	_
+10	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+11	deniz	deniz	_	_	N;SG	_	_	_	_
+12	yolu	yol	_	_	PSS3S;N;SG	_	_	_	_
+13	bulma	bul	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+14	arayışıyla	arayış	_	_	PSS3S;N;INS;SG;POS	_	_	_	_
+15	ilk	ilk	_	_	ADJ;SG	_	_	_	_
+16	kez	kez	_	_	N;SG	_	_	_	_
+17	gittiği	git	_	_	PSS3S;ADJ;SG;POS	_	_	_	_
+18	1492	1492	_	_	NUM;SG	_	_	_	_
+19	yılına	yıl	_	_	PSS3S;N;SG;DAT	_	_	_	_
+20	kadar	kadar	_	_	ADP	_	_	_	_
+21	Avrasya'da	Avrasya	_	_	ESS;PROPN;SG	_	_	_	_
+22	ki	ki	_	_	ADP	_	_	_	_
+23	nüfus	nüfus	_	_	N;SG	_	_	_	_
+24	tarafından	taraf	_	_	PSS3S;N;SG;AT+ABL	_	_	_	_
+25	bilinmiyordu	bilinm	_	_	V;IND;SG;PASS;PST;PROG;3;NEG	_	_	_	_
+26	.	.	_	_	_	_	_	_	_
+
+# newdoc id = w04010
+# sent_id = w04010027
+# text = Goffredo Petrassi'nin her iki öğrencisi Ennio Morricone ve Bruno Nicolai Santa (Saint) Cecelia konservatuarı'nda bir araya gelmiştir.
+# text_en = Both students of Goffredo Petrassi, Ennio Morricone and Bruno Nicolai met at the Santa (Saint) Cecelia conservatory.
+1	Goffredo	Goffredo	_	_	PROPN;SG	_	_	_	_
+2	Petrassi'nin	Petrassi	_	_	PROPN;GEN;SG	_	_	_	_
+3	her	her	_	_	DET;DEF;POS;SG	_	_	_	_
+4	iki	iki	_	_	NUM;SG	_	_	_	_
+5	öğrencisi	öğrenci	_	_	PSS3S;N;SG	_	_	_	_
+6	Ennio	Ennio	_	_	PROPN;SG	_	_	_	_
+7	Morricone	Morricone	_	_	PROPN;SG	_	_	_	_
+8	ve	ve	_	_	CONJ	_	_	_	_
+9	Bruno	Bruno	_	_	PROPN;SG	_	_	_	_
+10	Nicolai	Nicolai	_	_	PROPN;NOM;SG	_	_	_	_
+11	Santa	Santa	_	_	PROPN;SG	_	_	_	_
+12	(	(	_	_	_	_	_	_	_
+13	Saint	Saint	_	_	PROPN;SG	_	_	_	_
+14	)	)	_	_	_	_	_	_	_
+15	Cecelia	Cecelia	_	_	PROPN;SG	_	_	_	_
+16	konservatuarı'nda	konservatuarı'nda	_	_	PSS3S;N;SG;ESS	_	_	_	_
+17	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+18	araya	ara	_	_	SG;N;DAT	_	_	_	_
+19	gelmiştir	gel	_	_	3;SG;PFV;PST;NFH;V	_	_	_	_
+20	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01033025
+# text = 1975 yılında yaban hayat tapınağı ilan edilmiştir.
+# text_en = It was declared a wildlife sanctuary in 1975.
+1	1975	1975	_	_	NUM;SG	_	_	_	_
+2	yılında	yıl	_	_	PSS3S;N;SG;ESS	_	_	_	_
+3	yaban	yaban	_	_	N;SG	_	_	_	_
+4	hayat	hayat	_	_	N;SG	_	_	_	_
+5	tapınağı	tapınağ	_	_	PSS3S;N;SG	_	_	_	_
+6	ilan	ilan	_	_	N;SG	_	_	_	_
+7	edilmiştir	et	_	_	SG;PFV;PST;V;NFH;3;PASS	_	_	_	_
+8	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01009017
+# text = Hava kütlesi tanımlaması ilk olarak 1950'lerde hava tahminlerinde kullanılmışken, iklimbilimciler 1973'te bu fikri temel alan sinoptik klimatolojileri kurmaya başlamışlardır.
+# text_en = While air mass identification was originally used in weather forecasting during the 1950s, climatologists began to establish synoptic climatologies based on this idea in 1973.
+1	Hava	hava	_	_	N;SG	_	_	_	_
+2	kütlesi	kütle	_	_	PSS3S;N;SG	_	_	_	_
+3	tanımlaması	tanımla	_	_	PSS3S;V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+4	ilk	ilk	_	_	ADJ;SG	_	_	_	_
+5	olarak	olarak	_	_	V;POS	_	_	_	_
+6	1950'lerde	1950'	_	_	ESS;N;PL	_	_	_	_
+7	hava	hava	_	_	N;SG	_	_	_	_
+8	tahminlerinde	tahmin	_	_	PSS3S;N;ESS;PL	_	_	_	_
+9	kullanılmışken	kullanılmışk	_	_	POS;ADV	_	_	_	_
+10	,	,	_	_	_	_	_	_	_
+11	iklimbilimciler	iklimbilimci	_	_	N;NOM;PL	_	_	_	_
+12	1973'te	1973	_	_	ESS;N;SG	_	_	_	_
+13	bu	bu	_	_	DET;DEF;POS;SG	_	_	_	_
+14	fikri	fikir	_	_	ACC;N;SG	_	_	_	_
+15	temel	temel	_	_	N;SG	_	_	_	_
+16	alan	al	_	_	V;POS;SG	_	_	_	_
+17	sinoptik	sinoptik	_	_	ADJ;SG	_	_	_	_
+18	klimatolojileri	klimatoloji	_	_	ACC;N;PL	_	_	_	_
+19	kurmaya	kur	_	_	V.MSDR;N;PRS;IND;DAT;PFV	_	_	_	_
+20	başlamışlardır	_	_	_	3;PFV;PST;NFH;V;PL	_	_	_	_
+21	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01116018
+# text = Sahip olduğu bu enerjinin kaynağı ne? Peki ya şok dalgalarını tetikleyecek kadar gür çıkan sesinin?
+# text_en = Where does all her energy come from? Or that voice, which can blast out with a force to induce shockwaves?
+1	Sahip	sahip	_	_	ADJ;SG	_	_	_	_
+2	olduğu	ol	_	_	PSS3S;POS;SG;V	_	_	_	_
+3	bu	bu	_	_	DET;DEF;POS;SG	_	_	_	_
+4	enerjinin	enerji	_	_	GEN;N;SG	_	_	_	_
+5	kaynağı	kaynağ	_	_	PSS3S;N;SG;NOM	_	_	_	_
+6	ne	ne	_	_	PRO;SG	_	_	_	_
+7	?	?	_	_	_	_	_	_	_
+8	Peki	peki	_	_	ADV	_	_	_	_
+9	ya	ya	_	_	ADV	_	_	_	_
+10	şok	şok	_	_	N;SG	_	_	_	_
+11	dalgalarını	dalga	_	_	PSS3S;N;ACC;PL	_	_	_	_
+12	tetikleyecek	tetikley	_	_	N;IND;SG;PFV;3;FUT	_	_	_	_
+13	kadar	kadar	_	_	ADP	_	_	_	_
+14	gür	gür	_	_	ADJ;SG	_	_	_	_
+15	çıkan	çık	_	_	V;POS;SG	_	_	_	_
+16	sesinin	ses	_	_	PSS3S;N;GEN;SG	_	_	_	_
+17	?	?	_	_	_	_	_	_	_
+
+# sent_id = n01021012
+# text = Analiz, bozulmaya sebep olmak için inanılmaz boyutta verilerin kullanıldığını ortaya koydu.
+# text_en = Analysis revealed that historic amounts of data had been used to cause the disruption.
+1	Analiz	anal	_	_	N;NOM;SG	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	bozulmaya	bozul	_	_	V.MSDR;N;PRS;IND;DAT;PFV	_	_	_	_
+4	sebep	sebep	_	_	N;SG	_	_	_	_
+5	olmak	ol	_	_	IND;SG;PFV;V;3;FUT	_	_	_	_
+6	için	için	_	_	ADP	_	_	_	_
+7	inanılmaz	inan	_	_	ADJ;HAB;PRS;SG;PASS;3;NEG	_	_	_	_
+8	boyutta	boyut	_	_	ESS;N;SG	_	_	_	_
+9	verilerin	veri	_	_	GEN;N;PL	_	_	_	_
+10	kullanıldığını	kullan	_	_	PSS3S;N;ACC;SG;POS	_	_	_	_
+11	ortaya	orta	_	_	SG;N;DAT	_	_	_	_
+12	koydu	koy	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+13	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01112098
+# text = Disney, bir tam boyutlu ve yedi minyatür Oscar heykelciklerinden oluşan başka bir Onursal Akademi Ödülü kazandı.
+# text_en = Disney won another Honorary Academy Award, which consisted of one full-sized and seven miniature Oscar statuettes.
+1	Disney	Disney	_	_	PROPN;NOM;SG	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	bir	bir	_	_	POS;NUM;INDF;SG	_	_	_	_
+4	tam	tam	_	_	ADJ;SG	_	_	_	_
+5	boyutlu	boyutli	_	_	ADJ;SG	_	_	_	_
+6	ve	ve	_	_	CONJ	_	_	_	_
+7	yedi	yedi	_	_	NUM;SG	_	_	_	_
+8	minyatür	minyatür	_	_	N;SG	_	_	_	_
+9	Oscar	Oscar	_	_	PROPN;SG	_	_	_	_
+10	heykelciklerinden	heykelcik	_	_	PL;N;AT+ABL	_	_	_	_
+11	oluşan	oluş	_	_	POS;ADJ;SG	_	_	_	_
+12	başka	başka	_	_	ADJ;SG	_	_	_	_
+13	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+14	Onursal	Onursal	_	_	PROPN;SG	_	_	_	_
+15	Akademi	Akade	_	_	N;SG	_	_	_	_
+16	Ödülü	ödül	_	_	PSS3S;N;SG	_	_	_	_
+17	kazandı	kazan	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+18	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n04002
+# sent_id = n04002020
+# text = İtalya'nın Madrid'den daha kısa bir metro hattı olduğunu tasavvur etmek zor.
+# text_en = It is difficult to think that Italy has fewer km of underground line than Madrid.
+1	İtalya'nın	İtalya	_	_	PROPN;GEN;SG	_	_	_	_
+2	Madrid'den	Madrid	_	_	PROPN;SG;AT+ABL	_	_	_	_
+3	daha	daha	_	_	ADV	_	_	_	_
+4	kısa	kısa	_	_	ADJ;SG	_	_	_	_
+5	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+6	metro	metro	_	_	N;SG	_	_	_	_
+7	hattı	hat	_	_	PSS3S;N;SG;NOM	_	_	_	_
+8	olduğunu	ol	_	_	PSS3S;N;ACC;SG;POS	_	_	_	_
+9	tasavvur	tasavvur	_	_	N;SG	_	_	_	_
+10	etmek	et	_	_	N;IND;SG;PFV;3;FUT;NOM	_	_	_	_
+11	zor	zor	_	_	ADJ;SG	_	_	_	_
+12	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01072046
+# text = Ama Hispania'nın yeni gelenler üzerindeki etkisi büyüktü.
+# text_en = But the impact of Hispania in the newcomers was also big.
+1	Ama	ama	_	_	ADV	_	_	_	_
+2	Hispania'nın	Hispania	_	_	PROPN;GEN;SG	_	_	_	_
+3	yeni	yeni	_	_	ADV;SG	_	_	_	_
+4	gelenler	_	_	_	POS;N;PL	_	_	_	_
+5	üzerinde	üzer	_	_	PSS3S;N;SG;ESS	_	_	_	_
+6	ki	ki	_	_	ADP	_	_	_	_
+7	etkisi	etki	_	_	PSS3S;N;SG;NOM	_	_	_	_
+8	büyük	_	_	_	ADJ;SG	_	_	_	_
+9	tü	_	_	_	IND;SG;PFV;PST;V;3	_	_	_	_
+10	.	.	_	_	_	_	_	_	_
+
+# sent_id = w03002055
+# text = Uluslararası Af Örgütü, büyücülükle suçlanan elli kişinin öldürülmesini anlatan 2008 tarihli gazete yazılarına atıfta bulunuyor.
+# text_en = Amnesty International cites newspaper articles from 2008 describing the murder of fifty people accused of witchcraft.
+1	Uluslararası	Uluslararası	_	_	ADJ;SG	_	_	_	_
+2	Af	af	_	_	N;SG	_	_	_	_
+3	Örgütü	Örgüi	_	_	PSS3S;N;SG;NOM	_	_	_	_
+4	,	,	_	_	_	_	_	_	_
+5	büyücülükle	büyücülükle	_	_	INS;N;SG	_	_	_	_
+6	suçlanan	suçla	_	_	POS;ADJ;SG	_	_	_	_
+7	elli	elli	_	_	NUM;SG	_	_	_	_
+8	kişinin	kişi	_	_	GEN;N;SG	_	_	_	_
+9	öldürülmesini	öldürül	_	_	PSS3S;V.MSDR;N;PRS;IND;ACC;PFV;PASS	_	_	_	_
+10	anlatan	anlat	_	_	POS;ADJ;SG	_	_	_	_
+11	2008	2008	_	_	NUM;SG	_	_	_	_
+12	tarihli	_	_	_	ADJ;SG	_	_	_	_
+13	gazete	gazete	_	_	N;SG	_	_	_	_
+14	yazılarına	yazı	_	_	PSS3S;N;DAT;PL	_	_	_	_
+15	atıfta	atıf	_	_	ESS;N;SG	_	_	_	_
+16	bulunuyor	bulun	_	_	PRS;V;IND;SG;PROG;3	_	_	_	_
+17	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01140
+# sent_id = n01140012
+# text = Hollanda'da yetkililer, insansız hava araçlarını izlemek için daha düşük teknolojili bir yaklaşım benimsediler.
+# text_en = In the Netherlands, authorities have taken a lower-tech approach to tracking drones.
+1	Hollanda'da	Hollanda	_	_	ESS;PROPN;SG	_	_	_	_
+2	yetkililer	yetkili	_	_	N;NOM;PL	_	_	_	_
+3	,	,	_	_	_	_	_	_	_
+4	insansız	_	_	_	ADJ;SG	_	_	_	_
+5	hava	hava	_	_	N;SG	_	_	_	_
+6	araçlarını	araç	_	_	PSS3S;N;ACC;PL	_	_	_	_
+7	izlemek	izle	_	_	N;IND;SG;PFV;3;FUT	_	_	_	_
+8	için	için	_	_	ADP	_	_	_	_
+9	daha	daha	_	_	ADV	_	_	_	_
+10	düşük	düşük	_	_	ADJ;SG	_	_	_	_
+11	teknolojili	teknolojili	_	_	ADJ;SG	_	_	_	_
+12	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+13	yaklaşım	yaklaşım	_	_	N;SG	_	_	_	_
+14	benimsediler	benimse	_	_	3;IND;PFV;PST;V;PL	_	_	_	_
+15	.	.	_	_	_	_	_	_	_
+
+# newdoc id = n01142
+# sent_id = n01142007
+# text = En iyi tenis oyunlarından bazılarını bir sette dengelediği ve karar vermeye zorladığı maçlarda sergileyen Isner, borcunu da ödedi.
+# text_en = Isner, who produced some of his best tennis as he leveled at one set all and forced a decider, also paid his tribute.
+1	En	en	_	_	ADV	_	_	_	_
+2	iyi	iyi	_	_	ADJ;SG	_	_	_	_
+3	tenis	tenis	_	_	N;SG	_	_	_	_
+4	oyunlarından	oyun	_	_	PSS3S;AT+ABL;N;PL	_	_	_	_
+5	bazılarını	bazı	_	_	PSS3P;ACC;PRO;3;PL	_	_	_	_
+6	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+7	sette	set	_	_	ESS;N;SG	_	_	_	_
+8	dengelediği	dengele	_	_	PSS3S;ADJ;SG;POS	_	_	_	_
+9	ve	ve	_	_	CONJ	_	_	_	_
+10	karar	karar	_	_	N;SG	_	_	_	_
+11	vermeye	ver	_	_	V.MSDR;N;PRS;IND;DAT;PFV	_	_	_	_
+12	zorladığı	zorla	_	_	PSS3S;ADJ;SG;POS	_	_	_	_
+13	maçlarda	maç	_	_	ESS;N;PL	_	_	_	_
+14	sergileyen	sergile	_	_	POS;ADJ;SG	_	_	_	_
+15	Isner	Isner	_	_	PROPN;NOM;SG	_	_	_	_
+16	,	,	_	_	_	_	_	_	_
+17	borcunu	borç	_	_	PSS3S;N;ACC;SG	_	_	_	_
+18	da	da	_	_	ADV	_	_	_	_
+19	ödedi	öde	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+20	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01098041
+# text = İki minareli küçük bir kasaba yanımızdan geçip gidiyor.
+# text_en = A small town with two minarets glides by.
+1	İki	iki	_	_	NUM;SG	_	_	_	_
+2	minareli	_	_	_	ADJ;SG	_	_	_	_
+3	küçük	küçük	_	_	ADJ;SG	_	_	_	_
+4	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+5	kasaba	kasaba	_	_	N;SG	_	_	_	_
+6	yanımızdan	yanı	_	_	SG;N;AT+ABL	_	_	_	_
+7	geçip	geç	_	_	POS;ADV	_	_	_	_
+8	gidiyor	git	_	_	PRS;V;IND;SG;PROG;3	_	_	_	_
+9	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01035080
+# text = Öte yandan, iyi yönetim uygulamalarının uygulandığı sağlıklı bir ekosistem, bu olayların oluşma ihtimalini veya en azından olumsuz etkileri azaltacaktır.
+# text_en = On the other hand, a healthy ecosystem with good management practices will reduce the chance of these events happening, or will at least mitigate adverse impacts.
+1	Öte	öte	_	_	N;SG	_	_	_	_
+2	yandan	yan	_	_	SG;N;AT+ABL	_	_	_	_
+3	,	,	_	_	_	_	_	_	_
+4	iyi	iyi	_	_	ADJ;SG	_	_	_	_
+5	yönetim	yönetim	_	_	N;SG	_	_	_	_
+6	uygulamalarının	uygulama	_	_	PSS3S;N;GEN;PL	_	_	_	_
+7	uygulandığı	uygula	_	_	PSS3S;ADJ;SG;POS	_	_	_	_
+8	sağlıklı	_	_	_	ADJ;SG	_	_	_	_
+9	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+10	ekosistem	ekosistem	_	_	N;NOM;SG	_	_	_	_
+11	,	,	_	_	_	_	_	_	_
+12	bu	bu	_	_	DET;DEF;POS;SG	_	_	_	_
+13	olayların	olay	_	_	GEN;N;PL	_	_	_	_
+14	oluşma	oluş	_	_	V.MSDR;N;PRS;IND;PFV;NOM	_	_	_	_
+15	ihtimalini	ihtimal	_	_	PSS3S;N;ACC;SG	_	_	_	_
+16	veya	veya	_	_	CONJ	_	_	_	_
+17	en	en	_	_	ADV	_	_	_	_
+18	azından	az	_	_	PSS2S;N;SG;AT+ABL	_	_	_	_
+19	olumsuz	olumsuz	_	_	ADJ;SG	_	_	_	_
+20	etkileri	etki	_	_	ACC;N;PL	_	_	_	_
+21	azaltacaktır	azaltacak	_	_	3;SG;PFV;CAUS;V;FUT	_	_	_	_
+22	.	.	_	_	_	_	_	_	_
+
+# sent_id = n01092040
+# text = Dava kapsamını yalnızca bir projede gerçekten görev alanlarla sınırlamanın muhtemel yollarını araştırıyoruz. dedi.
+# text_en = “We are actively thinking of possible ways to limit the scope of litigation to only those with a real standing in a project,” he was quoted as saying.
+1	Dava	dava	_	_	N;SG	_	_	_	_
+2	kapsamını	kapsam	_	_	PSS3S;N;ACC;SG	_	_	_	_
+3	yalnızca	yalnızca	_	_	ADJ	_	_	_	_
+4	bir	bir	_	_	DET;POS;INDF;SG	_	_	_	_
+5	projede	proje	_	_	ESS;N;SG	_	_	_	_
+6	gerçekten	gerçekten	_	_	ADV	_	_	_	_
+7	görev	görev	_	_	N;SG	_	_	_	_
+8	alanlarla	alan	_	_	INS;N;PL	_	_	_	_
+9	sınırlamanın	sınırla	_	_	V.MSDR;N;PRS;GEN;IND;PFV	_	_	_	_
+10	muhtemel	muhtemel	_	_	ADJ;SG	_	_	_	_
+11	yollarını	yol	_	_	PSS3S;N;ACC;PL	_	_	_	_
+12	araştırıyoruz	araştır	_	_	PRS;1;IND;PROG;V;PL	_	_	_	_
+13	.	.	_	_	_	_	_	_	_
+14	dedi	de	_	_	3;IND;SG;PFV;PST;V	_	_	_	_
+15	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01132081
+# text = Yelkenler, tarih öncesi Mezo Amerikalı ikonografisinde ya da metinlerde temsil edilmemektedir; bunun yerine, kanoların antik Maya için birincil su taşımacılığı modeli olarak kullanıldığı teorisine göre hazırlanmıştır.
+# text_en = Sails are not represented in prehistoric Mesoamerican iconography or texts, instead, it is theorized that canoes were used as a primary mode of water transportation for the ancient Maya.
+1	Yelkenler	Yelken	_	_	N;NOM;SG	_	_	_	_
+2	,	,	_	_	_	_	_	_	_
+3	tarih	tarih	_	_	N;SG	_	_	_	_
+4	öncesi	önce	_	_	PSS3S;N;SG	_	_	_	_
+5	Mezo	Mezo	_	_	PROPN;SG	_	_	_	_
+6	Amerikalı	Amerikalı	_	_	PROPN;SG	_	_	_	_
+7	ikonografisinde	ikonografi	_	_	PSS3S;N;SG;ESS	_	_	_	_
+8	ya	ya	_	_	CONJ	_	_	_	_
+9	da	da	_	_	ADV	_	_	_	_
+10	metinlerde	metin	_	_	ESS;N;PL	_	_	_	_
+11	temsil	temsil	_	_	N;SG	_	_	_	_
+12	edilmemektedir	edilme	_	_	PRS;V;SG;PASS;PROG;3;NEG	_	_	_	_
+13	;	;	_	_	_	_	_	_	_
+14	bunun	bu	_	_	PRO;POS;GEN;SG	_	_	_	_
+15	yerine	yer	_	_	PSS3S;N;SG;DAT	_	_	_	_
+16	,	,	_	_	_	_	_	_	_
+17	kanoların	kano	_	_	GEN;N;PL	_	_	_	_
+18	antik	an	_	_	ADJ;SG	_	_	_	_
+19	Maya	Maya	_	_	PROPN;SG	_	_	_	_
+20	için	için	_	_	ADP	_	_	_	_
+21	birincil	birincil	_	_	ADJ;SG	_	_	_	_
+22	su	su	_	_	N;SG	_	_	_	_
+23	taşımacılığı	taşımacılık	_	_	N;SG	_	_	_	_
+24	modeli	_	_	_	PSS3S;N;SG	_	_	_	_
+25	olarak	olarak	_	_	V;POS	_	_	_	_
+26	kullanıldığı	kullan	_	_	PSS3S;N;SG;POS	_	_	_	_
+27	teorisine	teori	_	_	PSS3S;N;SG;DAT	_	_	_	_
+28	göre	göre	_	_	ADP	_	_	_	_
+29	hazırlanmıştır	hazırla	_	_	3;SG;PFV;PST;NFH;V;PASS	_	_	_	_
+30	.	.	_	_	_	_	_	_	_
+
+# sent_id = w01047094
+# text = Brooks ve Carson 1962 yılının ortalarına gelindiğinde düzenlemeyi büyük oranda bitirmişler ve metni, nihai öneriler için seçilen bireylere göndererek kitabın tanıtımına zemin hazırlıyorlardı.
+# text_en = By mid-1962, Brooks and Carson had largely finished the editing, and were laying the groundwork for promoting the book by sending the manuscript out to select individuals for final suggestions.
+1	Brooks	Brooks	_	_	PROPN;SG	_	_	_	_
+2	ve	ve	_	_	CONJ	_	_	_	_
+3	Carson	Carson	_	_	PROPN;NOM;SG	_	_	_	_
+4	1962	1962	_	_	NUM;SG	_	_	_	_
+5	yılının	yıl	_	_	PSS3S;N;GEN;SG	_	_	_	_
+6	ortalarına	orta	_	_	PSS3S;N;DAT;PL	_	_	_	_
+7	gelindiğinde	gelindiğ	_	_	PSS3S;ADV;SG;ESS;POS	_	_	_	_
+8	düzenlemeyi	düzenle	_	_	V.MSDR;N;PRS;IND;ACC;PFV	_	_	_	_
+9	büyük	büyük	_	_	ADJ;SG	_	_	_	_
+10	oranda	oran	_	_	ESS;N;SG	_	_	_	_
+11	bitirmişler	bitir	_	_	3;IND;PFV;PST;CAUS;NFH;V;PL	_	_	_	_
+12	ve	ve	_	_	CONJ	_	_	_	_
+13	metni	metin	_	_	ACC;N;SG	_	_	_	_
+14	,	,	_	_	_	_	_	_	_
+15	nihai	niha	_	_	ADJ;SG	_	_	_	_
+16	öneriler	öneri	_	_	N;PL	_	_	_	_
+17	için	için	_	_	ADP	_	_	_	_
+18	seçilen	seç	_	_	POS;ADJ;SG	_	_	_	_
+19	bireylere	birey	_	_	PL;N;DAT	_	_	_	_
+20	göndererek	gönder	_	_	POS;ADV	_	_	_	_
+21	kitabın	kitap	_	_	GEN;N;SG	_	_	_	_
+22	tanıtımına	tanıtım	_	_	PSS3S;N;SG;DAT	_	_	_	_
+23	zemin	ze	_	_	N;SG	_	_	_	_
+24	hazırlıyorlardı	hazırla	_	_	V;IND;PST;PROG;3;PL	_	_	_	_
+25	.	.	_	_	_	_	_	_	_
+
