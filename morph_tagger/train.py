@@ -200,7 +200,7 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
                 y_onehot = torch.FloatTensor(*morph_decoder_outputs.size()).to(device)
                 y_onehot.zero_()
                 y_onehot.scatter_(1, y2[0], 1)
-                sentence_loss += bce_criterion(morph_decoder_outputs, y_onehot)
+            sentence_loss += bce_criterion(morph_decoder_outputs, y_onehot)
 
             sentence_loss.backward(retain_graph=True)
             total_train_loss += sentence_loss.item() / (word_count * 2.0)

@@ -555,6 +555,8 @@ class DecoderFF(nn.Module):
         else:
             outputs = context_vectors.view(1, *context_vectors.size())
 
+        outputs = self.W(outputs)
+        outputs = self.relu(outputs)
         outputs = self.dropout(outputs)
         outputs = self.classifier(outputs)
 
@@ -585,7 +587,9 @@ class DecoderFF(nn.Module):
             hidden = torch.cat([transformer_context, context_vector], 1)
         else:
             hidden = torch.cat([context_vector, word_embedding], 1)
-        outputs = self.classifier(hidden)
+        outputs = self.W(hidden)
+        outputs = self.relu(outputs)
+        outputs = self.classifier(outputs)
         scores = torch.sigmoid(outputs)
         preds = scores.data > 0.5
         preds = preds.to(torch.float32)[0].tolist()
@@ -595,6 +599,3 @@ class DecoderFF(nn.Module):
             if ix > 2 and pred:
                 predictions.append(self.index2token[ix])
         return predictions
-
-if __name__ == '__main__':
-    test_encoder_decoder()
