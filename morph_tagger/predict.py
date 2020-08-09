@@ -12,7 +12,7 @@ from transformers import AutoTokenizer
 from configs import TRANSFORMER_MODEL_NAME
 from data_utils import read_surfaces, read_surface_lemma_map
 from languages import NON_TRANSFORMER_LANGUAGES
-from layers import EncoderRNN, DecoderRNN, TransformerRNN
+from layers import EncoderRNN, DecoderRNN, TransformerRNN, DecoderFF
 from logger import LOGGER
 from train import embedding_size, char_gru_hidden_size, word_gru_hidden_size, encoder_dropout, device, \
     output_embedding_size, decoder_dropout
@@ -22,7 +22,7 @@ REMOVE_EOS_REGEX = re.compile(r'\$$')
 
 def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset,
                      use_transformer=True, use_char_lstm=True, transformer_model_name=TRANSFORMER_MODEL_NAME,
-                     tokenizer=None, device=torch.device("cpu"),
+                     tokenizer=None, use_rnn_morph=False, device=torch.device("cpu"),
                      max_morph_features_len=10, surface2lemma=None):
     """
 
@@ -36,6 +36,7 @@ def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, 
         use_char_lstm (bool): indicate whether to use char lstm
         transformer_model_name (str): HuggingFace style transformer name
         tokenizer (Tokenizer): HuggingFace style Tokenizer
+        use_rnn_morph (str): indicate whether to use lstm to dcode morph tags
         device (`torch.device`): Default is cpu
         max_morph_features_len (int): Maximum length of morphological features
         surface2lemma (dict): Dictionary where keys are surface words and values are lemmas
@@ -119,16 +120,23 @@ def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, 
 
     # Run morph features decoder for each word
     morph_features = []
+
     for i in range(words_count):
-        if use_transformer:
+        if use_transformer and use_rnn_morph:
             _, morph_feature = decoder_morph_tags.predict(word_representations[i],
                                                           context_aware_representations[i],
                                                           transformer_context=transformer_output[0][i],
                                                           max_len=max_morph_features_len, device=device)
-        else:
+        elif use_transformer:
+            morph_feature = decoder_morph_tags.predict(word_representations[i], context_aware_representations[i],
+                                                       transformer_context=transformer_output[0][i])
+        elif use_rnn_morph:
             _, morph_feature = decoder_morph_tags.predict(word_representations[i],
                                                           context_aware_representations[i],
                                                           max_len=max_morph_features_len, device=device)
+        else:
+            morph_feature = decoder_morph_tags.predict(word_representations[i], context_aware_representations[i])
+
         morph_features.append(';'.join(morph_feature))
 
     conll_sentence = "# Sentence\n"
@@ -227,7 +235,8 @@ def predict(input_file, output_file, dataset_obj_path, encoder_model_path, lemma
 
 def predict_unimorph(language_path, model_name, conll_file, use_surface_lemma_mapping=True,
                      prediction_file=None, use_min_edit_operation_decoder=True,
-                     use_transformer=True, use_char_lstm=True, transformer_model_name=TRANSFORMER_MODEL_NAME):
+                     use_transformer=True, use_char_lstm=True, use_rnn_morph=False,
+                     transformer_model_name=TRANSFORMER_MODEL_NAME):
 
     language_conll_files = os.listdir(language_path)
     for language_conll_file in language_conll_files:
@@ -303,12 +312,17 @@ def predict_unimorph(language_path, model_name, conll_file, use_surface_lemma_ma
 
             # LOAD MORPH DECODER MODEL
             LOGGER.info('Loading Morph Decoder...')
-            if use_transformer:
+
+            if use_transformer and use_rnn_morph:
                 decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.morph_tag2id,
                                                 layer_size=3, dropout_ratio=decoder_dropout).to(device)
-            else:
+            elif use_rnn_morph:
                 decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.morph_tag2id,
                                                 layer_size=2, dropout_ratio=decoder_dropout).to(device)
+            else:
+                decoder_morph_tags = DecoderFF(word_gru_hidden_size, train_set.morph_tag2id,
+                                               dropout_ratio=decoder_dropout).to(device)
+
             decoder_morph_tags.load_state_dict(torch.load(
                 train_data_path.replace('train', 'decoder_morph').replace('conllu', '{}.model'.format(model_name))
             ))

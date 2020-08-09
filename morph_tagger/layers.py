@@ -1,6 +1,7 @@
 from collections import namedtuple
 from operator import attrgetter
 
+import numpy as np
 import torch
 import torch.nn as nn
 from tqdm import tqdm
@@ -499,6 +500,101 @@ def test_encoder_decoder():
         surface_words = [surface_word for surface_word in sentence.surface_words]
         conll_sentence = predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, train_set)
         print(conll_sentence)
+
+
+class DecoderFF(nn.Module):
+    """ The module generates characters and tags sequentially to construct a morphological analysis
+
+    Inputs a context representation of a word and apply grus
+    to predict the characters in the root form and the tags in the analysis respectively
+
+    """
+
+    def __init__(self, hidden_size, vocab, dropout_ratio=0):
+        """Initialize the decoder object
+
+        Args:
+            hidden_size (int): The number of units in gru
+            vocab (dict): Vocab dictionary where keys are either characters or tags and the values are integer
+            dropout_ratio(float): Dropout ratio, dropout applied to the outputs of both gru and embedding modules
+        """
+        super(DecoderFF, self).__init__()
+
+        # Hyper parameters
+        self.hidden_size = hidden_size
+
+        # Vocab and inverse vocab to converts output indexes to characters and tags
+        self.vocab = vocab
+        self.index2token = {v: k for k, v in vocab.items()}
+        self.vocab_size = len(vocab)
+
+        # Layers
+        self.W = nn.Linear(2 * hidden_size, hidden_size)
+        self.classifier = nn.Linear(2 * hidden_size, len(vocab))
+        self.dropout = nn.Dropout(p=dropout_ratio)
+        self.relu = nn.ReLU()
+
+    def forward(self, word_embeddings, context_vectors, transformer_context=None):
+        """Forward pass of DecoderRNN
+
+        Inputs a context-aware vector of a word and produces an analysis consists of root+tags
+
+        Args:
+            word_embedding (`torch.tensor`): word representations (outputs of char GRU)
+            context_vector (`torch.tensor`): Context-aware representations of a words
+
+        Returns:
+            `torch.tensor`: scores in each time step
+        """
+
+        # Initialize gru hidden units with context vector (encoder output)
+        context_vectors = self.relu(self.W(context_vectors))
+        transformer_context = self.relu(transformer_context)
+        if transformer_context is not None:
+            outputs = torch.cat([transformer_context.view(*transformer_context.size()[1:]), context_vectors], dim=-1)
+        else:
+            outputs = context_vectors.view(1, *context_vectors.size())
+
+        outputs = self.dropout(outputs)
+        outputs = self.classifier(outputs)
+
+        return outputs
+
+    def predict(self, word_embedding, context_vector, transformer_context=None):
+        """Forward pass of DecoderRNN for prediction only
+
+        The loop for gru is stopped as soon as the end of sentence tag is produced twice.
+        The first end of sentence tag indicates the end of the root while the second one indicates the end of tags
+
+        Args:
+            word_embedding (`torch.tensor`): word representation (outputs of char GRU
+            context_vector (`torch.tensor`): Context-aware representation of a word
+
+        Returns:
+            tuple: (scores:`torch.tensor`, predictions:list)
+
+        """
+
+        # Initialize gru hidden units with context vector (encoder output)
+        context_vector = context_vector.view(1, *context_vector.size())
+        context_vector = self.relu(self.W(context_vector).view(1, self.hidden_size))
+        word_embedding = word_embedding.view(1, self.hidden_size)
+        if transformer_context is not None:
+            transformer_context = transformer_context.view(1, self.hidden_size)
+            transformer_context = self.relu(transformer_context)
+            hidden = torch.cat([transformer_context, context_vector], 1)
+        else:
+            hidden = torch.cat([context_vector, word_embedding], 1)
+        outputs = self.classifier(hidden)
+        scores = torch.sigmoid(outputs)
+        preds = scores.data > 0.5
+        preds = preds.to(torch.float32)[0].tolist()
+        preds = np.array(preds, dtype=np.bool)
+        predictions = []
+        for pred in preds:
+            predictions.append(self.index2token[pred])
+
+        return predictions
 
 if __name__ == '__main__':
     test_encoder_decoder()

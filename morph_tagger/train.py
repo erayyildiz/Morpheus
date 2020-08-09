@@ -12,7 +12,7 @@ from configs import *
 from data_loaders import ConllDataset
 from eval import evaluate
 from languages import PILOT_LANGUAGES, NON_TRANSFORMER_LANGUAGES
-from layers import EncoderRNN, DecoderRNN, TransformerRNN
+from layers import EncoderRNN, DecoderRNN, TransformerRNN, DecoderFF
 from logger import LOGGER
 
 # Encoder hyper-parmeters
@@ -31,8 +31,8 @@ LOGGER.info("Using {} as default device".format(device))
 
 
 def train(language_name, train_data_path, val_data_path, use_min_edit_operation_decoder=True,
-          encoder_lr=0.001, decoder_lemma_lr=0.0001, decoder_morph_lr=0.001, transformer_lr=0.001, max_words=50,
-          use_transformer=True, use_char_lstm=True, transformer_model_name=TRANSFORMER_MODEL_NAME,
+          encoder_lr=0.0003, decoder_lemma_lr=0.00003, decoder_morph_lr=0.0003, transformer_lr=0.0003, max_words=50,
+          use_transformer=True, use_char_lstm=True, use_rnn_morph=False, transformer_model_name=TRANSFORMER_MODEL_NAME,
           model_name='LemmaTransformer', patience=4, num_epochs=100):
     """
     Trains model for given language.
@@ -50,6 +50,7 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
         max_words (int): Maximum number of words in a sentence
         use_transformer (str): indicates weather to use transformer
         use_char_lstm (str): indicate whether to use char lstm
+        use_rnn_morph (str): indicate whether to use lstm to dcode morph tags
         transformer_model_name (str): HuggingFace style transformer name
         model_name (str): Name of the model
         patience (int): Number of epochs without improvement. Used for early stopping
@@ -104,15 +105,19 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
                                            len(train_set.surface_char2id), layer_size=3,
                                            dropout_ratio=decoder_dropout).to(device)
 
-    if use_transformer:
+    if use_transformer and use_rnn_morph:
         decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.morph_tag2id,
                                         layer_size=3, dropout_ratio=decoder_dropout).to(device)
-    else:
+    elif use_rnn_morph:
         decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.morph_tag2id,
                                         layer_size=2, dropout_ratio=decoder_dropout).to(device)
+    else:
+        decoder_morph_tags = DecoderFF(word_gru_hidden_size, train_set.morph_tag2id,
+                                       dropout_ratio=decoder_dropout).to(device)
 
     # Define loss and optimizers
     criterion = nn.CrossEntropyLoss(ignore_index=0).to(device)
+    bce_criterion = nn.BCEWithLogitsLoss().to(device)
 
     # Create optimizers
     parameters_except_based_model = [x[1] for x in encoder.named_parameters() if 'based_model' not in x[0]]
@@ -128,10 +133,10 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
     decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(), lr=decoder_lemma_lr)
     decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(), lr=decoder_morph_lr)
 
-    encoder_scheduler = MultiStepLR(encoder_optimizer, milestones=list(range(3, 100, 1)), gamma=0.8)
-    transformer_scheduler = MultiStepLR(transformer_optimizer, milestones=list(range(3, 100, 1)), gamma=0.8)
-    decoder_lemma_scheduler = MultiStepLR(decoder_lemma_optimizer, milestones=list(range(3, 100, 1)), gamma=0.8)
-    decoder_morph_tags_scheduler = MultiStepLR(decoder_morph_tags_optimizer, milestones=list(range(3, 100, 1)),
+    encoder_scheduler = MultiStepLR(encoder_optimizer, milestones=list(range(3, 100, 2)), gamma=0.8)
+    transformer_scheduler = MultiStepLR(transformer_optimizer, milestones=list(range(3, 100, 2)), gamma=0.8)
+    decoder_lemma_scheduler = MultiStepLR(decoder_lemma_optimizer, milestones=list(range(3, 100, 2)), gamma=0.8)
+    decoder_morph_tags_scheduler = MultiStepLR(decoder_morph_tags_optimizer, milestones=list(range(3, 100, 2)),
                                                gamma=0.8)
 
     prev_val_loss = 1000000
@@ -176,16 +181,26 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
 
             # Run morph decoder for each word
             sentence_loss = 0.0
-            if use_transformer:
+            if use_transformer and use_rnn_morph:
                 morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
-                                                           y2[0, :, :-1],
+                                                           y2[0, :, :-1], transformer_context=transformer_output)
+            elif use_transformer:
+                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
                                                            transformer_context=transformer_output)
+            elif use_rnn_morph:
+                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings)
             else:
-                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
-                                                           y2[0, :, :-1])
+                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings, y2[0, :, :-1])
+
             word_count = word_embeddings.size(0)
-            for word_ix in range(word_count):
-                sentence_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
+            if use_rnn_morph:
+                for word_ix in range(word_count):
+                    sentence_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
+            else:
+                y_onehot = torch.FloatTensor(*morph_decoder_outputs.size())
+                y_onehot.zero_()
+                y_onehot.scatter_(1, y2[0], 1)
+                sentence_loss += bce_criterion(morph_decoder_outputs, y_onehot)
 
             sentence_loss.backward(retain_graph=True)
             total_train_loss += sentence_loss.item() / (word_count * 2.0)
@@ -241,16 +256,26 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
 
             # Run morph decoder for each word
             sentence_loss = 0.0
-            if use_transformer:
+            if use_transformer and use_rnn_morph:
                 morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
-                                                           y2[0, :, :-1],
+                                                           y2[0, :, :-1], transformer_context=transformer_output)
+            elif use_transformer:
+                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
                                                            transformer_context=transformer_output)
+            elif use_rnn_morph:
+                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings)
             else:
-                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
-                                                           y2[0, :, :-1])
+                morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings, y2[0, :, :-1])
+
             word_count = word_embeddings.size(0)
-            for word_ix in range(word_count):
-                sentence_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
+            if use_rnn_morph:
+                for word_ix in range(word_count):
+                    sentence_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
+            else:
+                y_onehot = torch.FloatTensor(*morph_decoder_outputs.size())
+                y_onehot.zero_()
+                y_onehot.scatter_(1, y2[0], 1)
+                sentence_loss += bce_criterion(morph_decoder_outputs, y_onehot)
 
             val_loss += sentence_loss.item() / (word_count * 2.0)
             val_morph_loss += sentence_loss.item() / (word_count * 1.0)
