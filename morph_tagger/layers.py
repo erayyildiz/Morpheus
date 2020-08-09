@@ -592,9 +592,8 @@ class DecoderFF(nn.Module):
         preds = np.array(preds, dtype=np.bool)
         predictions = []
         for ix, pred in enumerate(preds):
-            if ix > 0 and pred:
+            if ix > 2 and pred:
                 predictions.append(self.index2token[ix])
-
         return predictions
 
 if __name__ == '__main__':

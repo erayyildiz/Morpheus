@@ -64,14 +64,14 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
         assert transformer_model_name, 'transformer_model_name should be provided if use_transformer is True'
 
     # Load train set
-    train_set = ConllDataset(train_data_path, transformer_model_name=transformer_model_name, max_sentences=2)
+    train_set = ConllDataset(train_data_path, transformer_model_name=transformer_model_name)
     train_loader = DataLoader(train_set)
 
     # Load validation data
     val_set = ConllDataset(val_data_path, surface_char2id=train_set.surface_char2id,
                            lemma_char2id=train_set.lemma_char2id, morph_tag2id=train_set.morph_tag2id,
                            transformer_model_name=transformer_model_name,
-                           transformation2id=train_set.transformation2id, mode='test', max_sentences=2)
+                           transformation2id=train_set.transformation2id, mode='test')
     val_loader = DataLoader(val_set)
 
     # Build Models
