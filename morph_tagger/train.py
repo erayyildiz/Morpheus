@@ -31,7 +31,7 @@ LOGGER.info("Using {} as default device".format(device))
 
 
 def train(language_name, train_data_path, val_data_path, use_min_edit_operation_decoder=True,
-          encoder_lr=0.0003, decoder_lemma_lr=0.00003, decoder_morph_lr=0.0003, transformer_lr=0.0003, max_words=50,
+          encoder_lr=0.0005, decoder_lemma_lr=0.00005, decoder_morph_lr=0.0005, transformer_lr=0.0005, max_words=50,
           use_transformer=True, use_char_lstm=True, use_rnn_morph=False, transformer_model_name=TRANSFORMER_MODEL_NAME,
           model_name='LemmaTransformer', patience=4, num_epochs=100):
     """
@@ -64,14 +64,14 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
         assert transformer_model_name, 'transformer_model_name should be provided if use_transformer is True'
 
     # Load train set
-    train_set = ConllDataset(train_data_path, transformer_model_name=transformer_model_name)
+    train_set = ConllDataset(train_data_path, transformer_model_name=transformer_model_name, max_sentences=2)
     train_loader = DataLoader(train_set)
 
     # Load validation data
     val_set = ConllDataset(val_data_path, surface_char2id=train_set.surface_char2id,
                            lemma_char2id=train_set.lemma_char2id, morph_tag2id=train_set.morph_tag2id,
                            transformer_model_name=transformer_model_name,
-                           transformation2id=train_set.transformation2id, mode='test')
+                           transformation2id=train_set.transformation2id, mode='test', max_sentences=2)
     val_loader = DataLoader(val_set)
 
     # Build Models
@@ -133,11 +133,11 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
     decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(), lr=decoder_lemma_lr)
     decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(), lr=decoder_morph_lr)
 
-    encoder_scheduler = MultiStepLR(encoder_optimizer, milestones=list(range(3, 100, 2)), gamma=0.8)
-    transformer_scheduler = MultiStepLR(transformer_optimizer, milestones=list(range(3, 100, 2)), gamma=0.8)
-    decoder_lemma_scheduler = MultiStepLR(decoder_lemma_optimizer, milestones=list(range(3, 100, 2)), gamma=0.8)
+    encoder_scheduler = MultiStepLR(encoder_optimizer, milestones=list(range(3, 100, 2)), gamma=0.5)
+    transformer_scheduler = MultiStepLR(transformer_optimizer, milestones=list(range(3, 100, 2)), gamma=0.5)
+    decoder_lemma_scheduler = MultiStepLR(decoder_lemma_optimizer, milestones=list(range(3, 100, 2)), gamma=0.5)
     decoder_morph_tags_scheduler = MultiStepLR(decoder_morph_tags_optimizer, milestones=list(range(3, 100, 2)),
-                                               gamma=0.8)
+                                               gamma=0.5)
 
     prev_val_loss = 1000000
     num_epochs_wo_improvement = 0

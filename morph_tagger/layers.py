@@ -591,8 +591,9 @@ class DecoderFF(nn.Module):
         preds = preds.to(torch.float32)[0].tolist()
         preds = np.array(preds, dtype=np.bool)
         predictions = []
-        for pred in preds:
-            predictions.append(self.index2token[pred])
+        for ix, pred in enumerate(preds):
+            if ix > 0 and pred:
+                predictions.append(self.index2token[ix])
 
         return predictions
 
