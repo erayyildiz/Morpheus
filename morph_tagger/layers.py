@@ -530,7 +530,7 @@ class DecoderFF(nn.Module):
 
         # Layers
         self.W = nn.Linear(2 * hidden_size, hidden_size)
-        self.classifier = nn.Linear(2 * hidden_size, len(vocab))
+        self.classifier = nn.Linear(hidden_size, len(vocab))
         self.dropout = nn.Dropout(p=dropout_ratio)
         self.relu = nn.ReLU()
 
