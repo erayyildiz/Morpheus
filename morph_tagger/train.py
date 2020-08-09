@@ -197,7 +197,7 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
                 for word_ix in range(word_count):
                     sentence_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
             else:
-                y_onehot = torch.FloatTensor(*morph_decoder_outputs.size())
+                y_onehot = torch.FloatTensor(*morph_decoder_outputs.size()).to(device)
                 y_onehot.zero_()
                 y_onehot.scatter_(1, y2[0], 1)
                 sentence_loss += bce_criterion(morph_decoder_outputs, y_onehot)
