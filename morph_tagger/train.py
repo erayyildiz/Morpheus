@@ -235,7 +235,7 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
                 else:
                     sentence_lemma_loss += criterion(lemma_decoder_outputs[word_ix], y1[0, word_ix, 1:])
 
-                    sentence_lemma_loss.backward(retain_graph=True)
+            sentence_lemma_loss.backward(retain_graph=True)
             total_train_loss += sentence_lemma_loss.item() / (word_count * 2.0)
             lemma_loss += sentence_lemma_loss.item() / (word_count * 1.0)
 
