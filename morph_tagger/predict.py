@@ -9,7 +9,7 @@ import optparse
 
 from transformers import AutoTokenizer
 
-from configs import TRANSFORMER_MODEL_NAME
+from configs import TRANSFORMER_MODEL_NAME, DEVICE
 from data_utils import read_surfaces, read_surface_lemma_map
 from languages import NON_TRANSFORMER_LANGUAGES
 from layers import EncoderRNN, DecoderRNN, TransformerRNN, DecoderFF
