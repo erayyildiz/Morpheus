@@ -123,7 +123,7 @@ def input_pairs(reference, output):
 
 
 def evaluate(language_name, language_path, model_name=None, run_prediction=False,
-             use_rnn_morph=False, use_transformer=True, use_char_lstm=True):
+             use_rnn_morph=True, use_transformer=True, use_char_lstm=True):
     from predict import predict_unimorph
 
     LOGGER.info('Reading files for language: {}'.format(language_name))
@@ -226,5 +226,4 @@ def generate_all(model_name=None):
 if __name__ == "__main__":
     # generate_all(model_name='LemmaTransformer')
     # evaluate('Afrikaans-AfriBooms', '../data/2019/task2/UD_Afrikaans-AfriBooms', model_name='LemmaTransformer', run_prediction=True)
-    generate_outputs('Finnish-TDT', '../data/2019/task2/UD_Finnish-TDT', model_name='LemmaTransformer', run_prediction=True)
-    generate_outputs('Russian-GSD', '../data/2019/task2/UD_Russian-GSD', model_name='LemmaTransformer', run_prediction=True)
+    evaluate('UD_TURKISH-PUD', '../data/2019/task2/UD_TURKISH-PUD', model_name='ElectraTransformer', run_prediction=False)
