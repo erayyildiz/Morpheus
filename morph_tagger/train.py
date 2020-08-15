@@ -360,7 +360,8 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
     LOGGER.info('Evaluation...')
     from predict import predict_unimorph
     predict_unimorph(os.path.dirname(val_data_path), model_name, val_data_path,
-                     use_min_edit_operation_decoder=use_min_edit_operation_decoder)
+                     use_min_edit_operation_decoder=use_min_edit_operation_decoder,
+                     use_rnn_morph=use_rnn_morph, use_transformer=use_transformer, use_char_lstm=use_char_lstm)
     eval_results = evaluate(language_name, os.path.dirname(val_data_path), model_name=model_name,
                             use_rnn_morph=use_rnn_morph, use_transformer=use_transformer, use_char_lstm=use_char_lstm)
 
