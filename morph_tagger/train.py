@@ -210,6 +210,11 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             total_train_loss += sentence_morph_loss.item() / (word_count * 2.0)
             morph_loss += sentence_morph_loss.item() / (word_count * 1.0)
 
+            encoder_optimizer.step()
+            if epoch > NUM_STEPS_BEFORE_BASE_MODEL_UPDATE:
+                transformer_optimizer.step()
+            decoder_morph_tags_optimizer.step()
+
             if isinstance(decoder_lemma, TransformerRNN):
                 if use_transformer:
                     lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, x2,
@@ -235,9 +240,9 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             lemma_loss += sentence_lemma_loss.item() / (word_count * 1.0)
 
             encoder_optimizer.step()
-            transformer_optimizer.step()
+            if epoch > NUM_STEPS_BEFORE_BASE_MODEL_UPDATE:
+                transformer_optimizer.step()
             decoder_lemma_optimizer.step()
-            decoder_morph_tags_optimizer.step()
 
         encoder.eval()
         decoder_lemma.eval()
@@ -356,7 +361,8 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
     from predict import predict_unimorph
     predict_unimorph(os.path.dirname(val_data_path), model_name, val_data_path,
                      use_min_edit_operation_decoder=use_min_edit_operation_decoder)
-    eval_results = evaluate(language_name, os.path.dirname(val_data_path), model_name=model_name)
+    eval_results = evaluate(language_name, os.path.dirname(val_data_path), model_name=model_name,
+                            use_rnn_morph=use_rnn_morph, use_transformer=use_transformer, use_char_lstm=use_char_lstm)
 
     LOGGER.info('Evaluation completed')
     for k, v in eval_results.items():

@@ -122,7 +122,8 @@ def input_pairs(reference, output):
             yield r_conllu, o_conllu
 
 
-def evaluate(language_name, language_path, model_name=None, run_prediction=False):
+def evaluate(language_name, language_path, model_name=None, run_prediction=False,
+             use_rnn_morph=False, use_transformer=True, use_char_lstm=True):
     from predict import predict_unimorph
 
     LOGGER.info('Reading files for language: {}'.format(language_name))
@@ -133,7 +134,9 @@ def evaluate(language_name, language_path, model_name=None, run_prediction=False
             val_data_path = language_path + '/' + language_conll_file
             if run_prediction:
                 print('Runnnig model for prediction...')
-                predict_unimorph(language_path, model_name, val_data_path)
+                predict_unimorph(language_path, model_name, val_data_path,
+                                 use_rnn_morph=use_rnn_morph, use_transformer=use_transformer,
+                                 use_char_lstm=use_char_lstm)
             if model_name:
                 prediction_file = val_data_path.replace('dev', 'predictions-{}'.format(model_name))
             else:
