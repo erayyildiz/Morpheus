@@ -14,15 +14,15 @@ from data_utils import read_surfaces, read_surface_lemma_map
 from languages import NON_TRANSFORMER_LANGUAGES
 from layers import EncoderRNN, DecoderRNN, TransformerRNN, DecoderFF
 from logger import LOGGER
-from train import embedding_size, char_gru_hidden_size, word_gru_hidden_size, encoder_dropout, device, \
+from train import embedding_size, char_gru_hidden_size, word_gru_hidden_size, encoder_dropout, \
     output_embedding_size, decoder_dropout
 
 REMOVE_EOS_REGEX = re.compile(r'\$$')
-
+device = DEVICE
 
 def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset,
                      use_transformer=True, use_char_lstm=True, transformer_model_name=TRANSFORMER_MODEL_NAME,
-                     tokenizer=None, use_rnn_morph=False, device=DEVICE,
+                     tokenizer=None, use_rnn_morph=True, device=DEVICE,
                      max_morph_features_len=10, surface2lemma=None):
     """
 
@@ -186,7 +186,7 @@ def predict(input_file, output_file, dataset_obj_path, encoder_model_path, lemma
                              len(train_set.surface_char2id), None,
                              dropout_ratio=encoder_dropout, device=device)
 
-    encoder.load_state_dict(torch.load(encoder_model_path))
+    encoder.load_state_dict(torch.load(encoder_model_path, map_location=device))
     encoder = encoder.to(device)
 
     # LOAD LEMMA DECODER MODEL
@@ -201,7 +201,7 @@ def predict(input_file, output_file, dataset_obj_path, encoder_model_path, lemma
                                        len(train_set.surface_char2id), layer_size=3,
                                        dropout_ratio=decoder_dropout).to(device)
 
-    decoder_lemma.load_state_dict(torch.load(lemma_decoder_path))
+    decoder_lemma.load_state_dict(torch.load(lemma_decoder_path, map_location=device))
     decoder_lemma = decoder_lemma.to(device)
 
     # LOAD MORPH DECODER MODEL
@@ -214,7 +214,7 @@ def predict(input_file, output_file, dataset_obj_path, encoder_model_path, lemma
         decoder_morph_tags = DecoderRNN(output_embedding_size, word_gru_hidden_size, train_set.morph_tag2id,
                                         layer_size=2, dropout_ratio=decoder_dropout).to(device)
 
-    decoder_morph_tags.load_state_dict(torch.load(morph_decoder_path))
+    decoder_morph_tags.load_state_dict(torch.load(morph_decoder_path, map_location=device))
     decoder_morph_tags = decoder_morph_tags.to(device)
 
     encoder.eval()
@@ -279,8 +279,9 @@ def predict_unimorph(language_path, model_name, conll_file, use_surface_lemma_ma
                                      len(train_set.surface_char2id), None,
                                      dropout_ratio=encoder_dropout, device=device)
             encoder.load_state_dict(torch.load(
-                train_data_path.replace('train', 'encoder').replace('conllu', '{}.model'.format(model_name))
-            ))
+                train_data_path.replace('train', 'encoder').replace('conllu', '{}.model'.format(model_name)),
+                map_location=device))
+
             encoder = encoder.to(device)
 
             # LOAD LEMMA DECODER MODEL
@@ -306,8 +307,9 @@ def predict_unimorph(language_path, model_name, conll_file, use_surface_lemma_ma
                                                    dropout_ratio=decoder_dropout).to(device)
 
             decoder_lemma.load_state_dict(torch.load(
-                train_data_path.replace('train', 'decoder_lemma').replace('conllu', '{}.model'.format(model_name))
-            ))
+                train_data_path.replace('train', 'decoder_lemma').replace('conllu', '{}.model'.format(model_name)),
+                map_location=device)
+            )
             decoder_lemma = decoder_lemma.to(device)
 
             # LOAD MORPH DECODER MODEL
@@ -324,8 +326,9 @@ def predict_unimorph(language_path, model_name, conll_file, use_surface_lemma_ma
                                                dropout_ratio=decoder_dropout).to(device)
 
             decoder_morph_tags.load_state_dict(torch.load(
-                train_data_path.replace('train', 'decoder_morph').replace('conllu', '{}.model'.format(model_name))
-            ))
+                train_data_path.replace('train', 'decoder_morph').replace('conllu', '{}.model'.format(model_name)),
+                map_location=device)
+            )
             decoder_morph_tags = decoder_morph_tags.to(device)
 
             encoder.eval()
@@ -373,12 +376,18 @@ if __name__ == '__main__':
     parser.add_option('-m', '--morph_decoder_file',
                       action='store', dest='morph_decoder_file',
                       help='The path of the morph decoder object which is saved during training process')
+    parser.add_option('-u', '--unimorf_dataset',
+                      action='store', dest='unimorf_dataset',
+                      help='yes-no')
 
     options, args = parser.parse_args()
     if all([options.input_file, options.output_file, options.dataset_obj_file,
             options.encoder_file, options.lemma_decoder_file, options.morph_decoder_file]):
         predict(options.input_file, options.output_file, options.dataset_obj_file,
                 options.encoder_file, options.lemma_decoder_file, options.morph_decoder_file)
+    elif options.unimorf_dataset == 'yes':
+        predict_unimorph('../data/2019/task2/UD_Turkish-PUD', 'ElectraTransformer',
+                         '../data/2019/task2/UD_Turkish-PUD/tr_pud-um-test.conllu', use_rnn_morph=True)
     else:
         parser.print_help()
 
