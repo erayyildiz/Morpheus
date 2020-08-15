@@ -315,7 +315,7 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
         decoder_lemma_scheduler.step()
         decoder_morph_tags_scheduler.step()
 
-        LOGGER.info('Epoch {0:3d}, Loss: {1:7.3f}, Lemma Loss: {2:7.3f}, Morph Loss: {3:7.3f}'.format(
+        LOGGER.info('Epoch {0:3d}, \nLoss: {1:7.3f}, Lemma Loss: {2:7.3f}, Morph Loss: {3:7.3f}'.format(
             epoch,
             (1.0 * total_train_loss) / len(train_loader),
             (1.0 * lemma_loss) / len(train_loader),
