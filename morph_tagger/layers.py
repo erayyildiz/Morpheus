@@ -7,6 +7,7 @@ import torch.nn as nn
 from tqdm import tqdm
 from transformers import AutoModel
 
+from configs import DEVICE
 from data_utils import inverse_transformation
 
 
@@ -32,7 +33,7 @@ class EncoderRNN(nn.Module):
     """
 
     def __init__(self, embedding_size, hidden_size1, hidden_size2, vocab_len,
-                 transformer_model_name, dropout_ratio=0.3, device=torch.device('cpu')):
+                 transformer_model_name, dropout_ratio=0.3, device=DEVICE):
         """ Initialize an EncoderRNN object
 
         Args:
@@ -194,7 +195,8 @@ class DecoderRNN(nn.Module):
 
         return outputs
 
-    def predict(self, word_embedding, context_vector, transformer_context=None, max_len=50, device=torch.device('cpu')):
+    def predict(self, word_embedding, context_vector, transformer_context=None, max_len=50,
+                device=DEVICE):
         """Forward pass of DecoderRNN for prediction only
 
         The loop for gru is stopped as soon as the end of sentence tag is produced twice.
@@ -247,7 +249,7 @@ class DecoderRNN(nn.Module):
         return scores, predictions
 
     def predict_beam(self, word_embedding, context_vector, surface_len, transformer_context=None,
-                     beam_size=2, max_len=50, device=torch.device('cpu')):
+                     beam_size=2, max_len=50, device=DEVICE):
         """Forward pass of DecoderRNN using beam search for prediction only
 
         The loop for gru is stopped as soon as the end of sentence tag is produced twice.

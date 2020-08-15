@@ -22,7 +22,7 @@ REMOVE_EOS_REGEX = re.compile(r'\$$')
 
 def predict_sentence(surface_words, encoder, decoder_lemma, decoder_morph_tags, dataset,
                      use_transformer=True, use_char_lstm=True, transformer_model_name=TRANSFORMER_MODEL_NAME,
-                     tokenizer=None, use_rnn_morph=False, device=torch.device("cpu"),
+                     tokenizer=None, use_rnn_morph=False, device=DEVICE,
                      max_morph_features_len=10, surface2lemma=None):
     """
 
