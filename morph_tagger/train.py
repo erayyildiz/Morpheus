@@ -204,16 +204,7 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
                 y_onehot = torch.FloatTensor(*morph_decoder_outputs.size()).to(device)
                 y_onehot.zero_()
                 y_onehot.scatter_(1, y2[0], 1)
-                sentence_morph_loss += bce_criterion(morph_decoder_outputs, y_onehot)
-
-            sentence_morph_loss.backward(retain_graph=True)
-            total_train_loss += sentence_morph_loss.item() / (word_count * 2.0)
-            morph_loss += sentence_morph_loss.item() / (word_count * 1.0)
-
-            encoder_optimizer.step()
-            if epoch > NUM_STEPS_BEFORE_BASE_MODEL_UPDATE:
-                transformer_optimizer.step()
-            decoder_morph_tags_optimizer.step()
+                sentence_morph_loss = bce_criterion(morph_decoder_outputs, y_onehot)
 
             if isinstance(decoder_lemma, TransformerRNN):
                 if use_transformer:
@@ -235,13 +226,16 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
                 else:
                     sentence_lemma_loss += criterion(lemma_decoder_outputs[word_ix], y1[0, word_ix, 1:])
 
-            sentence_lemma_loss.backward(retain_graph=True)
-            total_train_loss += sentence_lemma_loss.item() / (word_count * 2.0)
+            sentence_loss = sentence_morph_loss + sentence_lemma_loss
+            sentence_loss.backward()
+            total_train_loss += sentence_loss.item() / (word_count * 1.0)
             lemma_loss += sentence_lemma_loss.item() / (word_count * 1.0)
+            morph_loss += sentence_morph_loss.item() / (word_count * 1.0)
 
             encoder_optimizer.step()
             if epoch > NUM_STEPS_BEFORE_BASE_MODEL_UPDATE:
                 transformer_optimizer.step()
+            decoder_morph_tags_optimizer.step()
             decoder_lemma_optimizer.step()
 
         encoder.eval()
