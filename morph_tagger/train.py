@@ -183,7 +183,8 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             transformer_output, word_embeddings, context_embeddings = encoder(x1, x2)
 
             # Run morph decoder for each word
-            sentence_loss = 0.0
+            sentence_lemma_loss = 0.0
+            sentence_morph_loss = 0.0
             if use_transformer and use_rnn_morph:
                 morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
                                                            y2[0, :, :-1], transformer_context=transformer_output)
@@ -198,16 +199,16 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             word_count = word_embeddings.size(0)
             if use_rnn_morph:
                 for word_ix in range(word_count):
-                    sentence_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
+                    sentence_morph_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
             else:
                 y_onehot = torch.FloatTensor(*morph_decoder_outputs.size()).to(device)
                 y_onehot.zero_()
                 y_onehot.scatter_(1, y2[0], 1)
-            sentence_loss += bce_criterion(morph_decoder_outputs, y_onehot)
+                sentence_morph_loss += bce_criterion(morph_decoder_outputs, y_onehot)
 
-            sentence_loss.backward(retain_graph=True)
-            total_train_loss += sentence_loss.item() / (word_count * 2.0)
-            morph_loss += sentence_loss.item() / (word_count * 1.0)
+            sentence_morph_loss.backward(retain_graph=True)
+            total_train_loss += sentence_morph_loss.item() / (word_count * 2.0)
+            morph_loss += sentence_morph_loss.item() / (word_count * 1.0)
 
             if isinstance(decoder_lemma, TransformerRNN):
                 if use_transformer:
@@ -225,13 +226,13 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             word_count = word_embeddings.size(0)
             for word_ix in range(word_count):
                 if isinstance(decoder_lemma, TransformerRNN):
-                    sentence_loss += criterion(lemma_decoder_outputs[word_ix], y3[0, word_ix, :])
+                    sentence_lemma_loss += criterion(lemma_decoder_outputs[word_ix], y3[0, word_ix, :])
                 else:
-                    sentence_loss += criterion(lemma_decoder_outputs[word_ix], y1[0, word_ix, 1:])
+                    sentence_lemma_loss += criterion(lemma_decoder_outputs[word_ix], y1[0, word_ix, 1:])
 
-            sentence_loss.backward(retain_graph=True)
-            total_train_loss += sentence_loss.item() / (word_count * 2.0)
-            lemma_loss += sentence_loss.item() / (word_count * 1.0)
+                    sentence_lemma_loss.backward(retain_graph=True)
+            total_train_loss += sentence_lemma_loss.item() / (word_count * 2.0)
+            lemma_loss += sentence_lemma_loss.item() / (word_count * 1.0)
 
             encoder_optimizer.step()
             transformer_optimizer.step()
@@ -258,7 +259,8 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             transformer_output, word_embeddings, context_embeddings = encoder(x1, x2)
 
             # Run morph decoder for each word
-            sentence_loss = 0.0
+            sentence_lemma_loss = 0.0
+            sentence_morph_loss = 0.0
             if use_transformer and use_rnn_morph:
                 morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
                                                            y2[0, :, :-1], transformer_context=transformer_output)
@@ -273,18 +275,17 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             word_count = word_embeddings.size(0)
             if use_rnn_morph:
                 for word_ix in range(word_count):
-                    sentence_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
+                    sentence_morph_loss += criterion(morph_decoder_outputs[word_ix], y2[0, word_ix, 1:])
             else:
                 y_onehot = torch.FloatTensor(*morph_decoder_outputs.size()).to(device)
                 y_onehot.zero_()
                 y_onehot.scatter_(1, y2[0], 1)
-                sentence_loss += bce_criterion(morph_decoder_outputs, y_onehot)
+                sentence_morph_loss += bce_criterion(morph_decoder_outputs, y_onehot)
 
-            val_loss += sentence_loss.item() / (word_count * 2.0)
-            val_morph_loss += sentence_loss.item() / (word_count * 1.0)
+            val_loss += sentence_morph_loss.item() / (word_count * 2.0)
+            val_morph_loss += sentence_morph_loss.item() / (word_count * 1.0)
 
             # Run lemma decoder
-            sentence_loss = 0.0
             if isinstance(decoder_lemma, TransformerRNN):
                 if use_transformer:
                     lemma_decoder_outputs = decoder_lemma(word_embeddings, context_embeddings, x2,
@@ -300,12 +301,12 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             word_count = word_embeddings.size(0)
             for word_ix in range(word_count):
                 if isinstance(decoder_lemma, TransformerRNN):
-                    sentence_loss += criterion(lemma_decoder_outputs[word_ix], y3[0, word_ix, :])
+                    sentence_lemma_loss += criterion(lemma_decoder_outputs[word_ix], y3[0, word_ix, :])
                 else:
-                    sentence_loss += criterion(lemma_decoder_outputs[word_ix], y1[0, word_ix, 1:])
+                    sentence_lemma_loss += criterion(lemma_decoder_outputs[word_ix], y1[0, word_ix, 1:])
 
-            val_loss += sentence_loss.item() / (word_count * 2.0)
-            val_lemma_loss += sentence_loss.item() / (word_count * 1.0)
+            val_loss += sentence_lemma_loss.item() / (word_count * 2.0)
+            val_lemma_loss += sentence_lemma_loss.item() / (word_count * 1.0)
 
         # LR Schedule
         encoder_scheduler.step()
