@@ -127,17 +127,19 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
     encoder_optimizer = torch.optim.Adam([
         {"params": parameters_except_based_model, "lr": encoder_lr}
     ], lr=encoder_lr)
-    transformer_optimizer = torch.optim.Adam(
-            [
-                {"params": encoder.based_model.parameters(), "lr": transformer_lr},
-            ],
-            lr=transformer_lr, weight_decay=0.01
-        )
+    if use_transformer:
+        transformer_optimizer = torch.optim.Adam(
+                [
+                    {"params": encoder.based_model.parameters(), "lr": transformer_lr},
+                ],
+                lr=transformer_lr, weight_decay=0.01
+            )
     decoder_lemma_optimizer = torch.optim.Adam(decoder_lemma.parameters(), lr=decoder_lemma_lr)
     decoder_morph_tags_optimizer = torch.optim.Adam(decoder_morph_tags.parameters(), lr=decoder_morph_lr)
 
     encoder_scheduler = MultiStepLR(encoder_optimizer, milestones=list(range(3, 100, 2)), gamma=0.5)
-    transformer_scheduler = MultiStepLR(transformer_optimizer, milestones=list(range(3, 100, 2)), gamma=0.5)
+    if use_transformer:
+        transformer_scheduler = MultiStepLR(transformer_optimizer, milestones=list(range(3, 100, 2)), gamma=0.5)
     decoder_lemma_scheduler = MultiStepLR(decoder_lemma_optimizer, milestones=list(range(3, 100, 2)), gamma=0.5)
     decoder_morph_tags_scheduler = MultiStepLR(decoder_morph_tags_optimizer, milestones=list(range(3, 100, 2)),
                                                gamma=0.5)
@@ -233,7 +235,7 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             morph_loss += sentence_morph_loss.item() / (word_count * 1.0)
 
             encoder_optimizer.step()
-            if epoch > NUM_STEPS_BEFORE_BASE_MODEL_UPDATE:
+            if use_transformer and epoch > NUM_STEPS_BEFORE_BASE_MODEL_UPDATE:
                 transformer_optimizer.step()
             decoder_morph_tags_optimizer.step()
             decoder_lemma_optimizer.step()
@@ -309,7 +311,7 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
 
         # LR Schedule
         encoder_scheduler.step()
-        if epoch > 3:
+        if use_transformer and epoch > 3:
             transformer_scheduler.step()
         decoder_lemma_scheduler.step()
         decoder_morph_tags_scheduler.step()
