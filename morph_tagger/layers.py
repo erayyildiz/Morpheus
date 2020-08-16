@@ -178,8 +178,9 @@ class DecoderRNN(nn.Module):
 
         # Initialize gru hidden units with context vector (encoder output)
         context_vectors = self.relu(self.W(context_vectors))
-        transformer_context = self.relu(transformer_context)
+
         if transformer_context is not None:
+            transformer_context = self.relu(transformer_context)
             hidden = torch.cat([transformer_context,
                                 context_vectors.view(1, *context_vectors.size()),
                                 word_embeddings.view(1, *word_embeddings.size())], 0)
@@ -216,10 +217,10 @@ class DecoderRNN(nn.Module):
         # Initilize gru hidden units with context vector (encoder output)
         context_vector = context_vector.view(1, *context_vector.size())
         context_vector = self.relu(self.W(context_vector).view(1, 1, self.hidden_size))
-        transformer_context = transformer_context.view(1, 1, self.hidden_size)
-        transformer_context = self.relu(transformer_context)
         word_embedding = word_embedding.view(1, 1, self.hidden_size)
         if transformer_context is not None:
+            transformer_context = transformer_context.view(1, 1, self.hidden_size)
+            transformer_context = self.relu(transformer_context)
             hidden = torch.cat([transformer_context, context_vector, word_embedding], 0)
         else:
             hidden = torch.cat([context_vector, word_embedding], 0)
@@ -271,10 +272,11 @@ class DecoderRNN(nn.Module):
         # Initilize gru hidden units with context vector (encoder output)
         context_vector = context_vector.view(1, *context_vector.size())
         context_vector = self.relu(self.W(context_vector).view(1, 1, self.hidden_size))
-        transformer_context = transformer_context.view(1, 1, self.hidden_size)
-        transformer_context = self.relu(transformer_context)
         word_embedding = word_embedding.view(1, 1, self.hidden_size)
+
         if transformer_context is not None:
+            transformer_context = transformer_context.view(1, 1, self.hidden_size)
+            transformer_context = self.relu(transformer_context)
             hidden = torch.cat([transformer_context, context_vector, word_embedding], 0)
         else:
             hidden = torch.cat([context_vector, word_embedding], 0)
@@ -370,8 +372,9 @@ class TransformerRNN(nn.Module):
 
         # Initilize gru hidden units with context vector (encoder output)
         context_vectors = self.relu(self.W(context_vectors))
-        transformer_context = self.relu(transformer_context)
+
         if transformer_context is not None:
+            transformer_context = self.relu(transformer_context)
             hidden = torch.cat([transformer_context,
                                 transformer_context,
                                 context_vectors.view(1, *context_vectors.size()),
@@ -414,8 +417,9 @@ class TransformerRNN(nn.Module):
 
         # Initilize gru hidden units with context vector (encoder output)
         context_vectors = self.relu(self.W(context_vectors))
-        transformer_context = self.relu(transformer_context)
+
         if transformer_context is not None:
+            transformer_context = self.relu(transformer_context)
             hidden = torch.cat([transformer_context,
                                 transformer_context,
                                 context_vectors.view(1, *context_vectors.size()),
@@ -551,8 +555,9 @@ class DecoderFF(nn.Module):
 
         # Initialize gru hidden units with context vector (encoder output)
         context_vectors = self.relu(self.W(context_vectors))
-        transformer_context = self.relu(transformer_context)
+
         if transformer_context is not None:
+            transformer_context = self.relu(transformer_context)
             outputs = torch.cat([transformer_context.view(*transformer_context.size()[1:]), context_vectors], dim=-1)
         else:
             outputs = context_vectors.view(1, *context_vectors.size())
