@@ -193,7 +193,7 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             elif use_transformer:
                 morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
                                                            transformer_context=transformer_output)
-            elif use_rnn_morph:
+            elif not use_rnn_morph:
                 morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings)
             else:
                 morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings, y2[0, :, :-1])
@@ -268,7 +268,7 @@ def train(language_name, train_data_path, val_data_path, use_min_edit_operation_
             elif use_transformer:
                 morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings,
                                                            transformer_context=transformer_output)
-            elif use_rnn_morph:
+            elif not use_rnn_morph:
                 morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings)
             else:
                 morph_decoder_outputs = decoder_morph_tags(word_embeddings, context_embeddings, y2[0, :, :-1])
