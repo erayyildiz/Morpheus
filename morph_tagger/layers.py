@@ -382,9 +382,7 @@ class TransformerRNN(nn.Module):
                                 word_embeddings.view(1, *context_vectors.size()),
                                 word_embeddings.view(1, *context_vectors.size())], 0)
         else:
-            hidden = torch.cat([transformer_context,
-                                transformer_context,
-                                context_vectors.view(1, *context_vectors.size()),
+            hidden = torch.cat([context_vectors.view(1, *context_vectors.size()),
                                 context_vectors.view(1, *context_vectors.size()),
                                 word_embeddings.view(1, *context_vectors.size()),
                                 word_embeddings.view(1, *context_vectors.size())], 0)
